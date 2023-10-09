@@ -285,7 +285,7 @@ export default class Service {
   }
 
   @computed get shareWithWebview(): object {
-    const token = localStorage.getItem('authToken')?.replace(/"/g, ''); 
+    const token = localStorage.getItem('authToken')?.replace(/"/g, '');
     return {
       id: this.id,
       spellcheckerLanguage: this.spellcheckerLanguage,
@@ -293,7 +293,7 @@ export default class Service {
       isProgressbarEnabled: this.isProgressbarEnabled,
       darkReaderSettings: this.darkReaderSettings,
       team: this.team,
-      token: token,
+      token,
       apiBase: apiBase(),
       url: this.url,
       hasCustomIcon: this.hasCustomIcon,

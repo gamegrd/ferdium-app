@@ -79,9 +79,9 @@ win:
   icon: ./build-helpers/images/icon.ico
   target:
     - target: nsis
-      arch: [x64, ia32, arm64]
+      arch: [x64, ia32]
     - target: portable
-      arch: [x64, ia32, arm64]
+      arch: [x64, ia32]
   # The name of the CN appearing in the certificate must be present in the publisherName list below
   publisherName: ["Ferdium Contributors", "Ambroise Grau"]
   # Remove the verification for a signature to allow auto-update without signed certificate
@@ -98,8 +98,5 @@ linux:
   target:
     - target: AppImage
     - target: deb
-      arch: [x64, arm64, armv7l]
-    - target: tar.gz
-    - target: rpm
-    - target: freebsd
-    - target: snap
+      arch: [x64]
+

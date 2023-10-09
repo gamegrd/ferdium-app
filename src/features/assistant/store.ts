@@ -1,5 +1,4 @@
 import { observable, computed, action, makeObservable } from 'mobx';
-import { Actions } from '../../actions/lib/actions';
 
 class AssistantsStore {
   constructor() {

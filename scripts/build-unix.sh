@@ -13,6 +13,7 @@ export ELECTRON_CACHE=$HOME/.cache/electron
 export ELECTRON_BUILDER_CACHE=$HOME/.cache/electron-builder
 export CSC_IDENTITY_AUTO_DISCOVERY=false
 export CI=true
+export DEBUG="electron-builder"
 
 # -----------------------------------------------------------------------------
 #                  Utility functions

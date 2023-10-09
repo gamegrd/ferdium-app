@@ -11,6 +11,7 @@ $env:ELECTRON_CACHE = "$USERHOME\.cache\electron"
 $env:ELECTRON_BUILDER_CACHE = "$USERHOME\.cache\electron-builder"
 $env:CSC_IDENTITY_AUTO_DISCOVERY = $false
 $env:CI = $true
+$env:DEBUG = "electron-builder"
 
 # -----------------------------------------------------------------------------
 #                  Utility functions

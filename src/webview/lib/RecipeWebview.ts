@@ -1,3 +1,4 @@
+
 import { ipcRenderer } from 'electron';
 import { BrowserWindow } from '@electron/remote';
 import { pathExistsSync, readFileSync, existsSync } from 'fs-extra';
@@ -16,16 +17,20 @@ class RecipeWebview {
 
   sessionHandler: any;
 
+  translatorHanlder:any;
+
   constructor(
     badgeHandler,
     dialogTitleHandler,
     notificationsHandler,
     sessionHandler,
+    translatorHanlder,
   ) {
     this.badgeHandler = badgeHandler;
     this.dialogTitleHandler = dialogTitleHandler;
     this.notificationsHandler = notificationsHandler;
     this.sessionHandler = sessionHandler;
+    this.translatorHanlder = translatorHanlder;
 
     ipcRenderer.on('poll', () => {
       this.loopFunc();
@@ -199,6 +204,58 @@ class RecipeWebview {
   openNewWindow(url) {
     ipcRenderer.sendToHost('new-window', url);
   }
+
+  // ------xgdebug-------
+  log(...msg: any[]) {
+    ipcRenderer.invoke('webview:log', ...msg);
+    ipcRenderer.sendToHost('log', ...msg);
+  }
+
+  sendToHost(channel: string, ...args: any[]) {
+    ipcRenderer.sendToHost(channel, ...args);
+  }
+
+  async getTran(
+    msg: string,
+    apiBase: string,
+    token: string,
+    modes: string,
+    tones: string,
+  ) {
+    ipcRenderer.sendToHost('log', msg, apiBase, token, modes, tones);
+    return 'getTran working...';
+  }
+
+  async getSuggest(apiBase: string, token: string, msg: string) {
+    ipcRenderer.sendToHost('log', msg, apiBase, token);
+    return 'getSuggest working...';
+  }
+
+  // 翻译为对方语言
+  async trangpt(apiBase: string, token: string, obj: any) {
+    ipcRenderer.sendToHost('log', apiBase, token, obj);
+    const res  = this.translatorHanlder.trangpt(apiBase, token, obj);
+    ipcRenderer.sendToHost('log', res);
+    if (res.status === 0) {
+      return res.data;
+    }
+    ipcRenderer.sendToHost('error', res.msg);
+    throw new Error('getTran err');
+  }
+
+  // 翻回本地语言
+  async getTran2(msg: string, apiBase: string, token: string) {
+    ipcRenderer.sendToHost('log', msg, apiBase, token);
+    const res = this.translatorHanlder.getTran2(msg, apiBase, token);
+    ipcRenderer.sendToHost('log', res);
+    if (res.status === 0) {
+      return res.data;
+    }
+    ipcRenderer.sendToHost('error', res.msg);
+    throw new Error('getTran err');
+  }
+
+
 }
 
 export default RecipeWebview;

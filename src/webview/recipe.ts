@@ -47,6 +47,7 @@ import { DEFAULT_APP_SETTINGS } from '../config';
 import { ifUndefined, safeParseInt } from '../jsUtils';
 import { AppStore } from '../@types/stores.types';
 import Service from '../models/Service';
+import TranslatorHandler from '../features/assistant/apis/translator';
 
 // For some services darkreader tries to use the chrome extension message API
 // This will cause the service to fail loading
@@ -62,6 +63,8 @@ const badgeHandler = new BadgeHandler();
 const dialogTitleHandler = new DialogTitleHandler();
 
 const sessionHandler = new SessionHandler();
+
+const translatorHandler = new TranslatorHandler();
 
 const notificationsHandler = new NotificationsHandler();
 
@@ -241,6 +244,7 @@ class RecipeController {
         dialogTitleHandler,
         notificationsHandler,
         sessionHandler,
+        translatorHandler,
       );
       if (existsSync(modulePath)) {
         require(modulePath)(this.recipe, { ...config, recipe });

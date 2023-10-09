@@ -101,6 +101,7 @@ const runEsbuild = async () => {
   // Run build
   await esbuild.build({
     entryPoints,
+    sourcemap: 'both',
     format: 'cjs',
     minify: false,
     minifyWhitespace: true,

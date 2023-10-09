@@ -36,6 +36,7 @@ import { ifUndefined } from './jsUtils';
 import { mainIpcHandler as basicAuthHandler } from './features/basicAuth';
 // eslint-disable-next-line import/no-cycle
 import ipcApi from './electron/ipc-api';
+import assistantMain from './features/assistant/main';
 import TrayIcon from './lib/Tray';
 import DBus from './lib/DBus';
 import Settings from './electron/Settings';
@@ -274,6 +275,7 @@ const createWindow = () => {
     trayIcon,
   });
 
+  assistantMain();
   // Connect to the DBus after ipcApi took care of the System Tray
   dbus.start();
 

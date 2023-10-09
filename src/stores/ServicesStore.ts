@@ -799,6 +799,14 @@ export default class ServicesStore extends TypedStore {
 
         break;
       }
+      case 'log':{
+        console.log(args);
+        break;
+      }
+      case 'update-translator-language':{
+        this.actions.ui.openSettings({path:`services/edit/${service.id}`});
+        break;
+      }
       case 'alive': {
         service.lastPollAnswer = Date.now();
 

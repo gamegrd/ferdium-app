@@ -25,7 +25,6 @@ export default function apiBase(withVersion = true) {
           (window as any).ferdium.stores.requests.localServerPort
         }`
       : (window as any).ferdium.stores.settings.all.app.server;
-
   return fixUrl(withVersion ? `${url}/${API_VERSION}` : url);
 }
 

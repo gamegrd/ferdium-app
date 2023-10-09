@@ -11,7 +11,7 @@ import UserAgent from './UserAgent';
 import { DEFAULT_SERVICE_ORDER, DEFAULT_SERVICE_SETTINGS } from '../config';
 import { ifUndefined } from '../jsUtils';
 import { IRecipe } from './Recipe';
-import { needsToken } from '../api/apiBase';
+import apiBase, { needsToken } from '../api/apiBase';
 
 const debug = require('../preload-safe-debug')('Ferdium:Service');
 
@@ -292,6 +292,8 @@ export default class Service {
       isProgressbarEnabled: this.isProgressbarEnabled,
       darkReaderSettings: this.darkReaderSettings,
       team: this.team,
+      token: localStorage.getItem('authToken'),
+      apiBase: apiBase(),
       url: this.url,
       hasCustomIcon: this.hasCustomIcon,
       onlyShowFavoritesInUnreadCount: this.onlyShowFavoritesInUnreadCount,

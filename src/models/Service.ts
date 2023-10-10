@@ -285,7 +285,9 @@ export default class Service {
   }
 
   @computed get shareWithWebview(): object {
-    const token = localStorage.getItem('authToken')?.replace(/"/g, '');
+    // const token = localStorage.getItem('authToken')?.replace(/"/g, '');
+    // 两种方式的j区别是从浏览器拿还是从Electron中拿
+    const token = window['ferdium'].stores.user.authToken;
     return {
       id: this.id,
       spellcheckerLanguage: this.spellcheckerLanguage,

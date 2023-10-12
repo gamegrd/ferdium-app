@@ -9,11 +9,16 @@ import {
   LOCAL_HOSTNAME,
   LOCAL_SERVER,
   SERVER_NOT_LOADED,
+  LOCAL_DEBUG,
 } from '../config';
 import { fixUrl } from '../helpers/url-helpers';
 
 // Note: This cannot be used from the internal-server since we are not running within the context of a browser window
 export default function apiBase(withVersion = true) {
+  if (LOCAL_DEBUG) {
+    const url = 'http://127.0.0.1:3000';
+    return fixUrl(withVersion ? `${url}/${API_VERSION}` : url);
+  }
   if (!(window as any).ferdium?.stores.settings?.all?.app.server) {
     // Stores have not yet been loaded - return SERVER_NOT_LOADED to force a retry when stores are loaded
     return SERVER_NOT_LOADED;

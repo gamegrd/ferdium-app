@@ -14,3 +14,9 @@
    > npm ERR! could not determine executable to run 错误的时候直接打包
 
 1. pnpm electron-builder --x64 --win
+
+
+## SSH
+```
+git config --global core.sshCommand "ssh -i ~/.ssh/xgdebug"
+```

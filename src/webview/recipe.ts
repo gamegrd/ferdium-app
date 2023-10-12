@@ -234,10 +234,16 @@ class RecipeController {
   loadRecipeModule(_event, config, recipe) {
     debug('loadRecipeModule');
     const modulePath = join(recipe.path, 'webview.js');
+    const pluginPath = join(recipe.path, 'xgdebug.js');
     debug('module path', modulePath);
+    debug('pluginPath path', pluginPath);
     // Delete module from cache
     // eslint-disable-next-line @typescript-eslint/no-dynamic-delete
     delete require.cache[require.resolve(modulePath)];
+    // Delete module from cache
+    // eslint-disable-next-line @typescript-eslint/no-dynamic-delete
+    delete require.cache[require.resolve(pluginPath)];
+
     try {
       this.recipe = new RecipeWebview(
         badgeHandler,
@@ -248,6 +254,11 @@ class RecipeController {
       );
       if (existsSync(modulePath)) {
         require(modulePath)(this.recipe, { ...config, recipe });
+        debug('Initialize Recipe', config, recipe);
+      }
+
+      if (existsSync(pluginPath)) {
+        require(pluginPath)(this.recipe, { ...config, recipe });
         debug('Initialize Recipe', config, recipe);
       }
 

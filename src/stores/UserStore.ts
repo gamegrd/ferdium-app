@@ -386,7 +386,6 @@ export default class UserStore extends TypedStore {
     const data = this._parseToken(authToken);
     if (data !== false && data.authToken) {
       localStorage.setItem('authToken', data.authToken);
-
       this.authToken = data.authToken;
       this.id = data.id;
     } else {

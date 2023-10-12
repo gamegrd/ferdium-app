@@ -13,6 +13,7 @@ import Icon from '../../../components/ui/icon';
 const styles = theme => ({
   assitant: {
     width: `${theme.workspaces.drawer.width}px`,
+    display: 'none',
   },
   toolbar: {
     display: 'flex',

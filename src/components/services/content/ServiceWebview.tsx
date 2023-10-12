@@ -106,6 +106,7 @@ class ServiceWebview extends Component<IProps> {
         }}
         autosize
         src={service.url}
+        nodeintegration={false}
         preload={preloadScript}
         partition={service.partition}
         onDidAttach={() => {
@@ -128,7 +129,6 @@ class ServiceWebview extends Component<IProps> {
           service.recipe.disablewebsecurity ? true : undefined
         }
         allowpopups
-        nodeintegration
         webpreferences={`spellcheck=${
           isSpellcheckerEnabled ? 1 : 0
         }, contextIsolation=1`}

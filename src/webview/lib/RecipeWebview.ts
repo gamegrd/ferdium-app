@@ -251,7 +251,7 @@ class RecipeWebview {
       return res.data;
     }
     ipcRenderer.sendToHost('error', res.msg);
-    throw new Error('getTran err');
+    throw new Error('getTran2 err');
   }
 
   readfile(file: string) {

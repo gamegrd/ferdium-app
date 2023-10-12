@@ -1,4 +1,3 @@
-
 import { ipcRenderer } from 'electron';
 import { BrowserWindow } from '@electron/remote';
 import { pathExistsSync, readFileSync, existsSync } from 'fs-extra';
@@ -17,7 +16,7 @@ class RecipeWebview {
 
   sessionHandler: any;
 
-  translatorHanlder:any;
+  translatorHanlder: any;
 
   constructor(
     badgeHandler,
@@ -234,7 +233,7 @@ class RecipeWebview {
   // 翻译为对方语言
   async trangpt(apiBase: string, token: string, obj: any) {
     ipcRenderer.sendToHost('log', apiBase, token, obj);
-    const res  =await this.translatorHanlder.trangpt(apiBase, token, obj);
+    const res = await this.translatorHanlder.trangpt(apiBase, token, obj);
     ipcRenderer.sendToHost('log', res);
     if (res.status === 0) {
       return res.data;
@@ -246,7 +245,7 @@ class RecipeWebview {
   // 翻回本地语言
   async getTran2(msg: string, apiBase: string, token: string) {
     ipcRenderer.sendToHost('log', msg, apiBase, token);
-    const res =await this.translatorHanlder.getTran2(msg, apiBase, token);
+    const res = await this.translatorHanlder.getTran2(msg, apiBase, token);
     ipcRenderer.sendToHost('log', res);
     if (res.status === 0) {
       return res.data;
@@ -254,8 +253,6 @@ class RecipeWebview {
     ipcRenderer.sendToHost('error', res.msg);
     throw new Error('getTran err');
   }
-
-
 }
 
 export default RecipeWebview;

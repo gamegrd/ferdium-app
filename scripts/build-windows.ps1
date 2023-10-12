@@ -11,7 +11,7 @@ $env:ELECTRON_CACHE = "$USERHOME\.cache\electron"
 $env:ELECTRON_BUILDER_CACHE = "$USERHOME\.cache\electron-builder"
 $env:CSC_IDENTITY_AUTO_DISCOVERY = $false
 $env:CI = $true
-
+$env:DEBUG="electron-builder"
 # -----------------------------------------------------------------------------
 #                  Utility functions
 
@@ -148,7 +148,7 @@ if ($ACTUAL_PNPM_VERSION -ne $EXPECTED_RECIPES_PNPM_VERSION) {
 # -----------------------------------------------------------------------------
 Write-Host "*************** Building recipes ***************"
 Push-Location recipes
-pnpm i && pnpm lint && pnpm reformat-files && pnpm package
+pnpm i ; pnpm lint ; pnpm reformat-files ; pnpm package
 Pop-Location
 
 # -----------------------------------------------------------------------------
@@ -166,7 +166,7 @@ else
 {
   $TARGET_ARCH="x64"
 }
-& pnpm build -- --$TARGET_ARCH --dir
+& pnpm build -- --$TARGET_ARCH --dir --win
 
 Write-Host "*************** App successfully built! ***************"
 

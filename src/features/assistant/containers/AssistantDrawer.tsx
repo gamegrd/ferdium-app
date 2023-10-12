@@ -10,7 +10,6 @@ import {
 } from '@mdi/js';
 import Icon from '../../../components/ui/icon';
 
-
 const styles = theme => ({
   assitant: {
     width: `${theme.workspaces.drawer.width}px`,
@@ -31,9 +30,7 @@ const styles = theme => ({
 });
 
 function Card1() {
-  return (
-    <div>
-        功能1 </div>);
+  return <div>功能1 </div>;
 }
 
 function Card2() {

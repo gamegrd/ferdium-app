@@ -253,6 +253,14 @@ class RecipeWebview {
     ipcRenderer.sendToHost('error', res.msg);
     throw new Error('getTran err');
   }
+
+  readfile(file: string) {
+    if (pathExistsSync(file)) {
+      const content = readFileSync(file, 'utf8');
+      return content;
+    }
+    return null;
+  }
 }
 
 export default RecipeWebview;

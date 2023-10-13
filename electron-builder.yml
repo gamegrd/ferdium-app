@@ -97,5 +97,3 @@ linux:
   artifactName: '${productName}-${os}-${version}.${ext}'
   target:
     - target: AppImage
-    - target: deb
-      arch: [x64]

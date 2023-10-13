@@ -3,7 +3,7 @@
   "productName": "Ferdium",
   "desktopName": "ferdium.desktop",
   "appId": "org.ferdium.ferdium-app",
-  "version": "6.5.1",
+  "version": "6.5.2-nightly.2",
   "description": "Messaging app for WhatsApp, Slack, Telegram, Hangouts and many many more.",
   "author": "Ferdium Contributors <hello@ferdium.org> (https://ferdium.org/)",
   "license": "Apache-2.0",
@@ -23,6 +23,7 @@
   },
   "packageManager": "pnpm@8.7.6",
   "scripts": {
+    "prepare": "is-ci || husky install",
     "start": "electron ./build",
     "start:local": "cross-env USE_LOCAL_API=1 pnpm start",
     "start:live": "cross-env USE_LIVE_API=1 pnpm start",
@@ -229,9 +230,10 @@
     "usocket": "_EXCLUDED_"
   },
   "optionalDependencies": {
-    "macos-notification-state": "github:ferdium/macos-notification-state#130bb2602795b65ae2dea74d823027b185eaf0ae",
-    "node-mac-permissions": "2.3.0"
+    "macos-notification-state": "github:ferdium/macos-notification-state",
+    "node-mac-permissions": "^2.0.2"
   },
+
   "browserslist": [
     "last 2 Chrome versions"
   ],

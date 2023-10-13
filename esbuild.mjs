@@ -4,11 +4,11 @@ import { sassPlugin } from 'esbuild-sass-plugin';
 import { copy } from 'esbuild-plugin-copy';
 import glob from 'tiny-glob';
 import livereload from 'gulp-livereload';
-import * as fs from 'fs';
+import * as fs from 'node:fs';
 import * as buildInfo from 'preval-build-info';
 import fsPkg from 'fs-extra';
 import chalk from 'chalk';
-import { performance } from 'perf_hooks';
+import { performance } from 'node:perf_hooks';
 import moment from 'moment';
 
 const { log } = console;
@@ -101,7 +101,6 @@ const runEsbuild = async () => {
   // Run build
   await esbuild.build({
     entryPoints,
-    sourcemap: 'both',
     format: 'cjs',
     minify: false,
     minifyWhitespace: true,

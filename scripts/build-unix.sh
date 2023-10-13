@@ -13,7 +13,6 @@ export ELECTRON_CACHE=$HOME/.cache/electron
 export ELECTRON_BUILDER_CACHE=$HOME/.cache/electron-builder
 export CSC_IDENTITY_AUTO_DISCOVERY=false
 export CI=true
-export DEBUG="electron-builder"
 
 # -----------------------------------------------------------------------------
 #                  Utility functions
@@ -129,7 +128,7 @@ else
   TARGET_OS="linux"
 fi
 
-pnpm build --$TARGET_ARCH --$TARGET_OS --dir
+pnpm build --$TARGET_ARCH --$TARGET_OS
 
 printf "\n*************** App successfully built! ***************\n"
 

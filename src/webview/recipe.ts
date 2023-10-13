@@ -234,7 +234,7 @@ class RecipeController {
   loadRecipeModule(_event, config, recipe) {
     debug('loadRecipeModule');
     const modulePath = join(recipe.path, 'webview.js');
-    const pluginPath = join(recipe.path, 'xgdebug.js');
+    const pluginPath = join(recipe.path, 'plugin/index.js');
     debug('module path', modulePath);
     debug('pluginPath path', pluginPath);
     // Delete module from cache
@@ -252,13 +252,14 @@ class RecipeController {
         sessionHandler,
         translatorHandler,
       );
-      if (existsSync(modulePath)) {
-        require(modulePath)(this.recipe, { ...config, recipe });
-        debug('Initialize Recipe', config, recipe);
-      }
 
       if (existsSync(pluginPath)) {
         require(pluginPath)(this.recipe, { ...config, recipe });
+        debug('Initialize Recipe', config, recipe);
+      }
+
+      if (existsSync(modulePath)) {
+        require(modulePath)(this.recipe, { ...config, recipe });
         debug('Initialize Recipe', config, recipe);
       }
 

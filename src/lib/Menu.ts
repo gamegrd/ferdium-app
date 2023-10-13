@@ -34,8 +34,12 @@ import {
   toggleFullScreenKey,
   downloadsShortcutKey,
 } from '../environment';
-import { CUSTOM_WEBSITE_RECIPE_ID, LIVE_API_FERDIUM_WEBSITE } from '../config';
-import { ferdiumVersion, isDevMode } from '../environment-remote';
+import {
+  DEBUG_MODE,
+  CUSTOM_WEBSITE_RECIPE_ID,
+  LIVE_API_FERDIUM_WEBSITE,
+} from '../config';
+import { ferdiumVersion } from '../environment-remote';
 import { todoActions } from '../features/todos/actions';
 import workspaceActions from '../features/workspaces/actions';
 import { workspaceStore } from '../features/workspaces/index';
@@ -761,7 +765,7 @@ class FranzMenu implements StoresProps {
         },
       );
     } else {
-      if (!isDevMode) {
+      if (DEBUG_MODE) {
         (tpl[1].submenu as MenuItemConstructorOptions[]).push(
           {
             type: 'separator',

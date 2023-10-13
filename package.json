@@ -23,7 +23,7 @@
   },
   "packageManager": "pnpm@8.7.6",
   "scripts": {
-    "prepare": "is-ci || husky install",
+    "prepare": "is-ci || husky uninstall",
     "start": "electron ./build",
     "start:local": "cross-env USE_LOCAL_API=1 pnpm start",
     "start:live": "cross-env USE_LIVE_API=1 pnpm start",
@@ -233,7 +233,6 @@
     "macos-notification-state": "github:ferdium/macos-notification-state",
     "node-mac-permissions": "^2.0.2"
   },
-
   "browserslist": [
     "last 2 Chrome versions"
   ],

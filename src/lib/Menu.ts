@@ -35,7 +35,7 @@ import {
   downloadsShortcutKey,
 } from '../environment';
 import { CUSTOM_WEBSITE_RECIPE_ID, LIVE_API_FERDIUM_WEBSITE } from '../config';
-import { ferdiumVersion } from '../environment-remote';
+import { ferdiumVersion, isDevMode } from '../environment-remote';
 import { todoActions } from '../features/todos/actions';
 import workspaceActions from '../features/workspaces/actions';
 import { workspaceStore } from '../features/workspaces/index';
@@ -761,51 +761,51 @@ class FranzMenu implements StoresProps {
         },
       );
     } else {
-      (tpl[1].submenu as MenuItemConstructorOptions[]).push(
-        {
-          type: 'separator',
-        },
-        {
-          label: intl.formatMessage(menuItems.toggleDevTools),
-          accelerator: `${cmdOrCtrlShortcutKey()}+${altKey()}+I`,
-          enabled: webContents.fromId(1) !== undefined,
-          click: () => {
-            const windowWebContents = webContents.fromId(1);
-            if (windowWebContents) {
-              const { isDevToolsOpened, openDevTools, closeDevTools } =
-                windowWebContents;
+      if (!isDevMode) {
+        (tpl[1].submenu as MenuItemConstructorOptions[]).push(
+          {
+            type: 'separator',
+          },
+          {
+            label: intl.formatMessage(menuItems.toggleDevTools),
+            accelerator: `${cmdOrCtrlShortcutKey()}+${altKey()}+I`,
+            enabled: webContents.fromId(1) !== undefined,
+            click: () => {
+              const windowWebContents = webContents.fromId(1);
+              if (windowWebContents) {
+                const { isDevToolsOpened, openDevTools, closeDevTools } =
+                  windowWebContents;
 
-              if (isDevToolsOpened()) {
-                closeDevTools();
-              } else {
-                openDevTools({ mode: 'right' });
+                if (isDevToolsOpened()) {
+                  closeDevTools();
+                } else {
+                  openDevTools({ mode: 'right' });
+                }
               }
-            }
+            },
           },
-        },
-        {
-          label: intl.formatMessage(menuItems.toggleServiceDevTools),
-          accelerator: `${cmdOrCtrlShortcutKey()}+${shiftKey()}+${altKey()}+I`,
-          click: () => {
-            this.actions.service.openDevToolsForActiveService();
+          {
+            label: intl.formatMessage(menuItems.toggleServiceDevTools),
+            accelerator: `${cmdOrCtrlShortcutKey()}+${shiftKey()}+${altKey()}+I`,
+            click: () => {
+              this.actions.service.openDevToolsForActiveService();
+            },
+            enabled:
+              this.stores.user.isLoggedIn &&
+              this.stores.services.enabled.length > 0,
           },
-          enabled:
-            this.stores.user.isLoggedIn &&
-            this.stores.services.enabled.length > 0,
-        },
-      );
-
-      if (this.stores.todos.isFeatureEnabledByUser) {
-        (tpl[1].submenu as MenuItemConstructorOptions[]).push({
-          label: intl.formatMessage(menuItems.toggleTodosDevTools),
-          accelerator: `${cmdOrCtrlShortcutKey()}+${shiftKey()}+${altKey()}+O`,
-          click: () => {
-            const webview = document.querySelector('#todos-panel webview');
-            if (webview) this.actions.todos.openDevTools();
-          },
-        });
+        );
+        if (this.stores.todos.isFeatureEnabledByUser) {
+          (tpl[1].submenu as MenuItemConstructorOptions[]).push({
+            label: intl.formatMessage(menuItems.toggleTodosDevTools),
+            accelerator: `${cmdOrCtrlShortcutKey()}+${shiftKey()}+${altKey()}+O`,
+            click: () => {
+              const webview = document.querySelector('#todos-panel webview');
+              if (webview) this.actions.todos.openDevTools();
+            },
+          });
+        }
       }
-
       (tpl[1].submenu as MenuItemConstructorOptions[]).unshift(
         {
           label: intl.formatMessage(menuItems.reloadService),

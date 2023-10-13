@@ -105,8 +105,8 @@ class ServiceWebview extends Component<IProps> {
           }
         }}
         autosize
+        nodeintegration
         src={service.url}
-        nodeintegration={false}
         preload={preloadScript}
         partition={service.partition}
         onDidAttach={() => {

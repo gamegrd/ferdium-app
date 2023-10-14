@@ -76,16 +76,20 @@ mac:
 
 win:
   artifactName: '${productName}-${os}-Installer-${version}-${arch}.${ext}'
-  icon: ./build-helpers/images/icon.ico
+  icon: ./build-helpers/images/dfgpt.ico
+  #icon: ./build-helpers/images/icon.ico
   target:
     - target: nsis
       arch: [x64]
     - target: portable
       arch: [x64]
   # The name of the CN appearing in the certificate must be present in the publisherName list below
-  publisherName: ['Ferdium Contributors', 'Ambroise Grau']
+  publisherName: ['DFgpt Contributors', 'xgDebug']
   # Remove the verification for a signature to allow auto-update without signed certificate
   verifyUpdateCodeSignature: false
+
+
+
 
 linux:
   icon: ./build-helpers/images/icons

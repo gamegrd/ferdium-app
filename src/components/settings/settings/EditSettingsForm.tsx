@@ -1123,15 +1123,6 @@ class EditSettingsForm extends Component<IProps, IState> {
                   </>
                 )}
                 <p className="settings__message">
-                  <Icon icon={mdiGithub} /> Ferdium is based on{' '}
-                  <a
-                    href={`${GITHUB_FRANZ_URL}/franz`}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    Franz
-                  </a>
-                  , a project published under the{' '}
                   <a
                     href={`${GITHUB_FERDIUM_URL}/ferdium-app/blob/master/LICENSE.md`}
                     target="_blank"

@@ -960,8 +960,8 @@ class FranzMenu implements StoresProps {
         dialog
           .showMessageBox({
             type: 'info',
-            title: 'Ferdium',
-            message: 'Ferdium',
+            title: 'DFgpt',
+            message: 'DFgpt',
             detail: aboutAppDetails,
             buttons: [
               intl.formatMessage(menuItems.ok),

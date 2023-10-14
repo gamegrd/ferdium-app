@@ -226,8 +226,14 @@ class RecipeWebview {
   }
 
   async getSuggest(apiBase: string, token: string, msg: string) {
-    ipcRenderer.sendToHost('log', msg, apiBase, token);
-    return 'getSuggest working...';
+    ipcRenderer.sendToHost('log', apiBase, token, msg);
+    const res = await this.translatorHanlder.trangpt(apiBase, token, msg);
+    ipcRenderer.sendToHost('log', res);
+    if (res.status === 0) {
+      return res.data;
+    }
+    ipcRenderer.sendToHost('error', res.msg);
+    throw new Error('getTran err');
   }
 
   // 翻译为对方语言

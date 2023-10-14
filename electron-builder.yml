@@ -76,7 +76,7 @@ mac:
 
 win:
   artifactName: '${productName}-${os}-Installer-${version}-${arch}.${ext}'
-  icon: ./build-helpers/images/dfgpt.ico
+  icon: ./build-helpers/images/dfgpt_512x512.ico
   #icon: ./build-helpers/images/icon.ico
   target:
     - target: nsis

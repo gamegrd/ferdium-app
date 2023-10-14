@@ -1283,13 +1283,13 @@ class FranzMenu implements StoresProps {
           });
         },
       },
-      {
-        label: intl.formatMessage(menuItems.publishDebugInfo),
-        click: () => {
-          window['ferdium'].features.publishDebugInfo.state.isModalVisible =
-            true;
-        },
-      },
+      // {
+      //  label: intl.formatMessage(menuItems.publishDebugInfo),
+      //  click: () => {
+      //    window['ferdium'].features.publishDebugInfo.state.isModalVisible =
+      //      true;
+      //  },
+      // },
     ];
   }
 

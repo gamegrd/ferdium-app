@@ -62,13 +62,14 @@ class Welcome extends Component<IProps> {
       <div className="welcome">
         <div className="welcome__content">
           <img
-            src="./assets/images/logo.svg"
+            // src="./assets/images/logo.svg"
+            src="./assets/images/dfgpt_logo.png"
             className="welcome__logo"
             alt=""
           />
         </div>
         <div className="welcome__text">
-          <H1>Ferdium</H1>
+          <H1>DFgpt</H1>
         </div>
         <div className="welcome__buttons">
           <Link to={signupRoute} className="button button__inverted">

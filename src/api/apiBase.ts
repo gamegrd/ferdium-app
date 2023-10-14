@@ -1,7 +1,7 @@
 /**
  * Get API base URL from store
  */
-import { API_VERSION } from '../environment-remote';
+import { isDevMode, API_VERSION } from '../environment-remote';
 import {
   DEV_API_FRANZ_WEBSITE,
   LIVE_FRANZ_API,
@@ -15,7 +15,7 @@ import { fixUrl } from '../helpers/url-helpers';
 
 // Note: This cannot be used from the internal-server since we are not running within the context of a browser window
 export default function apiBase(withVersion = true) {
-  if (LOCAL_DEBUG) {
+  if (LOCAL_DEBUG && isDevMode) {
     const url = 'http://127.0.0.1:3000';
     return fixUrl(withVersion ? `${url}/${API_VERSION}` : url);
   }

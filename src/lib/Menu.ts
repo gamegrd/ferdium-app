@@ -48,6 +48,7 @@ import Service from '../models/Service';
 import { StoresProps } from '../@types/ferdium-components.types';
 import { RealStores } from '../stores';
 import { acceleratorString } from '../jsUtils';
+import { openExternalUrl } from '../helpers/url-helpers';
 
 const menuItems = defineMessages({
   edit: {

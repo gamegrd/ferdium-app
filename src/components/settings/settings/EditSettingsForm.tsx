@@ -54,17 +54,17 @@ const messages = defineMessages({
   sentryInfo: {
     id: 'settings.app.sentryInfo',
     defaultMessage:
-      'Sending telemetry data allows us to find errors in Ferdium - we will not send any personal information like your message data!',
+      'Sending telemetry data allows us to find errors in DFgpt - we will not send any personal information like your message data!',
   },
   hibernateInfo: {
     id: 'settings.app.hibernateInfo',
     defaultMessage:
-      'By default, Ferdium will keep all your services open and loaded in the background so they are ready when you want to use them. Service Hibernation will unload your services after a specified amount. This is useful to save RAM or keeping services from slowing down your computer.',
+      'By default, DFgpt will keep all your services open and loaded in the background so they are ready when you want to use them. Service Hibernation will unload your services after a specified amount. This is useful to save RAM or keeping services from slowing down your computer.',
   },
   inactivityLockInfo: {
     id: 'settings.app.inactivityLockInfo',
     defaultMessage:
-      'Minutes of inactivity, after which Ferdium should automatically lock. Use 0 to disable',
+      'Minutes of inactivity, after which DFgpt should automatically lock. Use 0 to disable',
   },
   todoServerInfo: {
     id: 'settings.app.todoServerInfo',
@@ -77,12 +77,12 @@ const messages = defineMessages({
   lockedPasswordInfo: {
     id: 'settings.app.lockedPasswordInfo',
     defaultMessage:
-      "Please make sure to set a password you'll remember.\nIf you loose this password, you will have to reinstall Ferdium.",
+      "Please make sure to set a password you'll remember.\nIf you loose this password, you will have to reinstall DFgpt.",
   },
   lockInfo: {
     id: 'settings.app.lockInfo',
     defaultMessage:
-      'Password Lock allows you to keep your messages protected.\nUsing Password Lock, you will be prompted to enter your password everytime you start Ferdium or lock Ferdium yourself using the lock symbol in the bottom left corner or the shortcut {lockShortcut}.',
+      'Password Lock allows you to keep your messages protected.\nUsing Password Lock, you will be prompted to enter your password everytime you start Ferdium or lock DFgpt yourself using the lock symbol in the bottom left corner or the shortcut {lockShortcut}.',
   },
   scheduledDNDTimeInfo: {
     id: 'settings.app.scheduledDNDTimeInfo',
@@ -92,7 +92,7 @@ const messages = defineMessages({
   scheduledDNDInfo: {
     id: 'settings.app.scheduledDNDInfo',
     defaultMessage:
-      'Scheduled Do-not-Disturb allows you to define a period of time in which you do not want to get Notifications from Ferdium.',
+      'Scheduled Do-not-Disturb allows you to define a period of time in which you do not want to get Notifications from DFgpt.',
   },
   headlineLanguage: {
     id: 'settings.app.headlineLanguage',
@@ -179,7 +179,7 @@ const messages = defineMessages({
   spellCheckerLanguageInfo: {
     id: 'settings.app.spellCheckerLanguageInfo',
     defaultMessage:
-      "Ferdium uses your Mac's build-in spellchecker to check for typos. If you want to change the languages the spellchecker checks for, you can do so in your Mac's System Preferences.",
+      "DFgpt uses your Mac's build-in spellchecker to check for typos. If you want to change the languages the spellchecker checks for, you can do so in your Mac's System Preferences.",
   },
   subheadlineCache: {
     id: 'settings.app.subheadlineCache',

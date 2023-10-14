@@ -12,7 +12,7 @@ const messages = defineMessages({
   about: {
     id: 'settings.supportFerdium.about',
     defaultMessage:
-      'The development of Ferdium is done by contributors. People who use Ferdium like you. They maintain, fix, and improve Ferdium in their spare time.',
+      'The development of Ferdium is done by contributors. People who use Ferdium like you. They maintain, fix, and improve DFgpt in their spare time.',
   },
 });
 

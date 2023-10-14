@@ -133,7 +133,7 @@ const messages = defineMessages({
   proxyInfo: {
     id: 'settings.service.form.proxy.info',
     defaultMessage:
-      'Proxy settings will not be synchronized with the Ferdium servers.',
+      'Proxy settings will not be synchronized with the DFgpt servers.',
   },
   serviceReloadRequired: {
     id: 'settings.service.reloadRequired',

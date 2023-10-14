@@ -2,7 +2,6 @@
 
 import ms from 'ms';
 
-export const DEBUG_MODE = true;
 export const LOCAL_DEBUG = false;
 
 export const DEFAULT_ACCENT_COLOR = '#7367F0';

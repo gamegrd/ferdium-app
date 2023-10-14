@@ -1,4 +1,5 @@
 import os from 'node:os';
+
 import { clipboard, MenuItemConstructorOptions } from 'electron';
 import {
   app,
@@ -13,6 +14,7 @@ import { defineMessages, IntlShape } from 'react-intl';
 import osName from 'os-name';
 import { fromJS } from 'immutable';
 import semver from 'semver';
+import { isDevMode, ferdiumVersion } from '../environment-remote';
 import {
   isWindows,
   cmdOrCtrlShortcutKey,
@@ -34,19 +36,12 @@ import {
   toggleFullScreenKey,
   downloadsShortcutKey,
 } from '../environment';
-import {
-  DEBUG_MODE,
-  CUSTOM_WEBSITE_RECIPE_ID,
-  LIVE_API_FERDIUM_WEBSITE,
-} from '../config';
-import { ferdiumVersion } from '../environment-remote';
+import { CUSTOM_WEBSITE_RECIPE_ID, LIVE_API_FERDIUM_WEBSITE } from '../config';
 import { todoActions } from '../features/todos/actions';
 import workspaceActions from '../features/workspaces/actions';
 import { workspaceStore } from '../features/workspaces/index';
-import { importExportURL, serverBase, serverName } from '../api/apiBase';
-import { openExternalUrl } from '../helpers/url-helpers';
+import { serverBase, serverName } from '../api/apiBase';
 import globalMessages from '../i18n/globalMessages';
-import { onAuthGoToReleaseNotes } from '../helpers/update-helpers';
 // @ts-expect-error Cannot find module '../buildInfo.json' or its corresponding type declarations.
 import { timestamp, gitHashShort, gitBranch } from '../buildInfo.json';
 import Service from '../models/Service';
@@ -614,6 +609,7 @@ function titleBarTemplateFactory(
       accelerator: `${altKey()}+H`,
       role: 'help',
       submenu: [
+        /*
         {
           label: intl.formatMessage(menuItems.learnMore),
           click() {
@@ -636,6 +632,7 @@ function titleBarTemplateFactory(
         {
           type: 'separator',
         },
+        */
         {
           label: intl.formatMessage(menuItems.support),
           click() {
@@ -765,7 +762,7 @@ class FranzMenu implements StoresProps {
         },
       );
     } else {
-      if (DEBUG_MODE) {
+      if (isDevMode) {
         (tpl[1].submenu as MenuItemConstructorOptions[]).push(
           {
             type: 'separator',

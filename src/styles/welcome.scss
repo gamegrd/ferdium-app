@@ -135,3 +135,21 @@
     }
   }
 }
+
+#root > div > div > div > div.welcome__featured-services {
+  display: none;
+}
+
+#root > div > div > div > div.welcome__buttons > div {
+  display: none;
+}
+
+#root > div > div > div > div.welcome__buttons > hr {
+  display: none;
+}
+#root > div > div > div > div.welcome__buttons > button {
+  display: none;
+}
+#root > div > a{
+  display: none;
+}

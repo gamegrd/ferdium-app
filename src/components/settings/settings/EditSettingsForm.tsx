@@ -1121,15 +1121,7 @@ class EditSettingsForm extends Component<IProps, IState> {
                     )}
                   </>
                 )}
-                <p className="settings__message">
-                  <a
-                    href={`${GITHUB_FERDIUM_URL}/ferdium-app/blob/master/LICENSE.md`}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    Apache-2.0 License
-                  </a>
-                </p>
+                <p className="settings__message" />
               </div>
             )}
           </form>

@@ -3,7 +3,7 @@ import { Component, ReactElement } from 'react';
 import { observer } from 'mobx-react';
 import prettyBytes from 'pretty-bytes';
 import { defineMessages, injectIntl, WrappedComponentProps } from 'react-intl';
-import { mdiGithub, mdiOpenInNew, mdiPowerPlug } from '@mdi/js';
+import { mdiOpenInNew, mdiPowerPlug } from '@mdi/js';
 import { noop } from 'lodash';
 import Form from '../../../lib/Form';
 import Button from '../../ui/button';
@@ -23,7 +23,6 @@ import {
   DEFAULT_ACCENT_COLOR,
   DEFAULT_APP_SETTINGS,
   FERDIUM_TRANSLATION,
-  GITHUB_FRANZ_URL,
   GITHUB_FERDIUM_URL,
   SPLIT_COLUMNS_MAX,
   SPLIT_COLUMNS_MIN,
@@ -69,7 +68,7 @@ const messages = defineMessages({
   },
   todoServerInfo: {
     id: 'settings.app.todoServerInfo',
-    defaultMessage: 'This server will be used for the "Ferdium Todo" feature.',
+    defaultMessage: 'This server will be used for the "DFgpt Todo" feature.',
   },
   lockedPassword: {
     id: 'settings.app.lockedPassword',
@@ -175,7 +174,7 @@ const messages = defineMessages({
   },
   translationHelp: {
     id: 'settings.app.translationHelp',
-    defaultMessage: 'Help us to translate Ferdium into your language.',
+    defaultMessage: 'Help us to translate DFgpt into your language.',
   },
   spellCheckerLanguageInfo: {
     id: 'settings.app.spellCheckerLanguageInfo',
@@ -188,7 +187,7 @@ const messages = defineMessages({
   },
   cacheInfo: {
     id: 'settings.app.cacheInfo',
-    defaultMessage: 'Ferdium cache is currently using {size} of disk space.',
+    defaultMessage: 'DFgpt cache is currently using {size} of disk space.',
   },
   cacheNotCleared: {
     id: 'settings.app.cacheNotCleared',
@@ -196,7 +195,7 @@ const messages = defineMessages({
   },
   subheadlineFerdiumProfile: {
     id: 'settings.app.subheadlineFerdiumProfile',
-    defaultMessage: 'Ferdium Profile',
+    defaultMessage: 'DFgpt Profile',
   },
   buttonOpenFerdiumProfileFolder: {
     id: 'settings.app.buttonOpenFerdiumProfileFolder',
@@ -236,7 +235,7 @@ const messages = defineMessages({
   },
   updateStatusUpToDate: {
     id: 'settings.app.updateStatusUpToDate',
-    defaultMessage: 'You are using the latest version of Ferdium',
+    defaultMessage: 'You are using the latest version of DFgpt',
   },
   currentVersion: {
     id: 'settings.app.currentVersion',

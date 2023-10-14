@@ -16,11 +16,11 @@ const messages = defineMessages({
   },
   login: {
     id: 'services.login',
-    defaultMessage: 'Please login to use Ferdium.',
+    defaultMessage: 'Please login to use DFgpt.',
   },
   serverless: {
     id: 'services.serverless',
-    defaultMessage: 'Use Ferdium without an Account',
+    defaultMessage: 'Use DFgpt without an Account',
   },
   serverInfo: {
     id: 'services.serverInfo',

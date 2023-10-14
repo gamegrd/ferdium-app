@@ -30,7 +30,7 @@ const messages = defineMessages({
   },
   serverless: {
     id: 'services.serverless',
-    defaultMessage: 'Use Ferdium without an Account',
+    defaultMessage: 'Use DFgpt without an Account',
   },
 });
 

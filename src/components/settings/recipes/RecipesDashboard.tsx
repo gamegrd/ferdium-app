@@ -27,7 +27,7 @@ const messages = defineMessages({
   },
   ferdiumPicksRecipes: {
     id: 'settings.recipes.ferdiumPicks',
-    defaultMessage: 'Ferdium Picks',
+    defaultMessage: 'DFgpt Picks',
   },
   allRecipes: {
     id: 'settings.recipes.all',

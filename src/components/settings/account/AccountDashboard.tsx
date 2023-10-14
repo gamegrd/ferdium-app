@@ -51,7 +51,7 @@ const messages = defineMessages({
   },
   yourLicense: {
     id: 'settings.account.yourLicense',
-    defaultMessage: 'Your Ferdium License:',
+    defaultMessage: 'Your DFgpt License:',
   },
   accountUnavailable: {
     id: 'settings.account.accountUnavailable',

@@ -11,7 +11,7 @@ import { isWinPortable } from '../environment';
 const messages = defineMessages({
   updateAvailable: {
     id: 'infobar.updateAvailable',
-    defaultMessage: 'A new update for Ferdium is available.',
+    defaultMessage: 'A new update for DFgpt is available.',
   },
   changelog: {
     id: 'infobar.buttonChangelog',

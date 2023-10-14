@@ -1,10 +1,9 @@
 import { defineMessages, useIntl } from 'react-intl';
-import { FERDIUM_TRANSLATION } from '../../../config';
 
 const messages = defineMessages({
   headline: {
     id: 'settings.supportFerdium.headline',
-    defaultMessage: 'About Ferdium',
+    defaultMessage: 'About DFgpt',
   },
   aboutIntro: {
     id: 'settings.supportFerdium.aboutIntro',

@@ -128,7 +128,7 @@ const messages = defineMessages({
   },
   proxyRestartInfo: {
     id: 'settings.service.form.proxy.restartInfo',
-    defaultMessage: 'Please restart Ferdium after changing proxy Settings.',
+    defaultMessage: 'Please restart DFgpt after changing proxy Settings.',
   },
   proxyInfo: {
     id: 'settings.service.form.proxy.info',

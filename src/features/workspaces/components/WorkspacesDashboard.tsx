@@ -43,7 +43,7 @@ const messages = defineMessages({
   },
   workspaceFeatureHeadline: {
     id: 'settings.workspaces.workspaceFeatureHeadline',
-    defaultMessage: 'Less is More: Introducing Ferdium Workspaces',
+    defaultMessage: 'Less is More: Introducing DFgpt Workspaces',
   },
 });
 

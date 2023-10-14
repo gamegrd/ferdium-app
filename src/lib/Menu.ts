@@ -173,11 +173,11 @@ const menuItems = defineMessages({
   },
   reloadFerdium: {
     id: 'menu.view.reloadFerdium',
-    defaultMessage: 'Reload Ferdium',
+    defaultMessage: 'Reload DFgpt',
   },
   lockFerdium: {
     id: 'menu.view.lockFerdium',
-    defaultMessage: 'Lock Ferdium',
+    defaultMessage: 'Lock DFgpt',
   },
   reloadTodos: {
     id: 'menu.view.reloadTodos',
@@ -217,7 +217,7 @@ const menuItems = defineMessages({
   },
   debugInfoCopiedHeadline: {
     id: 'menu.help.debugInfoCopiedHeadline',
-    defaultMessage: 'Ferdium Debug Information',
+    defaultMessage: 'DFgpt Debug Information',
   },
   debugInfoCopiedBody: {
     id: 'menu.help.debugInfoCopiedBody',
@@ -257,7 +257,7 @@ const menuItems = defineMessages({
   },
   about: {
     id: 'menu.app.about',
-    defaultMessage: 'About Ferdium',
+    defaultMessage: 'About DFgpt',
   },
   checkForUpdates: {
     id: 'menu.app.checkForUpdates',

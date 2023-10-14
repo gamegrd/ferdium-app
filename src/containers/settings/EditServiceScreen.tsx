@@ -90,7 +90,7 @@ const messages = defineMessages({
   },
   trapLinkClicks: {
     id: 'settings.service.form.trapLinkClicks',
-    defaultMessage: 'Open URLs within Ferdium',
+    defaultMessage: 'Open URLs within DFgpt',
   },
   onlyShowFavoritesInUnreadCount: {
     id: 'settings.service.form.onlyShowFavoritesInUnreadCount',

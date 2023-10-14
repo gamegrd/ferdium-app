@@ -171,7 +171,7 @@ else
   $TARGET_ARCH="x64"
 }
 #& pnpm build -- --$TARGET_ARCH --dir --win
-pnpm build --win --x64 --dir
+pnpm build --win --x64
 
 Write-Host "*************** App successfully built! ***************"
 

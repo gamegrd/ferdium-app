@@ -4,8 +4,8 @@ directories:
 
 appId: 'org.ferdium.ferdium-app'
 
-publish:
-  provider: github
+# publish:
+#   provider: github
 
 snap:
   plugs: ['default', 'camera', 'audio-record', 'removable-media']
@@ -87,9 +87,6 @@ win:
   publisherName: ['DFgpt Contributors', 'xgDebug']
   # Remove the verification for a signature to allow auto-update without signed certificate
   verifyUpdateCodeSignature: false
-
-
-
 
 linux:
   icon: ./build-helpers/images/icons

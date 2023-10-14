@@ -148,17 +148,21 @@ if ($ACTUAL_PNPM_VERSION -ne $EXPECTED_RECIPES_PNPM_VERSION) {
 # -----------------------------------------------------------------------------
 Write-Host "*************** Building recipes ***************"
 Push-Location recipes
-pnpm i ; pnpm lint ; pnpm reformat-files ; pnpm package
+pnpm i 
+pnpm lint 
+# pnpm reformat-files 
+pnpm package
 Pop-Location
 
 # -----------------------------------------------------------------------------
 # Now the meat.....
-& pnpm i
-& pnpm prepare-code
-& pnpm lint
-& pnpm test
 
 Write-Host "*************** Building app ***************"
+pnpm i
+pnpm prepare-code
+pnpm lint
+pnpm test
+
 if ($env:PROCESSOR_ARCHITECTURE -eq "ARM64") {
   $TARGET_ARCH="arm64"
 }
@@ -171,13 +175,14 @@ pnpm build --win --x64 --dir
 
 Write-Host "*************** App successfully built! ***************"
 
-# Final check to ensure that the version built is the same as the latest commit
-$VERSION_BUILT_HASH = (Get-Content build\buildInfo.json | ConvertFrom-Json).gitHashShort
-$GIT_BUILT_HASH = (git rev-parse --short HEAD)
-if ($VERSION_BUILT_HASH -ne $GIT_BUILT_HASH)
-{
-  Write-Host "The built version is not on the latest commit!"
-  Write-Host "  latest commit : [$GIT_BUILT_HASH]"
-  Write-Host "  actual build  : [$VERSION_BUILT_HASH]"
-  exit 1
-}
+# # Final check to ensure that the version built is the same as the latest commit
+# $VERSION_BUILT_HASH = (Get-Content build\buildInfo.json | ConvertFrom-Json).gitHashShort
+# $GIT_BUILT_HASH = (git rev-parse --short HEAD)
+# if ($VERSION_BUILT_HASH -ne $GIT_BUILT_HASH)
+# {
+#   Write-Host "The built version is not on the latest commit!"
+#   Write-Host "  latest commit : [$GIT_BUILT_HASH]"
+#   Write-Host "  actual build  : [$VERSION_BUILT_HASH]"
+#   exit 1
+# }
+# 

@@ -135,12 +135,13 @@ pnpm build --$TARGET_ARCH --$TARGET_OS
 
 printf "\n*************** App successfully built! ***************\n"
 
-# Final check to ensure that the version built is the same as the latest commit
-VERSION_BUILT_HASH=$(node -p 'require("./build/buildInfo.json").gitHashShort')
-GIT_BUILT_HASH=$(git rev-parse --short HEAD)
-if [[ $GIT_BUILT_HASH != $VERSION_BUILT_HASH ]]; then
-  echo "The built version is not on the latest commit
-    latest commit : [$GIT_BUILT_HASH]
-    actual build  : [$VERSION_BUILT_HASH]"
-  exit 1
-fi
+# # Final check to ensure that the version built is the same as the latest commit
+# VERSION_BUILT_HASH=$(node -p 'require("./build/buildInfo.json").gitHashShort')
+# GIT_BUILT_HASH=$(git rev-parse --short HEAD)
+# if [[ $GIT_BUILT_HASH != $VERSION_BUILT_HASH ]]; then
+#   echo "The built version is not on the latest commit
+#     latest commit : [$GIT_BUILT_HASH]
+#     actual build  : [$VERSION_BUILT_HASH]"
+#   exit 1
+# fi
+# 

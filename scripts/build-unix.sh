@@ -105,7 +105,10 @@ command_exists asdf && asdf reshim nodejs
 # -----------------------------------------------------------------------------
 printf "\n*************** Building recipes ***************\n"
 pushd recipes
-pnpm i && pnpm lint && pnpm reformat-files && pnpm package
+pnpm i 
+pnpm lint 
+#pnpm reformat-files 
+pnpm package
 popd
 
 # -----------------------------------------------------------------------------

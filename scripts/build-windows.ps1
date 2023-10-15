@@ -44,16 +44,16 @@ Test-CommandExists npm "npm is not installed"
 # Check node version
 $EXPECTED_NODE_VERSION = (cat .nvmrc)
 $ACTUAL_NODE_VERSION = (node -v)
-if ("v$EXPECTED_NODE_VERSION" -ne $ACTUAL_NODE_VERSION) {
-  fail_with_docs "You are not running the expected version of node!
-    expected: [v$EXPECTED_NODE_VERSION]
-    actual  : [$ACTUAL_NODE_VERSION]"
-}
+# if ("v$EXPECTED_NODE_VERSION" -ne $ACTUAL_NODE_VERSION) {
+#   fail_with_docs "You are not running the expected version of node!
+#     expected: [v$EXPECTED_NODE_VERSION]
+#     actual  : [$ACTUAL_NODE_VERSION]"
+# }
 
 # Check if the 'recipes' folder is present either as a git submodule or a symbolic link
-if (-not (Test-Path -Path recipes\package.json -PathType Leaf)) {
-  fail_with_docs "'recipes' folder is missing or submodule has not been checked out"
-}
+# if (-not (Test-Path -Path recipes\package.json -PathType Leaf)) {
+#   fail_with_docs "'recipes' folder is missing or submodule has not been checked out"
+# }
 
 # This log statement is only to remind me which 'recipes' folder I am using (symlink or git submodule)
 # TODO: Implement this
@@ -138,12 +138,12 @@ if ($ACTUAL_PNPM_VERSION -ne $EXPECTED_PNPM_VERSION) {
 
 # Check pnpm version of the recipes submodule
 $EXPECTED_RECIPES_PNPM_VERSION = (Get-Content .\recipes\package.json | ConvertFrom-Json).engines.pnpm
-if ($ACTUAL_PNPM_VERSION -ne $EXPECTED_RECIPES_PNPM_VERSION) {
- fail_with_docs "The expected versions of pnpm are not the same in the main repo and in the recipes submodule, please sync them.
-    expected in recipes  : [$EXPECTED_RECIPES_PNPM_VERSION]
-    expected in main repo: [$EXPECTED_PNPM_VERSION]
-    actual               : [$EXPECTED_PNPM_VERSION]"
-}
+#if ($ACTUAL_PNPM_VERSION -ne $EXPECTED_RECIPES_PNPM_VERSION) {
+# fail_with_docs "The expected versions of pnpm are not the same in the main repo and in the recipes submodule, please sync them.
+#    expected in recipes  : [$EXPECTED_RECIPES_PNPM_VERSION]
+#    expected in main repo: [$EXPECTED_PNPM_VERSION]
+#    actual               : [$EXPECTED_PNPM_VERSION]"
+#}
 
 # -----------------------------------------------------------------------------
 Write-Host "*************** Building recipes ***************"

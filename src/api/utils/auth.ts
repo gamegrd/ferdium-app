@@ -22,10 +22,12 @@ export const prepareAuthRequest = (
     },
   });
 
+
   if (auth) {
-    request.headers.Authorization = `Bearer ${localStorage.getItem(
-      'authToken',
-    )}`;
+    const token = localStorage.getItem( 'authToken',)
+    if (token){
+        request.headers.Authorization = `Bearer ${token}`;
+    }
   }
 
   return request;

@@ -43,5 +43,8 @@
   // "formatFiles.runOrganizeImports": true,
 
   "javascript.preferences.importModuleSpecifier": "relative",
-  "typescript.preferences.importModuleSpecifier": "relative"
+"typescript.preferences.importModuleSpecifier": "relative",
+"[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+}
 }

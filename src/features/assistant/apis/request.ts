@@ -60,6 +60,8 @@ class TranslatorRequest {
       body: JSON.stringify(data),
       ...options,
     };
+
+    ipcRenderer.sendToHost('log', JSON.stringify(requestOptions) );
     const url = `${this.apiBase}/${uri}`;
     let ret = 'working post';
 

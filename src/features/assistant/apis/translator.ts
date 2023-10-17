@@ -1,10 +1,13 @@
 import { ipcRenderer } from 'electron';
 
 import TranslatorRequest from './request';
+import sleep from '../../../helpers/async-helpers';
 
 export default class TranslatorHandler {
+  num: number;
   constructor() {
     ipcRenderer.sendToHost('log', 'TranslatorHandler init');
+    this.num = 0;
   }
 
   // 翻译为对方语言
@@ -29,5 +32,29 @@ export default class TranslatorHandler {
     const url = `suggest?msg=${obj}`;
     const ret = await request.post(url, obj);
     return ret;
+  }
+
+  // 翻译为对方语言
+  async tranbaidu(apiBase: string, token: string, obj: any) {
+    const promise = new Promise((resolve, reject) => {
+      // 异步操作
+      setTimeout(async () => {
+        try {
+          this.num -= 1;
+          const request = new TranslatorRequest(
+            'http://127.0.0.1:10086',
+            token,
+          );
+          const url = `cgi/translator/baidu`;
+          const ret = await request.post(url, obj);
+          resolve(ret);
+        } catch (error) {
+          // 失败，调用reject
+          reject(error);
+        }
+      }, this.num * 1000);
+    });
+    this.num += 1;
+    return promise;
   }
 }

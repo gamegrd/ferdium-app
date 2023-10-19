@@ -1,7 +1,6 @@
 import { ipcRenderer } from 'electron';
 
 import TranslatorRequest from './request';
-import sleep from '../../../helpers/async-helpers';
 
 export default class TranslatorHandler {
   num: number;
@@ -29,8 +28,15 @@ export default class TranslatorHandler {
   // 猜测回复
   async getSuggest(apiBase: string, token: string, obj: any) {
     const request = new TranslatorRequest(apiBase, token);
-    const url = `suggest?msg=${obj}`;
+    const url = `suggest?`;
     const ret = await request.post(url, obj);
+    console.warn(
+      'webview:getSuggest',
+      JSON.stringify(ret),
+      apiBase,
+      token,
+      JSON.stringify(obj),
+    );
     return ret;
   }
 

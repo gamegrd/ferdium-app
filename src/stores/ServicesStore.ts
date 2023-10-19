@@ -803,6 +803,14 @@ export default class ServicesStore extends TypedStore {
         console.log(args);
         break;
       }
+      case 'print': {
+        console.log(...args);
+        break;
+      }
+      case 'warn': {
+        console.log(...args);
+        break;
+      }
       case 'update-translator-language': {
         this.actions.ui.openSettings({ path: `services/edit/${service.id}` });
         break;

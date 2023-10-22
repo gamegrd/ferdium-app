@@ -3,7 +3,7 @@
   "productName": "DFgpt",
   "desktopName": "dfgpt.desktop",
   "appId": "org.dfgpt.dfgpt-app",
-  "version": "6.5.2-dfgpt.3",
+  "version": "6.5.3-dfgpt.3",
   "description": "Messaging app for WhatsApp, Slack, Telegram, Hangouts and many many more.",
   "author": "xgDebug",
   "license": "Apache-2.0",
@@ -82,7 +82,7 @@
     "electron-dl": "3.5.0",
     "electron-find": "1.0.7",
     "electron-react-titlebar": "1.2.1",
-    "electron-updater": "5.3.0",
+    "electron-updater": "6.1.5",
     "electron-window-state": "5.0.3",
     "fast-folder-size": "2.2.0",
     "fs-extra": "11.1.1",
@@ -165,8 +165,8 @@
     "chalk": "5.3.0",
     "concurrently": "8.2.1",
     "cross-env": "7.0.3",
-    "electron": "25.8.4",
-    "electron-builder": "24.4.0",
+    "electron": "27.0.1",
+    "electron-builder": "24.7.0",
     "esbuild": "0.16.17",
     "esbuild-plugin-copy": "2.1.1",
     "esbuild-runner": "2.2.2",
@@ -231,7 +231,7 @@
   },
   "optionalDependencies": {
     "macos-notification-state": "github:ferdium/macos-notification-state",
-    "node-mac-permissions": "^2.0.2"
+    "node-mac-permissions": "^2.3.0"
   },
   "browserslist": [
     "last 2 Chrome versions"

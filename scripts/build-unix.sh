@@ -12,6 +12,7 @@ set -e
 export ELECTRON_CACHE=$HOME/.cache/electron
 export ELECTRON_BUILDER_CACHE=$HOME/.cache/electron-builder
 export CSC_IDENTITY_AUTO_DISCOVERY=false
+export DEBUG="electron-builder"
 export CI=true
 
 # -----------------------------------------------------------------------------

@@ -1,5 +1,5 @@
 [submodule "recipes"]
 	path = recipes
-	url = git@github.com:xgDebug/ferdium-recipes.git
+	url = git@github.com:DFgpt/recipes.git
 	ignore = all
-	branch = main
+	branch = master

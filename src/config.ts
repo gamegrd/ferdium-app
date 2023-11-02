@@ -17,11 +17,11 @@ export const DEV_FRANZ_API = 'https://dev.franzinfra.com';
 // export const LIVE_FERDIUM_API = 'http://43.134.61.67:3333';
 
 export const LIVE_FERDIUM_API = 'http://43.134.61.67:3333';
-// export const LIVE_FERDIUM_API = 'https://api.ferdium.org';
+// export const LIVE_FERDIUM_API = 'https://api.dfgpt.cc';
 export const LIVE_FRANZ_API = 'https://api.franzinfra.com';
 
 // URL used to submit debugger information, see https://github.com/ferdium/debugger
-export const DEBUG_API = 'https://debug.ferdium.org';
+export const DEBUG_API = 'https://debug.dfgpt.cc';
 
 export const LOCAL_WS_API = 'ws://localhost:3000';
 export const DEV_WS_API = 'wss://dev.franzinfra.com';
@@ -29,10 +29,10 @@ export const LIVE_WS_API = 'wss://api.franzinfra.com';
 
 export const LOCAL_API_WEBSITE = 'http://localhost:3333';
 export const DEV_API_FRANZ_WEBSITE = 'https://meetfranz.com';
-// export const LIVE_API_FERDIUM_WEBSITE = 'https://ferdium.org';
-export const LIVE_API_FERDIUM_WEBSITE = 'https://ferdium.org';
+// export const LIVE_API_FERDIUM_WEBSITE = 'https://dfgpt.cc';
+export const LIVE_API_FERDIUM_WEBSITE = 'https://dfgpt.cc';
 export const LIVE_API_FERDIUM_LIBRETRANSLATE =
-  'https://translator.ferdium.org/translate';
+  'https://translator.dfgpt.cc/translate';
 
 export const STATS_API = 'https://stats.franzinfra.com';
 

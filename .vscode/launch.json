@@ -11,7 +11,7 @@
         {
             "type": "node",
             "request": "launch",
-            "name": "Ferdium - Test API",
+            "name": "DFgpt - Test API",
             "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/electron",
             "program": "${workspaceFolder}/build/index.js",
             "protocol": "inspector",
@@ -23,7 +23,7 @@
         {
             "type": "node",
             "request": "launch",
-            "name": "Ferdium – Live API",
+            "name": "DFgpt – Live API",
             "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/electron",
             "program": "${workspaceFolder}/build/index.js",
             "protocol": "inspector",
@@ -35,7 +35,7 @@
         {
             "type": "node",
             "request": "launch",
-            "name": "Ferdium – Local API",
+            "name": "DFgpt – Local API",
             "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/electron",
             "program": "${workspaceFolder}/build/index.js",
             "protocol": "inspector",
@@ -47,7 +47,7 @@
         {
             "type": "node",
             "request": "launch",
-            "name": "(Win Sim) Ferdium - Test API",
+            "name": "(Win Sim) DFgpt - Test API",
             "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/electron",
             "program": "${workspaceFolder}/build/index.js",
             "protocol": "inspector",
@@ -60,7 +60,7 @@
         {
             "type": "node",
             "request": "launch",
-            "name": "(Win Sim) Ferdium – Live API",
+            "name": "(Win Sim) DFgpt – Live API",
             "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/electron",
             "program": "${workspaceFolder}/build/index.js",
             "protocol": "inspector",
@@ -73,7 +73,7 @@
         {
             "type": "node",
             "request": "launch",
-            "name": "(Win Sim) Ferdium – Local API",
+            "name": "(Win Sim) DFgpt – Local API",
             "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/electron",
             "program": "${workspaceFolder}/build/index.js",
             "protocol": "inspector",

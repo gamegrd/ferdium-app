@@ -393,7 +393,7 @@
   "settings.services.tooltip.isMuted": "無音となっています",
   "settings.services.tooltip.notificationsDisabled": "通知は無効です",
   "settings.services.updatedInfo": "変更内容が保存されました",
-  "settings.supportFerdium.about": "Ferdiumの開発は貢献者により行われています。Ferdiumを気に入った同士の皆さんです。この方々は自分の自由時間を利用してDFgptのメンテナンス、バグ修正、改良を行っています。",
+  "settings.supportFerdium.about": "DFgptの開発は貢献者により行われています。Ferdiumを気に入った同士の皆さんです。この方々は自分の自由時間を利用してDFgptのメンテナンス、バグ修正、改良を行っています。",
   "settings.supportFerdium.aboutIntro": "素晴らしい皆さんへ特別な感謝を申し上げます:",
   "settings.supportFerdium.headline": "バージョン情報",
   "settings.team.contentHeadline": "Franzのチーム管理",

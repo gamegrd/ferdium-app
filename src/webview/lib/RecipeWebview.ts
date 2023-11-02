@@ -16,20 +16,24 @@ class RecipeWebview {
 
   sessionHandler: any;
 
-  translatorHanlder: any;
+  translatorHandler: any;
+
+  fetchHandler: any;
 
   constructor(
     badgeHandler,
     dialogTitleHandler,
     notificationsHandler,
     sessionHandler,
-    translatorHanlder,
+    translatorHandler,
+    fetchHandler,
   ) {
     this.badgeHandler = badgeHandler;
     this.dialogTitleHandler = dialogTitleHandler;
     this.notificationsHandler = notificationsHandler;
     this.sessionHandler = sessionHandler;
-    this.translatorHanlder = translatorHanlder;
+    this.translatorHandler = translatorHandler;
+    this.fetchHandler = fetchHandler;
 
     ipcRenderer.on('poll', () => {
       this.loopFunc();
@@ -228,7 +232,7 @@ class RecipeWebview {
   async getSuggest(apiBase: string, token: string, obj: any) {
     ipcRenderer.sendToHost('log', 'getSuggest', obj);
     const res = await this.translatorHanlder.getSuggest(apiBase, token, obj);
-    ipcRenderer.sendToHost('log','getSuggest', res);
+    ipcRenderer.sendToHost('log', 'getSuggest', res);
     if (res.status === 0) {
       return res.data;
     }

@@ -48,6 +48,7 @@ import { ifUndefined, safeParseInt } from '../jsUtils';
 import { AppStore } from '../@types/stores.types';
 import Service from '../models/Service';
 import TranslatorHandler from '../features/assistant/apis/translator';
+import Fetch from '../features/assistant/apis/fetch';
 
 // For some services darkreader tries to use the chrome extension message API
 // This will cause the service to fail loading
@@ -65,6 +66,9 @@ const dialogTitleHandler = new DialogTitleHandler();
 const sessionHandler = new SessionHandler();
 
 const translatorHandler = new TranslatorHandler();
+
+
+const requestHandler = Fetch;
 
 const notificationsHandler = new NotificationsHandler();
 
@@ -251,6 +255,7 @@ class RecipeController {
         notificationsHandler,
         sessionHandler,
         translatorHandler,
+        requestHandler,
       );
 
       if (existsSync(pluginPath)) {

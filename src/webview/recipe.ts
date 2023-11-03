@@ -241,12 +241,6 @@ class RecipeController {
     const pluginPath = join(recipe.path, 'plugin/index.js');
     debug('module path', modulePath);
     debug('pluginPath path', pluginPath);
-    // Delete module from cache
-    // eslint-disable-next-line @typescript-eslint/no-dynamic-delete
-    delete require.cache[require.resolve(modulePath)];
-    // Delete module from cache
-    // eslint-disable-next-line @typescript-eslint/no-dynamic-delete
-    delete require.cache[require.resolve(pluginPath)];
 
     try {
       this.recipe = new RecipeWebview(
@@ -259,11 +253,17 @@ class RecipeController {
       );
 
       if (existsSync(pluginPath)) {
+        // Delete module from cache
+        // eslint-disable-next-line @typescript-eslint/no-dynamic-delete
+        delete require.cache[require.resolve(pluginPath)];
         require(pluginPath)(this.recipe, { ...config, recipe });
         debug('Initialize Recipe', config, recipe);
       }
 
       if (existsSync(modulePath)) {
+        // Delete module from cache
+        // eslint-disable-next-line @typescript-eslint/no-dynamic-delete
+        delete require.cache[require.resolve(modulePath)];
         require(modulePath)(this.recipe, { ...config, recipe });
         debug('Initialize Recipe', config, recipe);
       }

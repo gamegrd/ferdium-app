@@ -421,6 +421,17 @@ export default class Service {
       debug(this.name, 'modifyRequestHeaders is not defined in the recipe');
     }
 
+    if (typeof this.recipe.modifyResponseHeaders === 'function') {
+      const modifyResponseHeaders = this.recipe.modifyResponseHeaders();
+      debug(this.name, 'modifyResponseHeaders', modifyResponseHeaders);
+      ipcRenderer.send('modifyResponseHeaders', {
+        modifyResponseHeaders,
+        serviceId: this.id,
+      });
+    } else {
+      debug(this.name, 'modifyResponseHeaders is not defined in the recipe');
+    }
+
     // if the recipe has implemented 'knownCertificateHosts'
     if (typeof this.recipe.knownCertificateHosts === 'function') {
       const knownHosts = this.recipe.knownCertificateHosts();

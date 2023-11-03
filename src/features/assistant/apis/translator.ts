@@ -1,11 +1,13 @@
-import { ipcRenderer } from 'electron';
-
+//import { ipcRenderer } from 'electron';
+const debug = require('../../../preload-safe-debug')(
+  'Ferdium:Assistant.Translator',
+);
 import TranslatorRequest from './request';
 
 export default class TranslatorHandler {
   num: number;
   constructor() {
-    ipcRenderer.sendToHost('log', 'TranslatorHandler init');
+    debug('TranslatorHandler constructor');
     this.num = 0;
   }
 

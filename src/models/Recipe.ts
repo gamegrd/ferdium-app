@@ -57,6 +57,8 @@ export interface IRecipe {
   // eslint-disable-next-line @typescript-eslint/ban-types
   readonly modifyRequestHeaders?: null | Function;
   // eslint-disable-next-line @typescript-eslint/ban-types
+  readonly modifyResponseHeaders?: null | Function;
+  // eslint-disable-next-line @typescript-eslint/ban-types
   readonly knownCertificateHosts?: null | Function;
   readonly events?: null | ((key: string) => string);
 

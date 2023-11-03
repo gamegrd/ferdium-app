@@ -1,4 +1,7 @@
 import { ipcRenderer } from 'electron';
+const debug = require('../../../preload-safe-debug')(
+  'Ferdium:Assistant-Request',
+);
 
 const fetch = require('node-fetch');
 
@@ -33,17 +36,17 @@ class TranslatorRequest {
     let ret = 'working get';
 
     const smsg = JSON.stringify(requestOptions);
-    ipcRenderer.sendToHost('log', `发送：${smsg} ${url}`);
+    debug( `发送：${smsg} ${url}`);
     try {
       const response = await fetch(url, requestOptions);
       if (response.status !== 200) {
-        ipcRenderer.sendToHost('log', `代码异常${response.status}`);
+        debug( `代码异常${response.status}`);
       }
       const data = await response.json();
       ret = data;
     } catch (error) {
       ret = `返回异常${error} ${url}`;
-      ipcRenderer.sendToHost('log', ret);
+      debug( ret);
     }
     return ret;
   }

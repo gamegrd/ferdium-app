@@ -586,6 +586,27 @@ ipcMain.on(
   },
 );
 
+ipcMain.on(
+  'modifyResponseHeaders',
+  (_e, { modifyResponseHeaders, serviceId }) => {
+    debug(
+      `Received modifyResponseHeaders ${modifyResponseHeaders} for serviceId ${serviceId}`,
+    );
+    session
+      .fromPartition(`persist:service-${serviceId}`)
+      .webRequest.onHeadersReceived((details, callback) => {
+        callback({
+          responseHeaders: {
+            ...details.responseHeaders,
+            ...modifyResponseHeaders,
+          },
+        });
+      });
+  },
+);
+
+
+
 ipcMain.on('knownCertificateHosts', (_e, { knownHosts, serviceId }) => {
   debug(
     `Received knownCertificateHosts ${knownHosts} for serviceId ${serviceId}`,

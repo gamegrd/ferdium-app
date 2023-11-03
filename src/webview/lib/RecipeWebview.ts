@@ -211,7 +211,7 @@ class RecipeWebview {
   // ------xgdebug-------
   log(...msg: any[]) {
     ipcRenderer.invoke('webview:log', ...msg);
-    ipcRenderer.sendToHost('log', ...msg);
+    debug(...msg);
   }
 
   sendToHost(channel: string, ...args: any[]) {
@@ -225,14 +225,14 @@ class RecipeWebview {
     modes: string,
     tones: string,
   ) {
-    ipcRenderer.sendToHost('log', msg, apiBase, token, modes, tones);
+    debug(msg, apiBase, token, modes, tones);
     return 'getTran working...';
   }
 
   async getSuggest(apiBase: string, token: string, obj: any) {
-    ipcRenderer.sendToHost('log', 'getSuggest', obj);
+    debug('getSuggest', obj);
     const res = await this.translatorHandler.getSuggest(apiBase, token, obj);
-    ipcRenderer.sendToHost('log', 'getSuggest', res);
+    debug('getSuggest', res);
     if (res.status === 0) {
       return res.data;
     }
@@ -242,14 +242,14 @@ class RecipeWebview {
 
   // 翻译为对方语言
   async trangpt(apiBase: string, token: string, obj: any) {
-    ipcRenderer.sendToHost('log', 'TranGPT', obj);
+    debug('TranGPT', obj);
     const res = await this.translatorHandler.trangpt(apiBase, token, obj);
     //const res = await this.translatorHandler.tranbaidu(apiBase, token, {
     //  msg: obj.msg,
     //  from: 'auto',
     //  to: 'en',
     //});
-    ipcRenderer.sendToHost('log', res);
+    debug(res);
     if (res.status === 0) {
       return res.data;
     }
@@ -259,14 +259,14 @@ class RecipeWebview {
 
   // 对方翻回本地语言
   async getTran2(msg: string, apiBase: string, token: string) {
-    ipcRenderer.sendToHost('log', 'getTran2', msg);
+    debug('getTran2', msg);
     const res = await this.translatorHandler.getTran2(msg, apiBase, token);
     //const res = await this.translatorHandler.tranbaidu(apiBase, token, {
     //  msg: msg,
     //  from: 'auto',
     //  to: 'zh',
     //});
-    ipcRenderer.sendToHost('log', res);
+    debug(res);
     if (res.status === 0) {
       return res.data;
     }

@@ -803,8 +803,8 @@ export default class ServicesStore extends TypedStore {
         console.log(args);
         break;
       }
-      case 'print': {
-        console.log(...args);
+      case 'debug': {
+        console.warn(...args);
         break;
       }
       case 'warn': {

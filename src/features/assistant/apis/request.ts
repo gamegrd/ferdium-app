@@ -1,7 +1,11 @@
 import { ipcRenderer } from 'electron';
-const debug = require('../../../preload-safe-debug')(
-  'Ferdium:Assistant-Request',
-);
+//const debug = require('../../../preload-safe-debug')(
+//  'Ferdium:Assistant-Request',
+//);
+
+const debug = (...args: any[]) => {
+  ipcRenderer.sendToHost('debug', args);
+};
 
 const fetch = require('node-fetch');
 
@@ -10,9 +14,6 @@ class TranslatorRequest {
 
   token: string;
 
-  print(...args: any[]) {
-    ipcRenderer.sendToHost('print', args);
-  }
   constructor(apiBase: string, token: string) {
     this.apiBase = apiBase;
     this.token = token;
@@ -23,11 +24,8 @@ class TranslatorRequest {
       method: 'GET',
       headers: {
         Authorization: `Bearer ${this.token}`,
-        'X-Franz-Version': '6.2.6',
         Accept: '*/*',
         'Accept-Language': '*',
-        'Sec-Fetch-Mode': 'cors',
-        'User-Agent': 'undici',
         'Accept-Encoding': 'gzip, deflate',
       },
       ...options,
@@ -35,18 +33,17 @@ class TranslatorRequest {
     const url = `${this.apiBase}/${uri}`;
     let ret = 'working get';
 
-    const smsg = JSON.stringify(requestOptions);
-    debug( `发送：${smsg} ${url}`);
     try {
       const response = await fetch(url, requestOptions);
       if (response.status !== 200) {
-        debug( `代码异常${response.status}`);
+        debug(`${response.status}`);
       }
       const data = await response.json();
+      debug('fetch get=> ', url, requestOptions, '<=', data);
       ret = data;
     } catch (error) {
-      ret = `返回异常${error} ${url}`;
-      debug( ret);
+      ret = `get fail ${error} ${url}`;
+      debug(ret);
     }
     return ret;
   }
@@ -56,35 +53,28 @@ class TranslatorRequest {
       method: 'POST',
       headers: {
         Authorization: `Bearer ${this.token}`,
-        'X-Franz-Version': '6.2.6',
         Accept: '*/*',
         'Accept-Language': '*',
-        'Sec-Fetch-Mode': 'cors',
-        'User-Agent': 'undici',
         'Accept-Encoding': 'gzip, deflate',
       },
       body: JSON.stringify(data),
       ...options,
     };
 
-    ipcRenderer.sendToHost('log', JSON.stringify(requestOptions));
+    debug(JSON.stringify(requestOptions));
     const url = `${this.apiBase}/${uri}`;
     let ret = 'working post';
 
-    const smsg = JSON.stringify(requestOptions);
-    ipcRenderer.sendToHost('log', `send post ：${smsg} ${url}`);
     try {
       const response = await fetch(url, requestOptions);
-      this.print('POST REQ:', url, smsg);
       if (response.status !== 200) {
-        ipcRenderer.sendToHost('log', `代码异常${response.status}`);
       }
-      this.print('POST RSP:', response.status, response.text);
       const data = await response.json();
+      debug('fetch post => ', url, requestOptions, '<=', data);
       ret = data;
     } catch (error) {
-      ret = `返回异常 ${error} ${url}`;
-      ipcRenderer.sendToHost('log', ret);
+      ret = `post fail ${error} ${url}`;
+      debug(ret);
     }
     return ret;
   }

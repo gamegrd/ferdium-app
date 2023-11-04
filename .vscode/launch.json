@@ -2,6 +2,13 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "command": "pnpm debug",
+            "name": "Debug",
+            "request": "launch",
+            "type": "node-terminal"
+        },
+
+        {
             "name": "PowerShell Launch Current File",
             "type": "PowerShell",
             "request": "launch",

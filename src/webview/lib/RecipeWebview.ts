@@ -38,7 +38,7 @@ class RecipeWebview {
     ipcRenderer.on('poll', () => {
       this.loopFunc();
 
-      debug('Poll event');
+      //debug('Poll event');
 
       // This event is for checking if the service recipe is still actively
       // communicating with the client
@@ -211,7 +211,7 @@ class RecipeWebview {
   // ------xgdebug-------
   log(...msg: any[]) {
     ipcRenderer.invoke('webview:log', ...msg);
-    debug(...msg);
+    debug('webview:log', ...msg);
   }
 
   sendToHost(channel: string, ...args: any[]) {
@@ -244,11 +244,6 @@ class RecipeWebview {
   async trangpt(apiBase: string, token: string, obj: any) {
     debug('TranGPT', obj);
     const res = await this.apiHandler.trangpt(apiBase, token, obj);
-    //const res = await this.apiHandler.tranbaidu(apiBase, token, {
-    //  msg: obj.msg,
-    //  from: 'auto',
-    //  to: 'en',
-    //});
     debug(res);
     if (res.status === 0) {
       return res.data;
@@ -261,11 +256,6 @@ class RecipeWebview {
   async getTran2(msg: string, apiBase: string, token: string) {
     debug('getTran2', msg);
     const res = await this.apiHandler.getTran2(msg, apiBase, token);
-    //const res = await this.apiHandler.tranbaidu(apiBase, token, {
-    //  msg: msg,
-    //  from: 'auto',
-    //  to: 'zh',
-    //});
     debug(res);
     if (res.status === 0) {
       return res.data;

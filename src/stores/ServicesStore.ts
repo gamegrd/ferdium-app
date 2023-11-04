@@ -811,18 +811,19 @@ export default class ServicesStore extends TypedStore {
         console.log(...args);
         break;
       }
+      case 'token': {
+        return window['ferdium'].stores.user.authToken;
+      }
       case 'update-translator-language': {
         this.actions.ui.openSettings({ path: `services/edit/${service.id}` });
         break;
       }
       case 'alive': {
         service.lastPollAnswer = Date.now();
-
         break;
       }
       case 'message-counts': {
         debug(`Received unread message info from '${serviceId}'`, args[0]);
-
         this.actions.service.setUnreadMessageCount({
           serviceId,
           count: {

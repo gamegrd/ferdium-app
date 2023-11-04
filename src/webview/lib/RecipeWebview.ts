@@ -16,7 +16,7 @@ class RecipeWebview {
 
   sessionHandler: any;
 
-  translatorHandler: any;
+  apiHandler: any;
 
   fetchHandler: any;
 
@@ -25,14 +25,14 @@ class RecipeWebview {
     dialogTitleHandler,
     notificationsHandler,
     sessionHandler,
-    translatorHandler,
+    apiHandler,
     fetchHandler,
   ) {
     this.badgeHandler = badgeHandler;
     this.dialogTitleHandler = dialogTitleHandler;
     this.notificationsHandler = notificationsHandler;
     this.sessionHandler = sessionHandler;
-    this.translatorHandler = translatorHandler;
+    this.apiHandler = apiHandler;
     this.fetchHandler = fetchHandler;
 
     ipcRenderer.on('poll', () => {
@@ -231,7 +231,7 @@ class RecipeWebview {
 
   async getSuggest(apiBase: string, token: string, obj: any) {
     debug('getSuggest', obj);
-    const res = await this.translatorHandler.getSuggest(apiBase, token, obj);
+    const res = await this.apiHandler.getSuggest(apiBase, token, obj);
     debug('getSuggest', res);
     if (res.status === 0) {
       return res.data;
@@ -243,8 +243,8 @@ class RecipeWebview {
   // 翻译为对方语言
   async trangpt(apiBase: string, token: string, obj: any) {
     debug('TranGPT', obj);
-    const res = await this.translatorHandler.trangpt(apiBase, token, obj);
-    //const res = await this.translatorHandler.tranbaidu(apiBase, token, {
+    const res = await this.apiHandler.trangpt(apiBase, token, obj);
+    //const res = await this.apiHandler.tranbaidu(apiBase, token, {
     //  msg: obj.msg,
     //  from: 'auto',
     //  to: 'en',
@@ -260,8 +260,8 @@ class RecipeWebview {
   // 对方翻回本地语言
   async getTran2(msg: string, apiBase: string, token: string) {
     debug('getTran2', msg);
-    const res = await this.translatorHandler.getTran2(msg, apiBase, token);
-    //const res = await this.translatorHandler.tranbaidu(apiBase, token, {
+    const res = await this.apiHandler.getTran2(msg, apiBase, token);
+    //const res = await this.apiHandler.tranbaidu(apiBase, token, {
     //  msg: msg,
     //  from: 'auto',
     //  to: 'zh',

@@ -47,7 +47,7 @@ import { DEFAULT_APP_SETTINGS } from '../config';
 import { ifUndefined, safeParseInt } from '../jsUtils';
 import { AppStore } from '../@types/stores.types';
 import Service from '../models/Service';
-import TranslatorHandler from '../features/assistant/apis/translator';
+import ServericeAPI from '../features/assistant/apis/services';
 import Fetch from '../features/assistant/apis/fetch';
 
 // For some services darkreader tries to use the chrome extension message API
@@ -65,8 +65,8 @@ const dialogTitleHandler = new DialogTitleHandler();
 
 const sessionHandler = new SessionHandler();
 
-const translatorHandler = new TranslatorHandler();
-
+//import TranslatorHandler from '../features/assistant/apis/translator';
+const apiHandler = new ServericeAPI(); //TranslatorHandler();
 
 const requestHandler = Fetch;
 
@@ -248,7 +248,7 @@ class RecipeController {
         dialogTitleHandler,
         notificationsHandler,
         sessionHandler,
-        translatorHandler,
+        apiHandler,
         requestHandler,
       );
 

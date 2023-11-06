@@ -2,7 +2,7 @@
 
 import ms from 'ms';
 
-export const LOCAL_DEBUG = false;
+export const LOCAL_DEBUG = true;
 
 export const DEFAULT_ACCENT_COLOR = '#7367F0';
 
@@ -10,7 +10,7 @@ export const CHECK_INTERVAL = ms('1h'); // How often should we perform checks
 
 export const LOCAL_HOSTNAME = 'localhost';
 export const LOCAL_PORT = 46_569;
-export const LOCAL_API = 'http://localhost:3000';
+export const LOCAL_API = 'http://develop.dfgpt.cc';
 export const DEV_FRANZ_API = 'https://dev.franzinfra.com';
 
 // export const DFGPT_API = 'http://43.134.61.67:3333';
@@ -23,11 +23,11 @@ export const LIVE_FRANZ_API = 'https://api.franzinfra.com';
 // URL used to submit debugger information, see https://github.com/ferdium/debugger
 export const DEBUG_API = 'https://debug.dfgpt.cc';
 
-export const LOCAL_WS_API = 'ws://localhost:3000';
+export const LOCAL_WS_API = 'ws://localhost';
 export const DEV_WS_API = 'wss://dev.franzinfra.com';
 export const LIVE_WS_API = 'wss://api.franzinfra.com';
 
-export const LOCAL_API_WEBSITE = 'http://localhost:3333';
+export const LOCAL_API_WEBSITE = 'http://www.dfgpt.cc';
 export const DEV_API_FRANZ_WEBSITE = 'https://meetfranz.com';
 // export const LIVE_API_FERDIUM_WEBSITE = 'https://dfgpt.cc';
 export const LIVE_API_FERDIUM_WEBSITE = 'https://dfgpt.cc';
@@ -36,7 +36,7 @@ export const LIVE_API_FERDIUM_LIBRETRANSLATE =
 
 export const STATS_API = 'https://stats.franzinfra.com';
 
-export const LOCAL_TODOS_FRONTEND_URL = 'http://localhost:4000';
+export const LOCAL_TODOS_FRONTEND_URL = 'http://develop.dfgpt.cc/v1:4000';
 export const PRODUCTION_TODOS_FRONTEND_URL = 'https://app.franztodos.com';
 export const DEVELOPMENT_TODOS_FRONTEND_URL =
   'https://development--franz-todos.netlify.com';

@@ -10,13 +10,14 @@ import {
   LOCAL_SERVER,
   SERVER_NOT_LOADED,
   LOCAL_DEBUG,
+  LOCAL_API,
 } from '../config';
 import { fixUrl } from '../helpers/url-helpers';
 
 // Note: This cannot be used from the internal-server since we are not running within the context of a browser window
 export default function apiBase(withVersion = true) {
   if (LOCAL_DEBUG && isDevMode) {
-    const url = 'http://127.0.0.1:3000';
+    const url = LOCAL_API;
     return fixUrl(withVersion ? `${url}/${API_VERSION}` : url);
   }
   if (!(window as any).ferdium?.stores.settings?.all?.app.server) {

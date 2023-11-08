@@ -20,22 +20,22 @@ export default class ServericeAPI {
   }
 
   // 使用GPT翻译
-  async trangpt(apiBase: string, token: string, obj: any) {
+  async trangpt(_apiBase: string, token: string, obj: any) {
     return this.baidu_tran(token,obj.msg,'','')
   }
 
   // 翻回本地语言
-  async getTran2(msg: string, apiBase: string, token: string) {
+  async getTran2(msg: string, _apiBase: string, token: string) {
     return this.baidu_tran(token,msg, '', 'zh');
   }
 
   // 使用GOOGLE翻译
-  async tran(msg: string, apiBase: string, token: string) {
+  async tran(msg: string, _apiBase: string, token: string) {
     return this.baidu_tran(token,msg, '', '');
   }
 
   // 使用GPT生成回复
-  async suggest(apiBase: string, token: string, obj: any) {
+  async suggest(_apiBase: string, token: string, obj: any) {
     const request = new TranslatorRequest(this.base, token);
     const url = `suggest?`;
     const ret = await request.post(url, obj);

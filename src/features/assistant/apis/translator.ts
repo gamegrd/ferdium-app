@@ -43,7 +43,7 @@ export default class TranslatorHandler {
   }
 
   // 翻译为对方语言
-  async tranbaidu(apiBase: string, token: string, obj: any) {
+  async tranbaidu(_apiBase: string, token: string, obj: any) {
     const promise = new Promise((resolve, reject) => {
       // 异步操作
       setTimeout(async () => {

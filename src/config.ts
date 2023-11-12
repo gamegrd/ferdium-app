@@ -2,7 +2,7 @@
 
 import ms from 'ms';
 
-export const LOCAL_DEBUG = false;
+export const LOCAL_DEBUG = true;
 
 export const DEFAULT_ACCENT_COLOR = '#7367F0';
 
@@ -10,7 +10,7 @@ export const CHECK_INTERVAL = ms('1h'); // How often should we perform checks
 
 export const LOCAL_HOSTNAME = 'localhost';
 export const LOCAL_PORT = 46_569;
-export const LOCAL_API = 'http://develop.dfgpt.cc';
+export const LOCAL_API = 'http://localhost:3333';
 export const DEV_FRANZ_API = 'https://dev.franzinfra.com';
 
 // export const DFGPT_API = 'http://43.134.61.67:3333';

@@ -237,7 +237,7 @@ class RecipeWebview {
       return res.data;
     }
     ipcRenderer.sendToHost('error', res.msg);
-    throw new Error('getTran err');
+    throw new Error('getSuggest err');
   }
 
   // 翻译为对方语言
@@ -270,6 +270,10 @@ class RecipeWebview {
       return content;
     }
     return null;
+  }
+
+  async fetch(url: string, options: any) {
+    return this.fetchHandler.fetch(url, options);
   }
 }
 

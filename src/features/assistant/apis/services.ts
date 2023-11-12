@@ -11,7 +11,7 @@ export default class ServericeAPI {
   token: string;
   constructor() {
     this.num = 0;
-    this.base = 'http://127.0.0.1:8000';
+    this.base = 'http://127.0.0.1:30001';
     this.token = '';
     ipcRenderer.invoke('token').then(token => {
       this.token = token;
@@ -35,7 +35,7 @@ export default class ServericeAPI {
   }
 
   // 使用GPT生成回复
-  async suggest(_apiBase: string, token: string, obj: any) {
+  async getSuggest(_apiBase: string, token: string, obj: any) {
     const request = new TranslatorRequest(this.base, token);
     const url = `suggest?`;
     const ret = await request.post(url, obj);
@@ -57,7 +57,7 @@ export default class ServericeAPI {
       from: from,
       to: to,
     };
-    const ret = await request.post('v2/translator/baidu', obj);
+    const ret = await request.post('v2/translate/baidu', obj);
     return ret;
   }
 }

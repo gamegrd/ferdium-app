@@ -20,6 +20,8 @@ class RecipeWebview {
 
   fetchHandler: any;
 
+  axios:any
+
   constructor(
     badgeHandler,
     dialogTitleHandler,
@@ -27,6 +29,7 @@ class RecipeWebview {
     sessionHandler,
     apiHandler,
     fetchHandler,
+    axios,
   ) {
     this.badgeHandler = badgeHandler;
     this.dialogTitleHandler = dialogTitleHandler;
@@ -34,6 +37,7 @@ class RecipeWebview {
     this.sessionHandler = sessionHandler;
     this.apiHandler = apiHandler;
     this.fetchHandler = fetchHandler;
+    this.axios = axios;
 
     ipcRenderer.on('poll', () => {
       this.loopFunc();
@@ -272,9 +276,7 @@ class RecipeWebview {
     return null;
   }
 
-  async fetch(url: string, options: any) {
-    return this.fetchHandler.fetch(url, options);
-  }
+
 }
 
 export default RecipeWebview;

@@ -2,7 +2,7 @@
 
 import ms from 'ms';
 
-export const LOCAL_DEBUG = true;
+export const LOCAL_DEBUG = false;
 
 export const DEFAULT_ACCENT_COLOR = '#7367F0';
 
@@ -15,13 +15,13 @@ export const DEV_FRANZ_API = 'https://dev.franzinfra.com';
 
 // export const DFGPT_API = 'http://43.134.61.67:3333';
 // export const LIVE_FERDIUM_API = 'http://43.134.61.67:3333';
-
-export const LIVE_FERDIUM_API = 'http://43.134.61.67:3333';
+export const LIVE_FERDIUM_API = "http://develop.dfgpt.cc"
+//'http://43.134.61.67:3333';
 // export const LIVE_FERDIUM_API = 'https://api.dfgpt.cc';
 export const LIVE_FRANZ_API = 'https://api.franzinfra.com';
 
 // URL used to submit debugger information, see https://github.com/ferdium/debugger
-export const DEBUG_API = 'https://debug.dfgpt.cc';
+export const DEBUG_API = 'http://develop.dfgpt.cc';
 
 export const LOCAL_WS_API = 'ws://localhost';
 export const DEV_WS_API = 'wss://dev.franzinfra.com';

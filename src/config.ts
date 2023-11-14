@@ -15,13 +15,13 @@ export const DEV_FRANZ_API = 'https://dev.franzinfra.com';
 
 // export const DFGPT_API = 'http://43.134.61.67:3333';
 // export const LIVE_FERDIUM_API = 'http://43.134.61.67:3333';
-export const LIVE_FERDIUM_API = "http://develop.dfgpt.cc"
+export const LIVE_FERDIUM_API = "https://www.dfgpt.cc"
 //'http://43.134.61.67:3333';
 // export const LIVE_FERDIUM_API = 'https://api.dfgpt.cc';
 export const LIVE_FRANZ_API = 'https://api.franzinfra.com';
 
 // URL used to submit debugger information, see https://github.com/ferdium/debugger
-export const DEBUG_API = 'http://develop.dfgpt.cc';
+export const DEBUG_API = 'https://www.dfgpt.cc';
 
 export const LOCAL_WS_API = 'ws://localhost';
 export const DEV_WS_API = 'wss://dev.franzinfra.com';
@@ -36,7 +36,7 @@ export const LIVE_API_FERDIUM_LIBRETRANSLATE =
 
 export const STATS_API = 'https://stats.franzinfra.com';
 
-export const LOCAL_TODOS_FRONTEND_URL = 'http://develop.dfgpt.cc/v1:4000';
+export const LOCAL_TODOS_FRONTEND_URL = 'https://www.dfgpt.cc/v1:4000';
 export const PRODUCTION_TODOS_FRONTEND_URL = 'https://app.franztodos.com';
 export const DEVELOPMENT_TODOS_FRONTEND_URL =
   'https://development--franz-todos.netlify.com';

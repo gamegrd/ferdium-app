@@ -104,37 +104,25 @@ fi
 command_exists asdf && asdf reshim nodejs
 
 # -----------------------------------------------------------------------------
-# printf "\n*************** Building recipes ***************\n"
-# pushd recipes
-# pnpm i 
+
+echo "*************** Building recipes ***************"
+cd recipes
+pnpm i 
 # pnpm lint 
-# #pnpm reformat-files 
-# pnpm package
-# popd
-# 
-# # -----------------------------------------------------------------------------
-# # Now the meat.....
-# pnpm i
-# pnpm prepare-code
+# pnpm reformat-files 
+pnpm package
+cd ..
+# -----------------------------------------------------------------------------
+# Now the meat.....
+
+echo "*************** Building app ***************"
+pnpm i
+pnpm prepare-win
 # pnpm lint
 # pnpm test
 
-printf "\n*************** Building app ***************\n"
+#& pnpm build -- --$TARGET_ARCH --dir --win
+pnpm build --win --x64 --publish never
 
-TARGET_ARCH="x64"
-TARGET_OS="win"
+echo "*************** App successfully built! ***************"
 
-pnpm build --$TARGET_ARCH --$TARGET_OS
-
-printf "\n*************** App successfully built! ***************\n"
-
-# # Final check to ensure that the version built is the same as the latest commit
-# VERSION_BUILT_HASH=$(node -p 'require("./build/buildInfo.json").gitHashShort')
-# GIT_BUILT_HASH=$(git rev-parse --short HEAD)
-# if [[ $GIT_BUILT_HASH != $VERSION_BUILT_HASH ]]; then
-#   echo "The built version is not on the latest commit
-#     latest commit : [$GIT_BUILT_HASH]
-#     actual build  : [$VERSION_BUILT_HASH]"
-#   exit 1
-# fi
-# 

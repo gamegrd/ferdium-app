@@ -49,6 +49,8 @@ import { AppStore } from '../@types/stores.types';
 import Service from '../models/Service';
 import ServericeAPI from '../features/assistant/apis/services';
 import Fetch from '../features/assistant/apis/fetch';
+import axios from 'axios';
+
 
 // For some services darkreader tries to use the chrome extension message API
 // This will cause the service to fail loading
@@ -250,6 +252,7 @@ class RecipeController {
         sessionHandler,
         apiHandler,
         requestHandler,
+        axios,
       );
 
       if (existsSync(pluginPath)) {

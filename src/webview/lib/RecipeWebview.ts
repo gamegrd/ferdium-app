@@ -20,6 +20,8 @@ class RecipeWebview {
 
   fetchHandler: any;
 
+  axios:any
+
   constructor(
     badgeHandler,
     dialogTitleHandler,
@@ -27,6 +29,7 @@ class RecipeWebview {
     sessionHandler,
     apiHandler,
     fetchHandler,
+    axios,
   ) {
     this.badgeHandler = badgeHandler;
     this.dialogTitleHandler = dialogTitleHandler;
@@ -34,6 +37,7 @@ class RecipeWebview {
     this.sessionHandler = sessionHandler;
     this.apiHandler = apiHandler;
     this.fetchHandler = fetchHandler;
+    this.axios = axios;
 
     ipcRenderer.on('poll', () => {
       this.loopFunc();
@@ -237,7 +241,7 @@ class RecipeWebview {
       return res.data;
     }
     ipcRenderer.sendToHost('error', res.msg);
-    throw new Error('getTran err');
+    throw new Error('getSuggest err');
   }
 
   // 翻译为对方语言
@@ -271,6 +275,8 @@ class RecipeWebview {
     }
     return null;
   }
+
+
 }
 
 export default RecipeWebview;

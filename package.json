@@ -41,6 +41,7 @@
     "contributors": "all-contributors",
     "reformat-files": "prettier --ignore-path .eslintignore --write \"**/*.{js,jsx,mjs,ts,tsx,scss}\"",
     "prepare-code": "pnpm typecheck && pnpm lint:fix && pnpm reformat-files && pnpm manage-translations",
+    "prepare-win": "pnpm typecheck && pnpm lint:fix && pnpm manage-translations",
     "link-readme": "ts-node scripts/link-readme.ts",
     "minify-images": "./scripts/minify-images.sh",
     "start:server": "ts-node src/internal-server/test.ts",

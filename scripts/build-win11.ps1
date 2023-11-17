@@ -127,7 +127,7 @@ Pop-Location
 
 Write-Host "*************** Building app ***************"
 pnpm i
-pnpm prepare-code
+pnpm prepare-win
 # pnpm lint
 # pnpm test
 

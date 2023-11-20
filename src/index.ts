@@ -605,8 +605,6 @@ ipcMain.on(
   },
 );
 
-
-
 ipcMain.on('knownCertificateHosts', (_e, { knownHosts, serviceId }) => {
   debug(
     `Received knownCertificateHosts ${knownHosts} for serviceId ${serviceId}`,

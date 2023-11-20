@@ -6,7 +6,7 @@ import { RouterStore } from '@superwf/mobx-react-router';
 import { createHashHistory } from 'history';
 
 import ServerApi from './api/server/ServerApi';
-//import ServerApi from './api/server/ServerApiDjango';
+// import ServerApi from './api/server/ServerApiDjango';
 import LocalApi from './api/server/LocalApi';
 import storeFactory from './stores';
 import apiFactory from './api';

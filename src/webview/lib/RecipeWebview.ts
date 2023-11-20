@@ -20,7 +20,7 @@ class RecipeWebview {
 
   fetchHandler: any;
 
-  axios:any
+  axios: any;
 
   constructor(
     badgeHandler,
@@ -42,7 +42,7 @@ class RecipeWebview {
     ipcRenderer.on('poll', () => {
       this.loopFunc();
 
-      //debug('Poll event');
+      // debug('Poll event');
 
       // This event is for checking if the service recipe is still actively
       // communicating with the client
@@ -275,8 +275,6 @@ class RecipeWebview {
     }
     return null;
   }
-
-
 }
 
 export default RecipeWebview;

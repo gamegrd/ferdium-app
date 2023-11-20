@@ -22,11 +22,10 @@ export const prepareAuthRequest = (
     },
   });
 
-
   if (auth) {
-    const token = localStorage.getItem( 'authToken',)
-    if (token){
-        request.headers.Authorization = `Bearer ${token}`;
+    const token = localStorage.getItem('authToken');
+    if (token) {
+      request.headers.Authorization = `Bearer ${token}`;
     }
   }
 

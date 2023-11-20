@@ -54,12 +54,11 @@ export default class ServerApi {
       `${apiBase()}/Users/login/`,
       {
         method: 'POST',
-        headers: { 
-        },
+        headers: {},
         body: JSON.stringify({
-            "email":email,
-            "password":passwordHash,
-        })
+          email,
+          password: passwordHash,
+        }),
       },
       false,
     );

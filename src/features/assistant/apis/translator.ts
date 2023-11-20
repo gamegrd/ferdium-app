@@ -1,11 +1,13 @@
-//import { ipcRenderer } from 'electron';
+// import { ipcRenderer } from 'electron';
+import TranslatorRequest from './request';
+
 const debug = require('../../../preload-safe-debug')(
   'Ferdium:Assistant.Translator',
 );
-import TranslatorRequest from './request';
 
 export default class TranslatorHandler {
   num: number;
+
   constructor() {
     debug('TranslatorHandler constructor');
     this.num = 0;
@@ -30,7 +32,7 @@ export default class TranslatorHandler {
   // 猜测回复
   async getSuggest(apiBase: string, token: string, obj: any) {
     const request = new TranslatorRequest(apiBase, token);
-    const url = `suggest?`;
+    const url = 'suggest?';
     const ret = await request.post(url, obj);
     console.warn(
       'webview:getSuggest',
@@ -53,7 +55,7 @@ export default class TranslatorHandler {
             'http://127.0.0.1:10086',
             token,
           );
-          const url = `cgi/translator/baidu`;
+          const url = 'cgi/translator/baidu';
           const ret = await request.post(url, obj);
           resolve(ret);
         } catch (error) {

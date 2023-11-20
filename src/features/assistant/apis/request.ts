@@ -1,7 +1,7 @@
 import { ipcRenderer } from 'electron';
-//const debug = require('../../../preload-safe-debug')(
+// const debug = require('../../../preload-safe-debug')(
 //  'Ferdium:Assistant-Request',
-//);
+// );
 
 const debug = (...args: any[]) => {
   ipcRenderer.sendToHost('debug', args);
@@ -68,6 +68,8 @@ class TranslatorRequest {
     try {
       const response = await fetch(url, requestOptions);
       if (response.status !== 200) {
+        ret = `post fail code:${response.status} ${url}`;
+        debug(ret);
       }
       const data = await response.json();
       debug('fetch post => ', url, requestOptions, '<=', data);

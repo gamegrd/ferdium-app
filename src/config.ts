@@ -15,8 +15,8 @@ export const DEV_FRANZ_API = 'https://dev.franzinfra.com';
 
 // export const DFGPT_API = 'http://43.134.61.67:3333';
 // export const LIVE_FERDIUM_API = 'http://43.134.61.67:3333';
-export const LIVE_FERDIUM_API = "https://www.dfgpt.cc"
-//'http://43.134.61.67:3333';
+export const LIVE_FERDIUM_API = 'https://www.dfgpt.cc';
+// 'http://43.134.61.67:3333';
 // export const LIVE_FERDIUM_API = 'https://api.dfgpt.cc';
 export const LIVE_FRANZ_API = 'https://api.franzinfra.com';
 

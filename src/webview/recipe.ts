@@ -12,6 +12,7 @@ import {
   enable as enableDarkMode,
 } from 'darkreader';
 
+import axios from 'axios';
 import ignoreList from './darkmode/ignore';
 import customDarkModeCss from './darkmode/custom';
 
@@ -49,8 +50,6 @@ import { AppStore } from '../@types/stores.types';
 import Service from '../models/Service';
 import ServericeAPI from '../features/assistant/apis/services';
 import Fetch from '../features/assistant/apis/fetch';
-import axios from 'axios';
-
 
 // For some services darkreader tries to use the chrome extension message API
 // This will cause the service to fail loading
@@ -67,8 +66,8 @@ const dialogTitleHandler = new DialogTitleHandler();
 
 const sessionHandler = new SessionHandler();
 
-//import TranslatorHandler from '../features/assistant/apis/translator';
-const apiHandler = new ServericeAPI(); //TranslatorHandler();
+// import TranslatorHandler from '../features/assistant/apis/translator';
+const apiHandler = new ServericeAPI(); // TranslatorHandler();
 
 const requestHandler = Fetch;
 

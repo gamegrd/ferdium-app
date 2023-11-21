@@ -442,7 +442,7 @@ export default class ServerApi {
     let archivePath: PathOrFileDescriptor;
     // xgdebug;
     // debugger;
-    let forceDownload = false;
+    const forceDownload = false;
     if (!forceDownload && pathExistsSync(internalRecipeFile)) {
       debug('[ServerApi::getRecipePackage] Using internal recipe file');
       archivePath = internalRecipeFile;
@@ -457,7 +457,7 @@ export default class ServerApi {
       debug('Recipe downloaded', recipeId);
       const blob = await res.blob();
       const buffer = await blob.arrayBuffer();
-      debugger;
+      // debugger;
       writeFileSync(tempArchivePath, Buffer.from(buffer));
     }
     debug(archivePath);

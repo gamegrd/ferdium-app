@@ -95,10 +95,11 @@ export default class RecipesStore extends TypedStore {
     }
 
     if (Object.keys(recipes).length === 0) return;
-    //debugger;
+    // debugger;
     // TODO: This line needs to be uncomment once we fix the App-Server interaction problem.
-    const remoteUpdates = await this.getRecipeUpdatesRequest.execute(recipes).promise;
-    //const remoteUpdates = [];
+    const remoteUpdates =
+      await this.getRecipeUpdatesRequest.execute(recipes).promise;
+    // const remoteUpdates = [];
 
     // Check for local updates
     const allJsonFile = asarRecipesPath('all.json');

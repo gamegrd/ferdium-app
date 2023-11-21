@@ -440,20 +440,24 @@ export default class ServerApi {
     ensureDirSync(recipeTempDirectory);
 
     let archivePath: PathOrFileDescriptor;
-
-    if (pathExistsSync(internalRecipeFile)) {
+    // xgdebug;
+    // debugger;
+    let forceDownload = false;
+    if (!forceDownload && pathExistsSync(internalRecipeFile)) {
       debug('[ServerApi::getRecipePackage] Using internal recipe file');
       archivePath = internalRecipeFile;
     } else {
       debug('[ServerApi::getRecipePackage] Downloading recipe from server');
       archivePath = tempArchivePath;
 
-      const packageUrl = `${apiBase()}/recipes/download/${recipeId}`;
+      // const packageUrl = `${apiBase()}/recipes/download/${recipeId}`;
+      const packageUrl = `${apiBase(false)}/archives/${recipeId}.tar.gz`;
 
       const res = await window.fetch(packageUrl);
       debug('Recipe downloaded', recipeId);
       const blob = await res.blob();
       const buffer = await blob.arrayBuffer();
+      debugger;
       writeFileSync(tempArchivePath, Buffer.from(buffer));
     }
     debug(archivePath);
@@ -474,6 +478,8 @@ export default class ServerApi {
 
     const { id } = readJsonSync(join(recipeTempDirectory, 'package.json'));
     const recipeDirectory = join(recipesDirectory, id);
+
+    removeSync(archivePath);
     copySync(recipeTempDirectory, recipeDirectory);
     removeSync(recipeTempDirectory);
     removeSync(join(recipesDirectory, recipeId, 'recipe.tar.gz'));

@@ -19,7 +19,7 @@ import { ApiInterface } from '../api';
 import { Actions } from '../actions/lib/actions';
 import TypedStore from './lib/TypedStore';
 import Request from './lib/Request';
-import { CHECK_INTERVAL, DEFAULT_APP_SETTINGS } from '../config';
+import { CHECK_INTERVAL, DEFAULT_APP_SETTINGS,DEFAULT_LANGUAGE } from '../config';
 import { cleanseJSObject } from '../jsUtils';
 import {
   isMac,
@@ -661,8 +661,12 @@ export default class AppStore extends TypedStore {
   }
 
   _getDefaultLocale() {
+    var l = ferdiumLocale;
+    if (DEFAULT_LANGUAGE.length >0){
+      l = DEFAULT_LANGUAGE;
+    }
     return getLocale({
-      locale: ferdiumLocale,
+      locale: l,
       locales,
       fallbackLocale: DEFAULT_APP_SETTINGS.fallbackLocale,
     });

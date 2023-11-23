@@ -21,6 +21,8 @@
   "feature.quickSwitch.search": "搜索...",
   "feature.quickSwitch.title": "快速切换",
   "global.api.unhealthy": "无法连接 {serverNameParse} 在线服务",
+  "global.clearCache": "清除缓存",
+  "global.downloads": "下载",
   "global.cancel": "取消",
   "global.edit": "编辑",
   "global.no": "否",

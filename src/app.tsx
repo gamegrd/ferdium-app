@@ -44,7 +44,7 @@ window.addEventListener('load', () => {
             <FerdiumRoutes history={history} />
           </I18N>
         </Provider>
-      );
+      ); 
       const container = document.querySelector('#root');
       const root = createRoot(container!);
       root.render(preparedApp);

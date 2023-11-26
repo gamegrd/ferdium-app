@@ -11,6 +11,7 @@ import settings from './settings';
 import requests from './requests';
 import workspaces from '../features/workspaces/actions';
 import { todoActions } from '../features/todos/actions';
+import { asstantActions } from '../features/assistant/actions';
 
 const actions = {
   service,
@@ -27,4 +28,5 @@ export default Object.assign(
   defineActions(actions, PropTypes.checkPropTypes),
   { workspaces },
   { todos: todoActions },
+  { asstant: asstantActions },
 );

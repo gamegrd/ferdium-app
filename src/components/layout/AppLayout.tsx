@@ -21,7 +21,7 @@ import AppUpdateInfoBar from '../AppUpdateInfoBar';
 import Todos from '../../features/todos/containers/TodosScreen';
 import AssistantDrawer from '../../features/assistant/containers/AssistantDrawer';
 import Icon from '../ui/icon';
-
+import Grid from '@mui/material/Grid';
 import LockedScreen from '../../containers/auth/LockedScreen';
 import SettingsStore from '../../stores/SettingsStore';
 
@@ -213,7 +213,16 @@ class AppLayout extends Component<PropsWithChildren<IProps>, IState> {
                 <BasicAuth />
                 <QuickSwitch />
                 <PublishDebugInfo />
-                {services}
+                <div style={{ display: 'flex' }}>
+                  <div style={{ flex: 1 }}>{services}</div>
+                  <div style={{ width: '600px' }}>
+                    <webview
+                      id="AIPanel"
+                      src="https://web.aicode.cc/#/login/"
+                      style={{ width: '100%', height: '100%' }}
+                    ></webview>
+                  </div>
+                </div>
                 <Outlet />
               </div>
               <Todos />

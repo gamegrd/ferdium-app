@@ -16,6 +16,7 @@ import quickSwitch from '../features/quickSwitch';
 import publishDebugInfo from '../features/publishDebugInfo';
 import communityRecipes from '../features/communityRecipes';
 import todos from '../features/todos';
+import assistant from '../features/assistant';
 import appearance from '../features/appearance';
 import TypedStore from './lib/TypedStore';
 
@@ -87,6 +88,7 @@ export default class FeaturesStore extends TypedStore {
     publishDebugInfo();
     communityRecipes(this.stores, this.actions);
     todos(this.stores, this.actions);
+    assistant(this.stores, this.actions);
     appearance(this.stores);
   }
 }

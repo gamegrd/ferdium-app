@@ -159,6 +159,12 @@ const menuItems = defineMessages({
     id: 'menu.view.toggleTodosDevTools',
     defaultMessage: 'Toggle Todos Developer Tools',
   },
+
+  toggleAsstantDevTools: {
+    id: 'menu.view.toggleAsstantDevTools',
+    defaultMessage: 'Toggle Asstant Developer Tools',
+  },
+
   toggleServiceDevTools: {
     id: 'menu.view.toggleServiceDevTools',
     defaultMessage: 'Toggle Service Developer Tools',
@@ -804,6 +810,16 @@ class FranzMenu implements StoresProps {
             click: () => {
               const webview = document.querySelector('#todos-panel webview');
               if (webview) this.actions.todos.openDevTools();
+            },
+          });
+        }
+
+        if (true) {
+          (tpl[1].submenu as MenuItemConstructorOptions[]).push({
+            label: intl.formatMessage(menuItems.toggleAsstantDevTools),
+            click: () => {
+              const webview = document.querySelector('#AIPanel');
+              if (webview) this.actions.asstant.openDevTools();
             },
           });
         }

@@ -37,13 +37,17 @@ export default class AssistantStore extends FeatureStore {
 
   _openDevTools = () => {
     debug('_openDevTools');
-    debugger; 
+    // debugger;
     const aiPanel = document.querySelector<Webview>('#AIPanel');
     if (aiPanel) {
       aiPanel.openDevTools();
     }
   };
 
+  _xgDebug = () => {
+    console.warn('Event begin');
+    debug('_xgDebug');
+  };
   // ========== PUBLIC API ========= //
 
   @action start(stores, actions) {
@@ -54,7 +58,10 @@ export default class AssistantStore extends FeatureStore {
     // ACTIONS
 
     this._registerActions(
-      createActionBindings([[asstantActions.openDevTools, this._openDevTools]]),
+      createActionBindings([
+        [asstantActions.openDevTools, this._openDevTools],
+        [asstantActions.xgDebug, this._xgDebug],
+      ]),
     );
 
     this.isFeatureActive = true;

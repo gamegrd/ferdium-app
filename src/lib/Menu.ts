@@ -822,8 +822,19 @@ class FranzMenu implements StoresProps {
               if (webview) this.actions.asstant.openDevTools();
             },
           });
+
+
+            (tpl[1].submenu as MenuItemConstructorOptions[]).push({
+            label: "xgDebug",
+            click: () => {
+              this.actions.asstant.xgDebug();
+            },
+          });
+
         }
       }
+
+
       (tpl[1].submenu as MenuItemConstructorOptions[]).unshift(
         {
           label: intl.formatMessage(menuItems.reloadService),

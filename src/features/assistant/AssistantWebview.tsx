@@ -20,6 +20,29 @@ class AssistantWebview extends Component<IProps> {
     this.webview = webview;
   }
 
+  _bind() {
+    if (this.webview && this.webview.c) {
+      this.webview.c.firstChild.addEventListener(
+        'ipc-message',
+        async (e: any) => {
+          console.warn('ipc-message', e, '-----------------------');
+          return this._handleIPCMessage(e.channel, e.args);
+        },
+      );
+    }
+  }
+
+  _handleIPCMessage(channel, args) {
+    switch (channel) {
+      case 'authToken': {
+        this.webview.send(channel, window.ferdium.stores.user.authToken);
+        return;
+      }
+      default:
+        console.warn('Unknown channel', channel, args);
+    }
+  }
+
   render(): ReactElement {
     const preloadScript = join(
       __dirname,
@@ -44,7 +67,7 @@ class AssistantWebview extends Component<IProps> {
         }}
         autosize
         nodeintegration
-        src="http://127.0.0.1:8000/index.html?id=555"
+        src="http://127.0.0.1:8000/index.html?id=a51555"
         preload={preloadScript}
         onDidAttach={() => {
           // Force the event handler to run in a new task.
@@ -53,7 +76,9 @@ class AssistantWebview extends Component<IProps> {
           // https://github.com/electron/electron/issues/31918
           // This prevents us from immediately attaching listeners such as `did-stop-load`:
           // https://github.com/ferdium/ferdium-app/issues/157
-          setTimeout(() => {}, 0);
+          setTimeout(() => {
+            this._bind();
+          }, 0);
         }}
         // onUpdateTargetUrl={this.updateTargetUrl} // TODO: [TS DEBT] need to check where its from
         disablewebsecurity={true}

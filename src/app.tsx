@@ -16,6 +16,7 @@ import TouchBarFactory from './lib/TouchBar';
 
 import I18N from './I18n';
 import FerdiumRoutes from './routes';
+import assistantMain from './features/assistant/main';
 
 // Basic electron Setup
 webFrame.setVisualZoomLevelLimits(1, 1);
@@ -67,3 +68,5 @@ window.addEventListener('dragover', event => event.preventDefault());
 window.addEventListener('drop', event => event.preventDefault());
 window.addEventListener('dragover', event => event.stopPropagation());
 window.addEventListener('drop', event => event.stopPropagation());
+
+  assistantMain();

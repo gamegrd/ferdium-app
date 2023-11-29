@@ -818,22 +818,18 @@ class FranzMenu implements StoresProps {
           (tpl[1].submenu as MenuItemConstructorOptions[]).push({
             label: intl.formatMessage(menuItems.toggleAsstantDevTools),
             click: () => {
-              const webview = document.querySelector('#AIPanel');
-              if (webview) this.actions.asstant.openDevTools();
+              this.actions.asstant.openDevTools();
             },
           });
 
-
-            (tpl[1].submenu as MenuItemConstructorOptions[]).push({
-            label: "xgDebug",
+          (tpl[1].submenu as MenuItemConstructorOptions[]).push({
+            label: 'xgDebug',
             click: () => {
               this.actions.asstant.xgDebug();
             },
           });
-
         }
       }
-
 
       (tpl[1].submenu as MenuItemConstructorOptions[]).unshift(
         {

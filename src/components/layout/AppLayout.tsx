@@ -21,6 +21,7 @@ import { workspaceStore } from '../../features/workspaces';
 import AppUpdateInfoBar from '../AppUpdateInfoBar';
 import Todos from '../../features/todos/containers/TodosScreen';
 import AssistantDrawer from '../../features/assistant/containers/AssistantDrawer';
+import AssistantWebview from '../../features/assistant/AssistantWebview';
 import Icon from '../ui/icon';
 import LockedScreen from '../../containers/auth/LockedScreen';
 import SettingsStore from '../../stores/SettingsStore';
@@ -107,10 +108,6 @@ class AppLayout extends Component<PropsWithChildren<IProps>, IState> {
     };
   }
 
-  handleAIdeaIPCMessage = (event, message) => {
-    console.warn(event, message);
-  };
-
   render() {
     const {
       classes,
@@ -137,6 +134,14 @@ class AppLayout extends Component<PropsWithChildren<IProps>, IState> {
       return <LockedScreen />;
     }
 
+    const preloadScript = join(
+      __dirname,
+      '..',
+      '..',
+      'features',
+      'assistant',
+      'preload.js',
+    );
 
     return (
       <>
@@ -221,12 +226,7 @@ class AppLayout extends Component<PropsWithChildren<IProps>, IState> {
                 <div style={{ display: 'flex' }}>
                   <div style={{ flex: 1 }}>{services}</div>
                   <div style={{ width: '600px', height: '100%' }}>
-                    <webview
-                      id="AIPanel"
-                      nodeintegration={true}
-                      src="http://127.0.0.1:8000/index.html"
-                      style={{ width: '100%', height: '100%' }}
-                    ></webview>
+                    <AssistantWebview></AssistantWebview>
                   </div>
                 </div>
                 <Outlet />

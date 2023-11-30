@@ -286,6 +286,8 @@ export default class UserStore extends TypedStore {
     if (this.stores.todos.isTodosEnabled) {
       ipcRenderer.send('clear-storage-data', { sessionId: TODOS_PARTITION_ID });
     }
+
+    
   }
 
   @action async _importLegacyServices({ services }): Promise<void> {

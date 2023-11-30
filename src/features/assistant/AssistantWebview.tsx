@@ -40,6 +40,11 @@ class AssistantWebview extends Component<IProps> {
         this.webview.send(channel, window.ferdium.stores.user.authToken);
         return;
       }
+      case 'cleanToken': {
+        //  发token到目标 webview : this.webview
+        this.webview.send(channel, '');
+        return;
+      }
       default:
         console.warn('Unknown channel', channel, args);
     }

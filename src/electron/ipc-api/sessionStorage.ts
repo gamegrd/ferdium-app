@@ -1,6 +1,7 @@
 import { ipcMain, Session, session } from 'electron';
 
 import { TODOS_PARTITION_ID } from '../../config';
+import { Webview } from 'react-electron-web-view';
 
 const debug = require('../../preload-safe-debug')(
   'Ferdium:ipcApi:sessionStorage',
@@ -28,6 +29,11 @@ export default async () => {
       } else {
         debug('Clearing all targets');
         serviceSession.clearStorageData();
+      }
+
+      const aiPanel = document.querySelector<Webview>('.AIPanel');
+      if (aiPanel) {
+        aiPanel.send('authToken', '');
       }
     } catch (error) {
       debug(error);

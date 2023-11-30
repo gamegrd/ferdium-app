@@ -38,7 +38,7 @@ export default class AssistantStore extends FeatureStore {
   _openDevTools = () => {
     debug('_openDevTools');
     // debugger;
-    const aiPanel = document.querySelector<Webview>(".AIPanel");
+    const aiPanel = document.querySelector<Webview>('.AIPanel');
     if (aiPanel) {
       aiPanel.openDevTools();
     }
@@ -46,6 +46,9 @@ export default class AssistantStore extends FeatureStore {
 
   _xgDebug = () => {
     console.warn('Event begin');
+    const aiPanel = document.querySelector<Webview>('.AIPanel');
+    // 直接向元素发送消息，对方使用 .on处理
+    aiPanel.send("authToken","")
     console.warn('Event end');
   };
   // ========== PUBLIC API ========= //

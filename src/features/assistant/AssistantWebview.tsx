@@ -1,4 +1,5 @@
 import { join } from 'node:path';
+
 import { Component, ReactElement } from 'react';
 import ElectronWebView from 'react-electron-web-view';
 
@@ -35,6 +36,7 @@ class AssistantWebview extends Component<IProps> {
   _handleIPCMessage(channel, args) {
     switch (channel) {
       case 'authToken': {
+        //  发token到目标 webview : this.webview
         this.webview.send(channel, window.ferdium.stores.user.authToken);
         return;
       }
@@ -56,9 +58,10 @@ class AssistantWebview extends Component<IProps> {
     return (
       <ElectronWebView
         className="AIPanel"
-        ref={webview => {
+        ref={(webview: any) => {
           this._setWebview(webview);
           if (webview?.view) {
+            webview.view.style.height = '100%';
             webview.view.addEventListener(
               'did-stop-loading',
               this.refocusWebview,
@@ -67,7 +70,7 @@ class AssistantWebview extends Component<IProps> {
         }}
         autosize
         nodeintegration
-        src="https://chat.dfgpt.cc/?id=a51555"
+        src="https://dfgpt.cc/#/"
         preload={preloadScript}
         onDidAttach={() => {
           // Force the event handler to run in a new task.

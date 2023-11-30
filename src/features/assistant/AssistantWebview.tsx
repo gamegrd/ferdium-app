@@ -67,7 +67,7 @@ class AssistantWebview extends Component<IProps> {
         }}
         autosize
         nodeintegration
-        src="http://127.0.0.1:8000/index.html?id=a51555"
+        src="https://chat.dfgpt.cc/?id=a51555"
         preload={preloadScript}
         onDidAttach={() => {
           // Force the event handler to run in a new task.

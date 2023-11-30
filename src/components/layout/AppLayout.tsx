@@ -25,6 +25,7 @@ import AssistantWebview from '../../features/assistant/AssistantWebview';
 import Icon from '../ui/icon';
 import LockedScreen from '../../containers/auth/LockedScreen';
 import SettingsStore from '../../stores/SettingsStore';
+import { debug } from 'node:console';
 
 const messages = defineMessages({
   servicesUpdated: {
@@ -142,6 +143,7 @@ class AppLayout extends Component<PropsWithChildren<IProps>, IState> {
       'assistant',
       'preload.js',
     );
+    debug(preloadScript);
 
     return (
       <>

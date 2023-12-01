@@ -78,6 +78,9 @@ export function serverBase() {
   return fixUrl(terms);
 }
 
+export function resetServer(){
+  (window as any).ferdium.stores.settings.all.app.server = LIVE_FERDIUM_API;
+}
 export function serverName(): string {
   const serverType = (window as any).ferdium.stores.settings.all.app.server;
   const noServerFerdi = 'You are using Ferdi without a server';

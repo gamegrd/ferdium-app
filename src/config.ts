@@ -327,7 +327,7 @@ export const ICON_SIZES = {
 export const iconSizeBias = 20;
 
 export const DEFAULT_WINDOW_OPTIONS = {
-  width: 1200,
+  width: 1600,
   height: 900,
   x: 0,
   y: 0,

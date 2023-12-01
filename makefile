@@ -1,8 +1,10 @@
-debug:
+debug: clear
+	pnpm prepare-code
 	pnpm debug
 
-public:
-	$env:DEBUG="electron-builder"; .\scripts\build-windows.ps1
+clear:
+	$(info "-----------clear-----------")
+	
 
-publish:
-	$env:DEBUG="electron-builder"; pnpm electron-builder "--x64" "--dir"
+public:
+	$env:DEBUG="electron-builder"; .\scripts\build-win11.ps1

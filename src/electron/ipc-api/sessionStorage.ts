@@ -1,7 +1,7 @@
 import { ipcMain, Session, session } from 'electron';
 
-import { TODOS_PARTITION_ID } from '../../config';
 import { Webview } from 'react-electron-web-view';
+import { TODOS_PARTITION_ID } from '../../config';
 
 const debug = require('../../preload-safe-debug')(
   'Ferdium:ipcApi:sessionStorage',

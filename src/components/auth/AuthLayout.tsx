@@ -18,7 +18,7 @@ import { isWindows } from '../../environment';
 import AppUpdateInfoBar from '../AppUpdateInfoBar';
 import { GITHUB_FERDIUM_URL } from '../../config';
 import Icon from '../ui/icon';
-import { resetServer,serverName } from '../../api/apiBase';
+import { resetServer, serverName } from '../../api/apiBase';
 
 export interface IProps extends WrappedComponentProps {
   children: ReactElement;
@@ -96,11 +96,10 @@ class AuthLayout extends Component<IProps, IState> {
               ctaLabel="Try again"
               ctaLoading={isHealthCheckLoading}
               sticky
-              onClick={ (v:any)=>{
+              onClick={(v: any) => {
                 resetServer();
                 retryHealthCheck(v);
-              }
-              }
+              }}
             >
               <Icon icon={mdiFlash} />
               {intl.formatMessage(globalMessages.APIUnhealthy, {

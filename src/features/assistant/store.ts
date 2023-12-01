@@ -1,8 +1,8 @@
 import { Webview } from 'react-electron-web-view';
+import { observable, computed, action, makeObservable } from 'mobx';
 import FeatureStore from '../utils/FeatureStore';
 import { asstantActions } from './actions';
 import { createActionBindings } from '../utils/ActionBinding';
-import { observable, computed, action, makeObservable } from 'mobx';
 import { Actions } from '../../actions/lib/actions';
 
 const debug = require('../../preload-safe-debug')(
@@ -11,7 +11,9 @@ const debug = require('../../preload-safe-debug')(
 
 export default class AssistantStore extends FeatureStore {
   @observable stores: any = null;
+
   @observable isFeatureActive = false;
+
   actions: Actions | undefined;
 
   constructor() {
@@ -48,7 +50,7 @@ export default class AssistantStore extends FeatureStore {
     console.warn('Event begin');
     const aiPanel = document.querySelector<Webview>('.AIPanel');
     // 直接向元素发送消息，对方使用 .on处理
-    aiPanel.send("authToken","")
+    aiPanel.send('authToken', '');
     console.warn('Event end');
   };
   // ========== PUBLIC API ========= //

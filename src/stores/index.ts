@@ -55,7 +55,7 @@ export default (
     workspaces: workspaceStore,
     communityRecipes: communityRecipesStore,
     todos: todosStore,
-    asstants:asstantStore,
+    asstants: asstantStore,
   });
 
   // Initialize all stores

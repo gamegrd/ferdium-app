@@ -1186,15 +1186,14 @@ class EditSettingsScreen extends Component<
     }
 
     if (todos.isFeatureActive) {
-      var v = true;
-      if (undefined === todos.settings) {
-        v = true;
-      } else {
-        v = ifUndefined<boolean>(
-          todos.settings.isFeatureEnabledByUser,
-          DEFAULT_APP_SETTINGS.isTodosFeatureEnabled,
-        );
-      }
+      let v = true;
+      v =
+        undefined === todos.settings
+          ? true
+          : ifUndefined<boolean>(
+              todos.settings.isFeatureEnabledByUser,
+              DEFAULT_APP_SETTINGS.isTodosFeatureEnabled,
+            );
       config.fields.enableTodos = {
         label: intl.formatMessage(messages.enableTodos),
         value: v,

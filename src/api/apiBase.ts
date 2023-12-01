@@ -78,7 +78,7 @@ export function serverBase() {
   return fixUrl(terms);
 }
 
-export function resetServer(){
+export function resetServer() {
   (window as any).ferdium.stores.settings.all.app.server = LIVE_FERDIUM_API;
 }
 export function serverName(): string {

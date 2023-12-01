@@ -9,7 +9,7 @@ window['xgLoad'] = {
   },
 };
 
-ipcRenderer.on("authToken", (event, message) => {
+ipcRenderer.on('authToken', (event, message) => {
   localStorage.setItem('authToken', message);
   console.warn('Received host message', event, message);
 });

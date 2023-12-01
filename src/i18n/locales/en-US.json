@@ -130,6 +130,7 @@
   "menu.view.reloadTodos": "Reload ToDos",
   "menu.view.resetZoom": "Actual Size",
   "menu.view.splitModeToggle": "Toggle Split Mode",
+  "menu.view.toggleAsstantDevTools": "Toggle Asstant Developer Tools",
   "menu.view.toggleDarkMode": "Toggle Dark Mode",
   "menu.view.toggleDevTools": "Toggle Developer Tools",
   "menu.view.toggleFullScreen": "Toggle Full Screen",

@@ -45,7 +45,7 @@ window.addEventListener('load', () => {
             <FerdiumRoutes history={history} />
           </I18N>
         </Provider>
-      ); 
+      );
       const container = document.querySelector('#root');
       const root = createRoot(container!);
       root.render(preparedApp);
@@ -69,4 +69,4 @@ window.addEventListener('drop', event => event.preventDefault());
 window.addEventListener('dragover', event => event.stopPropagation());
 window.addEventListener('drop', event => event.stopPropagation());
 
-  assistantMain();
+assistantMain();

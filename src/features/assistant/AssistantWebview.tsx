@@ -22,7 +22,7 @@ class AssistantWebview extends Component<IProps> {
   }
 
   _bind() {
-    if (this.webview && this.webview.c) {
+    if (this.webview?.c) {
       this.webview.c.firstChild.addEventListener(
         'ipc-message',
         async (e: any) => {
@@ -45,8 +45,9 @@ class AssistantWebview extends Component<IProps> {
         this.webview.send(channel, '');
         return;
       }
-      default:
+      default: {
         console.warn('Unknown channel', channel, args);
+      }
     }
   }
 
@@ -89,7 +90,7 @@ class AssistantWebview extends Component<IProps> {
           }, 0);
         }}
         // onUpdateTargetUrl={this.updateTargetUrl} // TODO: [TS DEBT] need to check where its from
-        disablewebsecurity={true}
+        disablewebsecurity
         allowpopups
         webpreferences={`spellcheck=${1}, contextIsolation=0`}
       />

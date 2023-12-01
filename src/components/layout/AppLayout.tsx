@@ -8,6 +8,7 @@ import { ipcRenderer } from 'electron';
 
 import { mdiFlash, mdiPowerPlug } from '@mdi/js';
 import { Outlet } from 'react-router-dom';
+import { debug } from 'node:console';
 import InfoBar from '../ui/InfoBar';
 import { Component as BasicAuth } from '../../features/basicAuth';
 import { Component as QuickSwitch } from '../../features/quickSwitch';
@@ -25,7 +26,6 @@ import AssistantWebview from '../../features/assistant/AssistantWebview';
 import Icon from '../ui/icon';
 import LockedScreen from '../../containers/auth/LockedScreen';
 import SettingsStore from '../../stores/SettingsStore';
-import { debug } from 'node:console';
 
 const messages = defineMessages({
   servicesUpdated: {
@@ -228,7 +228,7 @@ class AppLayout extends Component<PropsWithChildren<IProps>, IState> {
                 <div style={{ display: 'flex' }}>
                   <div style={{ flex: 1 }}>{services}</div>
                   <div style={{ width: '600px', height: '100%' }}>
-                    <AssistantWebview></AssistantWebview>
+                    <AssistantWebview />
                   </div>
                 </div>
                 <Outlet />

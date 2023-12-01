@@ -270,7 +270,7 @@ dependencies:
 optionalDependencies:
   macos-notification-state:
     specifier: github:DFgpt/macos-notification-state
-    version: github.com/DFgpt/macos-notification-state/e0e78c3aff1a9d2362709dff70d01d3eaef4ee6a
+    version: git@github.com+DFgpt/macos-notification-state/e0e78c3aff1a9d2362709dff70d01d3eaef4ee6a
   node-mac-permissions:
     specifier: ^2.3.0
     version: 2.3.0
@@ -13689,8 +13689,8 @@ packages:
       stack-trace: 0.0.10
     dev: false
 
-  github.com/DFgpt/macos-notification-state/e0e78c3aff1a9d2362709dff70d01d3eaef4ee6a:
-    resolution: {tarball: https://codeload.github.com/DFgpt/macos-notification-state/tar.gz/e0e78c3aff1a9d2362709dff70d01d3eaef4ee6a}
+  git@github.com+DFgpt/macos-notification-state/e0e78c3aff1a9d2362709dff70d01d3eaef4ee6a:
+    resolution: {commit: e0e78c3aff1a9d2362709dff70d01d3eaef4ee6a, repo: git@github.com:DFgpt/macos-notification-state.git, type: git}
     name: macos-notification-state
     version: 3.0.0
     os: [darwin]

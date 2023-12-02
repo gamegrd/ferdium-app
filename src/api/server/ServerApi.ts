@@ -47,6 +47,7 @@ export default class ServerApi {
   recipePreviews: IRecipePreview[] = [];
 
   recipes: IRecipe[] = [];
+  updatedRecipes: string[] = [];
 
   // User
   async login(email: string, passwordHash: string) {
@@ -394,6 +395,7 @@ export default class ServerApi {
     }
     const recipes = await request.json();
     debug('ServerApi::getRecipeUpdates resolves', recipes);
+    this.updatedRecipes = recipes;
     return recipes;
   }
 
@@ -441,9 +443,9 @@ export default class ServerApi {
 
     let archivePath: PathOrFileDescriptor;
     // xgdebug;
-    // debugger;
-    const forceDownload = false;
-    if (!forceDownload && pathExistsSync(internalRecipeFile)) {
+    debugger;
+    var updated = this.updatedRecipes.includes(recipeId);
+    if (!updated && pathExistsSync(internalRecipeFile)) {
       debug('[ServerApi::getRecipePackage] Using internal recipe file');
       archivePath = internalRecipeFile;
     } else {

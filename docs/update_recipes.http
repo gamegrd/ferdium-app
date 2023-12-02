@@ -1,0 +1,19 @@
+curl 'https://www.dfgpt.cc/v1/recipes/update' \
+  -H 'authority: www.dfgpt.cc' \
+  -H 'accept: */*' \
+  -H 'accept-language: en-US' \
+  -H 'content-type: application/json' \
+  -H 'sec-ch-ua: "Not=A?Brand";v="99", "Chromium";v="118"' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'sec-ch-ua-platform: "Linux"' \
+  -H 'sec-fetch-dest: empty' \
+  -H 'sec-fetch-mode: cors' \
+  -H 'sec-fetch-site: cross-site' \
+  -H 'user-agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36.0 (KHTML, like Gecko) Chrome/118.0.5993.89 Safari/537.36.0' \
+  -H 'x-franz-platform: linux' \
+  -H 'x-franz-source: desktop' \
+  -H 'x-franz-system-locale: en-US' \
+  -H 'x-franz-timezone-offset: -480' \
+  -H 'x-franz-version: 6.6.1-dfgpt.6' \
+  --data-raw '{"skype":"3.7.0","telegram":"3.5.18"}' \
+  --compressed

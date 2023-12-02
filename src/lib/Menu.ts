@@ -1257,7 +1257,7 @@ class FranzMenu implements StoresProps {
       click: () => {
         todoActions.toggleTodosFeatureVisibility();
       },
-      enabled: this.stores.user.isLoggedIn,
+      enabled: false, //this.stores.user.isLoggedIn,
     });
 
     if (isFeatureEnabledByUser) {

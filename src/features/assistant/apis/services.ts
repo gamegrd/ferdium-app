@@ -17,9 +17,9 @@ export default class ServericeAPI {
     this.num = 0;
     this.base = 'http://127.0.0.1:30001';
     this.token = '';
-    ipcRenderer.invoke('token').then(token => {
-      this.token = token;
-    });
+    // ipcRenderer.invoke('token').then(token => {
+    //   this.token = token;
+    // });
     debug('TranslatorHandler constructor', this.base, this.token);
   }
 

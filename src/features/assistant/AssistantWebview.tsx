@@ -1,4 +1,5 @@
 import { join } from 'node:path';
+import { aiBase } from '../../api/apiBase';
 
 import { Component, ReactElement } from 'react';
 import ElectronWebView from 'react-electron-web-view';
@@ -76,7 +77,7 @@ class AssistantWebview extends Component<IProps> {
         }}
         autosize
         nodeintegration
-        src="https://dfgpt.cc/#/"
+        src={aiBase()}
         preload={preloadScript}
         onDidAttach={() => {
           // Force the event handler to run in a new task.

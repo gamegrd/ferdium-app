@@ -13,7 +13,8 @@ export const LOCAL_HOSTNAME = 'localhost';
 export const LOCAL_PORT = 46_569;
 export const LOCAL_API = 'http://localhost:3333';
 export const DEV_FRANZ_API = 'https://localhost';
-
+export const LIVE_AI_URL = "https://dfgpt.cc/#/";
+export const LOCAL_AI_URL = "https://dfgpt.cc/#/";
 // export const DFGPT_API = 'http://43.134.61.67:3333';
 // export const LIVE_FERDIUM_API = 'http://43.134.61.67:3333';
 export const LIVE_FERDIUM_API = 'https://www.dfgpt.cc';

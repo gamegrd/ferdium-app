@@ -1,5 +1,5 @@
 // import { ipcRenderer } from 'electron';
-import { ipcRenderer } from 'electron';
+// import { ipcRenderer } from 'electron';
 import TranslatorRequest from './request';
 
 const debug = require('../../../preload-safe-debug')(

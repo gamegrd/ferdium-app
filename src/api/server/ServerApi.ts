@@ -47,6 +47,7 @@ export default class ServerApi {
   recipePreviews: IRecipePreview[] = [];
 
   recipes: IRecipe[] = [];
+
   updatedRecipes: string[] = [];
 
   // User
@@ -444,7 +445,7 @@ export default class ServerApi {
     let archivePath: PathOrFileDescriptor;
     // xgdebug;
     debugger;
-    var updated = this.updatedRecipes.includes(recipeId);
+    const updated = this.updatedRecipes.includes(recipeId);
     if (!updated && pathExistsSync(internalRecipeFile)) {
       debug('[ServerApi::getRecipePackage] Using internal recipe file');
       archivePath = internalRecipeFile;

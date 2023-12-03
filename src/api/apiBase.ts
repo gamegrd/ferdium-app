@@ -20,7 +20,7 @@ export function aiBase() {
   if (LOCAL_DEBUG && isDevMode) {
     return LOCAL_AI_URL;
   }
-  return LIVE_AI_URL
+  return LIVE_AI_URL;
 }
 
 // Note: This cannot be used from the internal-server since we are not running within the context of a browser window

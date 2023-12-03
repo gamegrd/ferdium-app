@@ -1,8 +1,8 @@
 import { join } from 'node:path';
-import { aiBase } from '../../api/apiBase';
 
 import { Component, ReactElement } from 'react';
 import ElectronWebView from 'react-electron-web-view';
+import { aiBase } from '../../api/apiBase';
 
 interface IProps {}
 

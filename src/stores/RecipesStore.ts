@@ -125,7 +125,7 @@ export default class RecipesStore extends TypedStore {
     );
 
     const length = updates.length - 1;
-    const syncUpdate = async (i:number) => {
+    const syncUpdate = async (i: number) => {
       const update = updates[i];
 
       this.actions.recipe.install({ recipeId: update });

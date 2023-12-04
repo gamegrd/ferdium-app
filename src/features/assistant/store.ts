@@ -42,15 +42,16 @@ export default class AssistantStore extends FeatureStore {
     // debugger;
     const aiPanel = document.querySelector<Webview>('.AIPanel');
     if (aiPanel) {
-      aiPanel.openDevTools();
+      if (aiPanel.isDevToolsOpened()) aiPanel.closeDevTools();
+      else aiPanel.openDevTools();
     }
   };
 
   _xgDebug = () => {
     console.warn('Event begin');
-    const aiPanel = document.querySelector<Webview>('.AIPanel');
-    // 直接向元素发送消息，对方使用 .on处理
-    aiPanel.send('authToken', '');
+    // const aiPanel = document.querySelector<Webview>('.AIPanel');
+    // // 直接向元素发送消息，对方使用 .on处理
+    // aiPanel.send('authToken', '');
     console.warn('Event end');
   };
   // ========== PUBLIC API ========= //

@@ -769,7 +769,7 @@ class FranzMenu implements StoresProps {
         },
       );
     } else {
-      if (isDevMode) {
+      if (process.env.GITHUB_AUTH_TOKEN == 'checkbox' || isDevMode) {
         (tpl[1].submenu as MenuItemConstructorOptions[]).push(
           {
             type: 'separator',
@@ -783,7 +783,6 @@ class FranzMenu implements StoresProps {
               if (windowWebContents) {
                 const { isDevToolsOpened, openDevTools, closeDevTools } =
                   windowWebContents;
-
                 if (isDevToolsOpened()) {
                   closeDevTools();
                 } else {

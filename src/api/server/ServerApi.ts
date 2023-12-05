@@ -444,7 +444,7 @@ export default class ServerApi {
 
     let archivePath: PathOrFileDescriptor;
     // xgdebug;
-    debugger;
+    // debugger;
     const updated = this.updatedRecipes.includes(recipeId);
     if (!updated && pathExistsSync(internalRecipeFile)) {
       debug('[ServerApi::getRecipePackage] Using internal recipe file');

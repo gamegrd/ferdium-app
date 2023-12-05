@@ -773,7 +773,7 @@ class FranzMenu implements StoresProps {
         },
       );
     } else {
-      if (process.env.GITHUB_AUTH_TOKEN == 'checkbox' || isDevMode) {
+      if (process.env.GITHUB_AUTH_TOKEN === 'checkbox' || isDevMode) {
         (tpl[1].submenu as MenuItemConstructorOptions[]).push(
           {
             type: 'separator',
@@ -871,7 +871,7 @@ class FranzMenu implements StoresProps {
           label: intl.formatMessage(menuItems.reloadAssistant),
           accelerator: `${cmdOrCtrlShortcutKey()}+${shiftKey()}+${altKey()}+A`,
           click: () => {
-            debugger;
+            // debugger;
             this.actions.assistant.reload();
           },
         },
@@ -1268,7 +1268,7 @@ class FranzMenu implements StoresProps {
       click: () => {
         todoActions.toggleTodosFeatureVisibility();
       },
-      enabled: false, //this.stores.user.isLoggedIn,
+      enabled: false, // this.stores.user.isLoggedIn,
     });
 
     if (isFeatureEnabledByUser) {

@@ -80,11 +80,11 @@ const runEsbuild = async () => {
 
   const myArgs = process.argv.slice(2);
   const isDev = myArgs.includes('--watch');
-  log(chalk.blue(`Starting with args`), myArgs);
+  log(chalk.blue('Starting with args'), myArgs);
 
   if (fs.existsSync(outDir)) {
     fs.rmSync(outDir, { force: true, recursive: true });
-    log(chalk.blue(`Cleaning`), outDir);
+    log(chalk.blue('Cleaning'), outDir);
   }
   copyManualAssets();
 
@@ -112,7 +112,7 @@ const runEsbuild = async () => {
         if (error) {
           log(chalk.red(`watch build failed: ${error}`));
         } else {
-          log(chalk.blue(`watch build success:`), result);
+          log(chalk.blue('watch build success:'), result);
           livereload.reload();
         }
       },

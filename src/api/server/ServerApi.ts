@@ -551,7 +551,6 @@ export default class ServerApi {
     return Promise.all(
       services.map(async (service: any) => this._prepareServiceModel(service)),
     );
-    /* eslint-enable no-return-await */
   }
 
   async _prepareServiceModel(service: { recipeId: string }) {

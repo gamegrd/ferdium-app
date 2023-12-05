@@ -14,7 +14,7 @@ import GlobalErrorStore from './GlobalErrorStore';
 import { workspaceStore } from '../features/workspaces';
 import { communityRecipesStore } from '../features/communityRecipes';
 import { todosStore } from '../features/todos';
-import { asstantStore } from '../features/assistant';
+import { assistantStore } from '../features/assistant';
 
 export interface RealStores {
   router: RouterStore;
@@ -31,7 +31,7 @@ export interface RealStores {
   workspaces: typeof workspaceStore;
   communityRecipes: typeof communityRecipesStore;
   todos: typeof todosStore;
-  asstants: typeof asstantStore;
+  assistants: typeof assistantStore;
 }
 
 export default (
@@ -55,7 +55,7 @@ export default (
     workspaces: workspaceStore,
     communityRecipes: communityRecipesStore,
     todos: todosStore,
-    asstants: asstantStore,
+    assistants: assistantStore,
   });
 
   // Initialize all stores

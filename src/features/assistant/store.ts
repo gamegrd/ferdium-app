@@ -1,7 +1,7 @@
 import { Webview } from 'react-electron-web-view';
 import { observable, computed, action, makeObservable } from 'mobx';
 import FeatureStore from '../utils/FeatureStore';
-import { asstantActions } from './actions';
+import { assistantActions } from './actions';
 import { createActionBindings } from '../utils/ActionBinding';
 import { Actions } from '../../actions/lib/actions';
 
@@ -54,6 +54,11 @@ export default class AssistantStore extends FeatureStore {
     // aiPanel.send('authToken', '');
     console.warn('Event end');
   };
+
+  _reload = () => {
+    const aiPanel = document.querySelector<Webview>('.AIPanel');
+    aiPanel.reload();
+  };
   // ========== PUBLIC API ========= //
 
   @action start(stores, actions) {
@@ -65,8 +70,9 @@ export default class AssistantStore extends FeatureStore {
 
     this._registerActions(
       createActionBindings([
-        [asstantActions.openDevTools, this._openDevTools],
-        [asstantActions.xgDebug, this._xgDebug],
+        [assistantActions.openDevTools, this._openDevTools],
+        [assistantActions.xgDebug, this._xgDebug],
+        [assistantActions.reload, this._reload],
       ]),
     );
 

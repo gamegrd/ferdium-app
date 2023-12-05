@@ -185,6 +185,10 @@ const menuItems = defineMessages({
     id: 'menu.view.reloadTodos',
     defaultMessage: 'Reload ToDos',
   },
+  reloadAssistant: {
+    id: 'menu.view.reloadAI',
+    defaultMessage: 'Reload AI',
+  },
   minimize: {
     id: 'menu.window.minimize',
     defaultMessage: 'Minimize',
@@ -817,14 +821,14 @@ class FranzMenu implements StoresProps {
           (tpl[1].submenu as MenuItemConstructorOptions[]).push({
             label: intl.formatMessage(menuItems.toggleAsstantDevTools),
             click: () => {
-              this.actions.asstant.openDevTools();
+              this.actions.assistant.openDevTools();
             },
           });
 
           (tpl[1].submenu as MenuItemConstructorOptions[]).push({
             label: 'xgDebug',
             click: () => {
-              this.actions.asstant.xgDebug();
+              this.actions.assistant.xgDebug();
             },
           });
         }
@@ -861,6 +865,14 @@ class FranzMenu implements StoresProps {
           accelerator: `${cmdOrCtrlShortcutKey()}+${shiftKey()}+${altKey()}+R`,
           click: () => {
             this.actions.todos.reload();
+          },
+        },
+        {
+          label: intl.formatMessage(menuItems.reloadAssistant),
+          accelerator: `${cmdOrCtrlShortcutKey()}+${shiftKey()}+${altKey()}+A`,
+          click: () => {
+            debugger;
+            this.actions.assistant.reload();
           },
         },
         {

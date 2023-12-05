@@ -9,12 +9,15 @@ export interface AsstantClientMessage {
 interface AsstantActionsType {
   openDevTools: () => void;
   xgDebug: () => void;
+  reload: () => void;
 }
 
-export const asstantActions = createActionsFromDefinitions<AsstantActionsType>(
-  {
-    openDevTools: {},
-    xgDebug: {},
-  },
-  PropTypes.checkPropTypes,
-);
+export const assistantActions =
+  createActionsFromDefinitions<AsstantActionsType>(
+    {
+      openDevTools: {},
+      xgDebug: {},
+      reload: {},
+    },
+    PropTypes.checkPropTypes,
+  );

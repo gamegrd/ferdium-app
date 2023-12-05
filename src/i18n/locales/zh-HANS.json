@@ -408,6 +408,7 @@
   "tabs.item.disableService": "停用服务",
   "tabs.item.enableAudio": "启用声音",
   "tabs.item.enableDarkMode": "Enable Dark mode",
+  "tabs.item.disableDarkMode": "Disable Dark mode",
   "tabs.item.enableNotification": "启用通知",
   "tabs.item.enableService": "启用服务",
   "tabs.item.hibernateService": "Hibernate service",

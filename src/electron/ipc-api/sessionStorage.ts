@@ -33,7 +33,8 @@ export default async () => {
 
       const aiPanel = document.querySelector<Webview>('.AIPanel');
       if (aiPanel) {
-        aiPanel.send('authToken', '');
+        // 向控件发送消息，同步token
+        aiPanel.send('clearToken', '');
       }
     } catch (error) {
       debug(error);

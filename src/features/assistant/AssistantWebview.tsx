@@ -27,7 +27,8 @@ class AssistantWebview extends Component<IProps> {
       this.webview.c.firstChild.addEventListener(
         'ipc-message',
         async (e: any) => {
-          console.warn('ipc-message', e, '-----------------------');
+          console.warn('ipc-message', e);
+          // 处理发向本webview的消息
           return this._handleIPCMessage(e.channel, e.args);
         },
       );
@@ -41,7 +42,7 @@ class AssistantWebview extends Component<IProps> {
         this.webview.send(channel, window.ferdium.stores.user.authToken);
         return;
       }
-      case 'cleanToken': {
+      case 'clearToken': {
         //  发token到目标 webview : this.webview
         this.webview.send(channel, '');
         return;

@@ -222,52 +222,6 @@ class RecipeWebview {
     ipcRenderer.sendToHost(channel, ...args);
   }
 
-  async getTran(
-    msg: string,
-    apiBase: string,
-    token: string,
-    modes: string,
-    tones: string,
-  ) {
-    debug(msg, apiBase, token, modes, tones);
-    return 'getTran working...';
-  }
-
-  async getSuggest(apiBase: string, token: string, obj: any) {
-    debug('getSuggest', obj);
-    const res = await this.apiHandler.getSuggest(apiBase, token, obj);
-    debug('getSuggest', res);
-    if (res.status === 0) {
-      return res.data;
-    }
-    ipcRenderer.sendToHost('error', res.msg);
-    throw new Error('getSuggest err');
-  }
-
-  // 翻译为对方语言
-  async trangpt(apiBase: string, token: string, obj: any) {
-    debug('TranGPT', obj);
-    const res = await this.apiHandler.trangpt(apiBase, token, obj);
-    debug(res);
-    if (res.status === 0) {
-      return res.data;
-    }
-    ipcRenderer.sendToHost('error', res.msg);
-    throw new Error('getTran err');
-  }
-
-  // 对方翻回本地语言
-  async getTran2(msg: string, apiBase: string, token: string) {
-    debug('getTran2', msg);
-    const res = await this.apiHandler.getTran2(msg, apiBase, token);
-    debug(res);
-    if (res.status === 0) {
-      return res.data;
-    }
-    ipcRenderer.sendToHost('error', res.msg);
-    throw new Error('getTran2 err');
-  }
-
   readfile(file: string) {
     if (pathExistsSync(file)) {
       const content = readFileSync(file, 'utf8');

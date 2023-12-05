@@ -125,6 +125,7 @@
   "menu.view.forward": "Forward",
   "menu.view.lockFerdium": "Lock DFgpt",
   "menu.view.openQuickSwitch": "Open Quick Switch",
+  "menu.view.reloadAI": "Reload AI",
   "menu.view.reloadFerdium": "Reload DFgpt",
   "menu.view.reloadService": "Reload Service",
   "menu.view.reloadTodos": "Reload ToDos",

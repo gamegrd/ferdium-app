@@ -13,32 +13,32 @@ export const LOCAL_HOSTNAME = 'localhost';
 export const LOCAL_PORT = 46_569;
 export const LOCAL_API = 'http://localhost:3333';
 export const DEV_FRANZ_API = 'https://localhost';
-export const LIVE_AI_URL = 'https://chat.dfgpt.cc/#/';
-export const LOCAL_AI_URL = 'https://chat.dfgpt.cc/#/';
+export const LIVE_AI_URL = 'https://chat.dfgpt.ai/#/';
+export const LOCAL_AI_URL = 'https://chat.dfgpt.ai/#/';
 // export const DFGPT_API = 'http://43.134.61.67:3333';
 // export const LIVE_FERDIUM_API = 'http://43.134.61.67:3333';
-export const LIVE_FERDIUM_API = 'https://www.dfgpt.cc';
+export const LIVE_FERDIUM_API = 'https://www.dfgpt.ai';
 // 'http://43.134.61.67:3333';
-// export const LIVE_FERDIUM_API = 'https://api.dfgpt.cc';
+// export const LIVE_FERDIUM_API = 'https://api.dfgpt.ai';
 export const LIVE_FRANZ_API = 'https://localhost';
 
 // URL used to submit debugger information, see https://github.com/ferdium/debugger
-export const DEBUG_API = 'https://www.dfgpt.cc';
+export const DEBUG_API = 'https://www.dfgpt.ai';
 
 export const LOCAL_WS_API = 'ws://localhost';
 export const DEV_WS_API = 'wss://localhost';
 export const LIVE_WS_API = 'wss://localhost';
 
-export const LOCAL_API_WEBSITE = 'http://www.dfgpt.cc';
+export const LOCAL_API_WEBSITE = 'http://www.dfgpt.ai';
 export const DEV_API_FRANZ_WEBSITE = 'https://meetfranz.com';
-// export const LIVE_API_FERDIUM_WEBSITE = 'https://dfgpt.cc';
-export const LIVE_API_FERDIUM_WEBSITE = 'https://www.dfgpt.cc';
+// export const LIVE_API_FERDIUM_WEBSITE = 'https://dfgpt.ai';
+export const LIVE_API_FERDIUM_WEBSITE = 'https://www.dfgpt.ai';
 export const LIVE_API_FERDIUM_LIBRETRANSLATE =
-  'https://translator.dfgpt.cc/translate';
+  'https://translator.dfgpt.ai/translate';
 
 export const STATS_API = 'https://stats.franzinfra.com';
 
-export const LOCAL_TODOS_FRONTEND_URL = 'https://www.dfgpt.cc/v1:4000';
+export const LOCAL_TODOS_FRONTEND_URL = 'https://www.dfgpt.ai/v1:4000';
 export const PRODUCTION_TODOS_FRONTEND_URL = 'https://app.franztodos.com';
 export const DEVELOPMENT_TODOS_FRONTEND_URL =
   'https://development--franz-todos.netlify.com';

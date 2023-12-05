@@ -1,5 +1,5 @@
-curl 'https://www.dfgpt.cc/v1/recipes/update' \
-  -H 'authority: www.dfgpt.cc' \
+curl 'https://www.dfgpt.ai/v1/recipes/update' \
+  -H 'authority: www.dfgpt.ai' \
   -H 'accept: */*' \
   -H 'accept-language: en-US' \
   -H 'content-type: application/json' \

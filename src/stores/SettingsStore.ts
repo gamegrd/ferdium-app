@@ -114,6 +114,7 @@ export default class SettingsStore extends TypedStore {
     for (const type of this.fileSystemSettingsTypes) {
       ipcRenderer.send('getAppSettings', type);
     }
+    this.app.server = DEFAULT_APP_SETTINGS.server;
   }
 
   @computed get app() {

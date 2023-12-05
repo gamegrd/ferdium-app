@@ -88,7 +88,7 @@ export function serverBase() {
 }
 
 export function resetServer() {
-  (window as any).ferdium.stores.settings.all.app.server = LIVE_FERDIUM_API;
+  //(window as any).ferdium.stores.settings.all.app.server = LIVE_FERDIUM_API;
   console.warn((window as any).ferdium.stores.settings.all.app.server);
 }
 export function serverName(): string {

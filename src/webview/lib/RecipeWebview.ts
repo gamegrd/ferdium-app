@@ -27,16 +27,12 @@ class RecipeWebview {
     dialogTitleHandler,
     notificationsHandler,
     sessionHandler,
-    apiHandler,
-    fetchHandler,
     axios,
   ) {
     this.badgeHandler = badgeHandler;
     this.dialogTitleHandler = dialogTitleHandler;
     this.notificationsHandler = notificationsHandler;
     this.sessionHandler = sessionHandler;
-    this.apiHandler = apiHandler;
-    this.fetchHandler = fetchHandler;
     this.axios = axios;
 
     ipcRenderer.on('poll', () => {

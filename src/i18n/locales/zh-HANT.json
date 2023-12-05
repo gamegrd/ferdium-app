@@ -91,6 +91,7 @@
   "menu.view.toggleServiceDevTools": "切換開發人員服務工具",
   "menu.view.zoomIn": "放大",
   "menu.view.zoomOut": "縮小",
+  "menu.view.reloadAI":"重新載入AI",
   "menu.window": "視窗",
   "menu.window.close": "關閉",
   "menu.window.minimize": "最小化",

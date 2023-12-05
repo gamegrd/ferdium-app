@@ -125,6 +125,7 @@
   "menu.view.openQuickSwitch": "打开快速切换",
   "menu.view.reloadFerdium": "重启DFgpt",
   "menu.view.reloadService": "重启服务",
+  "menu.view.reloadAI":"重启AI",
   "menu.view.reloadTodos": "刷新待办",
   "menu.view.resetZoom": "实际尺寸",
   "menu.view.splitModeToggle": "切换到平行模式",

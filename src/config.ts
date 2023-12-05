@@ -13,8 +13,8 @@ export const LOCAL_HOSTNAME = 'localhost';
 export const LOCAL_PORT = 46_569;
 export const LOCAL_API = 'http://localhost:3333';
 export const DEV_FRANZ_API = 'https://localhost';
-export const LIVE_AI_URL = 'https://dfgpt.cc/#/';
-export const LOCAL_AI_URL = 'https://dfgpt.cc/#/';
+export const LIVE_AI_URL = 'https://chat.dfgpt.cc/#/';
+export const LOCAL_AI_URL = 'https://chat.dfgpt.cc/#/';
 // export const DFGPT_API = 'http://43.134.61.67:3333';
 // export const LIVE_FERDIUM_API = 'http://43.134.61.67:3333';
 export const LIVE_FERDIUM_API = 'https://www.dfgpt.cc';
@@ -32,7 +32,7 @@ export const LIVE_WS_API = 'wss://localhost';
 export const LOCAL_API_WEBSITE = 'http://www.dfgpt.cc';
 export const DEV_API_FRANZ_WEBSITE = 'https://meetfranz.com';
 // export const LIVE_API_FERDIUM_WEBSITE = 'https://dfgpt.cc';
-export const LIVE_API_FERDIUM_WEBSITE = 'https://dfgpt.cc';
+export const LIVE_API_FERDIUM_WEBSITE = 'https://www.dfgpt.cc';
 export const LIVE_API_FERDIUM_LIBRETRANSLATE =
   'https://translator.dfgpt.cc/translate';
 

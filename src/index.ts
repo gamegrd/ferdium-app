@@ -19,6 +19,7 @@ import ms from 'ms';
 import { initialize } from 'electron-react-titlebar/main';
 import { enableWebContents, initializeRemote } from './electron-util';
 import enforceMacOSAppLocation from './enforce-macos-app-location';
+const axios = require('axios');
 
 initializeRemote();
 
@@ -684,6 +685,25 @@ ipcMain.handle('get-desktop-capturer-sources', () =>
     types: ['screen', 'window'],
   }),
 );
+
+// 在主进程中定义一个请求处理函数
+ipcMain.handle('axios-request', async (event, options) => {
+  try {
+    const response = await axios.request(options);
+    return {
+      data: response.data,
+      status: response.status,
+      error: null,
+    };
+  } catch (error: any) {
+    console.error('Error fetching data:', event, error);
+    return {
+      data: error && error.data ? error.data : error.toString(),
+      status: error && error.response ? error.response.status : -1,
+      error: error.message,
+    };
+  }
+});
 
 ipcMain.on('window.toolbar-double-clicked', () => {
   if (mainWindow?.isMaximized()) {

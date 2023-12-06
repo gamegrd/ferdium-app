@@ -19,7 +19,6 @@ import ms from 'ms';
 import { initialize } from 'electron-react-titlebar/main';
 import { enableWebContents, initializeRemote } from './electron-util';
 import enforceMacOSAppLocation from './enforce-macos-app-location';
-const axios = require('axios');
 
 initializeRemote();
 
@@ -52,6 +51,7 @@ import userAgent from './helpers/userAgent-helpers';
 import { translateTo } from './helpers/translation-helpers';
 import { darkThemeGrayDarkest } from './themes/legacy';
 
+const axios = require('axios');
 const debug = require('./preload-safe-debug')('Ferdium:App');
 
 // Globally set useragent to fix user agent override in service workers
@@ -687,7 +687,7 @@ ipcMain.handle('get-desktop-capturer-sources', () =>
 );
 
 // 在主进程中定义一个请求处理函数
-ipcMain.handle('axios-request', async (event, options) => {
+ipcMain.handle('axios-request', async (_event, options) => {
   try {
     const response = await axios.request(options);
     return {
@@ -696,12 +696,22 @@ ipcMain.handle('axios-request', async (event, options) => {
       error: null,
     };
   } catch (error: any) {
-    console.error('Error fetching data:', event, error);
-    return {
-      data: error && error.data ? error.data : error.toString(),
-      status: error && error.response ? error.response.status : -1,
-      error: error.message,
-    };
+    if (axios.isAxiosError(error)) {
+      // 检查是否为 Axios 错误
+      return {
+        data: error.response?.data ?? error.toString(),
+        status: error.response?.status ?? -1,
+        error: error.message,
+      };
+    } else {
+      // 对于非 Axios 错误，可能是网络错误等
+      console.error('Error fetching data:', options, error); // 在这种情况下，可能需要在控制台中记录错误
+      return {
+        data: error.toString(),
+        status: -1,
+        error: 'Unknown error',
+      };
+    }
   }
 });
 

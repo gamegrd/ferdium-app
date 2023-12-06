@@ -39,7 +39,7 @@ export default function apiBase(withVersion = true) {
       ? `http://${LOCAL_HOSTNAME}:${
           (window as any).ferdium.stores.requests.localServerPort
         }`
-      : LIVE_FERDIUM_API; //(window as any).ferdium.stores.settings.all.app.server;
+      : LIVE_FERDIUM_API; // (window as any).ferdium.stores.settings.all.app.server;
 
   return fixUrl(withVersion ? `${url}/${API_VERSION}` : url);
 }
@@ -89,7 +89,7 @@ export function serverBase() {
 }
 
 export function resetServer() {
-  //(window as any).ferdium.stores.settings.all.app.server = LIVE_FERDIUM_API;
+  // (window as any).ferdium.stores.settings.all.app.server = LIVE_FERDIUM_API;
   console.warn((window as any).ferdium.stores.settings.all.app.server);
 }
 export function serverName(): string {

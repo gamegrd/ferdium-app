@@ -225,6 +225,13 @@ class RecipeWebview {
     }
     return null;
   }
+
+  async request(options: any) {
+    console.warn('request:', options);
+    const ret = await ipcRenderer.invoke('axios-request', options);
+    console.warn('requestRET:', ret);
+    return ret;
+  }
 }
 
 export default RecipeWebview;

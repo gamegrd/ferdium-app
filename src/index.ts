@@ -703,15 +703,14 @@ ipcMain.handle('axios-request', async (_event, options) => {
         status: error.response?.status ?? -1,
         error: error.message,
       };
-    } else {
-      // 对于非 Axios 错误，可能是网络错误等
-      console.error('Error fetching data:', options, error); // 在这种情况下，可能需要在控制台中记录错误
-      return {
-        data: error.toString(),
-        status: -1,
-        error: 'Unknown error',
-      };
     }
+    // 对于非 Axios 错误，可能是网络错误等
+    console.error('Error fetching data:', options, error); // 在这种情况下，可能需要在控制台中记录错误
+    return {
+      data: error.toString(),
+      status: -1,
+      error: 'Unknown error',
+    };
   }
 });
 

@@ -76,8 +76,6 @@ mac:
   target:
     - target: dmg
       arch: [x64, arm64]
-    - target: zip
-      arch: [x64, arm64]
   extendInfo:
     NSCameraUsageDescription: 'This app requires camera access for video chats'
     NSMicrophoneUsageDescription: 'This app requires microphone access for voice chats'

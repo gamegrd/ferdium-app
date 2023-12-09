@@ -37,6 +37,7 @@ import {
   downloadsShortcutKey,
 } from '../environment';
 import { CUSTOM_WEBSITE_RECIPE_ID, LIVE_API_FERDIUM_WEBSITE } from '../config';
+import { assistantActions } from '../features/assistant/actions';
 import { todoActions } from '../features/todos/actions';
 import workspaceActions from '../features/workspaces/actions';
 import { workspaceStore } from '../features/workspaces/index';
@@ -345,6 +346,19 @@ const menuItems = defineMessages({
     id: 'menu.todos.disableTodos',
     defaultMessage: 'Disable Todos',
   },
+  assistant: {
+    id: 'menu.assistant',
+    defaultMessage: 'AI',
+  },
+  enableAssistant: {
+    id: 'menu.assistant.enableAssistant',
+    defaultMessage: 'Enable Assistant',
+  },
+  disableAssistant: {
+    id: 'menu.assistant.disableAssistant',
+    defaultMessage: 'Disable Assistant',
+  },
+
   serviceGoHome: {
     id: 'menu.services.goHome',
     defaultMessage: 'Home',
@@ -597,7 +611,7 @@ function titleBarTemplateFactory(
       visible: !locked,
     },
     {
-      label: intl.formatMessage(menuItems.todos),
+      label: intl.formatMessage(menuItems.assistant), //  menuItems.todos),
       submenu: [],
       visible: !locked,
     },
@@ -901,7 +915,8 @@ class FranzMenu implements StoresProps {
 
       tpl[3].submenu = this.workspacesMenu();
 
-      tpl[4].submenu = this.todosMenu();
+      //tpl[4].submenu = this.todosMenu();
+      tpl[4].submenu = this.assistantMenu();
     }
 
     tpl.unshift({
@@ -1082,7 +1097,7 @@ class FranzMenu implements StoresProps {
 
       tpl[4].submenu = this.workspacesMenu();
 
-      tpl[5].submenu = this.todosMenu();
+      tpl[5].submenu = this.assistantMenu(); // this.todosMenu();
 
       // eslint-disable-next-line unicorn/prefer-at
       (tpl[tpl.length - 1].submenu as MenuItemConstructorOptions[]).push(
@@ -1252,6 +1267,25 @@ class FranzMenu implements StoresProps {
         },
       });
     }
+
+    return menu;
+  }
+
+  assistantMenu(): MenuItemConstructorOptions[] {
+    const { enable } = this.stores.assistants;
+    const { intl } = window['ferdium'];
+
+    const menu: MenuItemConstructorOptions[] = [];
+    menu.push({
+      label: intl.formatMessage(
+        enable ? menuItems.disableAssistant : menuItems.enableAssistant,
+      ),
+      click: () => {
+        //this.actions.assistant.xgDebug();
+        assistantActions.toggleAssistant();
+      },
+      enabled: this.stores.user.isLoggedIn,
+    });
 
     return menu;
   }

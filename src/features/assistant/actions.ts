@@ -10,6 +10,7 @@ interface AsstantActionsType {
   openDevTools: () => void;
   xgDebug: () => void;
   reload: () => void;
+  toggleAssistant: () => void;
 }
 
 export const assistantActions =
@@ -18,6 +19,7 @@ export const assistantActions =
       openDevTools: {},
       xgDebug: {},
       reload: {},
+      toggleAssistant: {},
     },
     PropTypes.checkPropTypes,
   );

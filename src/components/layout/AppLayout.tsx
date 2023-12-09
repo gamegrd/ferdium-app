@@ -227,9 +227,7 @@ class AppLayout extends Component<PropsWithChildren<IProps>, IState> {
                 <PublishDebugInfo />
                 <div style={{ display: 'flex' }}>
                   <div style={{ flex: 1 }}>{services}</div>
-                  <div style={{ width: '600px', height: '100%' }}>
-                    <AssistantWebview />
-                  </div>
+                  <AssistantWebview />
                 </div>
                 <Outlet />
               </div>

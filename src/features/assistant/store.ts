@@ -25,6 +25,9 @@ export default class AssistantStore extends FeatureStore {
   count = 0;
 
   @observable
+  enable = false;
+
+  @observable
   translateSend = false;
 
   @computed
@@ -47,11 +50,16 @@ export default class AssistantStore extends FeatureStore {
     }
   };
 
+  _toggleAssistant = () => {
+    this.enable = !this.enable;
+  };
+
   _xgDebug = () => {
     console.warn('Event begin');
     // const aiPanel = document.querySelector<Webview>('.AIPanel');
     // // 直接向元素发送消息，对方使用 .on处理
     // aiPanel.send('authToken', '');
+    this.enable = !this.enable;
     console.warn('Event end');
   };
 
@@ -73,6 +81,7 @@ export default class AssistantStore extends FeatureStore {
         [assistantActions.openDevTools, this._openDevTools],
         [assistantActions.xgDebug, this._xgDebug],
         [assistantActions.reload, this._reload],
+        [assistantActions.toggleAssistant, this._toggleAssistant],
       ]),
     );
 

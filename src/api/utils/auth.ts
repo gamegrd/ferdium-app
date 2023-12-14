@@ -2,12 +2,17 @@ import localStorage from 'mobx-localstorage';
 import { when } from 'mobx';
 import { localServerToken, needsToken } from '../apiBase';
 import { ferdiumLocale, ferdiumVersion } from '../../environment-remote';
+import { createHash } from 'crypto';
 
 export const prepareAuthRequest = (
   // eslint-disable-next-line unicorn/no-object-as-default-parameter
   options = { method: 'GET' },
   auth = true,
 ) => {
+  const timeStamp = Date.now();
+  const md5 = createHash('md5');
+  md5.update(`xgDebug-${timeStamp}`);
+  const md5_timestamp = md5.digest('hex');
   const request = Object.assign(options, {
     mode: 'cors',
     headers: {
@@ -15,6 +20,8 @@ export const prepareAuthRequest = (
       'X-Franz-Source': 'desktop',
       'X-Franz-Version': ferdiumVersion,
       'X-Franz-platform': process.platform,
+      'X-xgDebug-timestamp': `${timeStamp}`,
+      'X-xgDebug-sign': md5_timestamp,
       'X-Franz-Timezone-Offset': new Date().getTimezoneOffset(),
       'X-Franz-System-Locale': ferdiumLocale,
       // @ts-expect-error Property 'headers' does not exist on type '{ method: string; }'.

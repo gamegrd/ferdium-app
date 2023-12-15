@@ -915,7 +915,7 @@ class FranzMenu implements StoresProps {
 
       tpl[3].submenu = this.workspacesMenu();
 
-      //tpl[4].submenu = this.todosMenu();
+      // tpl[4].submenu = this.todosMenu();
       tpl[4].submenu = this.assistantMenu();
     }
 
@@ -1281,7 +1281,7 @@ class FranzMenu implements StoresProps {
         enable ? menuItems.disableAssistant : menuItems.enableAssistant,
       ),
       click: () => {
-        //this.actions.assistant.xgDebug();
+        // this.actions.assistant.xgDebug();
         assistantActions.toggleAssistant();
       },
       enabled: this.stores.user.isLoggedIn,

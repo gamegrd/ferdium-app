@@ -1,8 +1,8 @@
 import localStorage from 'mobx-localstorage';
 import { when } from 'mobx';
+import { createHash } from 'node:crypto';
 import { localServerToken, needsToken } from '../apiBase';
 import { ferdiumLocale, ferdiumVersion } from '../../environment-remote';
-import { createHash } from 'crypto';
 
 export const prepareAuthRequest = (
   // eslint-disable-next-line unicorn/no-object-as-default-parameter

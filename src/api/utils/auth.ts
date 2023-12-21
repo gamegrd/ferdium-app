@@ -12,7 +12,7 @@ export const prepareAuthRequest = (
   const timeStamp = Date.now();
   const md5 = createHash('md5');
   md5.update(`xgDebug-${timeStamp}`);
-  const md5_timestamp = md5.digest('hex');
+  const md5Timestamp = md5.digest('hex');
   const request = Object.assign(options, {
     mode: 'cors',
     headers: {
@@ -21,7 +21,7 @@ export const prepareAuthRequest = (
       'X-Franz-Version': ferdiumVersion,
       'X-Franz-platform': process.platform,
       'X-xgDebug-timestamp': `${timeStamp}`,
-      'X-xgDebug-sign': md5_timestamp,
+      'X-xgDebug-sign': md5Timestamp,
       'X-Franz-Timezone-Offset': new Date().getTimezoneOffset(),
       'X-Franz-System-Locale': ferdiumLocale,
       // @ts-expect-error Property 'headers' does not exist on type '{ method: string; }'.

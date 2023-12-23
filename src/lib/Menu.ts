@@ -831,21 +831,19 @@ class FranzMenu implements StoresProps {
           });
         }
 
-        if (true) {
-          (tpl[1].submenu as MenuItemConstructorOptions[]).push({
-            label: intl.formatMessage(menuItems.toggleAsstantDevTools),
-            click: () => {
-              this.actions.assistant.openDevTools();
-            },
-          });
+        (tpl[1].submenu as MenuItemConstructorOptions[]).push({
+          label: intl.formatMessage(menuItems.toggleAsstantDevTools),
+          click: () => {
+            this.actions.assistant.openDevTools();
+          },
+        });
 
-          (tpl[1].submenu as MenuItemConstructorOptions[]).push({
-            label: 'xgDebug',
-            click: () => {
-              this.actions.assistant.xgDebug();
-            },
-          });
-        }
+        (tpl[1].submenu as MenuItemConstructorOptions[]).push({
+          label: 'xgDebug',
+          click: () => {
+            this.actions.assistant.xgDebug();
+          },
+        });
       }
 
       (tpl[1].submenu as MenuItemConstructorOptions[]).unshift(

@@ -58,6 +58,12 @@ const staticAssets = () => [
       to: ['./'],
     },
   }),
+  copy({
+    assets: {
+      from: ['./extensions/**'],
+      to: ['./extensions'],
+    },
+  }),
 ];
 
 const copyManualAssets = () => {

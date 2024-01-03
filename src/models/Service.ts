@@ -1,7 +1,7 @@
 import { join, basename } from 'node:path';
 import { autorun, action, computed, makeObservable, observable } from 'mobx';
 import { ipcRenderer } from 'electron';
-import { webContents } from '@electron/remote';
+import { session, webContents } from '@electron/remote';
 import ElectronWebView from 'react-electron-web-view';
 
 import { v4 as uuidV4 } from 'uuid';
@@ -12,7 +12,7 @@ import { DEFAULT_SERVICE_ORDER, DEFAULT_SERVICE_SETTINGS } from '../config';
 import { ifUndefined } from '../jsUtils';
 import { IRecipe } from './Recipe';
 import apiBase, { needsToken } from '../api/apiBase';
-
+import SessionManager from './SessionManager';
 const debug = require('../preload-safe-debug')('Ferdium:Service');
 
 interface DarkReaderInterface {
@@ -487,6 +487,16 @@ export default class Service {
         }
       },
     );
+
+    new SessionManager({
+      recipe: this.recipe,
+      rootPath: join(this.recipe.path, '..', '..'),
+      extensions: [],
+      webview: this.webview,
+      session: session.defaultSession,
+      serviceId: this.id,
+      recipeSession: session.fromPartition(this.partition),
+    });
 
     this.webview.addEventListener('did-start-loading', event => {
       debug('Did start load', this.name, event);

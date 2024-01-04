@@ -100,7 +100,6 @@ export default class SessionManager {
         item['id'],
         item['version'],
       );
-      debugger;
       this.config['recipeSession'].loadExtension(extensionPath).then(() => {
         if (item['replaceHome']) {
           // alert('replaceHome');

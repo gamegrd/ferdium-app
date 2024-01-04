@@ -2,7 +2,7 @@
 
 import ms from 'ms';
 
-export const LOCAL_DEBUG = false;
+export const LOCAL_DEBUG = true;
 export const DEFAULT_LANGUAGE = 'zh-HANS';
 
 export const DEFAULT_ACCENT_COLOR = '#7367F0';

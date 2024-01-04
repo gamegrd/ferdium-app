@@ -50,6 +50,10 @@ export function userDataRecipesPath(...segments: string[]): string {
   return userDataPath('recipes', ...[segments].flat());
 }
 
+export function userDataExtensionsPath(...segments: string[]): string {
+  return userDataPath('extensions', ...[segments].flat());
+}
+
 const useLocalAPI = process.env.USE_LOCAL_API;
 export const useLiveAPI = process.env.USE_LIVE_API;
 

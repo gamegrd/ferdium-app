@@ -1,4 +1,4 @@
-import { join } from 'path';
+import { join } from 'node:path';
 import ElectronWebView from 'react-electron-web-view';
 import { ipcRenderer } from 'electron';
 import { IRecipe } from './Recipe';
@@ -15,7 +15,6 @@ const Extensions = {
       addSpecialExtension: true,
     },
   ],
-
 };
 export default class SessionManager {
   recipe: IRecipe;

@@ -19,7 +19,7 @@ import {
   readdirSync,
   removeSync,
 } from 'fs-extra';
-import { readFileSync } from 'fs';
+import { readFileSync } from 'node:fs';
 import windowStateKeeper from 'electron-window-state';
 import minimist from 'minimist';
 import ms from 'ms';
@@ -53,11 +53,10 @@ import isPositionValid from './electron/windowUtils';
 import { appId } from './package.json';
 import './electron/exception';
 
-import { asarPath } from './helpers/asar-helpers';
+import { asarPath, asarExtenstionsPath } from './helpers/asar-helpers';
 import { openExternalUrl } from './helpers/url-helpers';
 import userAgent from './helpers/userAgent-helpers';
 import { translateTo } from './helpers/translation-helpers';
-import { asarExtenstionsPath } from './helpers/asar-helpers';
 import { darkThemeGrayDarkest } from './themes/legacy';
 
 const { ElectronChromeExtensions } = require('electron-chrome-extensions');

@@ -13,6 +13,7 @@ import { ifUndefined } from '../jsUtils';
 import { IRecipe } from './Recipe';
 import apiBase, { needsToken } from '../api/apiBase';
 import SessionManager from './SessionManager';
+
 const debug = require('../preload-safe-debug')('Ferdium:Service');
 
 interface DarkReaderInterface {

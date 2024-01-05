@@ -488,7 +488,7 @@ export default class Service {
         }
       },
     );
-
+    // eslint-disable-next-line no-new
     new SessionManager({
       recipe: this.recipe,
       rootPath: join(this.recipe.path, '..', '..'),

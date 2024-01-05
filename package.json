@@ -3,7 +3,7 @@
   "productName": "DFgpt",
   "desktopName": "dfgpt.desktop",
   "appId": "org.dfgpt.dfgpt-app",
-  "version": "1.0.1-dfgpt.29",
+  "version": "1.0.1-dfgpt.30",
   "description": "Messaging app for WhatsApp, Slack, Telegram, Hangouts and many many more.",
   "author": "xgDebug",
   "license": "Apache-2.0",
@@ -23,7 +23,7 @@
   },
   "packageManager": "pnpm@8.10.0",
   "scripts": {
-    "prepare": "is-ci || husky install",
+    "prepare": "is-ci || husky uninstall",
     "start": "electron ./build",
     "start:local": "cross-env USE_LOCAL_API=1 pnpm start",
     "start:live": "cross-env USE_LIVE_API=1 pnpm start",

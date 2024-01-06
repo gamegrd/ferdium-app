@@ -13,6 +13,7 @@ import { ifUndefined } from '../jsUtils';
 import { IRecipe } from './Recipe';
 import apiBase, { needsToken } from '../api/apiBase';
 import SessionManager from './SessionManager';
+
 const debug = require('../preload-safe-debug')('Ferdium:Service');
 
 interface DarkReaderInterface {
@@ -487,7 +488,7 @@ export default class Service {
         }
       },
     );
-
+    // eslint-disable-next-line no-new
     new SessionManager({
       recipe: this.recipe,
       rootPath: join(this.recipe.path, '..', '..'),

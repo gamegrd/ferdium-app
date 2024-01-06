@@ -12,7 +12,14 @@ import {
   desktopCapturer,
 } from 'electron';
 
-import { emptyDirSync, ensureFileSync } from 'fs-extra';
+import {
+  copySync,
+  emptyDirSync,
+  ensureFileSync,
+  readdirSync,
+  removeSync,
+} from 'fs-extra';
+import { readFileSync } from 'node:fs';
 import windowStateKeeper from 'electron-window-state';
 import minimist from 'minimist';
 import ms from 'ms';
@@ -30,6 +37,7 @@ import {
   userDataRecipesPath,
   userDataPath,
   protocolClient,
+  userDataExtensionsPath,
 } from './environment-remote';
 import { ifUndefined } from './jsUtils';
 
@@ -45,12 +53,13 @@ import isPositionValid from './electron/windowUtils';
 import { appId } from './package.json';
 import './electron/exception';
 
-import { asarPath } from './helpers/asar-helpers';
+import { asarPath, asarExtenstionsPath } from './helpers/asar-helpers';
 import { openExternalUrl } from './helpers/url-helpers';
 import userAgent from './helpers/userAgent-helpers';
 import { translateTo } from './helpers/translation-helpers';
 import { darkThemeGrayDarkest } from './themes/legacy';
 
+const { ElectronChromeExtensions } = require('electron-chrome-extensions');
 const axios = require('axios');
 const debug = require('./preload-safe-debug')('Ferdium:App');
 
@@ -86,6 +95,40 @@ function onDidLoad(fn: {
 // Ensure that the recipe directory exists
 emptyDirSync(userDataRecipesPath('temp'));
 ensureFileSync(userDataPath('window-state.json'));
+
+const recipesDirectory = userDataExtensionsPath();
+const internalRecipeDirectory = asarExtenstionsPath();
+debug('sync extensions', recipesDirectory, internalRecipeDirectory);
+try {
+  readdirSync(internalRecipeDirectory).map(item => {
+    debug('sync extensions', item);
+    const extId = readdirSync(join(internalRecipeDirectory, item));
+    debug('sync extensions', extId);
+
+    const recipesManifest = readFileSync(
+      join(recipesDirectory, item, extId[0], 'manifest.json'),
+      'utf8',
+    );
+    const internalRecipesManifest = readFileSync(
+      join(internalRecipeDirectory, item, extId[0], 'manifest.json'),
+      'utf8',
+    );
+    if (
+      JSON.parse(recipesManifest)['version'] !==
+      JSON.parse(internalRecipesManifest)['version']
+    ) {
+      removeSync(join(recipesDirectory, item));
+      copySync(
+        join(internalRecipeDirectory, item, extId[0]),
+        join(recipesDirectory, item, extId[0]),
+      );
+    }
+  });
+} catch (error) {
+  debug('sync extensions err', error);
+  removeSync(join(recipesDirectory));
+  copySync(internalRecipeDirectory, recipesDirectory);
+}
 
 // Set App ID for Windows
 if (isWindows) {
@@ -556,6 +599,13 @@ ipcMain.on('open-browser-window', (_e, { url, serviceId }) => {
   child.show();
   child.loadURL(url);
   debug('Received open-browser-window', url);
+});
+
+ipcMain.on('add-special-extension', (_e, { url, serviceId }) => {
+  const serviceSession = session.fromPartition(`persist:service-${serviceId}`);
+  // eslint-disable-next-line no-new
+  new ElectronChromeExtensions({ session: serviceSession });
+  debug('Received add-special-extension', url);
 });
 
 ipcMain.on(

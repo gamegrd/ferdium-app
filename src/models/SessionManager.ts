@@ -1,4 +1,4 @@
-import { join } from 'path';
+import { join } from 'node:path';
 import ElectronWebView from 'react-electron-web-view';
 import { ipcRenderer } from 'electron';
 import { IRecipe } from './Recipe';
@@ -6,14 +6,6 @@ import Session = Electron.Session;
 import { isDevMode } from '../environment-remote';
 
 const Extensions = {
-  tinder: [
-    {
-      id: 'cfohepagpmnodfdmjliccbbigdkfcgia',
-      version: '2.5.0',
-      home: '/options.html',
-      replaceHome: true,
-    },
-  ],
   line: [
     {
       id: 'ophjlpahpchlmihnnnihgmmeilfjmjjc',
@@ -21,18 +13,6 @@ const Extensions = {
       home: '/index.html',
       replaceHome: true,
       addSpecialExtension: true,
-    },
-  ],
-  whatsapp: [
-    {
-      id: 'jmjcgjmipjiklbnfbdclkdikplgajhgc',
-      version: '1.3.2_0',
-      home: '/index.html',
-    },
-    {
-      id: 'lpbkofhnclhhlaibcklkgaonbbmhjeco',
-      version: '0.46_0',
-      home: '/index.html',
     },
   ],
 };
@@ -100,6 +80,7 @@ export default class SessionManager {
         item['id'],
         item['version'],
       );
+      // debugger;
       this.config['recipeSession'].loadExtension(extensionPath).then(() => {
         if (item['replaceHome']) {
           // alert('replaceHome');

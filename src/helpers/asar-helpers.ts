@@ -8,3 +8,10 @@ export function asarPath(dir: string = '') {
 export function asarRecipesPath(...segments: string[]) {
   return join(asarPath(join(__dirname, '..', 'recipes')), ...[segments].flat());
 }
+
+export function asarExtenstionsPath(...segments: string[]) {
+  return join(
+    asarPath(join(__dirname, '..', 'extensions')),
+    ...[segments].flat(),
+  );
+}

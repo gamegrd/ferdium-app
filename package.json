@@ -82,6 +82,7 @@
     "darkreader": "4.9.69",
     "dbus-next": "0.10.2",
     "debug": "4.3.4",
+    "electron-chrome-extensions": "3.10.1",
     "electron-dl": "3.5.1",
     "electron-find": "1.0.7",
     "electron-react-titlebar": "1.2.1",

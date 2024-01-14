@@ -130,8 +130,6 @@ export default class AppStore extends TypedStore {
 
   @observable launchInBackground = DEFAULT_APP_SETTINGS.autoLaunchInBackground;
 
-  dictionaries = [];
-
   fetchDataInterval: NodeJS.Timeout | null = null;
 
   @observable downloads: Download[] = [];

@@ -234,6 +234,7 @@ class RecipeWebview {
     console.warn('requestRET:', ret);
     return ret;
   }
+
   toggleToTalk(fn) {
     this.toggleToTalkFunc = fn;
   }

@@ -27,6 +27,7 @@ node_modules
 /build/
 /out/
 /recipes/
+/extensions/
 
 # package files
 package.json

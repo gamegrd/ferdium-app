@@ -9,7 +9,7 @@ module.exports = {
     sourceType: 'module',
     project: './tsconfig.json',
   },
-  ignorePatterns: ['node_modules', 'build', 'recipes'],
+  ignorePatterns: ['node_modules', 'extensions', 'build', 'recipes'],
   extends: [
     'airbnb',
     'plugin:react/jsx-runtime',

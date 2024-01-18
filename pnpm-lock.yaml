@@ -101,9 +101,6 @@ dependencies:
   debug:
     specifier: 4.3.4
     version: 4.3.4(supports-color@5.5.0)
-  electron-chrome-extensions:
-    specifier: 3.10.1
-    version: 3.10.1
   electron-dl:
     specifier: 3.5.1
     version: 3.5.1
@@ -5723,14 +5720,6 @@ packages:
     transitivePeerDependencies:
       - supports-color
     dev: true
-
-  /electron-chrome-extensions@3.10.1:
-    resolution: {integrity: sha512-UXZllXt4BXHvR7Rr9DaiXdN/gdyUJHWp+0OOdTV73cNTRvSOaTCC5NSqctUJzaP5U7JJ3+2J2BZeAlIuwKGIXg==}
-    dependencies:
-      debug: 4.3.4(supports-color@5.5.0)
-    transitivePeerDependencies:
-      - supports-color
-    dev: false
 
   /electron-dl@3.5.1:
     resolution: {integrity: sha512-5Yb9s/iPVJ5mW5x3j6XkKxt7WEqREr/AhYxZmtEfW1ffQHs1+aGoiQ2fXCAU6UIXMnWog2MXK82vrxJsjA3nbQ==}

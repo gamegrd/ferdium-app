@@ -1,13 +1,6 @@
 {
-  "include": [
-    "**/*"
-  ],
-  "exclude": [
-    "node_modules",
-    "build",
-    "extensions",
-    "recipes"
-  ],
+  "include": ["**/*"],
+  "exclude": ["node_modules", "build", "recipes"],
   "compilerOptions": {
     "outDir": ".tmp",
     "rootDir": "./",
@@ -15,21 +8,12 @@
     "strict": true,
     "target": "esnext",
     "incremental": true,
-    "lib": [
-      "esnext",
-      "dom",
-      "dom.iterable"
-    ],
+    "lib": ["esnext", "dom", "dom.iterable"],
     "module": "CommonJS",
     "jsx": "react-jsx",
-    "typeRoots": [
-      "node_modules/@types"
-    ],
+    "typeRoots": ["node_modules/@types"],
     "moduleResolution": "node",
-    "types": [
-      "node",
-      "jest"
-    ],
+    "types": ["node", "jest"],
     "sourceMap": true,
     "skipLibCheck": true,
     // TODO: Need to switch
@@ -54,5 +38,5 @@
     "resolveJsonModule": true,
     "forceConsistentCasingInFileNames": true,
     "useDefineForClassFields": true
-  },
+  }
 }

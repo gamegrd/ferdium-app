@@ -61,6 +61,7 @@ protocols:
 
 asarUnpack:
   - ./recipes
+  - ./extensions
   - ./assets/fonts
   - ./assets/images/taskbar
 

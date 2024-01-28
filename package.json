@@ -3,7 +3,7 @@
   "productName": "DFgpt",
   "desktopName": "dfgpt.desktop",
   "appId": "org.dfgpt.dfgpt-app",
-  "version": "1.0.1-dfgpt.38",
+  "version": "1.0.1-dfgpt.39",
   "description": "Messaging app for WhatsApp, Slack, Telegram, Hangouts and many many more.",
   "author": "xgDebug",
   "license": "Apache-2.0",

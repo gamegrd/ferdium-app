@@ -429,9 +429,10 @@ class RecipeController {
         removeDarkModeStyle();
       } else {
         debug('Removing Dark Reader');
-
-        disableDarkMode();
-        this.universalDarkModeInjected = false;
+        if (this.universalDarkModeInjected) {
+          disableDarkMode();
+          this.universalDarkModeInjected = false;
+        }
       }
     }
 

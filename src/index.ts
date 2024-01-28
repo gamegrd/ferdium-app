@@ -59,7 +59,7 @@ import userAgent from './helpers/userAgent-helpers';
 import { translateTo } from './helpers/translation-helpers';
 import { darkThemeGrayDarkest } from './themes/legacy';
 
-const { ElectronChromeExtensions } = require('electron-chrome-extensions');
+// const { ElectronChromeExtensions } = require('electron-chrome-extensions');
 const axios = require('axios');
 const debug = require('./preload-safe-debug')('Ferdium:App');
 
@@ -602,10 +602,12 @@ ipcMain.on('open-browser-window', (_e, { url, serviceId }) => {
 });
 
 ipcMain.on('add-special-extension', (_e, { url, serviceId }) => {
-  const serviceSession = session.fromPartition(`persist:service-${serviceId}`);
+  // const serviceSession = session.fromPartition(`persist:service-${serviceId}`);
   // eslint-disable-next-line no-new
-  new ElectronChromeExtensions({ session: serviceSession });
-  debug('Received add-special-extension', serviceId, url);
+  // new ElectronChromeExtensions({ session: serviceSession });
+
+  debug('Received add-special-extension:serviceId', serviceId);
+  debug('Received add-special-extension:url', url);
 });
 
 ipcMain.on(

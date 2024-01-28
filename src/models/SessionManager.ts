@@ -11,7 +11,7 @@ const Extensions = {
       id: 'ophjlpahpchlmihnnnihgmmeilfjmjjc',
       version: '3.2.1_0',
       home: '/index.html',
-      replaceHome: true,
+      replaceHome: false,
       addSpecialExtension: true,
     },
   ],
@@ -60,9 +60,10 @@ export default class SessionManager {
     this.LoadExtensions();
   }
 
-  addSpecialExtension() {
+  addSpecialExtension(extensionPath) {
     ipcRenderer.send('add-special-extension', {
       serviceId: this.serviceId,
+      url: extensionPath,
     });
   }
 
@@ -71,19 +72,20 @@ export default class SessionManager {
       return;
     }
     for (const item of this.extensions) {
-      if (item['addSpecialExtension']) {
-        this.addSpecialExtension();
-      }
       const extensionPath = join(
         isDevMode ? process.cwd() : this.config['rootPath'],
         'extensions',
         item['id'],
         item['version'],
       );
-      // debugger;
-      this.config['recipeSession'].loadExtension(extensionPath).then(() => {
+      if (item['addSpecialExtension']) {
+        this.addSpecialExtension(extensionPath);
+      }
+
+      const s = this.config['recipeSession'];
+      debugger;
+      s.loadExtension(extensionPath).then(() => {
         if (item['replaceHome']) {
-          // alert('replaceHome');
           setTimeout(() => {
             this.config['webview'].loadURL(
               `chrome-extension://${item['id']}${item['home']}`,

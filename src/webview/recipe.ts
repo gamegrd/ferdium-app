@@ -58,8 +58,8 @@ interface Window {
   };
 }
 
-window.xgVer = 'xgDebug Recipe 1.02';
-console.log(`recipe env: ${window.xgVer}`); // 输出：Hello from Electron!
+window['xgVer'] = 'xgDebug Recipe 1.02';
+console.log(`recipe env: ${window['xgVer']}`); // 输出：Hello from Electron!
 ipcRenderer.sendToHost('xgInit', 'recipe');
 // For some services darkreader tries to use the chrome extension message API
 // This will cause the service to fail loading

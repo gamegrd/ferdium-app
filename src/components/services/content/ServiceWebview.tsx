@@ -57,8 +57,8 @@ class ServiceWebview extends Component<IProps> {
 
   loadCommit(): void {
     debug('Load Commit is called');
-    window.xgVer = 'xgDebug 1.4.1';
-    console.warn('loadCommit', window.xgVer);
+    window['xgVer'] = 'xgDebug 1.4.1';
+    console.warn('loadCommit', window['xgVer']);
   }
 
   refocusWebview(): void {

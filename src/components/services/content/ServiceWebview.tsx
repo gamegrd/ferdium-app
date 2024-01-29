@@ -54,6 +54,11 @@ class ServiceWebview extends Component<IProps> {
     const { service, detachService } = this.props;
     detachService({ service });
   }
+  loadCommit(): void {
+    debug('Load Commit is called');
+    window.xgVer = 'xgDebug 1.4.1';
+    console.warn('loadCommit', window.xgVer);
+  }
 
   refocusWebview(): void {
     const { webview } = this;
@@ -62,6 +67,7 @@ class ServiceWebview extends Component<IProps> {
       return;
     }
 
+    webview.send('xg-init', 'send 70');
     if (this.props.service.isActive) {
       webview.view.blur();
       webview.view.focus();
@@ -101,6 +107,11 @@ class ServiceWebview extends Component<IProps> {
             webview.view.addEventListener(
               'did-stop-loading',
               this.refocusWebview,
+            );
+            webview.view.addEventListener('load-commit', this.loadCommit);
+            webview.view.addEventListener(
+              'did-start-loading',
+              this.didStartLoading,
             );
           }
         }}

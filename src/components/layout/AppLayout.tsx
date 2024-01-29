@@ -143,7 +143,7 @@ class AppLayout extends Component<PropsWithChildren<IProps>, IState> {
       'assistant',
       'preload.js',
     );
-    debug(preloadScript);
+    debug('AppLayout:', preloadScript);
 
     return (
       <>

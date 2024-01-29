@@ -49,6 +49,18 @@ import { ifUndefined, safeParseInt } from '../jsUtils';
 import { AppStore } from '../@types/stores.types';
 import Service from '../models/Service';
 
+interface Window {
+  xgVer: string;
+  chrome: {
+    notifications: {};
+    windows: {};
+    versuion: string;
+  };
+}
+
+window.xgVer = 'xgDebug Recipe 1.02';
+console.log(`recipe env: ${window.xgVer}`); // 输出：Hello from Electron!
+ipcRenderer.sendToHost('xgInit', 'recipe');
 // For some services darkreader tries to use the chrome extension message API
 // This will cause the service to fail loading
 // As the message API is not actually needed, we'll add this shim sendMessage
@@ -160,6 +172,7 @@ class RecipeController {
     'get-service-id': 'serviceIdEcho',
     'find-in-page': 'openFindInPage',
     'toggle-to-talk': 'toggleToTalk',
+    'xg-init': 'xgInit',
   };
 
   universalDarkModeInjected = false;
@@ -502,6 +515,9 @@ class RecipeController {
 
   toggleToTalk() {
     this.recipe?.toggleToTalkFunc?.();
+  }
+  xgInit() {
+    console.warn('----recipe xgInit-----');
   }
 }
 

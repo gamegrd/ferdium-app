@@ -9,7 +9,7 @@ const Extensions = {
   line: [
     {
       id: 'ophjlpahpchlmihnnnihgmmeilfjmjjc',
-      version: '3.1',
+      version: '3.1.2_0',
       home: '/index.html',
       replaceHome: true,
       addSpecialExtension: true,
@@ -44,6 +44,7 @@ export default class SessionManager {
   extensions = [];
 
   config = {};
+  loaded: boolean = false;
 
   constructor(data: {
     recipe: IRecipe;
@@ -83,6 +84,10 @@ export default class SessionManager {
     if (!this.extensions) {
       return;
     }
+    if (this.loaded) {
+      return;
+    }
+    this.loaded = true;
     for (const item of this.extensions) {
       const extensionPath = join(
         isDevMode ? process.cwd() : this.config['rootPath'],
@@ -95,18 +100,16 @@ export default class SessionManager {
       }
 
       const s = this.config['recipeSession'];
-      s.loadExtension(extensionPath).then(() => {
+      s.loadExtension(extensionPath).then(extensionInfo => {
         console.log('extension loaded !!!!!!!!!!! ');
+        console.log(extensionInfo);
 
         if (item['replaceHome']) {
+          const target = `chrome-extension://${item['id']}${item['home']}`;
+          console.log(`replaceHome: ${target}`);
           setTimeout(() => {
-            this.config['webview'].loadURL(
-              `chrome-extension://${item['id']}${item['home']}`,
-            );
-            // this.config['webview'][
-            //   'src'
-            // ] = `chrome-extension://${item['id']}${item['home']}`;
-          }, 2000);
+            this.config['webview'].loadURL(target);
+          }, 5000);
         }
       });
     }

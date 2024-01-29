@@ -38,7 +38,7 @@ class ServiceWebview extends Component<IProps> {
           });
           this.webview.view.addEventListener('did-navigate', () => {
             if (this.props.service._webview) {
-              document.title = `Ferdium - ${this.props.service.name} ${
+              document.title = `DFgpt - ${this.props.service.name} ${
                 this.props.service.dialogTitle
                   ? ` - ${this.props.service.dialogTitle}`
                   : ''
@@ -73,12 +73,12 @@ class ServiceWebview extends Component<IProps> {
       webview.view.blur();
       webview.view.focus();
       window.setTimeout(() => {
-        document.title = `Ferdium - ${this.props.service.name} ${
+        document.title = `DFgpt - ${this.props.service.name} ${
           this.props.service.dialogTitle
             ? ` - ${this.props.service.dialogTitle}`
             : ''
         } ${`- ${this.props.service._webview.getTitle()}`}`;
-      }, 100);
+      }, 1000);
     } else {
       debug('Refocus not required - Not active service');
     }
@@ -113,7 +113,6 @@ class ServiceWebview extends Component<IProps> {
           }
         }}
         autosize
-        nodeintegration
         src={service.url}
         preload={preloadScript}
         partition={service.partition}
@@ -129,7 +128,7 @@ class ServiceWebview extends Component<IProps> {
               serviceId: service.id,
               webview: this.webview.view,
             });
-          }, 0);
+          }, 100);
         }}
         // onUpdateTargetUrl={this.updateTargetUrl} // TODO: [TS DEBT] need to check where its from
         useragent={service.userAgent}
@@ -137,6 +136,7 @@ class ServiceWebview extends Component<IProps> {
           service.recipe.disablewebsecurity ? true : undefined
         }
         allowpopups
+        nodeintegration
         webpreferences={`spellcheck=${
           isSpellcheckerEnabled ? 1 : 0
         }, contextIsolation=1`}

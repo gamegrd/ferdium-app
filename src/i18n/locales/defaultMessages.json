@@ -2903,7 +2903,7 @@
         }
       },
       {
-        "defaultMessage": "!!!Sending telemetry data allows us to find errors in Ferdium - we will not send any personal information like your message data! Changing this option requires you to restart DFgpt.",
+        "defaultMessage": "!!!Sending telemetry data allows us to find errors in DFgpt - we will not send any personal information like your message data! Changing this option requires you to restart DFgpt.",
         "end": {
           "column": 3,
           "line": 34

@@ -761,7 +761,7 @@ export default class ServicesStore extends TypedStore {
       const service = this.active;
       if (service) {
         if (service._webview) {
-          document.title = `Ferdium - ${service.name} ${
+          document.title = `DFgpt - ${service.name} ${
             service.dialogTitle ? ` - ${service.dialogTitle}` : ''
           } ${service._webview ? `- ${service._webview.getTitle()}` : ''}`;
           this._focusService({ serviceId: service.id });
@@ -1220,7 +1220,7 @@ export default class ServicesStore extends TypedStore {
     const service = this.active;
     if (service) {
       this.actions.service.focusService({ serviceId: service.id });
-      document.title = `Ferdium - ${service.name} ${
+      document.title = `DFgpt - ${service.name} ${
         service.dialogTitle ? ` - ${service.dialogTitle}` : ''
       } ${service._webview ? `- ${service._webview.getTitle()}` : ''}`;
     } else {

@@ -2,7 +2,7 @@ interface Window {
   xgVer: string;
   chrome: {
     notifications: {};
-    windows: {};
+    window: {};
     versuion: string;
   };
 }

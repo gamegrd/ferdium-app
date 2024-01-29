@@ -44,6 +44,7 @@ export default class SessionManager {
   extensions = [];
 
   config = {};
+
   loaded: boolean = false;
 
   constructor(data: {

@@ -54,6 +54,7 @@ class ServiceWebview extends Component<IProps> {
     const { service, detachService } = this.props;
     detachService({ service });
   }
+
   loadCommit(): void {
     debug('Load Commit is called');
     window.xgVer = 'xgDebug 1.4.1';
@@ -109,10 +110,6 @@ class ServiceWebview extends Component<IProps> {
               this.refocusWebview,
             );
             webview.view.addEventListener('load-commit', this.loadCommit);
-            webview.view.addEventListener(
-              'did-start-loading',
-              this.didStartLoading,
-            );
           }
         }}
         autosize

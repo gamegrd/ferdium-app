@@ -109,7 +109,7 @@ window.open = (url, frameName, features): WindowProxy | null => {
       // Stop checking for location changes after 1 second
       clearInterval(checkInterval);
     }, 1000);
-
+    // @ts-expect-error Fix this
     return newWindow as Window;
   }
 
@@ -516,6 +516,7 @@ class RecipeController {
   toggleToTalk() {
     this.recipe?.toggleToTalkFunc?.();
   }
+
   xgInit() {
     console.warn('----recipe xgInit-----');
   }

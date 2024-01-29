@@ -267,7 +267,7 @@ const createWindow = () => {
     backgroundColor,
 
     webPreferences: {
-      preload: preload,
+      preload,
       spellcheck: retrieveSettingValue(
         'enableSpellchecking',
         DEFAULT_APP_SETTINGS.enableSpellchecking,

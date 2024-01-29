@@ -11,10 +11,22 @@ const Extensions = {
       id: 'ophjlpahpchlmihnnnihgmmeilfjmjjc',
       version: '3.2.1_0',
       home: '/index.html',
-      replaceHome: false,
+      replaceHome: true,
       addSpecialExtension: true,
     },
   ],
+  // whatsapp: [
+  //   {
+  //     id: 'jmjcgjmipjiklbnfbdclkdikplgajhgc',
+  //     version: '1.3.2_0',
+  //     home: '/index.html',
+  //   },
+  //   {
+  //     id: 'lpbkofhnclhhlaibcklkgaonbbmhjeco',
+  //     version: '0.46_0',
+  //     home: '/index.html',
+  //   },
+  // ],
 };
 export default class SessionManager {
   recipe: IRecipe;
@@ -48,11 +60,11 @@ export default class SessionManager {
     this.outExts = [];
     this.config = data;
     this.extensions = Extensions[data.recipe.id];
-    // if (data.recipe.id === 'whatsapp') {
-    //   this.extensions = this.extensions.filter(v =>
-    //     data.extensions.includes(v['id']),
-    //   );
-    // }
+    if (data.recipe.id === 'whatsapp') {
+      this.extensions = this.extensions.filter(v =>
+        data.extensions.includes(v['id']),
+      );
+    }
     this.ReadyExtensionsFor();
   }
 

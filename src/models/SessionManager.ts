@@ -9,7 +9,7 @@ const Extensions = {
   line: [
     {
       id: 'ophjlpahpchlmihnnnihgmmeilfjmjjc',
-      version: '3.2.1_0',
+      version: '3.1',
       home: '/index.html',
       replaceHome: true,
       addSpecialExtension: true,
@@ -96,6 +96,8 @@ export default class SessionManager {
 
       const s = this.config['recipeSession'];
       s.loadExtension(extensionPath).then(() => {
+        console.log('extension loaded !!!!!!!!!!! ');
+
         if (item['replaceHome']) {
           setTimeout(() => {
             this.config['webview'].loadURL(

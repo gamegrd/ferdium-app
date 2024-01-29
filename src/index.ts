@@ -368,7 +368,7 @@ const createWindow = () => {
             DEFAULT_APP_SETTINGS.closeToSystemTray,
           )
         ) {
-          debug('Skip taskbar: true');
+          debug('Skip taskbar1: true');
           mainWindow?.setSkipTaskbar(true);
         }
       } else if (isMac && mainWindow?.isFullScreen()) {
@@ -399,7 +399,7 @@ const createWindow = () => {
         DEFAULT_APP_SETTINGS.minimizeToSystemTray,
       )
     ) {
-      debug('Skip taskbar: true');
+      debug('Skip taskbar2: true');
       mainWindow?.setSkipTaskbar(true);
       trayIcon.show();
     }
@@ -448,7 +448,7 @@ const createWindow = () => {
   }
 
   mainWindow.on('show', () => {
-    debug('Skip taskbar: true');
+    debug('Skip taskbar3: true');
     mainWindow?.setSkipTaskbar(false);
   });
 

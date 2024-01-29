@@ -83,7 +83,6 @@ export default class SessionManager {
       }
 
       const s = this.config['recipeSession'];
-      debugger;
       s.loadExtension(extensionPath).then(() => {
         if (item['replaceHome']) {
           setTimeout(() => {

@@ -46,7 +46,7 @@ dependencies:
     version: 5.1.0
   '@electron/remote':
     specifier: 2.1.1
-    version: 2.1.1(electron@28.1.4)
+    version: 2.1.1(electron@28.2.0)
   '@emotion/react':
     specifier: 11.11.3
     version: 11.11.3(@types/react@18.2.41)(react@18.2.0)
@@ -55,7 +55,7 @@ dependencies:
     version: 11.11.0(@emotion/react@11.11.3)(@types/react@18.2.41)(react@18.2.0)
   '@krisdages/electron-process-manager':
     specifier: 3.0.0
-    version: 3.0.0(@electron/remote@2.1.1)(electron@28.1.4)(rxjs@7.8.1)
+    version: 3.0.0(@electron/remote@2.1.1)(electron@28.2.0)(rxjs@7.8.1)
   '@mdi/js':
     specifier: 7.3.67
     version: 7.3.67
@@ -101,6 +101,9 @@ dependencies:
   debug:
     specifier: 4.3.4
     version: 4.3.4(supports-color@5.5.0)
+  electron-chrome-extensions:
+    specifier: 3.10.1
+    version: 3.10.1
   electron-dl:
     specifier: 3.5.1
     version: 3.5.1
@@ -264,7 +267,7 @@ dependencies:
 optionalDependencies:
   macos-notification-state:
     specifier: github:DFgpt/macos-notification-state
-    version: github.com/DFgpt/macos-notification-state/e0e78c3aff1a9d2362709dff70d01d3eaef4ee6a
+    version: git@github.com+DFgpt/macos-notification-state/e0e78c3aff1a9d2362709dff70d01d3eaef4ee6a
   node-mac-permissions:
     specifier: ^2.3.0
     version: 2.3.0
@@ -364,8 +367,8 @@ devDependencies:
     specifier: 7.0.3
     version: 7.0.3
   electron:
-    specifier: 28.1.4
-    version: 28.1.4
+    specifier: 28.2.0
+    version: 28.2.0
   electron-builder:
     specifier: 24.9.1
     version: 24.9.1
@@ -1440,12 +1443,12 @@ packages:
       - supports-color
     dev: true
 
-  /@electron/remote@2.1.1(electron@28.1.4):
+  /@electron/remote@2.1.1(electron@28.2.0):
     resolution: {integrity: sha512-Lfxul2yBxL+FBVaKszNAkuUqSIDbUQ1I7BC394iRXyqA2XGz7im2bAxroNIM51jhySSPKUaOLHaFLxfV6pC9VQ==}
     peerDependencies:
       electron: '>= 13.0.0'
     dependencies:
-      electron: 28.1.4
+      electron: 28.2.0
     dev: false
 
   /@electron/universal@1.4.1:
@@ -2268,15 +2271,15 @@ packages:
       '@jridgewell/sourcemap-codec': 1.4.15
     dev: true
 
-  /@krisdages/electron-process-manager@3.0.0(@electron/remote@2.1.1)(electron@28.1.4)(rxjs@7.8.1):
+  /@krisdages/electron-process-manager@3.0.0(@electron/remote@2.1.1)(electron@28.2.0)(rxjs@7.8.1):
     resolution: {integrity: sha512-Gs8McOVC6BVdfP4SeF+l5nx85eFooarm37K5mxs1PESI59a7oLwRf5Yd2tsZ6Ye14bCG0eTJGDv3yPuixBg3OQ==}
     peerDependencies:
       '@electron/remote': '>= 1.2.0'
       electron: '>= 10'
       rxjs: '>= 7'
     dependencies:
-      '@electron/remote': 2.1.1(electron@28.1.4)
-      electron: 28.1.4
+      '@electron/remote': 2.1.1(electron@28.2.0)
+      electron: 28.2.0
       electron-process-reporter: /@krisdages/electron-process-reporter@2.0.0-rxjs7-1.4.0(rxjs@7.8.1)
       rxjs: 7.8.1
     dev: false
@@ -5721,6 +5724,14 @@ packages:
       - supports-color
     dev: true
 
+  /electron-chrome-extensions@3.10.1:
+    resolution: {integrity: sha512-UXZllXt4BXHvR7Rr9DaiXdN/gdyUJHWp+0OOdTV73cNTRvSOaTCC5NSqctUJzaP5U7JJ3+2J2BZeAlIuwKGIXg==}
+    dependencies:
+      debug: 4.3.4(supports-color@5.5.0)
+    transitivePeerDependencies:
+      - supports-color
+    dev: false
+
   /electron-dl@3.5.1:
     resolution: {integrity: sha512-5Yb9s/iPVJ5mW5x3j6XkKxt7WEqREr/AhYxZmtEfW1ffQHs1+aGoiQ2fXCAU6UIXMnWog2MXK82vrxJsjA3nbQ==}
     engines: {node: '>=12'}
@@ -5789,8 +5800,8 @@ packages:
       mkdirp: 0.5.6
     dev: false
 
-  /electron@28.1.4:
-    resolution: {integrity: sha512-WE6go611KOhtH6efRPMnVC7FE7DCKnQ3ZyHFeI1DbaCy8OU4UjZ8/CZGcuZmZgRdxSBEHoHdgaJkWRHZzF0FOg==}
+  /electron@28.2.0:
+    resolution: {integrity: sha512-22SylXQQ9IHtwLw4D+Z4Si7OUpeDtpHfJVTjy3yv53iLg5zJKKPOCWT4ZwgYGHQZ0eldyBrYBHF/P9FPd2CcVQ==}
     engines: {node: '>= 12.20.55'}
     hasBin: true
     requiresBuild: true
@@ -13729,8 +13740,8 @@ packages:
       stack-trace: 0.0.10
     dev: false
 
-  github.com/DFgpt/macos-notification-state/e0e78c3aff1a9d2362709dff70d01d3eaef4ee6a:
-    resolution: {tarball: https://codeload.github.com/DFgpt/macos-notification-state/tar.gz/e0e78c3aff1a9d2362709dff70d01d3eaef4ee6a}
+  git@github.com+DFgpt/macos-notification-state/e0e78c3aff1a9d2362709dff70d01d3eaef4ee6a:
+    resolution: {commit: e0e78c3aff1a9d2362709dff70d01d3eaef4ee6a, repo: git@github.com:DFgpt/macos-notification-state.git, type: git}
     name: macos-notification-state
     version: 3.0.0
     os: [darwin]

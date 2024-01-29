@@ -796,6 +796,10 @@ export default class ServicesStore extends TypedStore {
 
     // eslint-disable-next-line default-case
     switch (channel) {
+      case 'xgInit': {
+        console.log('---------xgInit on ui ----------');
+        break;
+      }
       case 'hello': {
         debug('Received hello event from', serviceId);
 

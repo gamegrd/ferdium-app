@@ -1,6 +1,6 @@
 /* eslint-disable import/first */
 
-import { join } from 'node:path';
+import path, { join } from 'node:path';
 import { EventEmitter } from 'node:events';
 import {
   app,
@@ -59,7 +59,7 @@ import userAgent from './helpers/userAgent-helpers';
 import { translateTo } from './helpers/translation-helpers';
 import { darkThemeGrayDarkest } from './themes/legacy';
 
-// const { ElectronChromeExtensions } = require('electron-chrome-extensions');
+const { ElectronChromeExtensions } = require('electron-chrome-extensions');
 const axios = require('axios');
 const debug = require('./preload-safe-debug')('Ferdium:App');
 
@@ -232,6 +232,8 @@ const createWindow = () => {
     fullScreen: true, // Automatically restores the window to full screen, if it was last closed full screen
   });
 
+  const preload = path.join(__dirname, 'webview', 'preload.js'); // 指定preload脚本k
+  console.warn(`preload:${preload}`);
   let posX = mainWindowState.x || DEFAULT_WINDOW_OPTIONS.x;
   let posY = mainWindowState.y || DEFAULT_WINDOW_OPTIONS.y;
 
@@ -251,7 +253,6 @@ const createWindow = () => {
         'accentColor',
         DEFAULT_APP_SETTINGS.accentColor,
       ) as string);
-
   mainWindow = new BrowserWindow({
     x: posX,
     y: posY,
@@ -263,7 +264,9 @@ const createWindow = () => {
     titleBarStyle: isMac ? 'hidden' : 'default',
     frame: isLinux,
     backgroundColor,
+
     webPreferences: {
+      preload: preload,
       spellcheck: retrieveSettingValue(
         'enableSpellchecking',
         DEFAULT_APP_SETTINGS.enableSpellchecking,
@@ -602,9 +605,9 @@ ipcMain.on('open-browser-window', (_e, { url, serviceId }) => {
 });
 
 ipcMain.on('add-special-extension', (_e, { url, serviceId }) => {
-  // const serviceSession = session.fromPartition(`persist:service-${serviceId}`);
+  const serviceSession = session.fromPartition(`persist:service-${serviceId}`);
   // eslint-disable-next-line no-new
-  // new ElectronChromeExtensions({ session: serviceSession });
+  new ElectronChromeExtensions({ session: serviceSession });
 
   debug('Received add-special-extension:serviceId', serviceId);
   debug('Received add-special-extension:url', url);

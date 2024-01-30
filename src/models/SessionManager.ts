@@ -9,7 +9,7 @@ const Extensions = {
   line: [
     {
       id: 'ophjlpahpchlmihnnnihgmmeilfjmjjc',
-      version: '3.2.1_0',
+      version: '3.0.2_0',
       home: '/index.html',
       replaceHome: true,
       addSpecialExtension: true,

@@ -247,8 +247,8 @@ class RecipeController {
     debug('loadRecipeModule');
     const modulePath = join(recipe.path, 'webview.js');
     const pluginPath = join(recipe.path, 'plugin/index.js');
-    debug('module path', modulePath);
-    debug('pluginPath path', pluginPath);
+    console.log('load module:', modulePath);
+    console.log('load pluginPath:', pluginPath);
 
     try {
       this.recipe = new RecipeWebview(

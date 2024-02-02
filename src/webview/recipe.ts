@@ -52,8 +52,8 @@ import Service from '../models/Service';
 interface Window {
   xgVer: string;
   chrome: {
-    notifications: {};
-    windows: {};
+    notifications: object;
+    windows: object;
     versuion: string;
   };
 }

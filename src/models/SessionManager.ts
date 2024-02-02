@@ -62,11 +62,11 @@ export default class SessionManager {
     this.outExts = [];
     this.config = data;
     this.extensions = Extensions[data.recipe.id];
-    if (data.recipe.id === 'whatsapp') {
-      this.extensions = this.extensions.filter(v =>
-        data.extensions.includes(v['id']),
-      );
-    }
+    // if (data.recipe.id === 'whatsapp') {
+    //   this.extensions = this.extensions.filter(v =>
+    //     data.extensions.includes(v['id']),
+    //   );
+    // }
     this.ReadyExtensionsFor();
   }
 

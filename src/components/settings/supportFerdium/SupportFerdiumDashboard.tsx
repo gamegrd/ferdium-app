@@ -3,7 +3,7 @@ import { defineMessages, useIntl } from 'react-intl';
 const messages = defineMessages({
   headline: {
     id: 'settings.supportFerdium.headline',
-    defaultMessage: 'About DFgpt',
+    defaultMessage: 'About RuyiAI',
   },
   aboutIntro: {
     id: 'settings.supportFerdium.aboutIntro',
@@ -12,7 +12,7 @@ const messages = defineMessages({
   about: {
     id: 'settings.supportFerdium.about',
     defaultMessage:
-      'The development of Ferdium is done by contributors. People who use Ferdium like you. They maintain, fix, and improve DFgpt in their spare time.',
+      'The development of Ferdium is done by contributors. People who use Ferdium like you. They maintain, fix, and improve RuyiAI in their spare time.',
   },
 });
 

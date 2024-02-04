@@ -23,7 +23,7 @@ const messages = defineMessages({
   info: {
     id: 'feature.publishDebugInfo.info',
     defaultMessage:
-      "Publishing your debug information helps us find issues and errors in Ferdium. By publishing your debug information you accept DFgpt Debugger's privacy policy and terms of service",
+      "Publishing your debug information helps us find issues and errors in Ferdium. By publishing your debug information you accept RuyiAI Debugger's privacy policy and terms of service",
   },
   error: {
     id: 'feature.publishDebugInfo.error',

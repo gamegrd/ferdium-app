@@ -37,7 +37,7 @@ const messages = defineMessages({
   },
   supportFerdium: {
     id: 'settings.navigation.supportFerdium',
-    defaultMessage: 'About DFgpt',
+    defaultMessage: 'About RuyiAI',
   },
   logout: {
     id: 'settings.navigation.logout',

@@ -46,7 +46,7 @@ export default class TrayIcon {
     this.mainWindow = firstWindow;
 
     // listen to window events to be able to set correct string
-    // to tray menu ('Hide DFgpt' / 'Show DFgpt')
+    // to tray menu ('Hide RuyiAI' / 'Show RuyiAI')
     this.mainWindow.on('hide', () => {
       this._updateTrayMenu(null);
     });
@@ -72,8 +72,8 @@ export default class TrayIcon {
       {
         label:
           tray.mainWindow.isVisible() && tray.mainWindow.isFocused()
-            ? 'Hide DFgpt'
-            : 'Show DFgpt',
+            ? 'Hide RuyiAI'
+            : 'Show RuyiAI',
         click() {
           tray._toggleWindow();
         },
@@ -88,7 +88,7 @@ export default class TrayIcon {
         },
       },
       {
-        label: 'Quit DFgpt',
+        label: 'Quit RuyiAI',
         click() {
           app.quit();
         },
@@ -122,7 +122,7 @@ export default class TrayIcon {
     }
 
     this.tray = new Tray(this._getAsset('tray', INDICATOR_TRAY_PLAIN));
-    this.tray.setToolTip('DFgpt');
+    this.tray.setToolTip('RuyiAI');
 
     this.trayMenu = Menu.buildFromTemplate(this.trayMenuTemplate(this));
     if (isLinux) {

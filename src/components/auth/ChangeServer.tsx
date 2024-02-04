@@ -26,7 +26,7 @@ const messages = defineMessages({
   },
   warning: {
     id: 'changeserver.warning',
-    defaultMessage: 'Extra settings offered by DFgpt will not be saved',
+    defaultMessage: 'Extra settings offered by RuyiAI will not be saved',
   },
   customServerLabel: {
     id: 'changeserver.customServerLabel',

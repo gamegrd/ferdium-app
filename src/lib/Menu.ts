@@ -176,11 +176,11 @@ const menuItems = defineMessages({
   },
   reloadFerdium: {
     id: 'menu.view.reloadFerdium',
-    defaultMessage: 'Reload DFgpt',
+    defaultMessage: 'Reload RuyiAI',
   },
   lockFerdium: {
     id: 'menu.view.lockFerdium',
-    defaultMessage: 'Lock DFgpt',
+    defaultMessage: 'Lock RuyiAI',
   },
   reloadTodos: {
     id: 'menu.view.reloadTodos',
@@ -224,7 +224,7 @@ const menuItems = defineMessages({
   },
   debugInfoCopiedHeadline: {
     id: 'menu.help.debugInfoCopiedHeadline',
-    defaultMessage: 'DFgpt Debug Information',
+    defaultMessage: 'RuyiAI Debug Information',
   },
   debugInfoCopiedBody: {
     id: 'menu.help.debugInfoCopiedBody',
@@ -264,7 +264,7 @@ const menuItems = defineMessages({
   },
   about: {
     id: 'menu.app.about',
-    defaultMessage: 'About DFgpt',
+    defaultMessage: 'About RuyiAI',
   },
   checkForUpdates: {
     id: 'menu.app.checkForUpdates',
@@ -1005,8 +1005,8 @@ class FranzMenu implements StoresProps {
         dialog
           .showMessageBox({
             type: 'info',
-            title: 'DFgpt',
-            message: 'DFgpt',
+            title: 'RuyiAI',
+            message: 'RuyiAI',
             detail: aboutAppDetails,
             buttons: [
               intl.formatMessage(menuItems.ok),

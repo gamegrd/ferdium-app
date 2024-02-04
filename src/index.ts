@@ -192,7 +192,7 @@ if (gotTheLock) {
           } else if (argv.includes('--quit')) {
             // Needs to be delayed to not interfere with mainWindow.restore();
             setTimeout(() => {
-              debug('Quitting DFgpt via Task');
+              debug('Quitting RuyiAI via Task');
               app.quit();
             }, 1);
           }
@@ -487,7 +487,7 @@ const createWindow = () => {
 // https://electronjs.org/docs/api/chrome-command-line-switches
 // used for Kerberos support
 // Usage e.g. MACOS
-// $ DFgpt.app/Contents/MacOS/DFgpt --auth-server-whitelist *.mydomain.com --auth-negotiate-delegate-whitelist *.mydomain.com
+// $ RuyiAI.app/Contents/MacOS/RuyiAI --auth-server-whitelist *.mydomain.com --auth-negotiate-delegate-whitelist *.mydomain.com
 const argv = minimist(process.argv.slice(1));
 
 if (argv['auth-server-whitelist']) {
@@ -532,15 +532,15 @@ app.on('ready', () => {
         arguments: `${extraArgs}--reset-window`,
         iconPath,
         iconIndex: 0,
-        title: 'Move DFgpt to Current Display',
-        description: 'Restore the position and size of DFgpt',
+        title: 'Move RuyiAI to Current Display',
+        description: 'Restore the position and size of RuyiAI',
       },
       {
         program: process.execPath,
         arguments: `${extraArgs}--quit`,
         iconPath,
         iconIndex: 0,
-        title: 'Quit DFgpt',
+        title: 'Quit RuyiAI',
         description: '',
       },
     ]);
@@ -818,7 +818,7 @@ app.on('before-quit', event => {
     selection = dialog.showMessageBoxSync(mainWindow!, {
       type: 'question',
       message: 'Quit',
-      detail: 'Do you really want to quit DFgpt?',
+      detail: 'Do you really want to quit RuyiAI?',
       buttons: ['Yes', 'No'],
     });
   }

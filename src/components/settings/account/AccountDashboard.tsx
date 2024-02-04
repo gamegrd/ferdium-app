@@ -42,7 +42,7 @@ const messages = defineMessages({
   deleteInfo: {
     id: 'settings.account.deleteInfo',
     defaultMessage:
-      "If you don't need your DFgpt account any longer, you can delete your account and all related data here.",
+      "If you don't need your RuyiAI account any longer, you can delete your account and all related data here.",
   },
   deleteEmailSent: {
     id: 'settings.account.deleteEmailSent',
@@ -51,7 +51,7 @@ const messages = defineMessages({
   },
   yourLicense: {
     id: 'settings.account.yourLicense',
-    defaultMessage: 'Your DFgpt License:',
+    defaultMessage: 'Your RuyiAI License:',
   },
   accountUnavailable: {
     id: 'settings.account.accountUnavailable',
@@ -60,7 +60,7 @@ const messages = defineMessages({
   accountUnavailableInfo: {
     id: 'settings.account.accountUnavailableInfo',
     defaultMessage:
-      'You are using Ferdium without an account. If you want to use DFgpt with an account and keep your services synchronized across installations, please select a server in the Settings tab then login.',
+      'You are using Ferdium without an account. If you want to use RuyiAI with an account and keep your services synchronized across installations, please select a server in the Settings tab then login.',
   },
 });
 

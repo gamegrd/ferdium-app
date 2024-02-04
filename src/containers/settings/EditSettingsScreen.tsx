@@ -44,7 +44,7 @@ const debug = require('../../preload-safe-debug')('Ferdium:EditSettingsScreen');
 const messages = defineMessages({
   autoLaunchOnStart: {
     id: 'settings.app.form.autoLaunchOnStart',
-    defaultMessage: 'Launch DFgpt on start',
+    defaultMessage: 'Launch RuyiAI on start',
   },
   autoLaunchInBackground: {
     id: 'settings.app.form.autoLaunchInBackground',
@@ -52,7 +52,7 @@ const messages = defineMessages({
   },
   runInBackground: {
     id: 'settings.app.form.runInBackground',
-    defaultMessage: 'Keep DFgpt in background when closing the window',
+    defaultMessage: 'Keep RuyiAI in background when closing the window',
   },
   startMinimized: {
     id: 'settings.app.form.startMinimized',
@@ -60,19 +60,19 @@ const messages = defineMessages({
   },
   confirmOnQuit: {
     id: 'settings.app.form.confirmOnQuit',
-    defaultMessage: 'Confirm when quitting DFgpt',
+    defaultMessage: 'Confirm when quitting RuyiAI',
   },
   enableSystemTray: {
     id: 'settings.app.form.enableSystemTray',
-    defaultMessage: 'Always show DFgpt in System Tray',
+    defaultMessage: 'Always show RuyiAI in System Tray',
   },
   enableMenuBar: {
     id: 'settings.app.form.enableMenuBar',
-    defaultMessage: 'Always show DFgpt in Menu Bar',
+    defaultMessage: 'Always show RuyiAI in Menu Bar',
   },
   reloadAfterResume: {
     id: 'settings.app.form.reloadAfterResume',
-    defaultMessage: 'Reload DFgpt after system resume',
+    defaultMessage: 'Reload RuyiAI after system resume',
   },
   reloadAfterResumeTime: {
     id: 'settings.app.form.reloadAfterResumeTime',
@@ -81,11 +81,11 @@ const messages = defineMessages({
   },
   minimizeToSystemTray: {
     id: 'settings.app.form.minimizeToSystemTray',
-    defaultMessage: 'Minimize DFgpt to system tray',
+    defaultMessage: 'Minimize RuyiAI to system tray',
   },
   closeToSystemTray: {
     id: 'settings.app.form.closeToSystemTray',
-    defaultMessage: 'Close DFgpt to system tray',
+    defaultMessage: 'Close RuyiAI to system tray',
   },
   privateNotifications: {
     id: 'settings.app.form.privateNotifications',
@@ -161,7 +161,7 @@ const messages = defineMessages({
   },
   useTouchIdToUnlock: {
     id: 'settings.app.form.useTouchIdToUnlock',
-    defaultMessage: 'Allow using TouchID to unlock DFgpt',
+    defaultMessage: 'Allow using TouchID to unlock RuyiAI',
   },
   inactivityLock: {
     id: 'settings.app.form.inactivityLock',
@@ -305,7 +305,7 @@ const messages = defineMessages({
   },
   enableGlobalHideShortcut: {
     id: 'settings.app.form.enableGlobalHideShortcut',
-    defaultMessage: 'Enable Global shortcut to hide DFgpt',
+    defaultMessage: 'Enable Global shortcut to hide RuyiAI',
   },
   beta: {
     id: 'settings.app.form.beta',
@@ -317,7 +317,7 @@ const messages = defineMessages({
   },
   enableTodos: {
     id: 'settings.app.form.enableTodos',
-    defaultMessage: 'Enable DFgpt Todos',
+    defaultMessage: 'Enable RuyiAI Todos',
   },
   keepAllWorkspacesLoaded: {
     id: 'settings.app.form.keepAllWorkspacesLoaded',

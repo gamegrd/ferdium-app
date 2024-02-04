@@ -62,15 +62,15 @@ const messages = defineMessages({
   },
   openTodosDrawer: {
     id: 'sidebar.openTodosDrawer',
-    defaultMessage: 'Open DFgpt Todos',
+    defaultMessage: 'Open RuyiAI Todos',
   },
   closeTodosDrawer: {
     id: 'sidebar.closeTodosDrawer',
-    defaultMessage: 'Close DFgpt Todos',
+    defaultMessage: 'Close RuyiAI Todos',
   },
   lockFerdium: {
     id: 'sidebar.lockFerdium',
-    defaultMessage: 'Lock DFgpt',
+    defaultMessage: 'Lock RuyiAI',
   },
 });
 

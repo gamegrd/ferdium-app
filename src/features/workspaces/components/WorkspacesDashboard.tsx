@@ -39,11 +39,11 @@ const messages = defineMessages({
   workspaceFeatureInfo: {
     id: 'settings.workspaces.workspaceFeatureInfo',
     defaultMessage:
-      'DFgpt Workspaces let you focus on what’s important right now. Set up different sets of services and easily switch between them at any time. You decide which services you need when and where, so we can help you stay on top of your game - or easily switch off from work whenever you want.',
+      'RuyiAI Workspaces let you focus on what’s important right now. Set up different sets of services and easily switch between them at any time. You decide which services you need when and where, so we can help you stay on top of your game - or easily switch off from work whenever you want.',
   },
   workspaceFeatureHeadline: {
     id: 'settings.workspaces.workspaceFeatureHeadline',
-    defaultMessage: 'Less is More: Introducing DFgpt Workspaces',
+    defaultMessage: 'Less is More: Introducing RuyiAI Workspaces',
   },
 });
 

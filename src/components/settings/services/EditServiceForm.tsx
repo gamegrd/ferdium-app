@@ -128,12 +128,12 @@ const messages = defineMessages({
   },
   proxyRestartInfo: {
     id: 'settings.service.form.proxy.restartInfo',
-    defaultMessage: 'Please restart DFgpt after changing proxy Settings.',
+    defaultMessage: 'Please restart RuyiAI after changing proxy Settings.',
   },
   proxyInfo: {
     id: 'settings.service.form.proxy.info',
     defaultMessage:
-      'Proxy settings will not be synchronized with the DFgpt servers.',
+      'Proxy settings will not be synchronized with the RuyiAI servers.',
   },
   serviceReloadRequired: {
     id: 'settings.service.reloadRequired',

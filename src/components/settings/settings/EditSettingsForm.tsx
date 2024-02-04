@@ -68,7 +68,7 @@ const messages = defineMessages({
   },
   todoServerInfo: {
     id: 'settings.app.todoServerInfo',
-    defaultMessage: 'This server will be used for the "DFgpt Todo" feature.',
+    defaultMessage: 'This server will be used for the "RuyiAI Todo" feature.',
   },
   lockedPassword: {
     id: 'settings.app.lockedPassword',
@@ -179,7 +179,7 @@ const messages = defineMessages({
   spellCheckerLanguageInfo: {
     id: 'settings.app.spellCheckerLanguageInfo',
     defaultMessage:
-      "DFgpt uses your Mac's build-in spellchecker to check for typos. If you want to change the languages the spellchecker checks for, you can do so in your Mac's System Preferences.",
+      "RuyiAI uses your Mac's build-in spellchecker to check for typos. If you want to change the languages the spellchecker checks for, you can do so in your Mac's System Preferences.",
   },
   subheadlineCache: {
     id: 'settings.app.subheadlineCache',

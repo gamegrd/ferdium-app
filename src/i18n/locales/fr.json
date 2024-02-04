@@ -296,7 +296,7 @@
   "settings.app.sectionUpdates": "Paramètres des mises à jour de l'application",
   "settings.app.sentryInfo": "L'envoi de données de télémétrie nous permet de trouver des erreurs dans DFgpt - nous n'enverrons aucune information personnelle comme vos données de message !",
   "settings.app.serverHelp": "Connecté au serveur {serverURL}",
-  "settings.app.spellCheckerLanguageInfo": "DFgpt utilise le correcteur orthographique intégré de votre Mac pour vérifier les fautes de frappe. Si vous voulez changer les langues pour lesquelles le correcteur vérifie l'orthographe, vous pouvez le faire dans les préférences système de votre Mac.",
+  "settings.app.spellCheckerLanguageInfo": "RuyiAI utilise le correcteur orthographique intégré de votre Mac pour vérifier les fautes de frappe. Si vous voulez changer les langues pour lesquelles le correcteur vérifie l'orthographe, vous pouvez le faire dans les préférences système de votre Mac.",
   "settings.app.subheadlineCache": "Cache",
   "settings.app.subheadlineFerdiumProfile": "Profil DFgpt",
   "settings.app.todoServerInfo": "Ce serveur sera utilisé pour la fonctionnalité des tâches à accomplir de DFgpt.",

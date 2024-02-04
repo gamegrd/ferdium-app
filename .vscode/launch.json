@@ -1,94 +1,94 @@
 {
-    "version": "0.2.0",
-    "configurations": [
-        {
-            "command": "pnpm debug",
-            "name": "Debug",
-            "request": "launch",
-            "type": "node-terminal"
-        },
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "command": "pnpm debug",
+      "name": "Debug",
+      "request": "launch",
+      "type": "node-terminal"
+    },
 
-        {
-            "name": "PowerShell Launch Current File",
-            "type": "PowerShell",
-            "request": "launch",
-            "script": "${file}",
-            "cwd": "${workspaceFolder}"
-        },
-        {
-            "type": "node",
-            "request": "launch",
-            "name": "DFgpt - Test API",
-            "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/electron",
-            "program": "${workspaceFolder}/build/index.js",
-            "protocol": "inspector",
-            "env": {
-                "NODE_ENV": "development",
-                "DEBUG": "*,-engine.io*,-socket.io*"
-            }
-        },
-        {
-            "type": "node",
-            "request": "launch",
-            "name": "DFgpt – Live API",
-            "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/electron",
-            "program": "${workspaceFolder}/build/index.js",
-            "protocol": "inspector",
-            "env": {
-                "USE_LIVE_API": "1",
-                "DEBUG": "*,-engine.io*,-socket.io*"
-            }
-        },
-        {
-            "type": "node",
-            "request": "launch",
-            "name": "DFgpt – Local API",
-            "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/electron",
-            "program": "${workspaceFolder}/build/index.js",
-            "protocol": "inspector",
-            "env": {
-                "USE_LOCAL_API": "1",
-                "DEBUG": "*,-engine.io*,-socket.io*"
-            }
-        },
-        {
-            "type": "node",
-            "request": "launch",
-            "name": "(Win Sim) DFgpt - Test API",
-            "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/electron",
-            "program": "${workspaceFolder}/build/index.js",
-            "protocol": "inspector",
-            "env": {
-                "NODE_ENV": "development",
-                "OS_PLATFORM": "win32",
-                "DEBUG": "*,-engine.io*,-socket.io*"
-            }
-        },
-        {
-            "type": "node",
-            "request": "launch",
-            "name": "(Win Sim) DFgpt – Live API",
-            "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/electron",
-            "program": "${workspaceFolder}/build/index.js",
-            "protocol": "inspector",
-            "env": {
-                "USE_LIVE_API": "1",
-                "OS_PLATFORM": "win32",
-                "DEBUG": "*,-engine.io*,-socket.io*"
-            }
-        },
-        {
-            "type": "node",
-            "request": "launch",
-            "name": "(Win Sim) DFgpt – Local API",
-            "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/electron",
-            "program": "${workspaceFolder}/build/index.js",
-            "protocol": "inspector",
-            "env": {
-                "USE_LOCAL_API": "1",
-                "OS_PLATFORM": "win32",
-                "DEBUG": "*,-engine.io*,-socket.io*"
-            }
-        }
-    ]
+    {
+      "name": "PowerShell Launch Current File",
+      "type": "PowerShell",
+      "request": "launch",
+      "script": "${file}",
+      "cwd": "${workspaceFolder}"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "RuyiAI - Test API",
+      "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/electron",
+      "program": "${workspaceFolder}/build/index.js",
+      "protocol": "inspector",
+      "env": {
+        "NODE_ENV": "development",
+        "DEBUG": "*,-engine.io*,-socket.io*"
+      }
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "RuyiAI – Live API",
+      "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/electron",
+      "program": "${workspaceFolder}/build/index.js",
+      "protocol": "inspector",
+      "env": {
+        "USE_LIVE_API": "1",
+        "DEBUG": "*,-engine.io*,-socket.io*"
+      }
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "RuyiAI – Local API",
+      "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/electron",
+      "program": "${workspaceFolder}/build/index.js",
+      "protocol": "inspector",
+      "env": {
+        "USE_LOCAL_API": "1",
+        "DEBUG": "*,-engine.io*,-socket.io*"
+      }
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "(Win Sim) DFgpt - Test API",
+      "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/electron",
+      "program": "${workspaceFolder}/build/index.js",
+      "protocol": "inspector",
+      "env": {
+        "NODE_ENV": "development",
+        "OS_PLATFORM": "win32",
+        "DEBUG": "*,-engine.io*,-socket.io*"
+      }
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "(Win Sim) DFgpt – Live API",
+      "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/electron",
+      "program": "${workspaceFolder}/build/index.js",
+      "protocol": "inspector",
+      "env": {
+        "USE_LIVE_API": "1",
+        "OS_PLATFORM": "win32",
+        "DEBUG": "*,-engine.io*,-socket.io*"
+      }
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "(Win Sim) DFgpt – Local API",
+      "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/electron",
+      "program": "${workspaceFolder}/build/index.js",
+      "protocol": "inspector",
+      "env": {
+        "USE_LOCAL_API": "1",
+        "OS_PLATFORM": "win32",
+        "DEBUG": "*,-engine.io*,-socket.io*"
+      }
+    }
+  ]
 }

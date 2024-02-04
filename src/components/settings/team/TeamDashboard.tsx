@@ -160,7 +160,7 @@ class TeamDashboard extends Component<IProps> {
                 <img
                   className={classes.image}
                   src="https://cdn.franzinfra.com/announcements/assets/teams.png"
-                  alt="DFgpt for Teams"
+                  alt="RuyiAI for Teams"
                 />
               </div>
               <div className={classes.buttonContainer}>

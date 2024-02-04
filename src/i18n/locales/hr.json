@@ -64,7 +64,7 @@
   "settings.account.userInfoRequestFailed": "Nije moguće učitati informacije o korisniku",
   "settings.app.buttonInstallUpdate": "Ponovo pokreni i instaliraj ažuriranje",
   "settings.app.buttonSearchForUpdate": "Potraži ažuriranja",
-  "settings.app.cacheInfo": "DFgpt predmemorija trenutno koristi {size} prostora na disku.",
+  "settings.app.cacheInfo": "RuyiAI predmemorija trenutno koristi {size} prostora na disku.",
   "settings.app.currentVersion": "Trenutna verzija:",
   "settings.app.form.autoLaunchInBackground": "Otvori u pozadini",
   "settings.app.form.autoLaunchOnStart": "Pokreni DFgpt sa sistemom",

@@ -2,7 +2,7 @@
   {
     "descriptors": [
       {
-        "defaultMessage": "!!!A new update for DFgpt is available.",
+        "defaultMessage": "!!!A new update for RuyiAI is available.",
         "end": {
           "column": 3,
           "line": 12
@@ -72,7 +72,7 @@
         }
       },
       {
-        "defaultMessage": "!!!Extra settings offered by DFgpt will not be saved",
+        "defaultMessage": "!!!Extra settings offered by RuyiAI will not be saved",
         "end": {
           "column": 3,
           "line": 25
@@ -129,7 +129,7 @@
   {
     "descriptors": [
       {
-        "defaultMessage": "!!!Import your DFgpt 4 services",
+        "defaultMessage": "!!!Import your RuyiAI 4 services",
         "end": {
           "column": 3,
           "line": 16
@@ -142,7 +142,7 @@
         }
       },
       {
-        "defaultMessage": "!!!Services not yet supported in DFgpt 5",
+        "defaultMessage": "!!!Services not yet supported in RuyiAI 5",
         "end": {
           "column": 3,
           "line": 20
@@ -295,7 +295,7 @@
         }
       },
       {
-        "defaultMessage": "!!!Ferdium is currently locked. Please unlock DFgpt with your password to see your messages.",
+        "defaultMessage": "!!!Ferdium is currently locked. Please unlock RuyiAI with your password to see your messages.",
         "end": {
           "column": 3,
           "line": 23
@@ -443,7 +443,7 @@
         }
       },
       {
-        "defaultMessage": "!!!Using a custom DFgpt server?",
+        "defaultMessage": "!!!Using a custom RuyiAI server?",
         "end": {
           "column": 3,
           "line": 43
@@ -521,7 +521,7 @@
         }
       },
       {
-        "defaultMessage": "!!!Use DFgpt without an Account",
+        "defaultMessage": "!!!Use RuyiAI without an Account",
         "end": {
           "column": 3,
           "line": 67
@@ -866,7 +866,7 @@
         }
       },
       {
-        "defaultMessage": "!!!By creating a DFgpt account you accept the",
+        "defaultMessage": "!!!By creating a RuyiAI account you accept the",
         "end": {
           "column": 3,
           "line": 46
@@ -944,7 +944,7 @@
         }
       },
       {
-        "defaultMessage": "!!!Use DFgpt without an Account",
+        "defaultMessage": "!!!Use RuyiAI without an Account",
         "end": {
           "column": 3,
           "line": 70
@@ -1001,7 +1001,7 @@
         }
       },
       {
-        "defaultMessage": "!!!Use DFgpt without an Account",
+        "defaultMessage": "!!!Use RuyiAI without an Account",
         "end": {
           "column": 3,
           "line": 22
@@ -1193,13 +1193,13 @@
         }
       },
       {
-        "defaultMessage": "!!!Lock DFgpt",
+        "defaultMessage": "!!!Lock RuyiAI",
         "end": {
           "column": 3,
           "line": 55
         },
         "file": "src/components/layout/Sidebar.js",
-        "id": "sidebar.lockDFgpt",
+        "id": "sidebar.lockRuyiAI",
         "start": {
           "column": 13,
           "line": 52
@@ -1351,7 +1351,7 @@
   {
     "descriptors": [
       {
-        "defaultMessage": "!!!Oh no! DFgpt lost the connection to {name}.",
+        "defaultMessage": "!!!Oh no! RuyiAI lost the connection to {name}.",
         "end": {
           "column": 3,
           "line": 18
@@ -1496,7 +1496,7 @@
   {
     "descriptors": [
       {
-        "defaultMessage": "!!!Welcome to DFgpt",
+        "defaultMessage": "!!!Welcome to RuyiAI",
         "end": {
           "column": 3,
           "line": 18
@@ -1522,7 +1522,7 @@
         }
       },
       {
-        "defaultMessage": "!!!Please login to use DFgpt.",
+        "defaultMessage": "!!!Please login to use RuyiAI.",
         "end": {
           "column": 3,
           "line": 26
@@ -1535,7 +1535,7 @@
         }
       },
       {
-        "defaultMessage": "!!!Use DFgpt without an Account",
+        "defaultMessage": "!!!Use RuyiAI without an Account",
         "end": {
           "column": 3,
           "line": 30
@@ -1548,7 +1548,7 @@
         }
       },
       {
-        "defaultMessage": "!!!Optionally, you can change your DFgpt server by clicking the cog in the bottom left corner.",
+        "defaultMessage": "!!!Optionally, you can change your RuyiAI server by clicking the cog in the bottom left corner.",
         "end": {
           "column": 3,
           "line": 34
@@ -1945,7 +1945,7 @@
         }
       },
       {
-        "defaultMessage": "!!!If you don't need your DFgpt account any longer, you can delete your account and all related data here.",
+        "defaultMessage": "!!!If you don't need your RuyiAI account any longer, you can delete your account and all related data here.",
         "end": {
           "column": 3,
           "line": 46
@@ -1997,7 +1997,7 @@
         }
       },
       {
-        "defaultMessage": "You are using Ferdium without an account. If you want to use DFgpt with an account and keep your services synchronized across installations, please select a server in the Settings tab then login.",
+        "defaultMessage": "You are using Ferdium without an account. If you want to use RuyiAI with an account and keep your services synchronized across installations, please select a server in the Settings tab then login.",
         "end": {
           "column": 3,
           "line": 63
@@ -2093,13 +2093,13 @@
         }
       },
       {
-        "defaultMessage": "!!!About DFgpt",
+        "defaultMessage": "!!!About RuyiAI",
         "end": {
           "column": 3,
           "line": 42
         },
         "file": "src/components/settings/navigation/SettingsNavigation.js",
-        "id": "settings.navigation.supportDFgpt",
+        "id": "settings.navigation.supportRuyiAI",
         "start": {
           "column": 16,
           "line": 39
@@ -2150,13 +2150,13 @@
         }
       },
       {
-        "defaultMessage": "!!!DFgpt Picks",
+        "defaultMessage": "!!!RuyiAI Picks",
         "end": {
           "column": 3,
           "line": 30
         },
         "file": "src/components/settings/recipes/RecipesDashboard.js",
-        "id": "settings.recipes.DFgptPicks",
+        "id": "settings.recipes.RuyiAIPicks",
         "start": {
           "column": 22,
           "line": 27
@@ -2189,7 +2189,7 @@
         }
       },
       {
-        "defaultMessage": "!!!Sorry, but no service matched your search term - but you can still probably add it using the \"Custom Website\" option. Please note that the website might show more services that have been added to Ferdium since the version that you are currently on. To get those new services, please consider upgrading to a newer version of DFgpt.",
+        "defaultMessage": "!!!Sorry, but no service matched your search term - but you can still probably add it using the \"Custom Website\" option. Please note that the website might show more services that have been added to Ferdium since the version that you are currently on. To get those new services, please consider upgrading to a newer version of RuyiAI.",
         "end": {
           "column": 3,
           "line": 42
@@ -2623,7 +2623,7 @@
         }
       },
       {
-        "defaultMessage": "!!!Please restart DFgpt after changing proxy Settings.",
+        "defaultMessage": "!!!Please restart RuyiAI after changing proxy Settings.",
         "end": {
           "column": 3,
           "line": 122
@@ -2636,7 +2636,7 @@
         }
       },
       {
-        "defaultMessage": "!!!Proxy settings will not be synchronized with the DFgpt servers.",
+        "defaultMessage": "!!!Proxy settings will not be synchronized with the RuyiAI servers.",
         "end": {
           "column": 3,
           "line": 126
@@ -2794,7 +2794,7 @@
         }
       },
       {
-        "defaultMessage": "!!!Sorry, but no service matched your search term. Please note that the website might show more services that have been added to Ferdium since the version that you are currently on. To get those new services, please consider upgrading to a newer version of DFgpt.",
+        "defaultMessage": "!!!Sorry, but no service matched your search term. Please note that the website might show more services that have been added to Ferdium since the version that you are currently on. To get those new services, please consider upgrading to a newer version of RuyiAI.",
         "end": {
           "column": 3,
           "line": 30
@@ -2903,7 +2903,7 @@
         }
       },
       {
-        "defaultMessage": "!!!Sending telemetry data allows us to find errors in DFgpt - we will not send any personal information like your message data! Changing this option requires you to restart DFgpt.",
+        "defaultMessage": "!!!Sending telemetry data allows us to find errors in RuyiAI - we will not send any personal information like your message data! Changing this option requires you to restart RuyiAI.",
         "end": {
           "column": 3,
           "line": 34
@@ -2916,7 +2916,7 @@
         }
       },
       {
-        "defaultMessage": "!!!By default, DFgpt will keep all your services open and loaded in the background so they are ready when you want to use them. Service Hibernation will unload your services after a specified amount. This is useful to save RAM or keeping services from slowing down your computer.",
+        "defaultMessage": "!!!By default, RuyiAI will keep all your services open and loaded in the background so they are ready when you want to use them. Service Hibernation will unload your services after a specified amount. This is useful to save RAM or keeping services from slowing down your computer.",
         "end": {
           "column": 3,
           "line": 38
@@ -2929,7 +2929,7 @@
         }
       },
       {
-        "defaultMessage": "!!!Minutes of inactivity, after which DFgpt should automatically lock. Use 0 to disable",
+        "defaultMessage": "!!!Minutes of inactivity, after which RuyiAI should automatically lock. Use 0 to disable",
         "end": {
           "column": 3,
           "line": 42
@@ -2968,7 +2968,7 @@
         }
       },
       {
-        "defaultMessage": "!!!Please make sure to set a password you'll remember.\nIf you loose this password, you will have to reinstall DFgpt.",
+        "defaultMessage": "!!!Please make sure to set a password you'll remember.\nIf you loose this password, you will have to reinstall RuyiAI.",
         "end": {
           "column": 3,
           "line": 54
@@ -2981,7 +2981,7 @@
         }
       },
       {
-        "defaultMessage": "!!!Password Lock allows you to keep your messages protected.\nUsing Password Lock, you will be prompted to enter your password everytime you start Ferdium or lock DFgpt yourself using the lock symbol in the bottom left corner or the shortcut CMD/CTRL+Shift+L.",
+        "defaultMessage": "!!!Password Lock allows you to keep your messages protected.\nUsing Password Lock, you will be prompted to enter your password everytime you start Ferdium or lock RuyiAI yourself using the lock symbol in the bottom left corner or the shortcut CMD/CTRL+Shift+L.",
         "end": {
           "column": 3,
           "line": 58
@@ -3007,7 +3007,7 @@
         }
       },
       {
-        "defaultMessage": "!!!Scheduled Do-not-Disturb allows you to define a period of time in which you do not want to get Notifications from DFgpt.",
+        "defaultMessage": "!!!Scheduled Do-not-Disturb allows you to define a period of time in which you do not want to get Notifications from RuyiAI.",
         "end": {
           "column": 3,
           "line": 66
@@ -3111,7 +3111,7 @@
         }
       },
       {
-        "defaultMessage": "!!!Help us to translate DFgpt into your language.",
+        "defaultMessage": "!!!Help us to translate RuyiAI into your language.",
         "end": {
           "column": 3,
           "line": 98
@@ -3124,7 +3124,7 @@
         }
       },
       {
-        "defaultMessage": "!!!DFgpt uses your Mac's build-in spellchecker to check for typos. If you want to change the languages the spellchecker checks for, you can do so in your Mac's System Preferences.",
+        "defaultMessage": "!!!RuyiAI uses your Mac's build-in spellchecker to check for typos. If you want to change the languages the spellchecker checks for, you can do so in your Mac's System Preferences.",
         "end": {
           "column": 3,
           "line": 102
@@ -3150,7 +3150,7 @@
         }
       },
       {
-        "defaultMessage": "!!!DFgpt cache is currently using {size} of disk space.",
+        "defaultMessage": "!!!RuyiAI cache is currently using {size} of disk space.",
         "end": {
           "column": 3,
           "line": 110
@@ -3241,7 +3241,7 @@
         }
       },
       {
-        "defaultMessage": "!!!You are using the latest version of DFgpt",
+        "defaultMessage": "!!!You are using the latest version of RuyiAI",
         "end": {
           "column": 3,
           "line": 138
@@ -3316,39 +3316,39 @@
   {
     "descriptors": [
       {
-        "defaultMessage": "!!!About DFgpt",
+        "defaultMessage": "!!!About RuyiAI",
         "end": {
           "column": 3,
           "line": 10
         },
-        "file": "src/components/settings/supportFerdium/SupportDFgptDashboard.js",
-        "id": "settings.supportDFgpt.headline",
+        "file": "src/components/settings/supportFerdium/SupportRuyiAIDashboard.js",
+        "id": "settings.supportRuyiAI.headline",
         "start": {
           "column": 12,
           "line": 7
         }
       },
       {
-        "defaultMessage": "!!!Do you like DFgpt?",
+        "defaultMessage": "!!!Do you like RuyiAI?",
         "end": {
           "column": 3,
           "line": 14
         },
-        "file": "src/components/settings/supportFerdium/SupportDFgptDashboard.js",
-        "id": "settings.supportDFgpt.title",
+        "file": "src/components/settings/supportFerdium/SupportRuyiAIDashboard.js",
+        "id": "settings.supportRuyiAI.title",
         "start": {
           "column": 9,
           "line": 11
         }
       },
       {
-        "defaultMessage": "!!!<p>DFgpt is an open-source and a community-lead application.</p><p>Thanks to the people who make this possbile:</p>",
+        "defaultMessage": "!!!<p>RuyiAI is an open-source and a community-lead application.</p><p>Thanks to the people who make this possbile:</p>",
         "end": {
           "column": 3,
           "line": 18
         },
-        "file": "src/components/settings/supportFerdium/SupportDFgptDashboard.js",
-        "id": "settings.supportDFgpt.aboutIntro",
+        "file": "src/components/settings/supportFerdium/SupportRuyiAIDashboard.js",
+        "id": "settings.supportRuyiAI.aboutIntro",
         "start": {
           "column": 14,
           "line": 15
@@ -3360,8 +3360,8 @@
           "column": 3,
           "line": 22
         },
-        "file": "src/components/settings/supportFerdium/SupportDFgptDashboard.js",
-        "id": "settings.supportDFgpt.textListContributors",
+        "file": "src/components/settings/supportFerdium/SupportRuyiAIDashboard.js",
+        "id": "settings.supportRuyiAI.textListContributors",
         "start": {
           "column": 24,
           "line": 19
@@ -3373,21 +3373,21 @@
           "column": 3,
           "line": 26
         },
-        "file": "src/components/settings/supportFerdium/SupportDFgptDashboard.js",
-        "id": "settings.supportDFgpt.textListContributorsHere",
+        "file": "src/components/settings/supportFerdium/SupportRuyiAIDashboard.js",
+        "id": "settings.supportRuyiAI.textListContributorsHere",
         "start": {
           "column": 28,
           "line": 23
         }
       },
       {
-        "defaultMessage": "!!!The development of Ferdium is done by volunteers. People who use Ferdium like you. They maintain, fix, and improve DFgpt in their spare time.",
+        "defaultMessage": "!!!The development of Ferdium is done by volunteers. People who use Ferdium like you. They maintain, fix, and improve RuyiAI in their spare time.",
         "end": {
           "column": 3,
           "line": 30
         },
-        "file": "src/components/settings/supportFerdium/SupportDFgptDashboard.js",
-        "id": "settings.supportDFgpt.textVolunteers",
+        "file": "src/components/settings/supportFerdium/SupportRuyiAIDashboard.js",
+        "id": "settings.supportRuyiAI.textVolunteers",
         "start": {
           "column": 18,
           "line": 27
@@ -3399,8 +3399,8 @@
           "column": 3,
           "line": 34
         },
-        "file": "src/components/settings/supportFerdium/SupportDFgptDashboard.js",
-        "id": "settings.supportDFgpt.textSupportWelcome",
+        "file": "src/components/settings/supportFerdium/SupportRuyiAIDashboard.js",
+        "id": "settings.supportRuyiAI.textSupportWelcome",
         "start": {
           "column": 22,
           "line": 31
@@ -3412,8 +3412,8 @@
           "column": 3,
           "line": 38
         },
-        "file": "src/components/settings/supportFerdium/SupportDFgptDashboard.js",
-        "id": "settings.supportDFgpt.textSupportWelcomeHere",
+        "file": "src/components/settings/supportFerdium/SupportRuyiAIDashboard.js",
+        "id": "settings.supportRuyiAI.textSupportWelcomeHere",
         "start": {
           "column": 26,
           "line": 35
@@ -3425,8 +3425,8 @@
           "column": 3,
           "line": 42
         },
-        "file": "src/components/settings/supportFerdium/SupportDFgptDashboard.js",
-        "id": "settings.supportDFgpt.textExpenses",
+        "file": "src/components/settings/supportFerdium/SupportRuyiAIDashboard.js",
+        "id": "settings.supportRuyiAI.textExpenses",
         "start": {
           "column": 16,
           "line": 39
@@ -3438,21 +3438,21 @@
           "column": 3,
           "line": 46
         },
-        "file": "src/components/settings/supportFerdium/SupportDFgptDashboard.js",
-        "id": "settings.supportDFgpt.textOpenCollective",
+        "file": "src/components/settings/supportFerdium/SupportRuyiAIDashboard.js",
+        "id": "settings.supportRuyiAI.textOpenCollective",
         "start": {
           "column": 22,
           "line": 43
         }
       },
       {
-        "defaultMessage": "!!!If you feel like supporting DFgpt development with a donation, you can do so on both,",
+        "defaultMessage": "!!!If you feel like supporting RuyiAI development with a donation, you can do so on both,",
         "end": {
           "column": 3,
           "line": 50
         },
-        "file": "src/components/settings/supportFerdium/SupportDFgptDashboard.js",
-        "id": "settings.supportDFgpt.textDonation",
+        "file": "src/components/settings/supportFerdium/SupportRuyiAIDashboard.js",
+        "id": "settings.supportRuyiAI.textDonation",
         "start": {
           "column": 16,
           "line": 47
@@ -3464,8 +3464,8 @@
           "column": 3,
           "line": 54
         },
-        "file": "src/components/settings/supportFerdium/SupportDFgptDashboard.js",
-        "id": "settings.supportDFgpt.textDonationAnd",
+        "file": "src/components/settings/supportFerdium/SupportRuyiAIDashboard.js",
+        "id": "settings.supportRuyiAI.textDonationAnd",
         "start": {
           "column": 19,
           "line": 51
@@ -3477,8 +3477,8 @@
           "column": 3,
           "line": 58
         },
-        "file": "src/components/settings/supportFerdium/SupportDFgptDashboard.js",
-        "id": "settings.supportDFgpt.textGitHubSponsors",
+        "file": "src/components/settings/supportFerdium/SupportRuyiAIDashboard.js",
+        "id": "settings.supportRuyiAI.textGitHubSponsors",
         "start": {
           "column": 22,
           "line": 55
@@ -3490,28 +3490,28 @@
           "column": 3,
           "line": 62
         },
-        "file": "src/components/settings/supportFerdium/SupportDFgptDashboard.js",
-        "id": "settings.supportDFgpt.openSurvey",
+        "file": "src/components/settings/supportFerdium/SupportRuyiAIDashboard.js",
+        "id": "settings.supportRuyiAI.openSurvey",
         "start": {
           "column": 14,
           "line": 59
         }
       },
       {
-        "defaultMessage": "!!!Do you want to help us improve DFgpt?",
+        "defaultMessage": "!!!Do you want to help us improve RuyiAI?",
         "end": {
           "column": 3,
           "line": 66
         },
-        "file": "src/components/settings/supportFerdium/SupportDFgptDashboard.js",
-        "id": "settings.supportDFgpt.bannerText",
+        "file": "src/components/settings/supportFerdium/SupportRuyiAIDashboard.js",
+        "id": "settings.supportRuyiAI.bannerText",
         "start": {
           "column": 14,
           "line": 63
         }
       }
     ],
-    "path": "src/components/settings/supportFerdium/SupportDFgptDashboard.json"
+    "path": "src/components/settings/supportFerdium/SupportRuyiAIDashboard.json"
   },
   {
     "descriptors": [
@@ -3555,7 +3555,7 @@
         }
       },
       {
-        "defaultMessage": "!!!Franz's Team Management allows you to manage Franz Subscriptions for multiple users. Please keep in mind that having a Franz Premium subscription will give you no advantages in using DFgpt: The only reason you still have access to Team Management is so you can manage your legacy Franz Teams and so that you don't loose any functionality in managing your account.",
+        "defaultMessage": "!!!Franz's Team Management allows you to manage Franz Subscriptions for multiple users. Please keep in mind that having a Franz Premium subscription will give you no advantages in using RuyiAI: The only reason you still have access to Team Management is so you can manage your legacy Franz Teams and so that you don't loose any functionality in managing your account.",
         "end": {
           "column": 3,
           "line": 30
@@ -4050,7 +4050,7 @@
   {
     "descriptors": [
       {
-        "defaultMessage": "!!!Launch DFgpt on start",
+        "defaultMessage": "!!!Launch RuyiAI on start",
         "end": {
           "column": 3,
           "line": 33
@@ -4076,7 +4076,7 @@
         }
       },
       {
-        "defaultMessage": "!!!Keep DFgpt in background when closing the window",
+        "defaultMessage": "!!!Keep RuyiAI in background when closing the window",
         "end": {
           "column": 3,
           "line": 41
@@ -4102,7 +4102,7 @@
         }
       },
       {
-        "defaultMessage": "!!!Always show DFgpt in System Tray",
+        "defaultMessage": "!!!Always show RuyiAI in System Tray",
         "end": {
           "column": 3,
           "line": 49
@@ -4115,7 +4115,7 @@
         }
       },
       {
-        "defaultMessage": "!!!Always show DFgpt in Menu Bar",
+        "defaultMessage": "!!!Always show RuyiAI in Menu Bar",
         "end": {
           "column": 3,
           "line": 53
@@ -4128,7 +4128,7 @@
         }
       },
       {
-        "defaultMessage": "!!!Reload DFgpt after system resume",
+        "defaultMessage": "!!!Reload RuyiAI after system resume",
         "end": {
           "column": 3,
           "line": 57
@@ -4141,7 +4141,7 @@
         }
       },
       {
-        "defaultMessage": "!!!Minimize DFgpt to system tray",
+        "defaultMessage": "!!!Minimize RuyiAI to system tray",
         "end": {
           "column": 3,
           "line": 61
@@ -4154,7 +4154,7 @@
         }
       },
       {
-        "defaultMessage": "!!!Close DFgpt to system tray",
+        "defaultMessage": "!!!Close RuyiAI to system tray",
         "end": {
           "column": 3,
           "line": 65
@@ -4775,7 +4775,7 @@
   {
     "descriptors": [
       {
-        "defaultMessage": "!!!Changes in DFgpt {version}",
+        "defaultMessage": "!!!Changes in RuyiAI {version}",
         "end": {
           "column": 3,
           "line": 23
@@ -4824,7 +4824,7 @@
         }
       },
       {
-        "defaultMessage": "!!!Nightly builds are highly experimental versions of DFgpt that may contain unpolished or uncompleted features. These nightly builds are mainly used by developers to test their newly developed features and how they will perform in the final build. If you don't know what you are doing, we suggest not activating nightly builds.",
+        "defaultMessage": "!!!Nightly builds are highly experimental versions of RuyiAI that may contain unpolished or uncompleted features. These nightly builds are mainly used by developers to test their newly developed features and how they will perform in the final build. If you don't know what you are doing, we suggest not activating nightly builds.",
         "end": {
           "column": 3,
           "line": 23
@@ -4881,7 +4881,7 @@
         }
       },
       {
-        "defaultMessage": "!!!Publishing your debug information helps us find issues and errors in Ferdium. By publishing your debug information you accept DFgpt Debugger's privacy policy and terms of service",
+        "defaultMessage": "!!!Publishing your debug information helps us find issues and errors in Ferdium. By publishing your debug information you accept RuyiAI Debugger's privacy policy and terms of service",
         "end": {
           "column": 3,
           "line": 26
@@ -5078,7 +5078,7 @@
   {
     "descriptors": [
       {
-        "defaultMessage": "!!!DFgpt is better together!",
+        "defaultMessage": "!!!RuyiAI is better together!",
         "end": {
           "column": 3,
           "line": 20
@@ -5091,7 +5091,7 @@
         }
       },
       {
-        "defaultMessage": "!!!Tell your friends and colleagues how awesome DFgpt is and help us to spread the word.",
+        "defaultMessage": "!!!Tell your friends and colleagues how awesome RuyiAI is and help us to spread the word.",
         "end": {
           "column": 3,
           "line": 24
@@ -5143,7 +5143,7 @@
         }
       },
       {
-        "defaultMessage": "!!! I've added {count} services to DFgpt! Get the free app for WhatsApp, Messenger, Slack, Skype and co at www.meetfranz.com",
+        "defaultMessage": "!!! I've added {count} services to RuyiAI! Get the free app for WhatsApp, Messenger, Slack, Skype and co at www.meetfranz.com",
         "end": {
           "column": 3,
           "line": 40
@@ -5156,7 +5156,7 @@
         }
       },
       {
-        "defaultMessage": "!!! I've added {count} services to DFgpt! Get the free app for WhatsApp, Messenger, Slack, Skype and co at www.meetfranz.com /cc @FranzMessenger",
+        "defaultMessage": "!!! I've added {count} services to RuyiAI! Get the free app for WhatsApp, Messenger, Slack, Skype and co at www.meetfranz.com /cc @FranzMessenger",
         "end": {
           "column": 3,
           "line": 44
@@ -5589,7 +5589,7 @@
         }
       },
       {
-        "defaultMessage": "!!!Less is More: Introducing DFgpt Workspaces",
+        "defaultMessage": "!!!Less is More: Introducing RuyiAI Workspaces",
         "end": {
           "column": 3,
           "line": 48
@@ -5695,7 +5695,7 @@
   {
     "descriptors": [
       {
-        "defaultMessage": "!!!Can't connect to DFgpt Online Services",
+        "defaultMessage": "!!!Can't connect to RuyiAI Online Services",
         "end": {
           "column": 3,
           "line": 7
@@ -6181,7 +6181,7 @@
         }
       },
       {
-        "defaultMessage": "!!!Reload DFgpt",
+        "defaultMessage": "!!!Reload RuyiAI",
         "end": {
           "column": 3,
           "line": 138
@@ -6194,13 +6194,13 @@
         }
       },
       {
-        "defaultMessage": "!!!Lock DFgpt",
+        "defaultMessage": "!!!Lock RuyiAI",
         "end": {
           "column": 3,
           "line": 142
         },
         "file": "src/lib/Menu.js",
-        "id": "menu.view.lockDFgpt",
+        "id": "menu.view.lockRuyiAI",
         "start": {
           "column": 13,
           "line": 139
@@ -6311,7 +6311,7 @@
         }
       },
       {
-        "defaultMessage": "!!!DFgpt Debug Information",
+        "defaultMessage": "!!!RuyiAI Debug Information",
         "end": {
           "column": 3,
           "line": 178
@@ -6441,7 +6441,7 @@
         }
       },
       {
-        "defaultMessage": "!!!About DFgpt",
+        "defaultMessage": "!!!About RuyiAI",
         "end": {
           "column": 3,
           "line": 222

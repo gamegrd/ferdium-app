@@ -95,7 +95,7 @@ export function resetServer() {
 export function serverName(): string {
   const serverType = (window as any).ferdium.stores.settings.all.app.server;
   const noServerFerdi = 'You are using Ferdi without a server';
-  const noServerFerdium = 'You are using DFgpt without a server';
+  const noServerFerdium = 'You are using RuyiAI without a server';
 
   let nameServer;
   switch (serverType) {
@@ -104,7 +104,7 @@ export function serverName(): string {
       break;
     }
     case LIVE_FERDIUM_API: {
-      nameServer = 'DFgpt';
+      nameServer = 'RuyiAI';
       break;
     }
     case noServerFerdi: {

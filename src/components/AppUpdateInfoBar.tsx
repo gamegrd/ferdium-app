@@ -11,7 +11,7 @@ import { isWinPortable } from '../environment';
 const messages = defineMessages({
   updateAvailable: {
     id: 'infobar.updateAvailable',
-    defaultMessage: 'A new update for DFgpt is available.',
+    defaultMessage: 'A new update for RuyiAI is available.',
   },
   changelog: {
     id: 'infobar.buttonChangelog',

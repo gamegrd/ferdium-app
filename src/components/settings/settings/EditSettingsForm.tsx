@@ -54,21 +54,21 @@ const messages = defineMessages({
   sentryInfo: {
     id: 'settings.app.sentryInfo',
     defaultMessage:
-      'Sending telemetry data allows us to find errors in DFgpt - we will not send any personal information like your message data!',
+      'Sending telemetry data allows us to find errors in RuyiAI - we will not send any personal information like your message data!',
   },
   hibernateInfo: {
     id: 'settings.app.hibernateInfo',
     defaultMessage:
-      'By default, DFgpt will keep all your services open and loaded in the background so they are ready when you want to use them. Service Hibernation will unload your services after a specified amount. This is useful to save RAM or keeping services from slowing down your computer.',
+      'By default, RuyiAI will keep all your services open and loaded in the background so they are ready when you want to use them. Service Hibernation will unload your services after a specified amount. This is useful to save RAM or keeping services from slowing down your computer.',
   },
   inactivityLockInfo: {
     id: 'settings.app.inactivityLockInfo',
     defaultMessage:
-      'Minutes of inactivity, after which DFgpt should automatically lock. Use 0 to disable',
+      'Minutes of inactivity, after which RuyiAI should automatically lock. Use 0 to disable',
   },
   todoServerInfo: {
     id: 'settings.app.todoServerInfo',
-    defaultMessage: 'This server will be used for the "DFgpt Todo" feature.',
+    defaultMessage: 'This server will be used for the "RuyiAI Todo" feature.',
   },
   lockedPassword: {
     id: 'settings.app.lockedPassword',
@@ -77,12 +77,12 @@ const messages = defineMessages({
   lockedPasswordInfo: {
     id: 'settings.app.lockedPasswordInfo',
     defaultMessage:
-      "Please make sure to set a password you'll remember.\nIf you loose this password, you will have to reinstall DFgpt.",
+      "Please make sure to set a password you'll remember.\nIf you loose this password, you will have to reinstall RuyiAI.",
   },
   lockInfo: {
     id: 'settings.app.lockInfo',
     defaultMessage:
-      'Password Lock allows you to keep your messages protected.\nUsing Password Lock, you will be prompted to enter your password everytime you start Ferdium or lock DFgpt yourself using the lock symbol in the bottom left corner or the shortcut {lockShortcut}.',
+      'Password Lock allows you to keep your messages protected.\nUsing Password Lock, you will be prompted to enter your password everytime you start Ferdium or lock RuyiAI yourself using the lock symbol in the bottom left corner or the shortcut {lockShortcut}.',
   },
   scheduledDNDTimeInfo: {
     id: 'settings.app.scheduledDNDTimeInfo',
@@ -92,7 +92,7 @@ const messages = defineMessages({
   scheduledDNDInfo: {
     id: 'settings.app.scheduledDNDInfo',
     defaultMessage:
-      'Scheduled Do-not-Disturb allows you to define a period of time in which you do not want to get Notifications from DFgpt.',
+      'Scheduled Do-not-Disturb allows you to define a period of time in which you do not want to get Notifications from RuyiAI.',
   },
   headlineLanguage: {
     id: 'settings.app.headlineLanguage',
@@ -174,12 +174,12 @@ const messages = defineMessages({
   },
   translationHelp: {
     id: 'settings.app.translationHelp',
-    defaultMessage: 'Help us to translate DFgpt into your language.',
+    defaultMessage: 'Help us to translate RuyiAI into your language.',
   },
   spellCheckerLanguageInfo: {
     id: 'settings.app.spellCheckerLanguageInfo',
     defaultMessage:
-      "DFgpt uses your Mac's build-in spellchecker to check for typos. If you want to change the languages the spellchecker checks for, you can do so in your Mac's System Preferences.",
+      "RuyiAI uses your Mac's build-in spellchecker to check for typos. If you want to change the languages the spellchecker checks for, you can do so in your Mac's System Preferences.",
   },
   subheadlineCache: {
     id: 'settings.app.subheadlineCache',
@@ -187,7 +187,7 @@ const messages = defineMessages({
   },
   cacheInfo: {
     id: 'settings.app.cacheInfo',
-    defaultMessage: 'DFgpt cache is currently using {size} of disk space.',
+    defaultMessage: 'RuyiAI cache is currently using {size} of disk space.',
   },
   cacheNotCleared: {
     id: 'settings.app.cacheNotCleared',
@@ -195,7 +195,7 @@ const messages = defineMessages({
   },
   subheadlineFerdiumProfile: {
     id: 'settings.app.subheadlineFerdiumProfile',
-    defaultMessage: 'DFgpt Profile',
+    defaultMessage: 'RuyiAI Profile',
   },
   buttonOpenFerdiumProfileFolder: {
     id: 'settings.app.buttonOpenFerdiumProfileFolder',
@@ -235,7 +235,7 @@ const messages = defineMessages({
   },
   updateStatusUpToDate: {
     id: 'settings.app.updateStatusUpToDate',
-    defaultMessage: 'You are using the latest version of DFgpt',
+    defaultMessage: 'You are using the latest version of RuyiAI',
   },
   servicesUpdateStatusUpToDate: {
     id: 'settings.app.servicesUpdateStatusUpToDate',

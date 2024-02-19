@@ -64,7 +64,7 @@ export default defineMessages({
   },
   quitConfirmation: {
     id: 'global.quitConfirmation',
-    defaultMessage: 'Do you really want to quit DFgpt?',
+    defaultMessage: 'Do you really want to quit RuyiAI?',
   },
   downloads: {
     id: 'global.downloads',

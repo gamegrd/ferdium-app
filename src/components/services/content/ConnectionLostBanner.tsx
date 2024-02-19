@@ -9,7 +9,7 @@ import Icon from '../../ui/icon';
 const messages = defineMessages({
   text: {
     id: 'connectionLostBanner.message',
-    defaultMessage: 'Oh no! DFgpt lost the connection to {name}.',
+    defaultMessage: 'Oh no! RuyiAI lost the connection to {name}.',
   },
   moreInformation: {
     id: 'connectionLostBanner.informationLink',

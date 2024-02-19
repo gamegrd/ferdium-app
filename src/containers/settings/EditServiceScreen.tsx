@@ -90,7 +90,7 @@ const messages = defineMessages({
   },
   trapLinkClicks: {
     id: 'settings.service.form.trapLinkClicks',
-    defaultMessage: 'Open URLs within DFgpt',
+    defaultMessage: 'Open URLs within RuyiAI',
   },
   onlyShowFavoritesInUnreadCount: {
     id: 'settings.service.form.onlyShowFavoritesInUnreadCount',

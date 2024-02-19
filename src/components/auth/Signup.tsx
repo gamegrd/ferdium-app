@@ -41,7 +41,7 @@ const messages = defineMessages({
   },
   legalInfo: {
     id: 'signup.legal.info',
-    defaultMessage: 'By creating a DFgpt account you accept the',
+    defaultMessage: 'By creating a RuyiAI account you accept the',
   },
   terms: {
     id: 'signup.legal.terms',

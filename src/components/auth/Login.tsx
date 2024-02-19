@@ -38,7 +38,7 @@ const messages = defineMessages({
   },
   customServerQuestion: {
     id: 'login.customServerQuestion',
-    defaultMessage: 'Using a custom DFgpt server?',
+    defaultMessage: 'Using a custom RuyiAI server?',
   },
   customServerSuggestion: {
     id: 'login.customServerSuggestion',

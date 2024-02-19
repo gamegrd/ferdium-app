@@ -30,7 +30,7 @@ const messages = defineMessages({
   },
   serverless: {
     id: 'services.serverless',
-    defaultMessage: 'Use DFgpt without an Account',
+    defaultMessage: 'Use RuyiAI without an Account',
   },
 });
 
@@ -69,7 +69,7 @@ class Welcome extends Component<IProps> {
           />
         </div>
         <div className="welcome__text">
-          <H1>DFgpt</H1>
+          <H1>RuyiAI</H1>
         </div>
         <div className="welcome__buttons">
           <Link to={signupRoute} className="button button__inverted">

@@ -401,6 +401,7 @@
   "sidebar.unmuteApp": "开启通知和声音提醒",
   "signup.email.label": "电子邮件",
   "signup.emailDuplicate": "此邮箱已被注册",
+  "signup.passwordMatch": "密码不匹配",
   "signup.firstname.label": "名字",
   "signup.headline": "注册",
   "signup.lastname.label": "姓氏",

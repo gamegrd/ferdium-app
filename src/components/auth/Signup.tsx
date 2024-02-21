@@ -63,6 +63,10 @@ const messages = defineMessages({
     id: 'signup.emailDuplicate',
     defaultMessage: 'A user with that email address already exists',
   },
+  passwordMatch: {
+    id: 'signup.passwordMatch',
+    defaultMessage: 'Passwords do not match',
+  },
 });
 
 interface IProps extends WrappedComponentProps {
@@ -104,9 +108,26 @@ class Signup extends Component<IProps> {
           validators: [required, minLength(6)],
           type: 'password',
         },
+        password2: {
+          label: this.props.intl.formatMessage(messages.passwordLabel),
+          value: '',
+          validators: [required, minLength(6), this.matchPasswords],
+          type: 'password',
+        },
       },
     });
   }
+
+  matchPasswords = ({ field }) => {
+    const password1 = field.value; // Get the value of the first password
+    const password2 = this.form.values().password; // Get the value of the second password
+
+    if (password1 !== password2) {
+      return this.props.intl.formatMessage(messages.passwordMatch);
+    }
+
+    return [true];
+  };
 
   submit(e) {
     e.preventDefault();
@@ -145,6 +166,11 @@ class Signup extends Component<IProps> {
             <Input {...form.$('email').bind()} />
             <Input
               {...form.$('password').bind()}
+              showPasswordToggle
+              scorePassword
+            />
+            <Input
+              {...form.$('password2').bind()}
               showPasswordToggle
               scorePassword
             />

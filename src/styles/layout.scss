@@ -59,6 +59,10 @@ html {
   }
 }
 
+.hide {
+  display: none;
+}
+
 .update-available {
   align-items: center;
   background: $theme-brand-danger;

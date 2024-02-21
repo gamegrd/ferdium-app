@@ -270,7 +270,7 @@ class Sidebar extends Component<IProps, IState> {
               toggleWorkspaceDrawer();
               this.updateToolTip();
             }}
-            className={`sidebar__button sidebar__button--workspaces ${
+            className={`sidebar__button hide sidebar__button--workspaces ${
               isWorkspaceDrawerOpen ? 'is-active' : ''
             }`}
             data-tooltip-id="tooltip-sidebar-button"
@@ -353,7 +353,7 @@ class Sidebar extends Component<IProps, IState> {
             onClick={() => openDownloads({ path: '/downloadmanager' })}
             className={
               // biome-ignore lint/style/useTemplate: <explanation>
-              'sidebar__button' +
+              'sidebar__button hide' +
               `${isDownloading ? ' sidebar__button--downloading' : ''}` +
               `${justFinishedDownloading ? ' sidebar__button--done' : ''}`
             }

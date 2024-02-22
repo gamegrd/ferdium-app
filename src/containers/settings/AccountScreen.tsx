@@ -53,7 +53,14 @@ class AccountScreen extends Component<StoresProps> {
             user.deleteAccountRequest.wasExecuted &&
             !user.deleteAccountRequest.isError
           }
-          openEditAccount={() => this.handleWebsiteLink('/user/profile')}
+          openEditAccount={() => {
+            // this.handleWebsiteLink('/user/profile');
+            return;
+          }}
+          refershBalance={() => {
+            // this.handleWebsiteLink('/user/profile');
+            return;
+          }}
           openInvoices={() => this.handleWebsiteLink('/user/invoices')}
         />
       </ErrorBoundary>

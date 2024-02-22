@@ -23,6 +23,11 @@ const messages = defineMessages({
     id: 'settings.account.account.editButton',
     defaultMessage: 'Edit account',
   },
+  accountRefershBalance: {
+    id: 'settings.account.account.refershBalance',
+    defaultMessage: 'Refersh Balance',
+  },
+
   invoicesButton: {
     id: 'settings.account.headlineInvoices',
     defaultMessage: 'Invoices',
@@ -74,6 +79,7 @@ interface IProp extends WrappedComponentProps {
   retryUserInfoRequest: () => void;
   deleteAccount: () => void;
   openEditAccount: () => void;
+  refershBalance: () => void;
   openInvoices: () => void;
 }
 
@@ -89,6 +95,7 @@ class AccountDashboard extends Component<IProp> {
       isLoadingDeleteAccount,
       isDeleteAccountSuccessful,
       openEditAccount,
+      refershBalance,
       openInvoices,
       server,
     } = this.props;
@@ -162,6 +169,13 @@ class AccountDashboard extends Component<IProp> {
                                 )}
                                 className="franz-form__button--inverted"
                                 onClick={openEditAccount}
+                              />
+                              <Button
+                                label={intl.formatMessage(
+                                  messages.accountRefershBalance,
+                                )}
+                                className="franz-form__button--inverted"
+                                onClick={refershBalance}
                               />
                             </div>
                           </div>

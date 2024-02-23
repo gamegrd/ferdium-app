@@ -8,6 +8,10 @@ export default <ActionDefinitions>{
   openDownloads: {
     path: PropTypes.string,
   },
+  openLink: {
+    path: PropTypes.string,
+  },
+
   closeSettings: {},
   toggleServiceUpdatedInfoBar: {
     visible: PropTypes.bool,

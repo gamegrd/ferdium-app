@@ -74,6 +74,10 @@ export default defineMessages({
     id: 'global.settings',
     defaultMessage: 'Settings',
   },
+  contact: {
+    id: 'global.contact',
+    defaultMessage: 'Contact',
+  },
   edit: {
     id: 'global.edit',
     defaultMessage: 'Edit',

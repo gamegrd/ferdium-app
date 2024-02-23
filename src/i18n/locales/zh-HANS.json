@@ -37,6 +37,7 @@
   "global.spellchecking.autodetect": "自动检测语言",
   "global.spellchecking.autodetect.short": "自动",
   "global.spellchecking.language": "语言拼写检查",
+  "global.contact": "客服",
   "global.submit": "提交",
   "global.userAgentHelp": "使用 'https://whatmyuseragent.com/' (以发现)或 'https://developers.whatismybrowser.com/useragents/explore/' (以选择) 你所需要的用户代理（User Agent）并复制-粘贴到这里。",
   "global.userAgentPref": "用户代理（User Agent）",

@@ -9,6 +9,7 @@ import {
   mdiChevronDown,
   mdiChevronRight,
   mdiCog,
+  mdiFaceAgent,
   mdiLock,
   mdiMenu,
   mdiPlusBox,
@@ -91,6 +92,7 @@ interface IProps extends WrappedComponentProps {
   toggleMuteApp: () => void;
   toggleCollapseMenu: () => void;
   toggleWorkspaceDrawer: () => void;
+  openLink: (args: { path: string }) => void;
   openSettings: (args: { path: string }) => void;
   openDownloads: (args: { path: string }) => void;
   // eslint-disable-next-line react/no-unused-prop-types
@@ -142,6 +144,7 @@ class Sidebar extends Component<IProps, IState> {
 
   render() {
     const {
+      openLink,
       openSettings,
       openDownloads,
       toggleMuteApp,
@@ -387,6 +390,18 @@ class Sidebar extends Component<IProps, IState> {
               )}
           </button>
         ) : null}
+
+        <button
+          type="button"
+          onClick={() => openLink({ path: 'https://www.google.com/' })}
+          className="sidebar__button sidebar__button--contact"
+          data-tooltip-id="tooltip-sidebar-button"
+          data-tooltip-content={`${intl.formatMessage(
+            globalMessages.contact,
+          )} `}
+        >
+          <Icon icon={mdiFaceAgent} size={1.5} />
+        </button>
       </div>
     );
   }

@@ -18,6 +18,8 @@ export default class UIStore extends TypedStore {
     makeObservable(this);
 
     // Register action handlers
+
+    this.actions.ui.openLink.listen(this._openLink.bind(this));
     this.actions.ui.openDownloads.listen(this._openDownloads.bind(this));
     this.actions.ui.openSettings.listen(this._openSettings.bind(this));
     this.actions.ui.closeSettings.listen(this._closeSettings.bind(this));
@@ -102,6 +104,12 @@ export default class UIStore extends TypedStore {
     const downloadsPath =
       path === '/downloadmanager' ? path : `/downloadmanager/${path}`;
     this.stores.router.push(downloadsPath);
+  }
+
+  @action _openLink({ path = '' }): void {
+    //open the path in webroswer
+    console.log(`openLink ${path}`);
+    window.open(path, '_blank');
   }
 
   @action _openSettings({ path = '/settings' }): void {

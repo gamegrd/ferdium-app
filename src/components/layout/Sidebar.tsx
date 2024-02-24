@@ -393,7 +393,7 @@ class Sidebar extends Component<IProps, IState> {
 
         <button
           type="button"
-          onClick={() => openLink({ path: 'https://www.google.com/' })}
+          onClick={() => openLink({ path: 'https://t.me/Ruyiservice' })}
           className="sidebar__button sidebar__button--contact"
           data-tooltip-id="tooltip-sidebar-button"
           data-tooltip-content={`${intl.formatMessage(

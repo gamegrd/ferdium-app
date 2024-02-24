@@ -9,6 +9,7 @@ import TypedStore from './lib/TypedStore';
 
 export default class UIStore extends TypedStore {
   @observable showServicesUpdatedInfoBar = false;
+  @observable showServicesNomoreMoneyInfoBar = false;
 
   @observable isOsDarkThemeActive = nativeTheme.shouldUseDarkColors;
 
@@ -127,6 +128,14 @@ export default class UIStore extends TypedStore {
       visibility = !this.showServicesUpdatedInfoBar;
     }
     this.showServicesUpdatedInfoBar = visibility;
+  }
+
+  @action _toggleServiceNomoreMoneyInfoBar({ visible }): void {
+    let visibility = visible;
+    if (visibility === null) {
+      visibility = !this.showServicesNomoreMoneyInfoBar;
+    }
+    this.showServicesNomoreMoneyInfoBar = visibility;
   }
 
   // Reactions

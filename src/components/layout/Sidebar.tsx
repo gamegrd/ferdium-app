@@ -78,6 +78,7 @@ const messages = defineMessages({
 interface IProps extends WrappedComponentProps {
   services: Service[];
   showServicesUpdatedInfoBar: boolean;
+  showServicesNomoreMoneyInfoBar: boolean;
   showMessageBadgeWhenMutedSetting: boolean;
   showServiceNameSetting: boolean;
   showMessageBadgesEvenWhenMuted: boolean;

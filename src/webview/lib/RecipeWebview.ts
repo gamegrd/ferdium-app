@@ -210,6 +210,10 @@ class RecipeWebview {
     ipcRenderer.sendToHost('new-window', url);
   }
 
+  showServicesNomoreMoneyInfoBar(msg) {
+    ipcRenderer.sendToHost('showServicesNomoreMoneyInfoBar', msg);
+  }
+
   // ------xgdebug-------
   log(...msg: any[]) {
     ipcRenderer.invoke('webview:log', ...msg);

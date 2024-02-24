@@ -110,6 +110,7 @@ class AppLayoutContainer extends Component<IProps> {
         }
         isWorkspaceDrawerOpen={workspaceStore.isWorkspaceDrawerOpen}
         showServicesUpdatedInfoBar={ui.showServicesUpdatedInfoBar}
+        showServicesNomoreMoneyInfoBar={ui.showServicesNomoreMoneyInfoBar}
         showMessageBadgeWhenMutedSetting={
           settings.all.app.showMessageBadgeWhenMuted
         }
@@ -140,6 +141,7 @@ class AppLayoutContainer extends Component<IProps> {
           settings={settings}
           isFullScreen={app.isFullScreen}
           showServicesUpdatedInfoBar={ui.showServicesUpdatedInfoBar}
+          showServicesNomoreMoneyInfoBar={ui.showServicesNomoreMoneyInfoBar}
           appUpdateIsDownloaded={
             app.updateStatus === app.updateStatusTypes.DOWNLOADED
           }

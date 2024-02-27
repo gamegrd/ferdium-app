@@ -116,6 +116,19 @@ export default class ServerApi {
     return true;
   }
 
+  async getBalance(): Promise<any> {
+    if (apiBase() === SERVER_NOT_LOADED) {
+      throw new Error('Server not loaded');
+    }
+    const request = await sendAuthRequest(`${apiBase(false)}/v2/profile/init`);
+    if (!request.ok) {
+      throw new Error(request.statusText);
+    }
+    const data = await request.json();
+    debug('ServerApi::userBalance resolves', data);
+    return data.balance.amount;
+  }
+
   async retrievePassword(email: string) {
     const request = await sendAuthRequest(
       `${apiBase()}/auth/password`,

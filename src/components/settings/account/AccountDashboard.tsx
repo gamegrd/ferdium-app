@@ -32,6 +32,12 @@ const messages = defineMessages({
     id: 'settings.account.headlineInvoices',
     defaultMessage: 'Invoices',
   },
+
+  balance: {
+    id: 'settings.account.balance',
+    defaultMessage: 'Balance',
+  },
+
   userInfoRequestFailed: {
     id: 'settings.account.userInfoRequestFailed',
     defaultMessage: 'Could not load user information',
@@ -162,14 +168,21 @@ class AccountDashboard extends Component<IProp> {
                               {user.organization && `${user.organization}, `}
                               {user.email}
                             </p>
+                            <p>
+                              {intl.formatMessage(messages.balance)}
+                              {user.balance}
+                            </p>
+
                             <div className="manage-user-links">
-                              <Button
-                                label={intl.formatMessage(
-                                  messages.accountEditButton,
-                                )}
-                                className="franz-form__button--inverted"
-                                onClick={openEditAccount}
-                              />
+                              <div style={{ display: 'none' }}>
+                                <Button
+                                  label={intl.formatMessage(
+                                    messages.accountEditButton,
+                                  )}
+                                  className="franz-form__button--inverted"
+                                  onClick={openEditAccount}
+                                />
+                              </div>
                               <Button
                                 label={intl.formatMessage(
                                   messages.accountRefershBalance,

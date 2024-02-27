@@ -43,6 +43,11 @@ export default class UserStore extends TypedStore {
 
   @observable passwordRequest: Request = new Request(this.api.user, 'password');
 
+  @observable getUserBalanceRequest: CachedRequest = new CachedRequest(
+    this.api.user,
+    'getBalance',
+  );
+
   @observable inviteRequest: Request = new Request(this.api.user, 'invite');
 
   @observable getUserInfoRequest: CachedRequest = new CachedRequest(
@@ -240,6 +245,7 @@ export default class UserStore extends TypedStore {
 
     this.getUserInfoRequest.patch(() => response.data);
     this.actionStatus = response.status || [];
+    const balance = await this.getUserBalance();
   }
 
   @action _resetStatus(): void {
@@ -347,6 +353,20 @@ export default class UserStore extends TypedStore {
         },
       });
     }
+  }
+
+  // Reactions
+  async getUserBalance(): Promise<number> {
+    if (this.isLoggedIn) {
+      var data = 0.0;
+      try {
+        data = await this.getUserBalanceRequest.execute().promise;
+      } catch {}
+      console.warn(data);
+      this.data.setBalance(data);
+      return data;
+    }
+    return 0.0;
   }
 
   // Helpers

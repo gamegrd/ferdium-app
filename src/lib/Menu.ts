@@ -841,8 +841,10 @@ class FranzMenu implements StoresProps {
         (tpl[1].submenu as MenuItemConstructorOptions[]).push({
           label: 'xgDebug',
           click: () => {
-            this.stores.ui.showServicesNomoreMoneyInfoBar =
-              !this.stores.ui.showServicesNomoreMoneyInfoBar;
+            // xgDebug button
+            this.stores.user.getUserBalance().then(balance => {
+              console.log(balance);
+            });
           },
         });
       }

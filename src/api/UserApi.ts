@@ -38,6 +38,10 @@ export default class UserApi {
     return this.server.userInfo();
   }
 
+  getBalance() {
+    return this.server.getBalance();
+  }
+
   requestNewToken() {
     return this.server.requestNewToken();
   }

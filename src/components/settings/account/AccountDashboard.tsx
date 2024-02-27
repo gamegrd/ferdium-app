@@ -169,8 +169,7 @@ class AccountDashboard extends Component<IProp> {
                               {user.email}
                             </p>
                             <p>
-                              {intl.formatMessage(messages.balance)}
-                              {user.balance}
+                              {`${intl.formatMessage(messages.balance)}: ${user.balance}`}
                             </p>
 
                             <div className="manage-user-links">

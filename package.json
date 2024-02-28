@@ -3,7 +3,7 @@
   "productName": "RuyiAI",
   "desktopName": "dfgpt.desktop",
   "appId": "org.dfgpt.dfgpt-app",
-  "version": "1.1.1-release.3",
+  "version": "1.1.1-release.5",
   "description": "Messaging app for WhatsApp, Slack, Telegram, Hangouts and many many more.",
   "author": "xgDebug",
   "license": "Apache-2.0",

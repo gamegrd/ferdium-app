@@ -33,6 +33,7 @@
   "global.quit": "Quit",
   "global.quitConfirmation": "Do you really want to quit RuyiAI?",
   "global.save": "Save",
+  "global.contact": "Contact",
   "global.settings": "Settings",
   "global.spellchecker.useDefault": "Use System Default ({default})",
   "global.spellchecking.autodetect": "Detect language automatically",

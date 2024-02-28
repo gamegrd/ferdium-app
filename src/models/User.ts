@@ -1,4 +1,4 @@
-import { makeObservable, observable } from 'mobx';
+import { makeObservable, observable, action } from 'mobx';
 
 interface IUser {
   id: string | null;
@@ -35,6 +35,8 @@ export default class User {
 
   @observable beta = false;
 
+  @observable balance = 0.0;
+
   @observable locale: string | null = null;
 
   @observable team = {};
@@ -49,7 +51,7 @@ export default class User {
     if (!data.id) {
       throw new Error('User requires Id');
     }
-
+    this.balance = 0.0;
     this.id = data.id;
     this.email = data.email || this.email;
     this.firstname = data.firstname || this.firstname;
@@ -63,5 +65,10 @@ export default class User {
       data.isSubscriptionOwner || this.isSubscriptionOwner;
 
     this.team = data.team || this.team;
+  }
+
+  @action
+  setBalance(balance: number) {
+    this.balance = balance;
   }
 }

@@ -282,6 +282,7 @@ interface TodosStore extends TypedStore {
 interface UIStore extends TypedStore {
   isOsDarkThemeActive: () => void;
   showServicesUpdatedInfoBar: boolean;
+  showServicesNomoreMoneyInfoBar: boolean;
   isDarkThemeActive: () => void;
   isSplitModeActive: () => void;
   splitColumnsNo: () => void;

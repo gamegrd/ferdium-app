@@ -26,15 +26,28 @@ import AssistantWebview from '../../features/assistant/AssistantWebview';
 import Icon from '../ui/icon';
 import LockedScreen from '../../containers/auth/LockedScreen';
 import SettingsStore from '../../stores/SettingsStore';
+import { openExternalUrl } from '../../helpers/url-helpers';
 
 const messages = defineMessages({
   servicesUpdated: {
     id: 'infobar.servicesUpdated',
     defaultMessage: 'Your services have been updated.',
   },
+  servicesOutOfMoney: {
+    id: 'infobar.servicesOutOfMoney',
+    defaultMessage: 'Your services have been out of money.',
+  },
+  servicesNomoreMoney: {
+    id: 'infobar.servicesNomoreMoney',
+    defaultMessage: 'Your services are out of money.',
+  },
   buttonReloadServices: {
     id: 'infobar.buttonReloadServices',
     defaultMessage: 'Reload services',
+  },
+  buttonContactServices: {
+    id: 'infobar.buttonContactServices',
+    defaultMessage: 'Contact services',
   },
   requiredRequestsFailed: {
     id: 'infobar.requiredRequestsFailed',
@@ -84,6 +97,7 @@ interface IProps extends WrappedComponentProps, WithStylesProps<typeof styles> {
   workspacesDrawer: React.ReactElement;
   services: React.ReactElement;
   showServicesUpdatedInfoBar: boolean;
+  showServicesNomoreMoneyInfoBar: boolean;
   appUpdateIsDownloaded: boolean;
   authRequestFailed: boolean;
   installAppUpdate: () => void;
@@ -96,6 +110,7 @@ interface IProps extends WrappedComponentProps, WithStylesProps<typeof styles> {
 interface IState {
   shouldShowAppUpdateInfoBar: boolean;
   shouldShowServicesUpdatedInfoBar: boolean;
+  shouldshowServicesNomoreMoneyInfoBar: boolean;
 }
 
 @observer
@@ -106,6 +121,7 @@ class AppLayout extends Component<PropsWithChildren<IProps>, IState> {
     this.state = {
       shouldShowAppUpdateInfoBar: true,
       shouldShowServicesUpdatedInfoBar: true,
+      shouldshowServicesNomoreMoneyInfoBar: true,
     };
   }
 
@@ -117,6 +133,7 @@ class AppLayout extends Component<PropsWithChildren<IProps>, IState> {
       sidebar,
       services,
       showServicesUpdatedInfoBar,
+      showServicesNomoreMoneyInfoBar,
       appUpdateIsDownloaded,
       authRequestFailed,
       installAppUpdate,
@@ -211,6 +228,29 @@ class AppLayout extends Component<PropsWithChildren<IProps>, IState> {
                       {intl.formatMessage(messages.servicesUpdated)}
                     </InfoBar>
                   )}
+
+                {showServicesNomoreMoneyInfoBar &&
+                  this.state.shouldshowServicesNomoreMoneyInfoBar && (
+                    <InfoBar
+                      type="primary"
+                      ctaLabel={intl.formatMessage(
+                        messages.buttonContactServices,
+                      )}
+                      onClick={() => {
+                        let path = 'https://t.me/Ruyiservice';
+                        openExternalUrl(path, true);
+                      }}
+                      onHide={() => {
+                        this.setState({
+                          shouldshowServicesNomoreMoneyInfoBar: false,
+                        });
+                      }}
+                    >
+                      <Icon icon={mdiPowerPlug} />
+                      {intl.formatMessage(messages.servicesOutOfMoney)}
+                    </InfoBar>
+                  )}
+
                 {automaticUpdates &&
                   appUpdateIsDownloaded &&
                   this.state.shouldShowAppUpdateInfoBar && (

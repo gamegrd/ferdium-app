@@ -9,6 +9,7 @@ import {
   mdiChevronDown,
   mdiChevronRight,
   mdiCog,
+  mdiFaceAgent,
   mdiLock,
   mdiMenu,
   mdiPlusBox,
@@ -77,6 +78,7 @@ const messages = defineMessages({
 interface IProps extends WrappedComponentProps {
   services: Service[];
   showServicesUpdatedInfoBar: boolean;
+  showServicesNomoreMoneyInfoBar: boolean;
   showMessageBadgeWhenMutedSetting: boolean;
   showServiceNameSetting: boolean;
   showMessageBadgesEvenWhenMuted: boolean;
@@ -91,6 +93,7 @@ interface IProps extends WrappedComponentProps {
   toggleMuteApp: () => void;
   toggleCollapseMenu: () => void;
   toggleWorkspaceDrawer: () => void;
+  openLink: (args: { path: string }) => void;
   openSettings: (args: { path: string }) => void;
   openDownloads: (args: { path: string }) => void;
   // eslint-disable-next-line react/no-unused-prop-types
@@ -142,6 +145,7 @@ class Sidebar extends Component<IProps, IState> {
 
   render() {
     const {
+      openLink,
       openSettings,
       openDownloads,
       toggleMuteApp,
@@ -270,7 +274,7 @@ class Sidebar extends Component<IProps, IState> {
               toggleWorkspaceDrawer();
               this.updateToolTip();
             }}
-            className={`sidebar__button sidebar__button--workspaces ${
+            className={`sidebar__button hide sidebar__button--workspaces ${
               isWorkspaceDrawerOpen ? 'is-active' : ''
             }`}
             data-tooltip-id="tooltip-sidebar-button"
@@ -353,7 +357,7 @@ class Sidebar extends Component<IProps, IState> {
             onClick={() => openDownloads({ path: '/downloadmanager' })}
             className={
               // biome-ignore lint/style/useTemplate: <explanation>
-              'sidebar__button' +
+              'sidebar__button hide' +
               `${isDownloading ? ' sidebar__button--downloading' : ''}` +
               `${justFinishedDownloading ? ' sidebar__button--done' : ''}`
             }
@@ -387,6 +391,18 @@ class Sidebar extends Component<IProps, IState> {
               )}
           </button>
         ) : null}
+
+        <button
+          type="button"
+          onClick={() => openLink({ path: 'https://t.me/Ruyiservice' })}
+          className="sidebar__button sidebar__button--contact"
+          data-tooltip-id="tooltip-sidebar-button"
+          data-tooltip-content={`${intl.formatMessage(
+            globalMessages.contact,
+          )} `}
+        >
+          <Icon icon={mdiFaceAgent} size={1.5} />
+        </button>
       </div>
     );
   }

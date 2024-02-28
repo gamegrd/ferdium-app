@@ -52,7 +52,7 @@ class AppLayoutContainer extends Component<IProps> {
     const { installUpdate, toggleMuteApp, toggleCollapseMenu } =
       this.props.actions.app;
 
-    const { openSettings, closeSettings, openDownloads } =
+    const { openSettings, closeSettings, openDownloads, openLink } =
       this.props.actions.ui;
 
     const isLoadingFeatures =
@@ -90,6 +90,7 @@ class AppLayoutContainer extends Component<IProps> {
         isAppMuted={settings.all.app.isAppMuted}
         isMenuCollapsed={settings.all.app.isMenuCollapsed}
         openSettings={openSettings}
+        openLink={openLink}
         openDownloads={openDownloads}
         closeSettings={closeSettings}
         reorder={reorder}
@@ -109,6 +110,7 @@ class AppLayoutContainer extends Component<IProps> {
         }
         isWorkspaceDrawerOpen={workspaceStore.isWorkspaceDrawerOpen}
         showServicesUpdatedInfoBar={ui.showServicesUpdatedInfoBar}
+        showServicesNomoreMoneyInfoBar={ui.showServicesNomoreMoneyInfoBar}
         showMessageBadgeWhenMutedSetting={
           settings.all.app.showMessageBadgeWhenMuted
         }
@@ -139,6 +141,7 @@ class AppLayoutContainer extends Component<IProps> {
           settings={settings}
           isFullScreen={app.isFullScreen}
           showServicesUpdatedInfoBar={ui.showServicesUpdatedInfoBar}
+          showServicesNomoreMoneyInfoBar={ui.showServicesNomoreMoneyInfoBar}
           appUpdateIsDownloaded={
             app.updateStatus === app.updateStatusTypes.DOWNLOADED
           }

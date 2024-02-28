@@ -9,6 +9,7 @@ import TypedStore from './lib/TypedStore';
 
 export default class UIStore extends TypedStore {
   @observable showServicesUpdatedInfoBar = false;
+  @observable showServicesNomoreMoneyInfoBar = false;
 
   @observable isOsDarkThemeActive = nativeTheme.shouldUseDarkColors;
 
@@ -18,6 +19,8 @@ export default class UIStore extends TypedStore {
     makeObservable(this);
 
     // Register action handlers
+
+    this.actions.ui.openLink.listen(this._openLink.bind(this));
     this.actions.ui.openDownloads.listen(this._openDownloads.bind(this));
     this.actions.ui.openSettings.listen(this._openSettings.bind(this));
     this.actions.ui.closeSettings.listen(this._closeSettings.bind(this));
@@ -104,6 +107,12 @@ export default class UIStore extends TypedStore {
     this.stores.router.push(downloadsPath);
   }
 
+  @action _openLink({ path = '' }): void {
+    //open the path in webroswer
+    console.log(`openLink ${path}`);
+    window.open(path, '_blank');
+  }
+
   @action _openSettings({ path = '/settings' }): void {
     const settingsPath = path === '/settings' ? path : `/settings/${path}`;
     this.stores.router.push(settingsPath);
@@ -119,6 +128,14 @@ export default class UIStore extends TypedStore {
       visibility = !this.showServicesUpdatedInfoBar;
     }
     this.showServicesUpdatedInfoBar = visibility;
+  }
+
+  @action _toggleServiceNomoreMoneyInfoBar({ visible }): void {
+    let visibility = visible;
+    if (visibility === null) {
+      visibility = !this.showServicesNomoreMoneyInfoBar;
+    }
+    this.showServicesNomoreMoneyInfoBar = visibility;
   }
 
   // Reactions

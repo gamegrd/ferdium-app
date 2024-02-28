@@ -14,7 +14,6 @@ interface SignUpScreenComponents extends StoresProps {
 class SignupScreen extends Component<SignUpScreenComponents> {
   onSignup(values: any): void {
     const { actions } = this.props;
-
     actions.user.signup(values);
   }
 

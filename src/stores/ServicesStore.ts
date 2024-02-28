@@ -920,6 +920,12 @@ export default class ServicesStore extends TypedStore {
 
         break;
       }
+      case 'showServicesNomoreMoneyInfoBar': {
+        const msg = args[0];
+        console.log(msg);
+        this.stores.ui.showServicesNomoreMoneyInfoBar = true;
+        break;
+      }
       case 'set-service-spellchecker-language': {
         if (args) {
           this.actions.service.updateService({

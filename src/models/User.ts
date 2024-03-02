@@ -35,7 +35,7 @@ export default class User {
 
   @observable beta = false;
 
-  @observable balance = 0.0;
+  @observable balance = 0;
 
   @observable locale: string | null = null;
 
@@ -51,7 +51,7 @@ export default class User {
     if (!data.id) {
       throw new Error('User requires Id');
     }
-    this.balance = 0.0;
+    this.balance = 0;
     this.id = data.id;
     this.email = data.email || this.email;
     this.firstname = data.firstname || this.firstname;

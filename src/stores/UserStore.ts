@@ -246,6 +246,7 @@ export default class UserStore extends TypedStore {
     this.getUserInfoRequest.patch(() => response.data);
     this.actionStatus = response.status || [];
     const balance = await this.getUserBalance();
+    console.log(balance);
   }
 
   @action _resetStatus(): void {
@@ -358,15 +359,18 @@ export default class UserStore extends TypedStore {
   // Reactions
   async getUserBalance(): Promise<number> {
     if (this.isLoggedIn) {
-      var data = 0.0;
+      let data = 0;
       try {
         data = await this.getUserBalanceRequest.execute().promise;
-      } catch {}
+      } catch {
+        console.warn('request fail');
+        return 0;
+      }
       console.warn(data);
       this.data.setBalance(data);
       return data;
     }
-    return 0.0;
+    return 0;
   }
 
   // Helpers

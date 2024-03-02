@@ -55,13 +55,11 @@ class AccountScreen extends Component<StoresProps> {
           }
           openEditAccount={() => {
             // this.handleWebsiteLink('/user/profile');
-            return;
           }}
           refershBalance={async () => {
             user.getUserBalance().then(res => {
               console.log(res);
             });
-            return;
           }}
           openInvoices={() => this.handleWebsiteLink('/user/invoices')}
         />

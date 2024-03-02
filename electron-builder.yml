@@ -84,7 +84,7 @@ mac:
 win:
   artifactName: '${productName}-${os}-Installer-${version}-${arch}.${ext}'
   icon: ./build-helpers/images/dfgpt_512x512.ico
-  requestedExecutionLevel: 'requireAdministrator' # 设置为 requireAdministrator 以使应用默认以管理员权限运行
+  requestedExecutionLevel: requireAdministrator # 设置为 requireAdministrator 以使应用默认以管理员权限运行
   #icon: ./build-helpers/images/icon.ico
   target:
     - target: nsis

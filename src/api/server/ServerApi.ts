@@ -52,6 +52,7 @@ export default class ServerApi {
 
   // User
   async login(email: string, passwordHash: string) {
+    console.warn(`Login ${email}  ${passwordHash}`);
     const request = await sendAuthRequest(
       `${apiBase()}/auth/login`,
       {

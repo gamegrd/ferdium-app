@@ -9,6 +9,7 @@ import TypedStore from './lib/TypedStore';
 
 export default class UIStore extends TypedStore {
   @observable showServicesUpdatedInfoBar = false;
+
   @observable showServicesNomoreMoneyInfoBar = false;
 
   @observable isOsDarkThemeActive = nativeTheme.shouldUseDarkColors;
@@ -108,7 +109,7 @@ export default class UIStore extends TypedStore {
   }
 
   @action _openLink({ path = '' }): void {
-    //open the path in webroswer
+    // open the path in webroswer
     console.log(`openLink ${path}`);
     window.open(path, '_blank');
   }

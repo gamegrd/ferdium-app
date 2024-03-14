@@ -237,7 +237,7 @@ class AppLayout extends Component<PropsWithChildren<IProps>, IState> {
                         messages.buttonContactServices,
                       )}
                       onClick={() => {
-                        let path = 'https://t.me/Ruyiservice';
+                        const path = 'https://t.me/Ruyiservice';
                         openExternalUrl(path, true);
                       }}
                       onHide={() => {

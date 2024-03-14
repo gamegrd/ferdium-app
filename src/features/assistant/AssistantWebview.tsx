@@ -46,7 +46,7 @@ class AssistantWebview extends Component<IProps, IState> {
     switch (channel) {
       case 'authToken': {
         //  发token到目标 webview : this.webview
-        let token = window.ferdium.stores.user.authToken;
+        const token = window.ferdium.stores.user.authToken;
         console.warn('发token到目标 webview :', token);
         this.webview.send(channel, token);
         return;

@@ -1,5 +1,3 @@
-'use strict';
-
 chrome.notifications = {
   onClicked: { addListener: v => {} },
   onClosed: { addListener: v => {} },

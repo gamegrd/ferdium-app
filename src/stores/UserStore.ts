@@ -363,8 +363,8 @@ export default class UserStore extends TypedStore {
       try {
         data = await this.getUserBalanceRequest.execute().promise;
       } catch {
-        console.warn('request fail');
-        return 0;
+        console.warn('get balance error');
+        return data;
       }
       console.warn(data);
       this.data.setBalance(data);

@@ -1,6 +1,8 @@
 ```text
 
-downfile from https://registry.npmmirror.com/binary.html?path=electron-builder-binaries/  and put it in C:\Users\xgDebug\.cache\electron-builder\winCodeSign\winCodeSign-2.6.0
+downfile from
+https://registry.npmmirror.com/binary.html?path=electron-builder-binaries/
+  and put it in C:\Users\xgDebug\.cache\electron-builder\winCodeSign\winCodeSign-2.6.0
 
 将windows11菜单设置为windows10样式:
 

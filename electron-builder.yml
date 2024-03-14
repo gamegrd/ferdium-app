@@ -25,10 +25,12 @@ nsis:
   oneClick: false
   allowToChangeInstallationDirectory: true
   artifactName: '${productName}-${os}-AutoSetup-${version}-${arch}.${ext}'
+  requestExecutionLevel: admin
 
 portable:
   artifactName: '${productName}-${os}-Portable-${version}-${arch}.${ext}'
   unpackDirName: 'Ferdium-Unpacked'
+  requestExecutionLevel: admin
 
 dmg:
   background: ./build-helpers/images/dmgInstaller.tiff
@@ -84,6 +86,7 @@ mac:
 win:
   artifactName: '${productName}-${os}-Installer-${version}-${arch}.${ext}'
   icon: ./build-helpers/images/dfgpt_512x512.ico
+  requestedExecutionLevel: requireAdministrator # 设置为 requireAdministrator 以使应用默认以管理员权限运行
   #icon: ./build-helpers/images/icon.ico
   target:
     - target: nsis

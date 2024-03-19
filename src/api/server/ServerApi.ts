@@ -467,8 +467,9 @@ export default class ServerApi {
       debug('[ServerApi::getRecipePackage] Downloading recipe from server');
       archivePath = tempArchivePath;
 
+      const currentTimeStamp = Date.now();
       // const packageUrl = `${apiBase()}/recipes/download/${recipeId}`;
-      const packageUrl = `${apiBase(false)}/archives/${recipeId}.tar.gz`;
+      const packageUrl = `${apiBase(false)}/archives/${recipeId}.tar.gz?timestamp=${currentTimeStamp}`;
 
       const res = await window.fetch(packageUrl);
       debug('Recipe downloaded', recipeId);

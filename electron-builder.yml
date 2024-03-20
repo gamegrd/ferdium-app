@@ -25,10 +25,12 @@ nsis:
   oneClick: false
   allowToChangeInstallationDirectory: true
   artifactName: '${productName}-${os}-AutoSetup-${version}-${arch}.${ext}'
+  allowElevation: true
 
 portable:
   artifactName: '${productName}-${os}-Portable-${version}-${arch}.${ext}'
   unpackDirName: 'Ferdium-Unpacked'
+  requestExecutionLevel: "admin"
 
 dmg:
   background: ./build-helpers/images/dmgInstaller.tiff
@@ -91,6 +93,8 @@ win:
       arch: [x64]
     - target: portable
       arch: [x64]
+      
+
   # The name of the CN appearing in the certificate must be present in the publisherName list below
   publisherName: ['DFgpt Contributors', 'xgDebug']
   # Remove the verification for a signature to allow auto-update without signed certificate

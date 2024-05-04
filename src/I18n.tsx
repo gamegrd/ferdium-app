@@ -1,10 +1,10 @@
-import { Component, ReactNode } from 'react';
 import { inject, observer } from 'mobx-react';
+import { Component, type ReactNode } from 'react';
 import { IntlProvider } from 'react-intl';
 
 import generatedTranslations from './i18n/translations';
-import UserStore from './stores/UserStore';
-import AppStore from './stores/AppStore';
+import type AppStore from './stores/AppStore';
+import type UserStore from './stores/UserStore';
 
 const translations = generatedTranslations();
 
@@ -27,7 +27,9 @@ class I18N extends Component<Props> {
 
     return (
       <IntlProvider
-        {...{ locale, key: locale, messages: translations[locale] }}
+        locale={locale}
+        key={locale}
+        messages={translations[locale]}
         ref={intlProvider => {
           window['ferdium'].intl = intlProvider
             ? intlProvider.state.intl

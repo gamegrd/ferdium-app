@@ -1,8 +1,8 @@
-import { observable, action, makeObservable } from 'mobx';
-import { Response } from 'electron';
-import { Actions } from '../actions/lib/actions';
-import { ApiInterface } from '../api';
-import { Stores } from '../@types/stores.types';
+import type { Response } from 'electron';
+import { action, makeObservable, observable } from 'mobx';
+import type { Stores } from '../@types/stores.types';
+import type { Actions } from '../actions/lib/actions';
+import type { ApiInterface } from '../api';
 import Request from './lib/Request';
 import TypedStore from './lib/TypedStore';
 
@@ -45,7 +45,6 @@ export default class GlobalErrorStore extends TypedStore {
       origConsoleError.apply(this, errorArgs);
     };
 
-    // eslint-disable-next-line no-console
     const origConsoleLog = console.log;
     window.console.log = (...logArgs: any[]) => {
       // @ts-expect-error ts-message: Expected 5 arguments, but got 2.
@@ -53,7 +52,6 @@ export default class GlobalErrorStore extends TypedStore {
       origConsoleLog.apply(this, logArgs);
     };
 
-    // eslint-disable-next-line no-console
     const origConsoleInfo = console.info;
     window.console.info = (...infoArgs: any[]) => {
       // @ts-expect-error ts-message: Expected 5 arguments, but got 2.

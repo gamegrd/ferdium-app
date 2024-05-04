@@ -1,9 +1,9 @@
-import { Webview } from 'react-electron-web-view';
-import { observable, computed, action, makeObservable } from 'mobx';
+import { action, computed, makeObservable, observable } from 'mobx';
+import type { Webview } from 'react-electron-web-view';
+import type { Actions } from '../../actions/lib/actions';
+import { createActionBindings } from '../utils/ActionBinding';
 import FeatureStore from '../utils/FeatureStore';
 import { assistantActions } from './actions';
-import { createActionBindings } from '../utils/ActionBinding';
-import { Actions } from '../../actions/lib/actions';
 
 const debug = require('../../preload-safe-debug')(
   'Ferdium:feature:assistant:store',

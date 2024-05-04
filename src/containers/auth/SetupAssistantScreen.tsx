@@ -1,9 +1,10 @@
-import { Component, ReactElement } from 'react';
 import { inject, observer } from 'mobx-react';
-import { StoresProps } from '../../@types/ferdium-components.types';
-import sleep from '../../helpers/async-helpers';
+import ms from 'ms';
+import { Component, type ReactElement } from 'react';
+import type { StoresProps } from '../../@types/ferdium-components.types';
+import type { ILegacyServices } from '../../@types/legacy-types';
 import SetupAssistant from '../../components/auth/SetupAssistant';
-import { ILegacyServices } from '../../@types/legacy-types';
+import sleep from '../../helpers/async-helpers';
 
 interface IProps extends StoresProps {}
 
@@ -83,11 +84,11 @@ class SetupAssistantScreen extends Component<IProps, IState> {
       });
 
       // eslint-disable-next-line no-await-in-loop
-      await sleep(100);
+      await sleep(ms('100ms'));
     }
 
     this.setState({ isSettingUpServices: false });
-    await sleep(100);
+    await sleep(ms('100ms'));
     router.push('/');
   }
 

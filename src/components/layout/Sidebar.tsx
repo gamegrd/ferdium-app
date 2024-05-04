@@ -1,7 +1,3 @@
-import { Component } from 'react';
-import { Tooltip as ReactTooltip } from 'react-tooltip';
-import { defineMessages, injectIntl, WrappedComponentProps } from 'react-intl';
-import { inject, observer } from 'mobx-react';
 import {
   mdiBell,
   mdiBellOff,
@@ -9,15 +5,23 @@ import {
   mdiChevronDown,
   mdiChevronRight,
   mdiCog,
+  mdiDownload,
   mdiFaceAgent,
   mdiLock,
   mdiMenu,
   mdiPlusBox,
   mdiViewGrid,
   mdiViewSplitVertical,
-  mdiDownload,
 } from '@mdi/js';
-import Tabbar from '../services/tabs/Tabbar';
+import { inject, observer } from 'mobx-react';
+import { Component } from 'react';
+import {
+  type WrappedComponentProps,
+  defineMessages,
+  injectIntl,
+} from 'react-intl';
+import { Tooltip as ReactTooltip } from 'react-tooltip';
+import type { Actions } from '../../actions/lib/actions';
 import {
   addNewServiceShortcutKey,
   downloadsShortcutKey,
@@ -31,10 +35,10 @@ import {
 import { todosStore } from '../../features/todos';
 import { todoActions } from '../../features/todos/actions';
 import globalMessages from '../../i18n/globalMessages';
+import type Service from '../../models/Service';
+import type { RealStores } from '../../stores';
+import Tabbar from '../services/tabs/Tabbar';
 import Icon from '../ui/icon';
-import { Actions } from '../../actions/lib/actions';
-import { RealStores } from '../../stores';
-import Service from '../../models/Service';
 
 const messages = defineMessages({
   addNewService: {
@@ -78,6 +82,7 @@ const messages = defineMessages({
 interface IProps extends WrappedComponentProps {
   services: Service[];
   showServicesUpdatedInfoBar: boolean;
+  // eslint-disable-next-line react/no-unused-prop-types
   showServicesNomoreMoneyInfoBar: boolean;
   showMessageBadgeWhenMutedSetting: boolean;
   showServiceNameSetting: boolean;
@@ -322,7 +327,7 @@ class Sidebar extends Component<IProps, IState> {
             <Icon icon={mdiCheckAll} size={1.5} />
           </button>
         ) : null}
-        {stores!.settings.all.app.lockingFeatureEnabled ? (
+        {stores!.settings.all.app.isLockingFeatureEnabled ? (
           <button
             type="button"
             className="sidebar__button"

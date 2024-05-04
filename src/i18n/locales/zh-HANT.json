@@ -170,6 +170,7 @@
   "settings.navigation.yourServices": "您的服務",
   "settings.navigation.yourWorkspaces": "您的工作區",
   "settings.recipes.all": "所有服務",
+  "settings.recipes.custom": "Custom Services",
   "settings.recipes.customService.openFolder": "開啟資料夾",
   "settings.recipes.headline": "可用服務",
   "settings.recipes.servicesSuccessfulAddedInfo": "新增服務成功",

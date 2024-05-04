@@ -1,31 +1,35 @@
-import { join } from 'node:path';
-import React, { Component, PropsWithChildren } from 'react';
-import { observer } from 'mobx-react';
-import { defineMessages, injectIntl, WrappedComponentProps } from 'react-intl';
-import { TitleBar } from 'electron-react-titlebar/renderer';
-import injectSheet, { WithStylesProps } from 'react-jss';
-import { ipcRenderer } from 'electron';
-
-import { mdiFlash, mdiPowerPlug } from '@mdi/js';
-import { Outlet } from 'react-router-dom';
 import { debug } from 'node:console';
-import InfoBar from '../ui/InfoBar';
+import { join } from 'node:path';
+import { mdiFlash, mdiPowerPlug } from '@mdi/js';
+import { ipcRenderer } from 'electron';
+import { TitleBar } from 'electron-react-titlebar/renderer';
+import { observer } from 'mobx-react';
+import type React from 'react';
+import { Component, type PropsWithChildren } from 'react';
+import {
+  type WrappedComponentProps,
+  defineMessages,
+  injectIntl,
+} from 'react-intl';
+import injectSheet, { type WithStylesProps } from 'react-jss';
+import { Outlet } from 'react-router-dom';
 import { Component as BasicAuth } from '../../features/basicAuth';
-import { Component as QuickSwitch } from '../../features/quickSwitch';
 import { Component as PublishDebugInfo } from '../../features/publishDebugInfo';
-import ErrorBoundary from '../util/ErrorBoundary';
+import { Component as QuickSwitch } from '../../features/quickSwitch';
 import { updateVersionParse } from '../../helpers/update-helpers';
+import InfoBar from '../ui/InfoBar';
+import ErrorBoundary from '../util/ErrorBoundary';
 
-import { isMac, isWindows } from '../../environment';
-import WorkspaceSwitchingIndicator from '../../features/workspaces/components/WorkspaceSwitchingIndicator';
-import { workspaceStore } from '../../features/workspaces';
-import AppUpdateInfoBar from '../AppUpdateInfoBar';
-import Todos from '../../features/todos/containers/TodosScreen';
-import AssistantWebview from '../../features/assistant/AssistantWebview';
-import Icon from '../ui/icon';
 import LockedScreen from '../../containers/auth/LockedScreen';
-import SettingsStore from '../../stores/SettingsStore';
+import { isMac, isWindows } from '../../environment';
+import AssistantWebview from '../../features/assistant/AssistantWebview';
+import Todos from '../../features/todos/containers/TodosScreen';
+import { workspaceStore } from '../../features/workspaces';
+import WorkspaceSwitchingIndicator from '../../features/workspaces/components/WorkspaceSwitchingIndicator';
 import { openExternalUrl } from '../../helpers/url-helpers';
+import type SettingsStore from '../../stores/SettingsStore';
+import AppUpdateInfoBar from '../AppUpdateInfoBar';
+import Icon from '../ui/icon';
 
 const messages = defineMessages({
   servicesUpdated: {

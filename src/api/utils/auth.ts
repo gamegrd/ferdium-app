@@ -1,8 +1,8 @@
-import localStorage from 'mobx-localstorage';
-import { when } from 'mobx';
 import { createHash } from 'node:crypto';
-import { localServerToken, needsToken } from '../apiBase';
+import { when } from 'mobx';
+import localStorage from 'mobx-localstorage';
 import { ferdiumLocale, ferdiumVersion } from '../../environment-remote';
+import { localServerToken, needsToken } from '../apiBase';
 
 export const prepareAuthRequest = (
   // eslint-disable-next-line unicorn/no-object-as-default-parameter
@@ -47,6 +47,7 @@ export const prepareLocalToken = async (requestData: {
   await when(() => !needsToken() || !!localServerToken(), { timeout: 2000 });
   const token = localServerToken();
   if (token) {
+    // eslint-disable-next-line no-param-reassign
     requestData.headers['X-Ferdium-Local-Token'] = token;
   }
 };

@@ -1,10 +1,15 @@
-import { Component, createRef, ReactElement, MouseEvent } from 'react';
-import { observer } from 'mobx-react';
-import withStyles, { WithStylesProps } from 'react-jss';
-import Webview from 'react-electron-web-view';
 import classnames from 'classnames';
+import { observer } from 'mobx-react';
+import {
+  Component,
+  type MouseEvent,
+  type ReactElement,
+  createRef,
+} from 'react';
+import Webview from 'react-electron-web-view';
+import withStyles, { type WithStylesProps } from 'react-jss';
 import { TODOS_PARTITION_ID } from '../../../config';
-import { TodoClientMessage } from '../actions';
+import type { TodoClientMessage } from '../actions';
 
 const styles = theme => ({
   root: {
@@ -87,6 +92,7 @@ class TodosWebview extends Component<IProps, IState> {
   }
 
   componentDidMount() {
+    // eslint-disable-next-line @eslint-react/no-set-state-in-component-did-mount
     this.setState({
       width: this.props.width,
     });
@@ -168,6 +174,7 @@ class TodosWebview extends Component<IProps, IState> {
     }
 
     return (
+      // eslint-disable-next-line jsx-a11y/no-static-element-interactions
       <div
         className={classnames({
           [classes.root]: true,
@@ -180,6 +187,7 @@ class TodosWebview extends Component<IProps, IState> {
         ref={this.node}
         id="todos-panel"
       >
+        {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions */}
         <div
           className={classes.resizeHandler}
           style={{

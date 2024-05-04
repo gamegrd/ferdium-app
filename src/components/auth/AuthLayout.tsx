@@ -1,24 +1,24 @@
-import {
-  cloneElement,
-  Component,
-  MouseEventHandler,
-  ReactElement,
-} from 'react';
-import { observer } from 'mobx-react';
-import { TitleBar } from 'electron-react-titlebar/renderer';
-import { injectIntl, WrappedComponentProps } from 'react-intl';
 import { mdiFlash } from '@mdi/js';
-import { Response } from 'electron';
-import Link from '../ui/Link';
-import InfoBar from '../ui/InfoBar';
+import type { Response } from 'electron';
+import { TitleBar } from 'electron-react-titlebar/renderer';
+import { observer } from 'mobx-react';
+import {
+  Component,
+  type MouseEventHandler,
+  type ReactElement,
+  cloneElement,
+} from 'react';
+import { type WrappedComponentProps, injectIntl } from 'react-intl';
+import { resetServer, serverName } from '../../api/apiBase';
+import { GITHUB_FERDIUM_URL } from '../../config';
+import { isWindows } from '../../environment';
 import { Component as PublishDebugInfo } from '../../features/publishDebugInfo';
 import { updateVersionParse } from '../../helpers/update-helpers';
 import globalMessages from '../../i18n/globalMessages';
-import { isWindows } from '../../environment';
 import AppUpdateInfoBar from '../AppUpdateInfoBar';
-import { GITHUB_FERDIUM_URL } from '../../config';
+import InfoBar from '../ui/InfoBar';
+import Link from '../ui/Link';
 import Icon from '../ui/icon';
-import { resetServer, serverName } from '../../api/apiBase';
 
 export interface IProps extends WrappedComponentProps {
   children: ReactElement;
@@ -109,6 +109,7 @@ class AuthLayout extends Component<IProps, IState> {
           )}
           <div className="auth__layout">
             {/* Inject globalError into children  */}
+            {/* eslint-disable-next-line @eslint-react/no-clone-element */}
             {cloneElement(children, { error })}
           </div>
           {/* </div> */}

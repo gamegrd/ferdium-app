@@ -1,11 +1,13 @@
 import color from 'color';
 import { cloneDeep } from 'lodash';
 
-import * as legacyStyles from '../legacy';
+import { DEFAULT_LOADER_COLOR } from '../../config';
 import type IStyleTypes from '../IStyleTypes';
+import * as legacyStyles from '../legacy';
 
 export default (brandPrimary: string) => {
   if (!brandPrimary) {
+    // eslint-disable-next-line no-param-reassign
     brandPrimary = '#7266F0';
   }
   const brandSuccess = '#5cb85c';
@@ -14,7 +16,7 @@ export default (brandPrimary: string) => {
   const brandDanger = '#d9534f';
   const uiFontSize = 14;
   const colorBackground = legacyStyles.themeGrayLighter;
-  const colorContentBackground = '#FFFFFF';
+  const colorContentBackground = DEFAULT_LOADER_COLOR;
   const colorText = legacyStyles.themeGrayDark;
   const inputColor = legacyStyles.themeGray;
   const inputBackground = legacyStyles.themeGrayLightest;

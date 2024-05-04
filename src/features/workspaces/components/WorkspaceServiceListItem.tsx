@@ -1,11 +1,11 @@
-import { Component, ReactElement } from 'react';
-import { observer } from 'mobx-react';
-import withStyles, { WithStylesProps } from 'react-jss';
 import classnames from 'classnames';
 import { noop } from 'lodash';
-import Toggle from '../../../components/ui/toggle';
+import { observer } from 'mobx-react';
+import { Component, type ReactElement } from 'react';
+import withStyles, { type WithStylesProps } from 'react-jss';
 import ServiceIcon from '../../../components/ui/ServiceIcon';
-import Service from '../../../models/Service';
+import Toggle from '../../../components/ui/toggle';
+import type Service from '../../../models/Service';
 
 const styles = theme => ({
   listItem: {
@@ -42,6 +42,7 @@ class WorkspaceServiceListItem extends Component<IProps> {
     const { classes, isInWorkspace, onToggle, service } = this.props;
     return (
       // onclick in below div used to fix bug raised under toggle duplicate component removal
+      // eslint-disable-next-line jsx-a11y/no-static-element-interactions
       <div className={classes.listItem} onClick={onToggle} onKeyDown={noop}>
         <ServiceIcon className={classes.serviceIcon} service={service} />
         <span

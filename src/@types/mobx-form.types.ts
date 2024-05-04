@@ -1,5 +1,5 @@
-import { ChangeEventHandler, FocusEventHandler } from 'react';
-import { GlobalError } from './ferdium-components.types';
+import type { ChangeEventHandler, FocusEventHandler } from 'react';
+import type { GlobalError } from './ferdium-components.types';
 
 interface SelectOptions {
   disabled?: boolean;
@@ -16,7 +16,7 @@ interface Listeners {
 
 export interface Field extends Listeners {
   id?: string;
-  type?: string; // todo specifiy probably
+  type?: string; // todo specify probably
   name?: string;
   value?: any;
   label?: string;

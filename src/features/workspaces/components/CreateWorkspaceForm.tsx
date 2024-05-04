@@ -1,11 +1,15 @@
-import { Component, ReactElement } from 'react';
 import { observer } from 'mobx-react';
-import { defineMessages, injectIntl, WrappedComponentProps } from 'react-intl';
-import withStyles, { WithStylesProps } from 'react-jss';
-import Input from '../../../components/ui/input/index';
+import { Component, type ReactElement } from 'react';
+import {
+  type WrappedComponentProps,
+  defineMessages,
+  injectIntl,
+} from 'react-intl';
+import withStyles, { type WithStylesProps } from 'react-jss';
 import Button from '../../../components/ui/button';
-import Form from '../../../lib/Form';
+import Input from '../../../components/ui/input/index';
 import { required } from '../../../helpers/validation-helpers';
+import Form from '../../../lib/Form';
 import { workspaceStore } from '../index';
 
 const messages = defineMessages({
@@ -77,6 +81,7 @@ class CreateWorkspaceForm extends Component<IProps> {
           className={classes.input}
           showLabel={false}
           // @ts-expect-error Expected 1 arguments, but got 2.
+          // eslint-disable-next-line react/jsx-no-bind
           onEnterKey={this.submitForm.bind(this, form)}
           focus={workspaceStore.isUserAllowedToUseFeature}
         />
@@ -85,6 +90,7 @@ class CreateWorkspaceForm extends Component<IProps> {
           type="submit"
           label={intl.formatMessage(messages.submitButton)}
           // @ts-expect-error Expected 1 arguments, but got 2.
+          // eslint-disable-next-line react/jsx-no-bind
           onClick={this.submitForm.bind(this, form)}
           busy={isSubmitting}
           buttonType={isSubmitting ? 'secondary' : 'primary'}

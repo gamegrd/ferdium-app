@@ -1,9 +1,14 @@
-import { Component, ReactElement } from 'react';
-import { observer } from 'mobx-react';
-import withStyles, { WithStylesProps } from 'react-jss';
 import classnames from 'classnames';
-import { defineMessages, injectIntl, WrappedComponentProps } from 'react-intl';
+import { observer } from 'mobx-react';
+import { Component, type ReactElement } from 'react';
+import {
+  type WrappedComponentProps,
+  defineMessages,
+  injectIntl,
+} from 'react-intl';
+import withStyles, { type WithStylesProps } from 'react-jss';
 import Loader from '../../../components/ui/loader';
+import { DEFAULT_LOADER_COLOR } from '../../../config';
 import { workspaceStore } from '../index';
 
 const messages = defineMessages({
@@ -70,7 +75,7 @@ class WorkspaceSwitchingIndicator extends Component<IProps> {
     return (
       <div className={classnames([classes.wrapper])}>
         <div className={classes.component}>
-          <Loader className={classes.spinner} color="#FFFFFF" />
+          <Loader className={classes.spinner} color={DEFAULT_LOADER_COLOR} />
           <p className={classes.message}>
             {`${intl.formatMessage(messages.switchingTo)} ${nextWorkspaceName}`}
           </p>

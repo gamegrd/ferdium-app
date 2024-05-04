@@ -1,15 +1,24 @@
-import { ChangeEvent, Component, createRef, ReactElement } from 'react';
 import { getCurrentWindow } from '@electron/remote';
-import { observer, inject } from 'mobx-react';
-import { reaction } from 'mobx';
-import withStyles, { WithStylesProps } from 'react-jss';
-import { defineMessages, injectIntl, WrappedComponentProps } from 'react-intl';
 import { compact, invoke, noop } from 'lodash';
-import { StoresProps } from '../../@types/ferdium-components.types';
-import Service from '../../models/Service';
-import Input from '../../components/ui/input/index';
-import { H1 } from '../../components/ui/headline';
+import { reaction } from 'mobx';
+import { inject, observer } from 'mobx-react';
+import {
+  type ChangeEvent,
+  Component,
+  type ReactElement,
+  createRef,
+} from 'react';
+import {
+  type WrappedComponentProps,
+  defineMessages,
+  injectIntl,
+} from 'react-intl';
+import withStyles, { type WithStylesProps } from 'react-jss';
+import type { StoresProps } from '../../@types/ferdium-components.types';
 import Modal from '../../components/ui/Modal';
+import { H1 } from '../../components/ui/headline';
+import Input from '../../components/ui/input/index';
+import type Service from '../../models/Service';
 import { state as ModalState } from './store';
 
 const messages = defineMessages({
@@ -131,7 +140,7 @@ class QuickSwitchModal extends Component<IProps, IState> {
       this.state.search &&
       compact(invoke(this.state.search, 'match', /^[\da-z]/i)).length > 0
     ) {
-      // Apply simple search algorythm to list of all services
+      // Apply simple search algorithm to list of all services
       services = this.props.stores!.services.allDisplayed;
       services = services.filter(
         service =>
@@ -293,6 +302,7 @@ class QuickSwitchModal extends Component<IProps, IState> {
         isOpen={isModalVisible}
         className={`${classes.modal} quick-switch`}
         shouldCloseOnOverlayClick
+        // eslint-disable-next-line react/jsx-no-bind
         close={this.close.bind(this)}
       >
         <H1 className={classes.headline}>
@@ -309,6 +319,7 @@ class QuickSwitchModal extends Component<IProps, IState> {
 
         <div className={classes.services}>
           {services.map((service, index) => (
+            // eslint-disable-next-line jsx-a11y/no-static-element-interactions
             <div
               className={`${classes.service} ${
                 this.state.selected === index

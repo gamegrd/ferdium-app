@@ -1,18 +1,19 @@
 import { webFrame } from 'electron';
 
-import { createRoot } from 'react-dom/client';
-import { Provider } from 'mobx-react';
 import { RouterStore } from '@superwf/mobx-react-router';
 import { createHashHistory } from 'history';
+import { Provider } from 'mobx-react';
+import { createRoot } from 'react-dom/client';
 
-import ServerApi from './api/server/ServerApi';
 // import ServerApi from './api/server/ServerApiDjango';
-import LocalApi from './api/server/LocalApi';
-import storeFactory from './stores';
+
 import apiFactory from './api';
 import actions from './actions';
+import LocalApi from './api/server/LocalApi';
+import ServerApi from './api/server/ServerApi';
 import MenuFactory from './lib/Menu';
 import TouchBarFactory from './lib/TouchBar';
+import storeFactory from './stores';
 
 import I18N from './I18n';
 import FerdiumRoutes from './routes';

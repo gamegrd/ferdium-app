@@ -1,13 +1,14 @@
 /* eslint-disable no-use-before-define */
 import Icon from '@mdi/react';
 import classnames from 'classnames';
-import { Property } from 'csstype';
+import type { Property } from 'csstype';
 import { noop } from 'lodash';
-import { Component, MouseEventHandler } from 'react';
-import withStyles, { WithStylesProps } from 'react-jss';
+import { Component, type MouseEventHandler } from 'react';
+import withStyles, { type WithStylesProps } from 'react-jss';
+import { DEFAULT_LOADER_COLOR } from '../../../config';
+import type { Theme } from '../../../themes';
 import Loader from '../loader/index';
-import { Theme } from '../../../themes';
-import { IFormField } from '../typings/generic';
+import type { IFormField } from '../typings/generic';
 
 type ButtonType =
   | 'primary'
@@ -194,7 +195,7 @@ class ButtonComponent extends Component<IProps, IState> {
       <>
         {showLoader && (
           <div className={classes.loaderContainer}>
-            <Loader size={18} color="#FFFFFF" />
+            <Loader size={18} color={DEFAULT_LOADER_COLOR} />
           </div>
         )}
         <div className={classes.label}>
@@ -205,7 +206,6 @@ class ButtonComponent extends Component<IProps, IState> {
     );
 
     const wrapperComponent = href ? (
-      // biome-ignore lint/a11y/useValidAnchor: <explanation>
       <a
         href={href}
         target={target}
@@ -223,7 +223,7 @@ class ButtonComponent extends Component<IProps, IState> {
     ) : (
       <button
         id={id}
-        // eslint-disable-next-line react/button-has-type
+        // eslint-disable-next-line react/button-has-type, @eslint-react/dom/no-missing-button-type
         type={type}
         onClick={onClick}
         className={classnames({

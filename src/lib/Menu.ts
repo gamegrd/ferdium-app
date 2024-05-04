@@ -2,39 +2,46 @@ import os from 'node:os';
 
 import { clipboard, MenuItemConstructorOptions } from 'electron';
 import {
-  app,
   Menu,
+  app,
   dialog,
-  webContents,
-  systemPreferences,
   getCurrentWindow,
+  systemPreferences,
+  webContents,
 } from '@electron/remote';
-import { autorun, action, makeObservable, observable } from 'mobx';
-import { defineMessages, IntlShape } from 'react-intl';
-import osName from 'os-name';
+import { ipcRenderer } from 'electron';
+import { type MenuItemConstructorOptions, clipboard } from 'electron';
 import { fromJS } from 'immutable';
+import { action, autorun, makeObservable, observable } from 'mobx';
+import osName from 'os-name';
+import { type IntlShape, defineMessages } from 'react-intl';
 import semver from 'semver';
 import { isDevMode, ferdiumVersion } from '../environment-remote';
+import type { StoresProps } from '../@types/ferdium-components.types';
+import { importExportURL, serverBase, serverName } from '../api/apiBase';
+// @ts-expect-error Cannot find module '../buildInfo.json' or its corresponding type declarations.
+import { gitBranch, gitHashShort, timestamp } from '../buildInfo.json';
+import { CUSTOM_WEBSITE_RECIPE_ID, LIVE_API_FERDIUM_WEBSITE } from '../config';
 import {
-  isWindows,
-  cmdOrCtrlShortcutKey,
+  addNewServiceShortcutKey,
   altKey,
-  shiftKey,
-  settingsShortcutKey,
+  chromeVersion,
+  cmdOrCtrlShortcutKey,
+  downloadsShortcutKey,
+  electronVersion,
   isLinux,
   isMac,
+  isWindows,
   lockFerdiumShortcutKey,
-  todosToggleShortcutKey,
-  workspaceToggleShortcutKey,
-  addNewServiceShortcutKey,
-  splitModeToggleShortcutKey,
   muteFerdiumShortcutKey,
-  electronVersion,
-  chromeVersion,
   nodeVersion,
   osArch,
+  settingsShortcutKey,
+  shiftKey,
+  splitModeToggleShortcutKey,
+  todosToggleShortcutKey,
   toggleFullScreenKey,
-  downloadsShortcutKey,
+  workspaceToggleShortcutKey,
 } from '../environment';
 import { CUSTOM_WEBSITE_RECIPE_ID, LIVE_API_FERDIUM_WEBSITE } from '../config';
 import { assistantActions } from '../features/assistant/actions';
@@ -50,6 +57,16 @@ import { StoresProps } from '../@types/ferdium-components.types';
 import { RealStores } from '../stores';
 import { acceleratorString } from '../jsUtils';
 import { openExternalUrl } from '../helpers/url-helpers';
+import { ferdiumVersion } from '../environment-remote';
+import { todoActions } from '../features/todos/actions';
+import workspaceActions from '../features/workspaces/actions';
+import { workspaceStore } from '../features/workspaces/index';
+import { onAuthGoToReleaseNotes } from '../helpers/update-helpers';
+import { openExternalUrl } from '../helpers/url-helpers';
+import globalMessages from '../i18n/globalMessages';
+import { acceleratorString } from '../jsUtils';
+import type Service from '../models/Service';
+import type { RealStores } from '../stores';
 
 const menuItems = defineMessages({
   edit: {
@@ -169,6 +186,10 @@ const menuItems = defineMessages({
   toggleServiceDevTools: {
     id: 'menu.view.toggleServiceDevTools',
     defaultMessage: 'Toggle Service Developer Tools',
+  },
+  openProcessManager: {
+    id: 'menu.view.openProcessManager',
+    defaultMessage: 'Open Process Manager',
   },
   reloadService: {
     id: 'menu.view.reloadService',
@@ -714,11 +735,9 @@ class FranzMenu implements StoresProps {
   }
 
   getOsName(): string {
-    let osNameParse = osName();
-    const isWin11 = semver.satisfies(os.release(), '>=10.0.22000');
-    osNameParse = isWindows && isWin11 ? 'Windows 11' : osNameParse;
-
-    return osNameParse;
+    return isWindows && semver.satisfies(os.release(), '>=10.0.22000')
+      ? 'Windows 11'
+      : osName(os.platform(), os.release());
   }
 
   _build(): void {
@@ -735,7 +754,7 @@ class FranzMenu implements StoresProps {
     const { intl } = window['ferdium'];
     const locked =
       this.stores.settings.app.locked &&
-      this.stores.settings.app.lockingFeatureEnabled &&
+      this.stores.settings.app.isLockingFeatureEnabled &&
       this.stores.user.isLoggedIn;
     const { actions } = this;
     const tpl = titleBarTemplateFactory(intl, locked);
@@ -898,7 +917,7 @@ class FranzMenu implements StoresProps {
           accelerator: `${lockFerdiumShortcutKey()}`,
           enabled:
             this.stores.user.isLoggedIn &&
-            this.stores.settings.app.lockingFeatureEnabled,
+            this.stores.settings.app.isLockingFeatureEnabled,
           click() {
             actions.settings.update({
               type: 'app',
@@ -1240,20 +1259,22 @@ class FranzMenu implements StoresProps {
       });
     }
 
-    menu.push(
-      {
-        type: 'separator',
-      },
-      {
-        label: intl.formatMessage(menuItems.defaultWorkspace),
-        accelerator: `${cmdOrCtrlShortcutKey()}+${altKey()}+0`,
-        type: 'radio',
-        checked: !activeWorkspace,
-        click: () => {
-          workspaceActions.deactivate();
+    if (!this.stores.settings.app.hideAllServicesWorkspace) {
+      menu.push(
+        {
+          type: 'separator',
         },
-      },
-    );
+        {
+          label: intl.formatMessage(menuItems.defaultWorkspace),
+          accelerator: `${cmdOrCtrlShortcutKey()}+${altKey()}+0`,
+          type: 'radio',
+          checked: !activeWorkspace,
+          click: () => {
+            workspaceActions.deactivate();
+          },
+        },
+      );
+    }
 
     // Workspace items
     for (const [i, workspace] of workspaces.entries()) {

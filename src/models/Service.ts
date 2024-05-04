@@ -135,6 +135,8 @@ export default class Service {
 
   @observable isMediaPlaying: boolean = false;
 
+  @observable useFavicon: boolean = DEFAULT_SERVICE_SETTINGS.useFavicon;
+
   @action _setAutoRun() {
     if (!this.isEnabled) {
       this.webview = null;
@@ -168,6 +170,7 @@ export default class Service {
     this.team = ifUndefined<string>(data.team, this.team);
     this.customUrl = ifUndefined<string>(data.customUrl, this.customUrl);
     this.iconUrl = ifUndefined<string>(data.iconUrl, this.iconUrl);
+    this.useFavicon = ifUndefined<boolean>(data.useFavicon, this.useFavicon);
     this.order = ifUndefined<number>(data.order, this.order);
     this.isEnabled = ifUndefined<boolean>(data.isEnabled, this.isEnabled);
     this.isNotificationEnabled = ifUndefined<boolean>(
@@ -356,6 +359,10 @@ export default class Service {
   }
 
   @computed get icon(): string {
+    if (this.useFavicon) {
+      return getFaviconUrl(this.url);
+    }
+
     if (this.iconUrl) {
       if (needsToken()) {
         let url: URL;
@@ -373,6 +380,10 @@ export default class Service {
         }
       }
       return this.iconUrl;
+    }
+
+    if (this.recipe.defaultIcon) {
+      return this.recipe.defaultIcon;
     }
 
     return join(this.recipe.path, 'icon.svg');

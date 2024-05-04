@@ -1,17 +1,17 @@
-import { Component, ReactElement } from 'react';
-import { observer, inject } from 'mobx-react';
 import {
-  autorun,
+  type IReactionDisposer,
   action,
+  autorun,
   makeObservable,
   observable,
-  IReactionDisposer,
 } from 'mobx';
-import ElectronWebView from 'react-electron-web-view';
-import WebControls from '../components/WebControls';
-import Service from '../../../models/Service';
+import { inject, observer } from 'mobx-react';
+import { Component, type ReactElement } from 'react';
+import type ElectronWebView from 'react-electron-web-view';
+import type { StoresProps } from '../../../@types/ferdium-components.types';
 import { SEARCH_ENGINE_URLS } from '../../../config';
-import { StoresProps } from '../../../@types/ferdium-components.types';
+import type Service from '../../../models/Service';
+import WebControls from '../components/WebControls';
 
 const URL_EVENTS = [
   'load-commit',
@@ -118,8 +118,10 @@ class WebControlsScreen extends Component<IProps> {
     }
 
     try {
+      // eslint-disable-next-line no-param-reassign
       url = new URL(url).toString();
     } catch {
+      // eslint-disable-next-line no-param-reassign
       url =
         /^((?!-))(xn--)?[\da-z][\d_a-z-]{0,61}[\da-z]{0,1}\.(xn--)?([\da-z-]{1,61}|[\da-z-]{1,30}\.[a-z]{2,})$/.test(
           url,

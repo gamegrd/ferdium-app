@@ -1,16 +1,21 @@
-import { createRef, Component, ReactElement, RefObject } from 'react';
-import { observer } from 'mobx-react';
-import withStyles, { WithStylesProps } from 'react-jss';
-import { defineMessages, injectIntl, WrappedComponentProps } from 'react-intl';
 import {
-  mdiReload,
-  mdiArrowRight,
   mdiArrowLeft,
-  mdiHomeOutline,
+  mdiArrowRight,
   mdiEarth,
+  mdiHomeOutline,
+  mdiReload,
 } from '@mdi/js';
+import { observer } from 'mobx-react';
+import { Component, type ReactElement, type RefObject, createRef } from 'react';
+import {
+  type WrappedComponentProps,
+  defineMessages,
+  injectIntl,
+} from 'react-intl';
+import withStyles, { type WithStylesProps } from 'react-jss';
 import { Tooltip as ReactTooltip } from 'react-tooltip';
 import Icon from '../../../components/ui/icon';
+import { isEnterKeyPress, isEscapeKeyPress } from '../../../jsUtils';
 
 const messages = defineMessages({
   goHome: {
@@ -211,7 +216,7 @@ class WebControls extends Component<IProps, IState> {
             });
           }}
           onKeyDown={event => {
-            if (event.key === 'Enter') {
+            if (isEnterKeyPress(event.key)) {
               this.setState({
                 editUrl: false,
               });
@@ -220,7 +225,7 @@ class WebControls extends Component<IProps, IState> {
               if (this.inputRef?.current) {
                 this.inputRef.current.blur();
               }
-            } else if (event.key === 'Escape') {
+            } else if (isEscapeKeyPress(event.key)) {
               this.setState({
                 editUrl: false,
                 inputUrl: url,

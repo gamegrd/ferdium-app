@@ -1,9 +1,9 @@
 import classnames from 'classnames';
-import { Component, createRef, TextareaHTMLAttributes } from 'react';
-import injectSheet, { WithStylesProps } from 'react-jss';
+import { Component, type TextareaHTMLAttributes, createRef } from 'react';
+import injectSheet, { type WithStylesProps } from 'react-jss';
 
 import { noop } from 'lodash';
-import { IFormField } from '../typings/generic';
+import type { IFormField } from '../typings/generic';
 
 // biome-ignore lint/suspicious/noShadowRestrictedNames: <explanation>
 import Error from '../error';
@@ -40,10 +40,9 @@ class TextareaComponent extends Component<IProps> {
     const { data } = this.props;
 
     if (this.textareaRef?.current && data) {
-      Object.keys(data).map(
-        // biome-ignore lint/suspicious/noAssignInExpressions: <explanation>
-        key => (this.textareaRef.current!.dataset[key] = data[key]),
-      );
+      Object.keys(data).forEach(key => {
+        this.textareaRef.current!.dataset[key] = data[key];
+      });
     }
   }
 

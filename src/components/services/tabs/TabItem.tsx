@@ -1,21 +1,25 @@
-import { app, dialog, Menu } from '@electron/remote';
-import { noop } from 'lodash';
-import { Component } from 'react';
-import { defineMessages, injectIntl, WrappedComponentProps } from 'react-intl';
-import { inject, observer } from 'mobx-react';
-import classnames from 'classnames';
-import { SortableElement } from 'react-sortable-hoc';
-import injectSheet, { WithStylesProps } from 'react-jss';
-import ms from 'ms';
-import { autorun, makeObservable, observable, reaction } from 'mobx';
+import { Menu, app, dialog } from '@electron/remote';
 import { mdiExclamation, mdiVolumeSource } from '@mdi/js';
-import Service from '../../../models/Service';
+import classnames from 'classnames';
+import { noop } from 'lodash';
+import { autorun, makeObservable, observable, reaction } from 'mobx';
+import { inject, observer } from 'mobx-react';
+import ms from 'ms';
+import { Component } from 'react';
+import {
+  type WrappedComponentProps,
+  defineMessages,
+  injectIntl,
+} from 'react-intl';
+import injectSheet, { type WithStylesProps } from 'react-jss';
+import { SortableElement } from 'react-sortable-hoc';
+import type { Stores } from '../../../@types/stores.types';
 import { altKey, cmdOrCtrlShortcutKey, shiftKey } from '../../../environment';
 import globalMessages from '../../../i18n/globalMessages';
+import type Service from '../../../models/Service';
 import Icon from '../../ui/icon';
-import { Stores } from '../../../@types/stores.types';
 import MenuItemConstructorOptions = Electron.MenuItemConstructorOptions;
-import { acceleratorString } from '../../../jsUtils';
+import { acceleratorString, isShiftKeyPress } from '../../../jsUtils';
 
 const IS_SERVICE_DEBUGGING_ENABLED = (
   localStorage.getItem('debug') || ''
@@ -167,8 +171,8 @@ class TabItem extends Component<IProps, IState> {
     );
   }
 
-  handleShortcutIndex = (event, showShortcutIndex = true) => {
-    if (event.key === 'Shift') {
+  handleShortcutIndex = (event: KeyboardEvent, showShortcutIndex = true) => {
+    if (isShiftKeyPress(event.key)) {
       this.setState({ showShortcutIndex });
     }
   };

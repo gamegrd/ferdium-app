@@ -1,32 +1,36 @@
 import { ipcRenderer } from 'electron';
-import { Component, ReactElement } from 'react';
 import { inject, observer } from 'mobx-react';
-import { defineMessages, injectIntl, WrappedComponentProps } from 'react-intl';
+import { Component, type ReactElement } from 'react';
+import {
+  type WrappedComponentProps,
+  defineMessages,
+  injectIntl,
+} from 'react-intl';
 
-import { FormFields } from '../../@types/mobx-form.types';
-import { StoresProps } from '../../@types/ferdium-components.types';
-import Form from '../../lib/Form';
-import { APP_LOCALES, SPELLCHECKER_LOCALES } from '../../i18n/languages';
+import type { StoresProps } from '../../@types/ferdium-components.types';
+import type { FormFields } from '../../@types/mobx-form.types';
 import {
   DEFAULT_APP_SETTINGS,
+  GOOGLE_TRANSLATOR_LANGUAGES,
   HIBERNATION_STRATEGIES,
-  SIDEBAR_WIDTH,
-  SIDEBAR_SERVICES_LOCATION,
   ICON_SIZES,
+  LIBRETRANSLATE_TRANSLATOR_LANGUAGES,
   NAVIGATION_BAR_BEHAVIOURS,
   SEARCH_ENGINE_NAMES,
-  TRANSLATOR_ENGINE_NAMES,
-  GOOGLE_TRANSLATOR_LANGUAGES,
-  TRANSLATOR_ENGINE_GOOGLE,
-  LIBRETRANSLATE_TRANSLATOR_LANGUAGES,
-  TODO_APPS,
-  WAKE_UP_STRATEGIES,
-  WAKE_UP_HIBERNATION_STRATEGIES,
-  SPLIT_COLUMNS_MIN,
+  SIDEBAR_SERVICES_LOCATION,
+  SIDEBAR_WIDTH,
   SPLIT_COLUMNS_MAX,
+  SPLIT_COLUMNS_MIN,
+  TODO_APPS,
+  TRANSLATOR_ENGINE_GOOGLE,
+  TRANSLATOR_ENGINE_NAMES,
+  WAKE_UP_HIBERNATION_STRATEGIES,
+  WAKE_UP_STRATEGIES,
   WEBRTC_IP_HANDLING_POLICY,
 } from '../../config';
 import { isMac } from '../../environment';
+import { APP_LOCALES, SPELLCHECKER_LOCALES } from '../../i18n/languages';
+import Form from '../../lib/Form';
 
 import { getSelectOptions } from '../../helpers/i18n-helpers';
 import { hash } from '../../helpers/password-helpers';
@@ -35,8 +39,8 @@ import defaultUserAgent from '../../helpers/userAgent-helpers';
 import EditSettingsForm from '../../components/settings/settings/EditSettingsForm';
 import ErrorBoundary from '../../components/util/ErrorBoundary';
 
-import globalMessages from '../../i18n/globalMessages';
 import { importExportURL } from '../../api/apiBase';
+import globalMessages from '../../i18n/globalMessages';
 import { ifUndefined } from '../../jsUtils';
 
 const debug = require('../../preload-safe-debug')('Ferdium:EditSettingsScreen');
@@ -98,6 +102,16 @@ const messages = defineMessages({
   notifyTaskBarOnMessage: {
     id: 'settings.app.form.notifyTaskBarOnMessage',
     defaultMessage: 'Notify TaskBar/Dock on new message',
+  },
+  isTwoFactorAutoCatcherEnabled: {
+    id: 'settings.app.form.isTwoFactorAutoCatcherEnabled',
+    defaultMessage:
+      'Auto-catch two-factor codes from notifications (Ex.: android messages) and copy to clipboard',
+  },
+  twoFactorAutoCatcherMatcher: {
+    id: 'settings.app.form.twoFactorAutoCatcherMatcher',
+    defaultMessage:
+      'Comma-separated and case-insensitive words/expressions to catch two-factor codes from. Ex.: token, code, sms, verify',
   },
   navigationBarBehaviour: {
     id: 'settings.app.form.navigationBarBehaviour',
@@ -263,6 +277,10 @@ const messages = defineMessages({
     id: 'settings.app.form.alwaysShowWorkspaces',
     defaultMessage: 'Always show workspace drawer',
   },
+  hideAllServicesWorkspace: {
+    id: 'settings.app.form.hideAllServicesWorkspace',
+    defaultMessage: 'Hide "All services" workspace',
+  },
   accentColor: {
     id: 'settings.app.form.accentColor',
     defaultMessage: 'Accent color',
@@ -383,6 +401,10 @@ class EditSettingsScreen extends Component<
         privateNotifications: Boolean(settingsData.privateNotifications),
         clipboardNotifications: Boolean(settingsData.clipboardNotifications),
         notifyTaskBarOnMessage: Boolean(settingsData.notifyTaskBarOnMessage),
+        isTwoFactorAutoCatcherEnabled: Boolean(
+          settingsData.isTwoFactorAutoCatcherEnabled,
+        ),
+        twoFactorAutoCatcherMatcher: settingsData.twoFactorAutoCatcherMatcher,
         navigationBarBehaviour: settingsData.navigationBarBehaviour,
         webRTCIPHandlingPolicy: settingsData.webRTCIPHandlingPolicy,
         searchEngine: settingsData.searchEngine,
@@ -398,7 +420,7 @@ class EditSettingsScreen extends Component<
         wakeUpHibernationSplay: Boolean(settingsData.wakeUpHibernationSplay),
         predefinedTodoServer: settingsData.predefinedTodoServer,
         customTodoServer: settingsData.customTodoServer,
-        lockingFeatureEnabled: Boolean(settingsData.lockingFeatureEnabled),
+        isLockingFeatureEnabled: Boolean(settingsData.isLockingFeatureEnabled),
         lockedPassword: useOriginalPassword
           ? this.props.stores.settings.all.app.lockedPassword
           : hash(String(settingsData.lockedPassword)),
@@ -435,6 +457,9 @@ class EditSettingsScreen extends Component<
         hideSettingsButton: Boolean(settingsData.hideSettingsButton),
         hideDownloadButton: Boolean(settingsData.hideDownloadButton),
         alwaysShowWorkspaces: Boolean(settingsData.alwaysShowWorkspaces),
+        hideAllServicesWorkspace: Boolean(
+          settingsData.hideAllServicesWorkspace,
+        ),
         accentColor: settingsData.accentColor,
         progressbarAccentColor: settingsData.progressbarAccentColor,
         showMessageBadgeWhenMuted: Boolean(
@@ -680,6 +705,23 @@ class EditSettingsScreen extends Component<
           default: DEFAULT_APP_SETTINGS.notifyTaskBarOnMessage,
           type: 'checkbox',
         },
+        isTwoFactorAutoCatcherEnabled: {
+          label: intl.formatMessage(messages.isTwoFactorAutoCatcherEnabled),
+          value: ifUndefined<boolean>(
+            settings.all.app.isTwoFactorAutoCatcherEnabled,
+            DEFAULT_APP_SETTINGS.isTwoFactorAutoCatcherEnabled,
+          ),
+          default: DEFAULT_APP_SETTINGS.isTwoFactorAutoCatcherEnabled,
+          type: 'checkbox',
+        },
+        twoFactorAutoCatcherMatcher: {
+          label: intl.formatMessage(messages.twoFactorAutoCatcherMatcher),
+          value: ifUndefined<string>(
+            settings.all.app.twoFactorAutoCatcherMatcher,
+            DEFAULT_APP_SETTINGS.twoFactorAutoCatcherMatcher,
+          ),
+          default: DEFAULT_APP_SETTINGS.twoFactorAutoCatcherMatcher,
+        },
         navigationBarBehaviour: {
           label: intl.formatMessage(messages.navigationBarBehaviour),
           value: ifUndefined<string>(
@@ -796,13 +838,13 @@ class EditSettingsScreen extends Component<
           ),
           default: DEFAULT_APP_SETTINGS.customTodoServer,
         },
-        lockingFeatureEnabled: {
+        isLockingFeatureEnabled: {
           label: intl.formatMessage(messages.enableLock),
           value: ifUndefined<boolean>(
-            settings.all.app.lockingFeatureEnabled,
-            DEFAULT_APP_SETTINGS.lockingFeatureEnabled,
+            settings.all.app.isLockingFeatureEnabled,
+            DEFAULT_APP_SETTINGS.isLockingFeatureEnabled,
           ),
-          default: DEFAULT_APP_SETTINGS.lockingFeatureEnabled,
+          default: DEFAULT_APP_SETTINGS.isLockingFeatureEnabled,
           type: 'checkbox',
         },
         lockedPassword: {
@@ -1120,6 +1162,15 @@ class EditSettingsScreen extends Component<
           default: DEFAULT_APP_SETTINGS.alwaysShowWorkspaces,
           type: 'checkbox',
         },
+        hideAllServicesWorkspace: {
+          label: intl.formatMessage(messages.hideAllServicesWorkspace),
+          value: ifUndefined<boolean>(
+            settings.all.app.hideAllServicesWorkspace,
+            DEFAULT_APP_SETTINGS.hideAllServicesWorkspace,
+          ),
+          default: DEFAULT_APP_SETTINGS.hideAllServicesWorkspace,
+          type: 'checkbox',
+        },
         accentColor: {
           label: intl.formatMessage(messages.accentColor),
           value: ifUndefined<string>(
@@ -1228,7 +1279,7 @@ class EditSettingsScreen extends Component<
       updateVersion,
       updateStatusTypes,
       isClearingAllCache,
-      lockingFeatureEnabled,
+      isLockingFeatureEnabled,
     } = app;
     const { checkForUpdates, installUpdate, clearAllCache } =
       this.props.actions.app;
@@ -1252,7 +1303,7 @@ class EditSettingsScreen extends Component<
           getCacheSize={() => app.cacheSize}
           isClearingAllCache={isClearingAllCache}
           onClearAllCache={clearAllCache}
-          lockingFeatureEnabled={lockingFeatureEnabled}
+          isLockingFeatureEnabled={isLockingFeatureEnabled}
           automaticUpdates={this.props.stores.settings.app.automaticUpdates}
           isDarkmodeEnabled={this.props.stores.settings.app.darkMode}
           isAdaptableDarkModeEnabled={
@@ -1262,6 +1313,12 @@ class EditSettingsScreen extends Component<
             this.props.stores.settings.app.useGrayscaleServices
           }
           isSplitModeEnabled={this.props.stores.settings.app.splitMode}
+          isTwoFactorAutoCatcherEnabled={
+            this.props.stores.settings.app.isTwoFactorAutoCatcherEnabled
+          }
+          twoFactorAutoCatcherMatcher={
+            this.props.stores.settings.app.twoFactorAutoCatcherMatcher
+          }
           isTodosActivated={this.props.stores.todos.isFeatureEnabledByUser}
           openProcessManager={() => this.openProcessManager()}
           isOnline={app.isOnline}

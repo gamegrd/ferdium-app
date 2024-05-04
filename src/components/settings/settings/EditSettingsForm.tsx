@@ -1,25 +1,14 @@
 import { systemPreferences } from '@electron/remote';
-import { Component, ReactElement } from 'react';
+import {  mdiOpenInNew, mdiPowerPlug } from '@mdi/js';
+import { noop } from 'lodash';
 import { observer } from 'mobx-react';
 import prettyBytes from 'pretty-bytes';
-import { defineMessages, injectIntl, WrappedComponentProps } from 'react-intl';
-import { mdiOpenInNew, mdiPowerPlug } from '@mdi/js';
-import { noop } from 'lodash';
-import Form from '../../../lib/Form';
-import Button from '../../ui/button';
-import Toggle from '../../ui/toggle';
-import Select from '../../ui/Select';
-import Input from '../../ui/input/index';
-import ColorPickerInput from '../../ui/colorPickerInput';
-import Infobox from '../../ui/Infobox';
-import { H1, H2, H3, H5 } from '../../ui/headline';
+import { Component, type ReactElement } from 'react';
 import {
-  ferdiumVersion,
-  userDataCertsPath,
-  userDataPath,
-  userDataRecipesPath,
-} from '../../../environment-remote';
-import { updateVersionParse } from '../../../helpers/update-helpers';
+  type WrappedComponentProps,
+  defineMessages,
+  injectIntl,
+} from 'react-intl';
 import {
   DEFAULT_ACCENT_COLOR,
   DEFAULT_APP_SETTINGS,
@@ -33,10 +22,25 @@ import {
   isWindows,
   lockFerdiumShortcutKey,
 } from '../../../environment';
+import {
+  ferdiumVersion,
+  userDataCertsPath,
+  userDataPath,
+  userDataRecipesPath,
+} from '../../../environment-remote';
+import { updateVersionParse } from '../../../helpers/update-helpers';
 import { openExternalUrl, openPath } from '../../../helpers/url-helpers';
 import globalMessages from '../../../i18n/globalMessages';
-import Icon from '../../ui/icon';
+import type Form from '../../../lib/Form';
+import Infobox from '../../ui/Infobox';
+import Select from '../../ui/Select';
 import Slider from '../../ui/Slider';
+import Button from '../../ui/button';
+import ColorPickerInput from '../../ui/colorPickerInput';
+import { H1, H2, H3, H5 } from '../../ui/headline';
+import Icon from '../../ui/icon';
+import Input from '../../ui/input/index';
+import Toggle from '../../ui/toggle';
 
 const debug = require('../../../preload-safe-debug')(
   'Ferdium:EditSettingsForm',
@@ -301,10 +305,12 @@ interface IProps extends WrappedComponentProps {
   isClearingAllCache: boolean;
   isTodosActivated: boolean;
   automaticUpdates: boolean;
+  isTwoFactorAutoCatcherEnabled: boolean;
+  twoFactorAutoCatcherMatcher: string;
   isDarkmodeEnabled: boolean;
   isAdaptableDarkModeEnabled: boolean;
   isUseGrayscaleServicesEnabled: boolean;
-  lockingFeatureEnabled: boolean;
+  isLockingFeatureEnabled: boolean;
   isSplitModeEnabled: boolean;
   isOnline: boolean;
   showServicesUpdatedInfoBar: boolean;
@@ -352,13 +358,23 @@ class EditSettingsForm extends Component<IProps, IState> {
     this.props.form.submit({
       onSuccess: (form: Form) => {
         const values = form.values();
-        const { accentColor } = values;
+        const { accentColor, isTwoFactorAutoCatcherEnabled } = values;
+
         if (accentColor.trim().length === 0) {
           values.accentColor = DEFAULT_ACCENT_COLOR;
         }
         const { progressbarAccentColor } = values;
         if (progressbarAccentColor.trim().length === 0) {
           values.progressbarAccentColor = DEFAULT_ACCENT_COLOR;
+        }
+
+        // set twoFactorAutoCatcherMatcher to the default value, if its get enabled the input is prefilled
+        if (
+          !isTwoFactorAutoCatcherEnabled &&
+          values.twoFactorAutoCatcherMatcher.length === 0
+        ) {
+          values.twoFactorAutoCatcherMatcher =
+            DEFAULT_APP_SETTINGS.twoFactorAutoCatcherMatcher;
         }
         this.props.onSubmit(values);
       },
@@ -384,6 +400,7 @@ class EditSettingsForm extends Component<IProps, IState> {
       onClearAllCache,
       getCacheSize,
       automaticUpdates,
+      isTwoFactorAutoCatcherEnabled,
       isDarkmodeEnabled,
       isSplitModeEnabled,
       openProcessManager,
@@ -401,7 +418,7 @@ class EditSettingsForm extends Component<IProps, IState> {
     }
 
     const {
-      lockingFeatureEnabled,
+      isLockingFeatureEnabled,
       scheduledDNDEnabled,
       reloadAfterResume,
       useSelfSignedCertificates,
@@ -819,6 +836,8 @@ class EditSettingsForm extends Component<IProps, IState> {
                 <Toggle {...form.$('hideDownloadButton').bind()} />
 
                 <Toggle {...form.$('alwaysShowWorkspaces').bind()} />
+
+                <Toggle {...form.$('hideAllServicesWorkspace').bind()} />
               </div>
             )}
 
@@ -833,6 +852,15 @@ class EditSettingsForm extends Component<IProps, IState> {
                 <Toggle {...form.$('clipboardNotifications').bind()} />
                 {(isWindows || isMac) && (
                   <Toggle {...form.$('notifyTaskBarOnMessage').bind()} />
+                )}
+
+                <Toggle {...form.$('isTwoFactorAutoCatcherEnabled').bind()} />
+
+                {isTwoFactorAutoCatcherEnabled && (
+                  <Input
+                    onChange={e => this.submit(e)}
+                    {...form.$('twoFactorAutoCatcherMatcher').bind()}
+                  />
                 )}
 
                 <Hr />
@@ -858,8 +886,8 @@ class EditSettingsForm extends Component<IProps, IState> {
 
                 <Hr />
 
-                <Toggle {...form.$('lockingFeatureEnabled').bind()} />
-                {lockingFeatureEnabled && (
+                <Toggle {...form.$('isLockingFeatureEnabled').bind()} />
+                {isLockingFeatureEnabled && (
                   <>
                     {isMac && systemPreferences.canPromptTouchID() && (
                       <Toggle {...form.$('useTouchIdToUnlock').bind()} />
@@ -1057,34 +1085,34 @@ class EditSettingsForm extends Component<IProps, IState> {
                   <H3>
                     {intl.formatMessage(messages.subheadlineFerdiumProfile)}
                   </H3>
-                  <p>
-                    <div className="settings__open-settings-file-container">
-                      <Button
-                        buttonType="secondary"
-                        label={intl.formatMessage(
-                          messages.buttonOpenFerdiumProfileFolder,
-                        )}
-                        className="settings__open-settings-file-button"
-                        onClick={() => openPath(profileFolder)}
-                      />
-                      <Button
-                        buttonType="secondary"
-                        label={intl.formatMessage(
-                          messages.buttonOpenFerdiumServiceRecipesFolder,
-                        )}
-                        className="settings__open-settings-file-button"
-                        onClick={() => openPath(recipeFolder)}
-                      />
-                      <Button
-                        buttonType="secondary"
-                        label={intl.formatMessage(
-                          messages.buttonOpenImportExport,
-                        )}
-                        className="settings__open-settings-file-button"
-                        onClick={() => openExternalUrl(serverURL, true)}
-                      />
-                    </div>
-                  </p>
+
+                  <div className="settings__open-settings-file-container">
+                    <Button
+                      buttonType="secondary"
+                      label={intl.formatMessage(
+                        messages.buttonOpenFerdiumProfileFolder,
+                      )}
+                      className="settings__open-settings-file-button"
+                      onClick={() => openPath(profileFolder)}
+                    />
+                    <Button
+                      buttonType="secondary"
+                      label={intl.formatMessage(
+                        messages.buttonOpenFerdiumServiceRecipesFolder,
+                      )}
+                      className="settings__open-settings-file-button"
+                      onClick={() => openPath(recipeFolder)}
+                    />
+                    <Button
+                      buttonType="secondary"
+                      label={intl.formatMessage(
+                        messages.buttonOpenImportExport,
+                      )}
+                      className="settings__open-settings-file-button"
+                      onClick={() => openExternalUrl(serverURL, true)}
+                    />
+                  </div>
+
                   <p className="settings__help">
                     {intl.formatMessage(messages.serverHelp, {
                       serverURL,

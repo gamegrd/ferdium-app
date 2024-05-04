@@ -1,5 +1,6 @@
-import { ipcMain, BrowserWindow } from 'electron';
+import { BrowserWindow, ipcMain } from 'electron';
 import { autoUpdater } from 'electron-updater';
+// eslint-disable-next-line import/no-cycle
 import { appEvents } from '../..';
 
 const debug = require('../../preload-safe-debug')('Ferdium:ipcApi:autoUpdate');

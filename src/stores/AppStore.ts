@@ -1,50 +1,51 @@
 import { URL } from 'node:url';
-import { ipcRenderer } from 'electron';
 import {
   app,
-  screen,
-  powerMonitor,
-  nativeTheme,
   getCurrentWindow,
+  nativeTheme,
+  powerMonitor,
   process as remoteProcess,
+  screen,
 } from '@electron/remote';
+import AutoLaunch from 'auto-launch';
+import { ipcRenderer } from 'electron';
+import { readJsonSync } from 'fs-extra';
 import { action, computed, makeObservable, observable } from 'mobx';
 import moment from 'moment';
-import AutoLaunch from 'auto-launch';
 import ms from 'ms';
-import { readJsonSync } from 'fs-extra';
 
-import { Stores } from '../@types/stores.types';
-import { ApiInterface } from '../api';
-import { Actions } from '../actions/lib/actions';
-import TypedStore from './lib/TypedStore';
-import Request from './lib/Request';
+
 import {
   CHECK_INTERVAL,
   DEFAULT_APP_SETTINGS,
   DEFAULT_LANGUAGE,
 } from '../config';
 import { cleanseJSObject } from '../jsUtils';
+import type { Stores } from '../@types/stores.types';
+import type { Actions } from '../actions/lib/actions';
+import type { ApiInterface } from '../api';
 import {
+  electronVersion,
   isMac,
   isWinPortable,
-  electronVersion,
   osRelease,
 } from '../environment';
 import {
+  ferdiumLocale,
   ferdiumVersion,
   userDataPath,
-  ferdiumLocale,
 } from '../environment-remote';
-import generatedTranslations from '../i18n/translations';
 import { getLocale } from '../helpers/i18n-helpers';
+import generatedTranslations from '../i18n/translations';
+import Request from './lib/Request';
+import TypedStore from './lib/TypedStore';
 
+import sleep from '../helpers/async-helpers';
 import {
   getServiceIdsFromPartitions,
   removeServicePartitionDirectory,
 } from '../helpers/service-helpers';
 import { openExternalUrl } from '../helpers/url-helpers';
-import sleep from '../helpers/async-helpers';
 
 const debug = require('../preload-safe-debug')('Ferdium:AppStore');
 
@@ -125,8 +126,8 @@ export default class AppStore extends TypedStore {
 
   @observable isFocused = true;
 
-  @observable lockingFeatureEnabled =
-    DEFAULT_APP_SETTINGS.lockingFeatureEnabled;
+  @observable isLockingFeatureEnabled =
+    DEFAULT_APP_SETTINGS.isLockingFeatureEnabled;
 
   @observable launchInBackground = DEFAULT_APP_SETTINGS.autoLaunchInBackground;
 
@@ -575,7 +576,7 @@ export default class AppStore extends TypedStore {
     debug(`Removed download ${id}`);
     if (id === null) {
       const indexesToRemove: number[] = [];
-      this.downloads.map(item => {
+      this.downloads.forEach(item => {
         if (!item.state) return;
         if (item.state === 'completed' || item.state === 'cancelled') {
           indexesToRemove.push(this.downloads.indexOf(item));

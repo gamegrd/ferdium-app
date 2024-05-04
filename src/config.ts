@@ -60,6 +60,9 @@ export const WEBRTC_IP_HANDLING_POLICY = {
   [disableWebRTCIPHandlingPolicy]: 'Do not expose public or local IPs',
 };
 
+export const SCREENSHARE_CANCELLED_BY_USER =
+  'desktop-capturer-selection__cancel';
+
 // TODO: Need to convert many of these to i18n
 export const HIBERNATION_STRATEGIES = {
   10: 'Extremely Fast Hibernation (10sec)',
@@ -354,6 +357,8 @@ export const DEFAULT_SERVICE_ORDER = 99; // something high enough that it gets a
 export const SPLIT_COLUMNS_MIN = 1;
 export const SPLIT_COLUMNS_MAX = 5;
 
+export const DEFAULT_LOADER_COLOR = '#FFFFFF';
+
 export const DEFAULT_APP_SETTINGS = {
   autoLaunchOnStart: false,
   autoLaunchInBackground: false,
@@ -369,6 +374,8 @@ export const DEFAULT_APP_SETTINGS = {
   clipboardNotifications: true,
   notifyTaskBarOnMessage: false,
   showDisabledServices: true,
+  isTwoFactorAutoCatcherEnabled: false,
+  twoFactorAutoCatcherMatcher: 'token, code, sms, verify',
   showServiceName: false,
   showMessageBadgeWhenMuted: true,
   showDragArea: false,
@@ -390,7 +397,7 @@ export const DEFAULT_APP_SETTINGS = {
   server: LIVE_FERDIUM_API,
   predefinedTodoServer: TODO_TODOIST_URL,
   autohideMenuBar: false,
-  lockingFeatureEnabled: false,
+  isLockingFeatureEnabled: false,
   locked: false,
   lockedPassword: '',
   useTouchIdToUnlock: true,
@@ -430,6 +437,7 @@ export const DEFAULT_APP_SETTINGS = {
   hideSettingsButton: false,
   hideDownloadButton: false,
   alwaysShowWorkspaces: false,
+  hideAllServicesWorkspace: false,
   liftSingleInstanceLock: false,
   enableLongPressServiceHint: false,
   isTodosFeatureEnabled: true,
@@ -447,6 +455,7 @@ export const DEFAULT_SERVICE_SETTINGS = {
   isBadgeEnabled: true,
   isMediaBadgeEnabled: false,
   trapLinkClicks: false,
+  useFavicon: false,
   isMuted: false,
   customIcon: false,
   isDarkModeEnabled: false,
@@ -462,7 +471,7 @@ export const DEFAULT_SERVICE_SETTINGS = {
   disablewebsecurity: false,
   spellcheckerLanguage: false,
   onlyShowFavoritesInUnreadCount: false,
-  proxyFeatureEnabled: false,
+  isProxyFeatureEnabled: false,
   proxyHost: '',
   proxyPort: 0,
   proxyUser: '',

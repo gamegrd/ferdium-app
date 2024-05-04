@@ -1,27 +1,25 @@
 /* eslint-disable global-require */
 /* eslint-disable import/no-dynamic-require */
 
-import { join } from 'node:path';
 import { existsSync } from 'node:fs';
-import { noop, debounce } from 'lodash';
-import { contextBridge, ipcRenderer } from 'electron';
-import { autorun, computed, makeObservable, observable } from 'mobx';
-import { pathExistsSync, readFileSync } from 'fs-extra';
+import { join } from 'node:path';
 import {
   disable as disableDarkMode,
   enable as enableDarkMode,
 } from 'darkreader';
+import { contextBridge, ipcRenderer } from 'electron';
+import { pathExistsSync, readFileSync } from 'fs-extra';
+import { debounce, noop } from 'lodash';
+import { autorun, computed, makeObservable, observable } from 'mobx';
 
 import axios from 'axios';
-import ignoreList from './darkmode/ignore';
 import customDarkModeCss from './darkmode/custom';
+import ignoreList from './darkmode/ignore';
 
 import RecipeWebview from './lib/RecipeWebview';
 import Userscript from './lib/Userscript';
 
 import BadgeHandler from './badge';
-import DialogTitleHandler from './dialogTitle';
-import SessionHandler from './sessionHandler';
 import contextMenu from './contextMenu';
 import {
   darkModeStyleExists,
@@ -29,25 +27,23 @@ import {
   isDarkModeStyleInjected,
   removeDarkModeStyle,
 } from './darkmode';
+import DialogTitleHandler from './dialogTitle';
 import FindInPage from './find';
 import {
-  notificationsClassDefinition,
   NotificationsHandler,
+  notificationsClassDefinition,
 } from './notifications';
-import {
-  getDisplayMediaSelector,
-  screenShareCss,
-  screenShareJs,
-} from './screenshare';
+import { getDisplayMediaSelector, screenShareJs } from './screenshare';
+import SessionHandler from './sessionHandler';
 import {
   getSpellcheckerLocaleByFuzzyIdentifier,
   switchDict,
 } from './spellchecker';
 
+import type { AppStore } from '../@types/stores.types';
 import { DEFAULT_APP_SETTINGS } from '../config';
-import { ifUndefined, safeParseInt } from '../jsUtils';
-import { AppStore } from '../@types/stores.types';
-import Service from '../models/Service';
+import { cleanseJSObject, ifUndefined, safeParseInt } from '../jsUtils';
+import type Service from '../models/Service';
 
 interface Window {
   xgVer: string;
@@ -137,8 +133,14 @@ contextBridge.exposeInMainWorld('ferdium', {
     safeParseInt(text),
   setDialogTitle: (title: string | null | undefined) =>
     dialogTitleHandler.setDialogTitle(title),
-  displayNotification: (title: string, options: any) =>
-    notificationsHandler.displayNotification(title, options),
+  displayNotification: (title: string, options: any) => {
+    notificationsHandler.displayNotification(
+      title,
+      // The following line is needed so that a proper clone of the "options" object is made.
+      // This line was causing issues with some services.
+      cleanseJSObject(options),
+    );
+  },
   getDisplayMediaSelector,
 });
 
@@ -288,7 +290,6 @@ class RecipeController {
 
   async loadUserFiles(recipe, config) {
     const styles = document.createElement('style');
-    styles.innerHTML = screenShareCss;
 
     const userCss = join(recipe.path, 'user.css');
     if (pathExistsSync(userCss)) {

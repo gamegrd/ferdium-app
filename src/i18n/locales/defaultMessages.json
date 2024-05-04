@@ -295,7 +295,7 @@
         }
       },
       {
-        "defaultMessage": "!!!Ferdium is currently locked. Please unlock RuyiAI with your password to see your messages.",
+        "defaultMessage": "!!!RuyiAI is currently locked. Please unlock RuyiAI with your password to see your messages.",
         "end": {
           "column": 3,
           "line": 23
@@ -1997,7 +1997,7 @@
         }
       },
       {
-        "defaultMessage": "You are using Ferdium without an account. If you want to use RuyiAI with an account and keep your services synchronized across installations, please select a server in the Settings tab then login.",
+        "defaultMessage": "You are using RuyiAI without an account. If you want to use RuyiAI with an account and keep your services synchronized across installations, please select a server in the Settings tab then login.",
         "end": {
           "column": 3,
           "line": 63
@@ -2189,7 +2189,7 @@
         }
       },
       {
-        "defaultMessage": "!!!Sorry, but no service matched your search term - but you can still probably add it using the \"Custom Website\" option. Please note that the website might show more services that have been added to Ferdium since the version that you are currently on. To get those new services, please consider upgrading to a newer version of RuyiAI.",
+        "defaultMessage": "!!!Sorry, but no service matched your search term - but you can still probably add it using the \"Custom Website\" option. Please note that the website might show more services that have been added to RuyiAI since the version that you are currently on. To get those new services, please consider upgrading to a newer version of RuyiAI.",
         "end": {
           "column": 3,
           "line": 42
@@ -2794,7 +2794,7 @@
         }
       },
       {
-        "defaultMessage": "!!!Sorry, but no service matched your search term. Please note that the website might show more services that have been added to Ferdium since the version that you are currently on. To get those new services, please consider upgrading to a newer version of RuyiAI.",
+        "defaultMessage": "!!!Sorry, but no service matched your search term. Please note that the website might show more services that have been added to RuyiAI since the version that you are currently on. To get those new services, please consider upgrading to a newer version of RuyiAI.",
         "end": {
           "column": 3,
           "line": 30
@@ -2981,7 +2981,7 @@
         }
       },
       {
-        "defaultMessage": "!!!Password Lock allows you to keep your messages protected.\nUsing Password Lock, you will be prompted to enter your password everytime you start Ferdium or lock RuyiAI yourself using the lock symbol in the bottom left corner or the shortcut CMD/CTRL+Shift+L.",
+        "defaultMessage": "!!!Password Lock allows you to keep your messages protected.\nUsing Password Lock, you will be prompted to enter your password everytime you start RuyiAI or lock RuyiAI yourself using the lock symbol in the bottom left corner or the shortcut CMD/CTRL+Shift+L.",
         "end": {
           "column": 3,
           "line": 58
@@ -3321,7 +3321,7 @@
           "column": 3,
           "line": 10
         },
-        "file": "src/components/settings/supportFerdium/SupportRuyiAIDashboard.js",
+        "file": "src/components/settings/supportRuyiAI/SupportRuyiAIDashboard.js",
         "id": "settings.supportRuyiAI.headline",
         "start": {
           "column": 12,
@@ -3334,7 +3334,7 @@
           "column": 3,
           "line": 14
         },
-        "file": "src/components/settings/supportFerdium/SupportRuyiAIDashboard.js",
+        "file": "src/components/settings/supportRuyiAI/SupportRuyiAIDashboard.js",
         "id": "settings.supportRuyiAI.title",
         "start": {
           "column": 9,
@@ -3347,7 +3347,7 @@
           "column": 3,
           "line": 18
         },
-        "file": "src/components/settings/supportFerdium/SupportRuyiAIDashboard.js",
+        "file": "src/components/settings/supportRuyiAI/SupportRuyiAIDashboard.js",
         "id": "settings.supportRuyiAI.aboutIntro",
         "start": {
           "column": 14,
@@ -3360,7 +3360,7 @@
           "column": 3,
           "line": 22
         },
-        "file": "src/components/settings/supportFerdium/SupportRuyiAIDashboard.js",
+        "file": "src/components/settings/supportRuyiAI/SupportRuyiAIDashboard.js",
         "id": "settings.supportRuyiAI.textListContributors",
         "start": {
           "column": 24,
@@ -3373,7 +3373,7 @@
           "column": 3,
           "line": 26
         },
-        "file": "src/components/settings/supportFerdium/SupportRuyiAIDashboard.js",
+        "file": "src/components/settings/supportRuyiAI/SupportRuyiAIDashboard.js",
         "id": "settings.supportRuyiAI.textListContributorsHere",
         "start": {
           "column": 28,
@@ -3381,12 +3381,12 @@
         }
       },
       {
-        "defaultMessage": "!!!The development of Ferdium is done by volunteers. People who use Ferdium like you. They maintain, fix, and improve RuyiAI in their spare time.",
+        "defaultMessage": "!!!The development of Ferdium is done by volunteers. People who use RuyiAI like you. They maintain, fix, and improve RuyiAI in their spare time.",
         "end": {
           "column": 3,
           "line": 30
         },
-        "file": "src/components/settings/supportFerdium/SupportRuyiAIDashboard.js",
+        "file": "src/components/settings/supportRuyiAI/SupportRuyiAIDashboard.js",
         "id": "settings.supportRuyiAI.textVolunteers",
         "start": {
           "column": 18,
@@ -3399,7 +3399,7 @@
           "column": 3,
           "line": 34
         },
-        "file": "src/components/settings/supportFerdium/SupportRuyiAIDashboard.js",
+        "file": "src/components/settings/supportRuyiAI/SupportRuyiAIDashboard.js",
         "id": "settings.supportRuyiAI.textSupportWelcome",
         "start": {
           "column": 22,
@@ -3412,7 +3412,7 @@
           "column": 3,
           "line": 38
         },
-        "file": "src/components/settings/supportFerdium/SupportRuyiAIDashboard.js",
+        "file": "src/components/settings/supportRuyiAI/SupportRuyiAIDashboard.js",
         "id": "settings.supportRuyiAI.textSupportWelcomeHere",
         "start": {
           "column": 26,
@@ -3425,7 +3425,7 @@
           "column": 3,
           "line": 42
         },
-        "file": "src/components/settings/supportFerdium/SupportRuyiAIDashboard.js",
+        "file": "src/components/settings/supportRuyiAI/SupportRuyiAIDashboard.js",
         "id": "settings.supportRuyiAI.textExpenses",
         "start": {
           "column": 16,
@@ -3438,7 +3438,7 @@
           "column": 3,
           "line": 46
         },
-        "file": "src/components/settings/supportFerdium/SupportRuyiAIDashboard.js",
+        "file": "src/components/settings/supportRuyiAI/SupportRuyiAIDashboard.js",
         "id": "settings.supportRuyiAI.textOpenCollective",
         "start": {
           "column": 22,
@@ -3451,7 +3451,7 @@
           "column": 3,
           "line": 50
         },
-        "file": "src/components/settings/supportFerdium/SupportRuyiAIDashboard.js",
+        "file": "src/components/settings/supportRuyiAI/SupportRuyiAIDashboard.js",
         "id": "settings.supportRuyiAI.textDonation",
         "start": {
           "column": 16,
@@ -3464,7 +3464,7 @@
           "column": 3,
           "line": 54
         },
-        "file": "src/components/settings/supportFerdium/SupportRuyiAIDashboard.js",
+        "file": "src/components/settings/supportRuyiAI/SupportRuyiAIDashboard.js",
         "id": "settings.supportRuyiAI.textDonationAnd",
         "start": {
           "column": 19,
@@ -3477,7 +3477,7 @@
           "column": 3,
           "line": 58
         },
-        "file": "src/components/settings/supportFerdium/SupportRuyiAIDashboard.js",
+        "file": "src/components/settings/supportRuyiAI/SupportRuyiAIDashboard.js",
         "id": "settings.supportRuyiAI.textGitHubSponsors",
         "start": {
           "column": 22,
@@ -3490,7 +3490,7 @@
           "column": 3,
           "line": 62
         },
-        "file": "src/components/settings/supportFerdium/SupportRuyiAIDashboard.js",
+        "file": "src/components/settings/supportRuyiAI/SupportRuyiAIDashboard.js",
         "id": "settings.supportRuyiAI.openSurvey",
         "start": {
           "column": 14,
@@ -3503,7 +3503,7 @@
           "column": 3,
           "line": 66
         },
-        "file": "src/components/settings/supportFerdium/SupportRuyiAIDashboard.js",
+        "file": "src/components/settings/supportRuyiAI/SupportRuyiAIDashboard.js",
         "id": "settings.supportRuyiAI.bannerText",
         "start": {
           "column": 14,
@@ -3511,7 +3511,7 @@
         }
       }
     ],
-    "path": "src/components/settings/supportFerdium/SupportRuyiAIDashboard.json"
+    "path": "src/components/settings/supportRuyiAI/SupportRuyiAIDashboard.json"
   },
   {
     "descriptors": [
@@ -4881,7 +4881,7 @@
         }
       },
       {
-        "defaultMessage": "!!!Publishing your debug information helps us find issues and errors in Ferdium. By publishing your debug information you accept RuyiAI Debugger's privacy policy and terms of service",
+        "defaultMessage": "!!!Publishing your debug information helps us find issues and errors in RuyiAI. By publishing your debug information you accept RuyiAI Debugger's privacy policy and terms of service",
         "end": {
           "column": 3,
           "line": 26

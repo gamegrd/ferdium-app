@@ -1,7 +1,7 @@
-import { Component } from 'react';
-import { observer } from 'mobx-react';
-import { IntlShape, defineMessages, injectIntl } from 'react-intl';
 import Markdown from 'markdown-to-jsx';
+import { observer } from 'mobx-react';
+import { Component } from 'react';
+import { type IntlShape, defineMessages, injectIntl } from 'react-intl';
 import { ferdiumVersion } from '../../../environment-remote';
 import {
   getFerdiumVersion,
@@ -16,12 +16,12 @@ const messages = defineMessages({
   connectionError: {
     id: 'settings.releasenotes.connectionError',
     defaultMessage:
-      'An error occured when connecting to Github, please try again later.',
+      'An error occurred when connecting to Github, please try again later.',
   },
   connectionErrorPageMissing: {
     id: 'settings.releasenotes.connectionErrorPageMissing',
     defaultMessage:
-      'An error occured when connecting to Github, the page you are looking for is missing.',
+      'An error occurred when connecting to Github, the page you are looking for is missing.',
   },
 });
 
@@ -49,6 +49,7 @@ class ReleaseNotesDashboard extends Component<IProps, IState> {
       intl,
     );
 
+    // eslint-disable-next-line @eslint-react/no-set-state-in-component-did-mount
     this.setState({
       data,
     });

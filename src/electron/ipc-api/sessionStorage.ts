@@ -1,4 +1,4 @@
-import { ipcMain, Session, session } from 'electron';
+import { type Session, ipcMain, session } from 'electron';
 
 import { Webview } from 'react-electron-web-view';
 import { TODOS_PARTITION_ID } from '../../config';

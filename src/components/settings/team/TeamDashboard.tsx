@@ -1,16 +1,20 @@
 // TODO: Is this feature even being used? If not, then we can cleanup this code
 
-import { Component, ReactElement } from 'react';
-import { observer } from 'mobx-react';
-import { defineMessages, injectIntl, WrappedComponentProps } from 'react-intl';
-import { Tooltip as ReactTooltip } from 'react-tooltip';
-import withStyles, { WithStylesProps } from 'react-jss';
 import classnames from 'classnames';
-import Loader from '../../ui/loader';
-import Button from '../../ui/button';
+import { observer } from 'mobx-react';
+import { Component, type ReactElement } from 'react';
+import {
+  type WrappedComponentProps,
+  defineMessages,
+  injectIntl,
+} from 'react-intl';
+import withStyles, { type WithStylesProps } from 'react-jss';
+import { Tooltip as ReactTooltip } from 'react-tooltip';
+import { DEFAULT_LOADER_COLOR, LIVE_FRANZ_API } from '../../../config';
 import Infobox from '../../ui/Infobox';
+import Button from '../../ui/button';
 import { H1 } from '../../ui/headline';
-import { LIVE_FRANZ_API } from '../../../config';
+import Loader from '../../ui/loader';
 
 const messages = defineMessages({
   headline: {
@@ -128,7 +132,7 @@ class TeamDashboard extends Component<IProps> {
           </span>
         </div>
         <div className="settings__body">
-          {isLoading && <Loader color="#FFFFFF" />}
+          {isLoading && <Loader color={DEFAULT_LOADER_COLOR} />}
 
           {!isLoading && userInfoRequestFailed && (
             <Infobox

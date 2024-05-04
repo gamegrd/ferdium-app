@@ -1,23 +1,27 @@
-import { Component, ReactElement } from 'react';
 import { inject, observer } from 'mobx-react';
-import { defineMessages, injectIntl, WrappedComponentProps } from 'react-intl';
-import { Params } from 'react-router-dom';
-import { StoresProps } from '../../@types/ferdium-components.types';
-import { IRecipe } from '../../models/Recipe';
-import Service from '../../models/Service';
-import { FormFields } from '../../@types/mobx-form.types';
-import Form from '../../lib/Form';
-import ServiceError from '../../components/settings/services/ServiceError';
+import { Component, type ReactElement } from 'react';
+import {
+  type WrappedComponentProps,
+  defineMessages,
+  injectIntl,
+} from 'react-intl';
+import type { Params } from 'react-router-dom';
+import type { StoresProps } from '../../@types/ferdium-components.types';
+import type { FormFields } from '../../@types/mobx-form.types';
 import EditServiceForm from '../../components/settings/services/EditServiceForm';
+import ServiceError from '../../components/settings/services/ServiceError';
 import ErrorBoundary from '../../components/util/ErrorBoundary';
-import { required, url, oneRequired } from '../../helpers/validation-helpers';
-import { getSelectOptions } from '../../helpers/i18n-helpers';
-import { config as proxyFeature } from '../../features/serviceProxy';
-import { SPELLCHECKER_LOCALES } from '../../i18n/languages';
-import globalMessages from '../../i18n/globalMessages';
-import { DEFAULT_APP_SETTINGS, DEFAULT_SERVICE_SETTINGS } from '../../config';
 import withParams from '../../components/util/WithParams';
+import { DEFAULT_APP_SETTINGS, DEFAULT_SERVICE_SETTINGS } from '../../config';
+import { config as proxyFeature } from '../../features/serviceProxy';
+import { getSelectOptions } from '../../helpers/i18n-helpers';
+import { url, oneRequired, required } from '../../helpers/validation-helpers';
+import globalMessages from '../../i18n/globalMessages';
+import { SPELLCHECKER_LOCALES } from '../../i18n/languages';
 import { ifUndefined } from '../../jsUtils';
+import Form from '../../lib/Form';
+import type { IRecipe } from '../../models/Recipe';
+import type Service from '../../models/Service';
 
 const messages = defineMessages({
   name: {
@@ -92,6 +96,10 @@ const messages = defineMessages({
     id: 'settings.service.form.trapLinkClicks',
     defaultMessage: 'Open URLs within RuyiAI',
   },
+  useFavicon: {
+    id: 'settings.service.form.useFavicon',
+    defaultMessage: 'Use service favicon instead of default or custom icon',
+  },
   onlyShowFavoritesInUnreadCount: {
     id: 'settings.service.form.onlyShowFavoritesInUnreadCount',
     defaultMessage: 'Only show Favorites in unread count',
@@ -137,13 +145,17 @@ class EditServiceScreen extends Component<IProps> {
     const { action } = this.props.params;
     const { recipes, services } = this.props.stores;
     const { createService, updateService } = this.props.actions.service;
+    // eslint-disable-next-line no-param-reassign
     data.darkReaderSettings = {
       brightness: data.darkReaderBrightness,
       contrast: data.darkReaderContrast,
       sepia: data.darkReaderSepia,
     };
+    // eslint-disable-next-line no-param-reassign
     delete data.darkReaderContrast;
+    // eslint-disable-next-line no-param-reassign
     delete data.darkReaderBrightness;
+    // eslint-disable-next-line no-param-reassign
     delete data.darkReaderSepia;
 
     const serviceData = data;
@@ -248,6 +260,15 @@ class EditServiceScreen extends Component<IProps> {
             DEFAULT_SERVICE_SETTINGS.trapLinkClicks,
           ),
           default: DEFAULT_SERVICE_SETTINGS.trapLinkClicks,
+          type: 'checkbox',
+        },
+        useFavicon: {
+          label: intl.formatMessage(messages.useFavicon),
+          value: ifUndefined<boolean>(
+            service?.useFavicon,
+            DEFAULT_SERVICE_SETTINGS.useFavicon,
+          ),
+          default: DEFAULT_SERVICE_SETTINGS.useFavicon,
           type: 'checkbox',
         },
         isMuted: {
@@ -409,9 +430,9 @@ class EditServiceScreen extends Component<IProps> {
               label: intl.formatMessage(messages.enableProxy),
               value: ifUndefined<boolean>(
                 serviceProxyConfig.isEnabled,
-                DEFAULT_SERVICE_SETTINGS.proxyFeatureEnabled,
+                DEFAULT_SERVICE_SETTINGS.isProxyFeatureEnabled,
               ),
-              default: DEFAULT_SERVICE_SETTINGS.proxyFeatureEnabled,
+              default: DEFAULT_SERVICE_SETTINGS.isProxyFeatureEnabled,
               type: 'checkbox',
             },
             host: {

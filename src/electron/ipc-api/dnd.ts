@@ -1,13 +1,14 @@
 import { ipcMain } from 'electron';
 import { isMac } from '../../environment';
 
-const debug = require('../../preload-safe-debug')('Ferdium:ipcApi:dnd');
+// const debug = require('../../preload-safe-debug')('Ferdium:ipcApi:dnd');
 
 export default async () => {
   ipcMain.handle('get-dnd', async () => {
     if (!isMac) {
       return false;
     }
+    /*
     const { getDoNotDisturb } = await import('macos-notification-state');
 
     if (!getDoNotDisturb) {
@@ -23,5 +24,7 @@ export default async () => {
       console.error(error);
       return false;
     }
+    */
+    return false;
   });
 };

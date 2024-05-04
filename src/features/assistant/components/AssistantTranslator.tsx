@@ -1,10 +1,10 @@
-import { injectIntl, WrappedComponentProps } from 'react-intl';
-import { Component, ReactElement } from 'react';
-import withStyles, { WithStylesProps } from 'react-jss';
 import { observer } from 'mobx-react';
+import { Component, type ReactElement } from 'react';
+import { type WrappedComponentProps, injectIntl } from 'react-intl';
+import withStyles, { type WithStylesProps } from 'react-jss';
 import Select from '../../../components/ui/Select';
 import Toggle from '../../../components/ui/toggle';
-import Form from '../../../lib/Form';
+import type Form from '../../../lib/Form';
 
 const styles = () => ({
   translatorsettings: {
@@ -20,11 +20,6 @@ interface IState {}
 
 @observer
 class AssistantTranslator extends Component<IProps, IState> {
-  constructor(props: IProps) {
-    super(props);
-    this.state = {};
-  }
-
   submit(e): void {
     console.warn(e);
     if (e) {

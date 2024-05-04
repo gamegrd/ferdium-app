@@ -24,7 +24,6 @@ const apiRequest = (url, route, method, auth) =>
         .then(data => data.json())
         .then(json => resolve(json));
     } catch (error) {
-      // eslint-disable-next-line no-console
       console.log(error);
       reject();
     }
@@ -254,7 +253,6 @@ class UserController {
     try {
       file = JSON.parse(request.input('file'));
     } catch (error) {
-      // eslint-disable-next-line no-console
       console.log(error);
       return response.send(
         'Could not import: Invalid file, could not read file',

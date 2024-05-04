@@ -1,29 +1,29 @@
 import { join } from 'node:path';
-import { ipcRenderer, shell } from 'electron';
-import { action, reaction, computed, observable, makeObservable } from 'mobx';
-import { debounce, remove } from 'lodash';
-import ms from 'ms';
+import { clipboard, ipcRenderer, shell } from 'electron';
 import { ensureFileSync, pathExistsSync, writeFileSync } from 'fs-extra';
+import { debounce, remove } from 'lodash';
+import { action, computed, makeObservable, observable, reaction } from 'mobx';
+import ms from 'ms';
 
-import { Stores } from '../@types/stores.types';
-import { ApiInterface } from '../api';
-import { Actions } from '../actions/lib/actions';
-import Request from './lib/Request';
-import CachedRequest from './lib/CachedRequest';
+import type { Stores } from '../@types/stores.types';
+import type { Actions } from '../actions/lib/actions';
+import type { ApiInterface } from '../api';
+import { DEFAULT_SERVICE_SETTINGS, KEEP_WS_LOADED_USID } from '../config';
+import { ferdiumVersion } from '../environment-remote';
+import { workspaceStore } from '../features/workspaces';
+import {
+  getDevRecipeDirectory,
+  getRecipeDirectory,
+} from '../helpers/recipe-helpers';
 import matchRoute from '../helpers/routing-helpers';
 import { isInTimeframe } from '../helpers/schedule-helpers';
-import {
-  getRecipeDirectory,
-  getDevRecipeDirectory,
-} from '../helpers/recipe-helpers';
-import Service from '../models/Service';
-import { workspaceStore } from '../features/workspaces';
-import { DEFAULT_SERVICE_SETTINGS, KEEP_WS_LOADED_USID } from '../config';
-import { cleanseJSObject } from '../jsUtils';
 import { SPELLCHECKER_LOCALES } from '../i18n/languages';
-import { ferdiumVersion } from '../environment-remote';
-import TypedStore from './lib/TypedStore';
+import { cleanseJSObject } from '../jsUtils';
 import type { UnreadServices } from '../lib/dbus/Ferdium';
+import type Service from '../models/Service';
+import CachedRequest from './lib/CachedRequest';
+import Request from './lib/Request';
+import TypedStore from './lib/TypedStore';
 
 const debug = require('../preload-safe-debug')('Ferdium:ServiceStore');
 
@@ -332,6 +332,7 @@ export default class ServicesStore extends TypedStore {
             .slice()
             .sort((a, b) => a.order - b.order)
             .map((s, index) => {
+              // eslint-disable-next-line no-param-reassign
               s.index = index;
               return s;
             }),
@@ -462,6 +463,7 @@ export default class ServicesStore extends TypedStore {
     }
 
     // set default values for serviceData
+    // eslint-disable-next-line no-param-reassign
     serviceData = {
       isEnabled: DEFAULT_SERVICE_SETTINGS.isEnabled,
       isHibernationEnabled: DEFAULT_SERVICE_SETTINGS.isHibernationEnabled,
@@ -470,6 +472,7 @@ export default class ServicesStore extends TypedStore {
       isBadgeEnabled: DEFAULT_SERVICE_SETTINGS.isBadgeEnabled,
       isMediaBadgeEnabled: DEFAULT_SERVICE_SETTINGS.isMediaBadgeEnabled,
       trapLinkClicks: DEFAULT_SERVICE_SETTINGS.trapLinkClicks,
+      useFavicon: DEFAULT_SERVICE_SETTINGS.useFavicon,
       isMuted: DEFAULT_SERVICE_SETTINGS.isMuted,
       customIcon: DEFAULT_SERVICE_SETTINGS.customIcon,
       isDarkModeEnabled: DEFAULT_SERVICE_SETTINGS.isDarkModeEnabled,
@@ -649,6 +652,7 @@ export default class ServicesStore extends TypedStore {
   }
 
   @action _setIsActive(service: Service, state: boolean): void {
+    // eslint-disable-next-line no-param-reassign
     service.isActive = state;
   }
 
@@ -742,7 +746,9 @@ export default class ServicesStore extends TypedStore {
   }
 
   @action _detachService({ service }) {
+    // eslint-disable-next-line no-param-reassign
     service.webview = null;
+    // eslint-disable-next-line no-param-reassign
     service.isAttached = false;
   }
 
@@ -854,7 +860,65 @@ export default class ServicesStore extends TypedStore {
 
         break;
       }
+
+      case 'load-available-displays': {
+        debug('Received request for capture devices from', serviceId);
+        ipcRenderer.send('load-available-displays', {
+          serviceId,
+          ...args[0],
+        });
+        break;
+      }
+
       case 'notification': {
+        const { notificationId, options } = args[0];
+
+        const { isTwoFactorAutoCatcherEnabled, twoFactorAutoCatcherMatcher } =
+          this.stores.settings.all.app;
+
+        debug(
+          'Settings for catch tokens',
+          isTwoFactorAutoCatcherEnabled,
+          twoFactorAutoCatcherMatcher,
+        );
+
+        if (isTwoFactorAutoCatcherEnabled) {
+          /*
+        parse the token digits from sms body, find "token" or "code" in options.body which reflect the sms content
+        ---
+        Token: 03624 / SMS-Code = PIN Token
+        ---
+        Prüfcode 010313 für Microsoft-Authentifizierung verwenden.
+        ---
+        483133 is your GitHub authentication code. @github.com #483133
+        ---
+        eBay: Ihr Sicherheitscode lautet 080090. \nEr läuft in 15 Minuten ab. Geben Sie den Code nicht an andere weiter.
+        ---
+        PayPal: Ihr Sicherheitscode lautet: 989605. Geben Sie diesen Code nicht weiter.
+      */
+
+          const rawBody = options.body;
+          const { 0: token } = /\d{5,6}/.exec(options.body) || [];
+
+          const wordsToCatch = twoFactorAutoCatcherMatcher
+            .replaceAll(', ', ',')
+            .split(',');
+
+          debug('wordsToCatch', wordsToCatch);
+
+          if (
+            token &&
+            wordsToCatch.some(a =>
+              options.body.toLowerCase().includes(a.toLowerCase()),
+            )
+          ) {
+            // with the extra "+ " it shows its copied to clipboard in the notification
+            options.body = `+ ${rawBody}`;
+            clipboard.writeText(token);
+            debug('Token parsed and copied to clipboard');
+          }
+        }
+
         // Check if we are in scheduled Do-not-Disturb time
         const { scheduledDNDEnabled, scheduledDNDStart, scheduledDNDEnd } =
           this.stores.settings.all.app;
@@ -863,10 +927,8 @@ export default class ServicesStore extends TypedStore {
           scheduledDNDEnabled &&
           isInTimeframe(scheduledDNDStart, scheduledDNDEnd)
         ) {
-          return;
+          return null;
         }
-
-        const { notificationId, options } = args[0];
 
         if (service.isMuted || this.stores.settings.all.app.isAppMuted) {
           Object.assign(options, {
@@ -921,8 +983,8 @@ export default class ServicesStore extends TypedStore {
         break;
       }
       case 'showServicesNomoreMoneyInfoBar': {
-        const msg = args[0];
-        console.log(msg);
+        // const msg = args[0];
+        // console.log(msg);
         this.stores.ui.showServicesNomoreMoneyInfoBar = true;
         break;
       }
@@ -949,6 +1011,7 @@ export default class ServicesStore extends TypedStore {
       }
       // No default
     }
+    return null;
   }
 
   @action _sendIPCMessage({ serviceId, channel, args }) {
@@ -1004,6 +1067,7 @@ export default class ServicesStore extends TypedStore {
     }
 
     if (!service.webview) return;
+    // eslint-disable-next-line consistent-return
     return service.webview.loadURL(service.url);
   }
 
@@ -1207,7 +1271,9 @@ export default class ServicesStore extends TypedStore {
 
     // eslint-disable-next-line unicorn/consistent-function-scoping
     const resetTimer = (service: Service) => {
+      // eslint-disable-next-line no-param-reassign
       service.lastPollAnswer = Date.now();
+      // eslint-disable-next-line no-param-reassign
       service.lastPoll = Date.now();
     };
 
@@ -1356,6 +1422,7 @@ export default class ServicesStore extends TypedStore {
       delete serviceData.team;
     }
 
+    // eslint-disable-next-line consistent-return
     return serviceData;
   }
 

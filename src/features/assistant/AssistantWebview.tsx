@@ -1,10 +1,10 @@
 import { join } from 'node:path';
 
-import { Component, ReactElement } from 'react';
+import { inject, observer } from 'mobx-react';
+import { Component, type ReactElement } from 'react';
 import ElectronWebView from 'react-electron-web-view';
-import { observer, inject } from 'mobx-react';
 import { aiBase } from '../../api/apiBase';
-import { RealStores } from '../../stores';
+import type { RealStores } from '../../stores';
 
 interface IProps {
   stores?: RealStores;
@@ -18,7 +18,6 @@ class AssistantWebview extends Component<IProps, IState> {
 
   constructor(props: IProps) {
     super(props);
-    this.state = {};
     this.refocusWebview = this.refocusWebview.bind(this);
     this._setWebview = this._setWebview.bind(this);
   }
@@ -80,7 +79,7 @@ class AssistantWebview extends Component<IProps, IState> {
           ref={(webview: any) => {
             this._setWebview(webview);
             if (webview?.view) {
-              webview.view.style.height = '100%';
+              // webview.view.style.height = '100%';
               webview.view.addEventListener(
                 'did-stop-loading',
                 this.refocusWebview,

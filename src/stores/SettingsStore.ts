@@ -1,10 +1,10 @@
-import { ipcRenderer } from 'electron';
 import { getCurrentWindow } from '@electron/remote';
+import { ipcRenderer } from 'electron';
 import { action, computed, makeObservable, observable, reaction } from 'mobx';
 import localStorage from 'mobx-localstorage';
-import { Stores } from '../@types/stores.types';
-import { ApiInterface } from '../api';
-import { Actions } from '../actions/lib/actions';
+import type { Stores } from '../@types/stores.types';
+import type { Actions } from '../actions/lib/actions';
+import type { ApiInterface } from '../api';
 import {
   DEFAULT_APP_SETTINGS,
   FILE_SYSTEM_SETTINGS_TYPES,
@@ -61,7 +61,7 @@ export default class SettingsStore extends TypedStore {
     let inactivityTimer;
     getCurrentWindow().on('blur', () => {
       if (
-        this.all.app.lockingFeatureEnabled &&
+        this.all.app.isLockingFeatureEnabled &&
         this.all.app.inactivityLock !== 0
       ) {
         inactivityTimer = setTimeout(
@@ -88,7 +88,7 @@ export default class SettingsStore extends TypedStore {
       if (
         !this.loaded &&
         resp.type === 'app' &&
-        resp.data.lockingFeatureEnabled
+        resp.data.isLockingFeatureEnabled
       ) {
         process.nextTick(() => {
           if (!this.all.app.locked) {
@@ -184,8 +184,10 @@ export default class SettingsStore extends TypedStore {
     }
   }
 
-  // eslint-disable-next-line @typescript-eslint/ban-types
-  _ensureMigrationAndMarkDone(migrationName: string, callback: Function): void {
+  _ensureMigrationAndMarkDone(
+    migrationName: string,
+    callback: () => void,
+  ): void {
     if (!this.all.migration[migrationName]) {
       callback();
 

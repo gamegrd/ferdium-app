@@ -1,10 +1,10 @@
-import { observable, action, computed, makeObservable } from 'mobx';
+import { action, computed, makeObservable, observable } from 'mobx';
 
 // eslint-disable-next-line no-use-before-define
 type Hook = (request: Request) => void;
 
 export default class Request {
-  static _hooks: Hook[] = [];
+  static readonly _hooks: Hook[] = [];
 
   static registerHook(hook: Hook) {
     Request._hooks.push(hook);

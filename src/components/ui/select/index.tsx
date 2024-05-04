@@ -5,14 +5,24 @@ import {
 } from '@mdi/js';
 import Icon from '@mdi/react';
 import classnames from 'classnames';
-import { ChangeEvent, Component, createRef, ReactElement } from 'react';
-import withStyles, { WithStylesProps } from 'react-jss';
 import { noop } from 'lodash';
-import { Theme } from '../../../themes';
-import { IFormField } from '../typings/generic';
+import {
+  type ChangeEvent,
+  Component,
+  type ReactElement,
+  createRef,
+} from 'react';
+import withStyles, { type WithStylesProps } from 'react-jss';
+import {
+  isArrowDownKeyPress,
+  isArrowUpKeyPress,
+  isEnterKeyPress,
+} from '../../../jsUtils';
+import type { Theme } from '../../../themes';
 // biome-ignore lint/suspicious/noShadowRestrictedNames: <explanation>
 import Error from '../error';
 import Label from '../label';
+import type { IFormField } from '../typings/generic';
 import Wrapper from '../wrapper';
 
 let popupTransition: string = 'none';
@@ -192,6 +202,7 @@ class SelectComponent extends Component<IProps, IState> {
     this.arrowKeysHandler = this.arrowKeysHandler.bind(this);
   }
 
+  // eslint-disable-next-line @eslint-react/no-unsafe-component-will-mount
   UNSAFE_componentWillMount(): void {
     const { value } = this.props;
 
@@ -282,23 +293,23 @@ class SelectComponent extends Component<IProps, IState> {
 
     if (!open) return;
 
-    if (e.key === 'ArrowUp' || e.key === 'ArrowDown') {
+    if (isArrowUpKeyPress(e.key) || isArrowDownKeyPress(e.key)) {
       e.preventDefault();
     }
 
     if (this.componentRef?.current) {
-      if (e.key === 'ArrowUp' && selected > 0) {
+      if (isArrowUpKeyPress(e.key) && selected > 0) {
         this.setState((state: IState) => ({
           selected: state.selected - 1,
         }));
       } else if (
-        e.key === 'ArrowDown' &&
+        isArrowDownKeyPress(e.key) &&
         selected < Object.keys(options!).length - 1
       ) {
         this.setState((state: IState) => ({
           selected: state.selected + 1,
         }));
-      } else if (e.key === 'Enter') {
+      } else if (isEnterKeyPress(e.key)) {
         this.select(Object.keys(options!)[selected]);
       }
 
@@ -412,6 +423,7 @@ class SelectComponent extends Component<IProps, IState> {
               ref={this.scrollContainerRef}
             >
               {Object.keys(options!).map((key, i) => (
+                // eslint-disable-next-line jsx-a11y/no-static-element-interactions
                 <div
                   key={key}
                   onClick={() => this.select(key)}

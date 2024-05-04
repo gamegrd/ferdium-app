@@ -1,17 +1,22 @@
-import { Component, ReactElement } from 'react';
-import { observer } from 'mobx-react';
-import withStyles, { WithStylesProps } from 'react-jss';
-import { defineMessages, injectIntl, WrappedComponentProps } from 'react-intl';
-import { Tooltip as ReactTooltip } from 'react-tooltip';
-import { mdiPlusBox, mdiCog } from '@mdi/js';
+import { mdiCog, mdiPlusBox } from '@mdi/js';
 import { noop } from 'lodash';
+import { inject, observer } from 'mobx-react';
+import { Component, type ReactElement } from 'react';
+import {
+  type WrappedComponentProps,
+  defineMessages,
+  injectIntl,
+} from 'react-intl';
+import withStyles, { type WithStylesProps } from 'react-jss';
+import { Tooltip as ReactTooltip } from 'react-tooltip';
+import type { StoresProps } from '../../../@types/ferdium-components.types';
 import { H1 } from '../../../components/ui/headline';
 import Icon from '../../../components/ui/icon';
-import WorkspaceDrawerItem from './WorkspaceDrawerItem';
 import workspaceActions from '../actions';
-import { workspaceStore } from '../index';
 import { getUserWorkspacesRequest } from '../api';
-import Workspace from '../models/Workspace';
+import { workspaceStore } from '../index';
+import type Workspace from '../models/Workspace';
+import WorkspaceDrawerItem from './WorkspaceDrawerItem';
 
 const messages = defineMessages({
   headline: {
@@ -88,17 +93,20 @@ const styles = theme => ({
   },
 });
 
-interface IProps extends WithStylesProps<typeof styles>, WrappedComponentProps {
+interface IProps
+  extends WithStylesProps<typeof styles>,
+    WrappedComponentProps,
+    StoresProps {
   getServicesForWorkspace: (workspace: Workspace | null) => string[];
 }
 
+@inject('stores')
 @observer
 class WorkspaceDrawer extends Component<IProps> {
   componentDidMount(): void {
     try {
       getUserWorkspacesRequest.execute();
     } catch (error) {
-      // eslint-disable-next-line no-console
       console.log(error);
     }
   }
@@ -111,10 +119,16 @@ class WorkspaceDrawer extends Component<IProps> {
     const actualWorkspace = isSwitchingWorkspace
       ? nextWorkspace
       : activeWorkspace;
+
+    const { settings } = this.props.stores;
+
+    const { hideAllServicesWorkspace } = settings.all.app;
+
     return (
       <div className={`${classes.drawer} workspaces-drawer`}>
         <H1 className={classes.headline}>
           {intl.formatMessage(messages.headline)}
+          {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions */}
           <span
             className={classes.workspacesSettingsButton}
             onKeyDown={noop}
@@ -134,16 +148,18 @@ class WorkspaceDrawer extends Component<IProps> {
           </span>
         </H1>
         <div className={classes.workspaces}>
-          <WorkspaceDrawerItem
-            name={intl.formatMessage(messages.allServices)}
-            onClick={() => {
-              workspaceActions.deactivate();
-              workspaceActions.toggleWorkspaceDrawer();
-            }}
-            services={getServicesForWorkspace(null)}
-            isActive={actualWorkspace == null}
-            shortcutIndex={0}
-          />
+          {!hideAllServicesWorkspace && (
+            <WorkspaceDrawerItem
+              name={intl.formatMessage(messages.allServices)}
+              onClick={() => {
+                workspaceActions.deactivate();
+                workspaceActions.toggleWorkspaceDrawer();
+              }}
+              services={getServicesForWorkspace(null)}
+              isActive={actualWorkspace == null}
+              shortcutIndex={0}
+            />
+          )}
           {workspaces.map((workspace, index) => (
             <WorkspaceDrawerItem
               key={workspace.id}
@@ -163,6 +179,7 @@ class WorkspaceDrawer extends Component<IProps> {
               shortcutIndex={index + 1}
             />
           ))}
+          {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions */}
           <div
             className={classes.addNewWorkspaceLabel}
             onClick={() => {

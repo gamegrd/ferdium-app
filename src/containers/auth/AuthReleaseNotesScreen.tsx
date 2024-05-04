@@ -1,16 +1,16 @@
-import { Component } from 'react';
 import { inject, observer } from 'mobx-react';
+import { Component } from 'react';
 
-import { IntlShape, defineMessages, injectIntl } from 'react-intl';
-import Markdown from 'markdown-to-jsx';
 import { mdiArrowLeftCircle } from '@mdi/js';
-import { openExternalUrl } from '../../helpers/url-helpers';
+import Markdown from 'markdown-to-jsx';
+import { type IntlShape, defineMessages, injectIntl } from 'react-intl';
 import Icon from '../../components/ui/icon';
 import { ferdiumVersion } from '../../environment-remote';
 import {
   getFerdiumVersion,
   getUpdateInfoFromGH,
 } from '../../helpers/update-helpers';
+import { openExternalUrl } from '../../helpers/url-helpers';
 
 const messages = defineMessages({
   headline: {
@@ -35,14 +35,9 @@ class AuthReleaseNotesScreen extends Component<IProps, IState> {
   }
 
   async componentDidMount() {
-    const { intl } = this.props;
+    const data = await getUpdateInfoFromGH();
 
-    const data = await getUpdateInfoFromGH(
-      window.location.href,
-      ferdiumVersion,
-      intl,
-    );
-
+    // eslint-disable-next-line @eslint-react/no-set-state-in-component-did-mount
     this.setState({
       data,
     });

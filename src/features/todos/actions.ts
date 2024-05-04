@@ -1,5 +1,5 @@
-import { Webview } from 'react-electron-web-view';
 import PropTypes from 'prop-types';
+import type { Webview } from 'react-electron-web-view';
 import { createActionsFromDefinitions } from '../../actions/lib/actions';
 
 export interface TodoClientMessage {
@@ -36,6 +36,7 @@ export const todoActions = createActionsFromDefinitions<TodoActionsType>(
       channel: PropTypes.string.isRequired,
       message: PropTypes.shape({
         action: PropTypes.string.isRequired,
+        // eslint-disable-next-line react/forbid-prop-types
         data: PropTypes.object,
       }),
     },

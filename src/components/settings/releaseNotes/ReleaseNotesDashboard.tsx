@@ -1,7 +1,7 @@
-import { Component } from 'react';
-import { observer } from 'mobx-react';
-import { IntlShape, defineMessages, injectIntl } from 'react-intl';
 import Markdown from 'markdown-to-jsx';
+import { observer } from 'mobx-react';
+import { Component } from 'react';
+import { type IntlShape, defineMessages, injectIntl } from 'react-intl';
 import { ferdiumVersion } from '../../../environment-remote';
 import {
   getFerdiumVersion,
@@ -16,12 +16,12 @@ const messages = defineMessages({
   connectionError: {
     id: 'settings.releasenotes.connectionError',
     defaultMessage:
-      'An error occured when connecting to Github, please try again later.',
+      'An error occurred when connecting to Github, please try again later.',
   },
   connectionErrorPageMissing: {
     id: 'settings.releasenotes.connectionErrorPageMissing',
     defaultMessage:
-      'An error occured when connecting to Github, the page you are looking for is missing.',
+      'An error occurred when connecting to Github, the page you are looking for is missing.',
   },
 });
 
@@ -41,14 +41,9 @@ class ReleaseNotesDashboard extends Component<IProps, IState> {
   }
 
   async componentDidMount() {
-    const { intl } = this.props;
+    const data = await getUpdateInfoFromGH();
 
-    const data = await getUpdateInfoFromGH(
-      window.location.href,
-      ferdiumVersion,
-      intl,
-    );
-
+    // eslint-disable-next-line @eslint-react/no-set-state-in-component-did-mount
     this.setState({
       data,
     });
@@ -67,7 +62,7 @@ class ReleaseNotesDashboard extends Component<IProps, IState> {
       <div className="settings__main">
         <div className="settings__header">
           <span className="settings__header-item">
-            Ferdium {getFerdiumVersion(window.location.href, ferdiumVersion)}{' '}
+            RuyiAI {getFerdiumVersion(window.location.href, ferdiumVersion)}{' '}
             {' | '}
           </span>
           <span className="settings__header-item__secondary">

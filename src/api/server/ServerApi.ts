@@ -1,22 +1,25 @@
 /* eslint-disable import/no-import-module-exports */
 /* eslint-disable global-require */
 import { join } from 'node:path';
-import tar from 'tar';
 import {
-  readdirSync,
-  statSync,
-  writeFileSync,
+  type PathOrFileDescriptor,
   copySync,
   ensureDirSync,
   pathExistsSync,
   readJsonSync,
+  readdirSync,
   removeSync,
-  PathOrFileDescriptor,
+  statSync,
+  writeFileSync,
 } from 'fs-extra';
+import ms from 'ms';
+import tar from 'tar';
 
+import RecipeModel, { type IRecipe } from '../../models/Recipe';
+import RecipePreviewModel, {
+  type IRecipePreview,
+} from '../../models/RecipePreview';
 import ServiceModel from '../../models/Service';
-import RecipePreviewModel, { IRecipePreview } from '../../models/RecipePreview';
-import RecipeModel, { IRecipe } from '../../models/Recipe';
 import UserModel from '../../models/User';
 
 import sleep from '../../helpers/async-helpers';
@@ -32,8 +35,8 @@ import {
 } from '../utils/auth';
 
 import {
-  getRecipeDirectory,
   getDevRecipeDirectory,
+  getRecipeDirectory,
   loadRecipeConfig,
 } from '../../helpers/recipe-helpers';
 
@@ -480,9 +483,8 @@ export default class ServerApi {
     }
     debug(archivePath);
 
-    await sleep(10);
+    await sleep(ms('10ms'));
 
-    // @ts-expect-error No overload matches this call.
     await tar.x({
       file: archivePath,
       cwd: recipeTempDirectory,
@@ -492,15 +494,22 @@ export default class ServerApi {
       onwarn: x => debug('warn', recipeId, x),
     });
 
-    await sleep(10);
+    await sleep(ms('10ms'));
 
-    const { id } = readJsonSync(join(recipeTempDirectory, 'package.json'));
+    const { id, defaultIcon } = readJsonSync(
+      join(recipeTempDirectory, 'package.json'),
+    );
     const recipeDirectory = join(recipesDirectory, id);
 
     removeSync(archivePath);
     copySync(recipeTempDirectory, recipeDirectory);
     removeSync(recipeTempDirectory);
     removeSync(join(recipesDirectory, recipeId, 'recipe.tar.gz'));
+
+    // TODO: This is a temporary fix to remove svg icons from the user AppData. This should be removed after versions of all recipes have been bumped up
+    if (defaultIcon) {
+      removeSync(join(recipeDirectory, 'icon.svg'));
+    }
 
     return id;
   }
@@ -605,7 +614,7 @@ export default class ServerApi {
           file !== 'temp',
       );
 
-      const recipes = paths
+      const recipes: IRecipe[] = paths
         .map(id => {
           try {
             // eslint-disable-next-line import/no-dynamic-require

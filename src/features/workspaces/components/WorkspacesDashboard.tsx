@@ -1,15 +1,19 @@
-import { Component, ReactElement } from 'react';
 import { observer } from 'mobx-react';
-import { defineMessages, injectIntl, WrappedComponentProps } from 'react-intl';
-import withStyles, { WithStylesProps } from 'react-jss';
-import Infobox from '../../../components/ui/infobox/index';
-import Loader from '../../../components/ui/loader';
-import WorkspaceItem from './WorkspaceItem';
-import CreateWorkspaceForm from './CreateWorkspaceForm';
-import Request from '../../../stores/lib/Request';
+import { Component, type ReactElement } from 'react';
+import {
+  type WrappedComponentProps,
+  defineMessages,
+  injectIntl,
+} from 'react-intl';
+import withStyles, { type WithStylesProps } from 'react-jss';
 import Appear from '../../../components/ui/effects/Appear';
 import { H1 } from '../../../components/ui/headline';
-import Workspace from '../models/Workspace';
+import Infobox from '../../../components/ui/infobox/index';
+import Loader from '../../../components/ui/loader';
+import type Request from '../../../stores/lib/Request';
+import type Workspace from '../models/Workspace';
+import CreateWorkspaceForm from './CreateWorkspaceForm';
+import WorkspaceItem from './WorkspaceItem';
 
 const messages = defineMessages({
   headline: {
@@ -101,33 +105,33 @@ class WorkspacesDashboard extends Component<IProps> {
         <div className="settings__body">
           {/* ===== Workspace updated info ===== */}
           {updateWorkspaceRequest.wasExecuted &&
-            updateWorkspaceRequest.result && (
-              <Appear className={classes.appear}>
-                <Infobox
-                  type="success"
-                  icon="checkbox-marked-circle-outline"
-                  dismissible
-                  onUnmount={updateWorkspaceRequest.reset}
-                >
-                  {intl.formatMessage(messages.updatedInfo)}
-                </Infobox>
-              </Appear>
-            )}
+          updateWorkspaceRequest.result ? (
+            <Appear className={classes.appear}>
+              <Infobox
+                type="success"
+                icon="checkbox-marked-circle-outline"
+                dismissible
+                onUnmount={updateWorkspaceRequest.reset}
+              >
+                {intl.formatMessage(messages.updatedInfo)}
+              </Infobox>
+            </Appear>
+          ) : null}
 
           {/* ===== Workspace deleted info ===== */}
           {deleteWorkspaceRequest.wasExecuted &&
-            deleteWorkspaceRequest.result && (
-              <Appear className={classes.appear}>
-                <Infobox
-                  type="success"
-                  icon="checkbox-marked-circle-outline"
-                  dismissible
-                  onUnmount={deleteWorkspaceRequest.reset}
-                >
-                  {intl.formatMessage(messages.deletedInfo)}
-                </Infobox>
-              </Appear>
-            )}
+          deleteWorkspaceRequest.result ? (
+            <Appear className={classes.appear}>
+              <Infobox
+                type="success"
+                icon="checkbox-marked-circle-outline"
+                dismissible
+                onUnmount={deleteWorkspaceRequest.reset}
+              >
+                {intl.formatMessage(messages.deletedInfo)}
+              </Infobox>
+            </Appear>
+          ) : null}
 
           {/* ===== Create workspace form ===== */}
           <div className={classes.createForm}>
@@ -165,7 +169,7 @@ class WorkspacesDashboard extends Component<IProps> {
                       </p>
                     </div>
                   ) : (
-                    <table className={classes.table} role="grid">
+                    <table className={classes.table}>
                       {/* ===== Workspaces list ===== */}
                       <tbody>
                         {workspaces.map(workspace => (

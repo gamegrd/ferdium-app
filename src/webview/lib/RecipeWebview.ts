@@ -1,6 +1,6 @@
-import { ipcRenderer } from 'electron';
 import { BrowserWindow } from '@electron/remote';
-import { pathExistsSync, readFileSync, existsSync } from 'fs-extra';
+import { ipcRenderer } from 'electron';
+import { existsSync, pathExistsSync, readFileSync } from 'fs-extra';
 import { safeParseInt } from '../../jsUtils';
 
 const debug = require('../../preload-safe-debug')(
@@ -136,7 +136,6 @@ class RecipeWebview {
    *                          be an absolute path to the file
    */
   injectCSS(...files) {
-    // eslint-disable-next-line unicorn/no-array-for-each
     files.forEach(file => {
       if (pathExistsSync(file)) {
         const styles = document.createElement('style');

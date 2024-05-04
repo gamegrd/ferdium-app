@@ -1,17 +1,20 @@
 /* eslint-disable import/first */
 
-import path, { join } from 'node:path';
 import { EventEmitter } from 'node:events';
+import path, { join } from 'node:path';
 import {
-  app,
   BrowserWindow,
+  app,
+  desktopCapturer,
+  dialog,
   globalShortcut,
   ipcMain,
   session,
-  dialog,
-  desktopCapturer,
 } from 'electron';
 
+import { readFileSync } from 'node:fs';
+import { initialize } from 'electron-react-titlebar/main';
+import windowStateKeeper from 'electron-window-state';
 import {
   copySync,
   emptyDirSync,
@@ -19,11 +22,8 @@ import {
   readdirSync,
   removeSync,
 } from 'fs-extra';
-import { readFileSync } from 'node:fs';
-import windowStateKeeper from 'electron-window-state';
 import minimist from 'minimist';
 import ms from 'ms';
-import { initialize } from 'electron-react-titlebar/main';
 import { enableWebContents, initializeRemote } from './electron-util';
 import enforceMacOSAppLocation from './enforce-macos-app-location';
 
@@ -31,34 +31,34 @@ initializeRemote();
 
 import { DEFAULT_APP_SETTINGS, DEFAULT_WINDOW_OPTIONS } from './config';
 
-import { isMac, isWindows, isLinux, altKey } from './environment';
+import { altKey, isLinux, isMac, isWindows } from './environment';
 import {
   isDevMode,
-  userDataRecipesPath,
-  userDataPath,
   protocolClient,
   userDataExtensionsPath,
+  userDataPath,
+  userDataRecipesPath,
 } from './environment-remote';
 import { ifUndefined } from './jsUtils';
 
-import { mainIpcHandler as basicAuthHandler } from './features/basicAuth';
-// eslint-disable-next-line import/no-cycle
-import ipcApi from './electron/ipc-api';
-import TrayIcon from './lib/Tray';
-import DBus from './lib/DBus';
 import Settings from './electron/Settings';
 import handleDeepLink from './electron/deepLinking';
+import './electron/exception';
+// eslint-disable-next-line import/no-cycle
+import ipcApi from './electron/ipc-api';
 import isPositionValid from './electron/windowUtils';
+import { mainIpcHandler as basicAuthHandler } from './features/basicAuth';
+import DBus from './lib/DBus';
+import TrayIcon from './lib/Tray';
 // @ts-expect-error Cannot find module './package.json' or its corresponding type declarations.
 import { appId } from './package.json';
-import './electron/exception';
 
-import { asarPath, asarExtenstionsPath } from './helpers/asar-helpers';
+import { asarExtenstionsPath, asarPath } from './helpers/asar-helpers';
+import { checkIfCertIsPresent } from './helpers/certs-helpers';
+import { translateTo } from './helpers/translation-helpers';
 import { openExternalUrl } from './helpers/url-helpers';
 import userAgent from './helpers/userAgent-helpers';
-import { translateTo } from './helpers/translation-helpers';
 import { darkThemeGrayDarkest } from './themes/legacy';
-import { checkIfCertIsPresent } from './helpers/certs-helpers';
 
 const { ElectronChromeExtensions } = require('electron-chrome-extensions');
 const axios = require('axios');
@@ -124,6 +124,7 @@ try {
         join(recipesDirectory, item, extId[0]),
       );
     }
+    return item;
   });
 } catch (error) {
   debug('sync extensions err', error);
@@ -628,6 +629,7 @@ ipcMain.on(
           for (const key in headers) {
             if (Object.prototype.hasOwnProperty.call(headers, key)) {
               const value = headers[key];
+              // eslint-disable-next-line no-param-reassign
               details.requestHeaders[key] = value;
             }
           }
@@ -682,6 +684,11 @@ ipcMain.on('feature-basic-auth-cancel', () => {
   // @ts-expect-error Expected 0 arguments, but got 2.
   authCallback(null);
   authCallback = noop;
+});
+
+ipcMain.on('load-available-displays', (_e, data) => {
+  debug('MAIN PROCESS: Received load-desktop-capturer-sources');
+  mainWindow?.webContents.send(`select-capture-device:${data.serviceId}`, data);
 });
 
 // Handle synchronous messages from service webviews.

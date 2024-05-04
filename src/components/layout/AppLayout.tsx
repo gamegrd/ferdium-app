@@ -21,7 +21,6 @@ import WorkspaceSwitchingIndicator from '../../features/workspaces/components/Wo
 import { workspaceStore } from '../../features/workspaces';
 import AppUpdateInfoBar from '../AppUpdateInfoBar';
 import Todos from '../../features/todos/containers/TodosScreen';
-import AssistantDrawer from '../../features/assistant/containers/AssistantDrawer';
 import AssistantWebview from '../../features/assistant/AssistantWebview';
 import Icon from '../ui/icon';
 import LockedScreen from '../../containers/auth/LockedScreen';
@@ -272,7 +271,6 @@ class AppLayout extends Component<PropsWithChildren<IProps>, IState> {
                 <Outlet />
               </div>
               <Todos />
-              <AssistantDrawer />
             </div>
           </div>
         </ErrorBoundary>

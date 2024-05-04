@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 
+import { assistantActions } from '../features/assistant/actions';
 import { todoActions } from '../features/todos/actions';
 import workspaces from '../features/workspaces/actions';
 import app from './app';
@@ -7,7 +8,6 @@ import defineActions from './lib/actions';
 import recipe from './recipe';
 import recipePreview from './recipePreview';
 import requests from './requests';
-import { assistantActions } from '../features/assistant/actions';
 import service from './service';
 import settings from './settings';
 import ui from './ui';

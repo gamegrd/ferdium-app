@@ -927,7 +927,7 @@ export default class ServicesStore extends TypedStore {
           scheduledDNDEnabled &&
           isInTimeframe(scheduledDNDStart, scheduledDNDEnd)
         ) {
-          return;
+          return null;
         }
 
         if (service.isMuted || this.stores.settings.all.app.isAppMuted) {
@@ -983,8 +983,8 @@ export default class ServicesStore extends TypedStore {
         break;
       }
       case 'showServicesNomoreMoneyInfoBar': {
-        const msg = args[0];
-        console.log(msg);
+        // const msg = args[0];
+        // console.log(msg);
         this.stores.ui.showServicesNomoreMoneyInfoBar = true;
         break;
       }
@@ -1011,6 +1011,7 @@ export default class ServicesStore extends TypedStore {
       }
       // No default
     }
+    return null;
   }
 
   @action _sendIPCMessage({ serviceId, channel, args }) {

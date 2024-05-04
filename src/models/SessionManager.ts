@@ -1,7 +1,7 @@
 import { join } from 'node:path';
-import ElectronWebView from 'react-electron-web-view';
 import { ipcRenderer } from 'electron';
-import { IRecipe } from './Recipe';
+import type ElectronWebView from 'react-electron-web-view';
+import type { IRecipe } from './Recipe';
 import Session = Electron.Session;
 import { isDevMode } from '../environment-remote';
 

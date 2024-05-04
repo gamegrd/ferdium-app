@@ -20,7 +20,6 @@ class ImageController {
     try {
       await fs.access(iconPath);
     } catch (error) {
-      // eslint-disable-next-line no-console
       console.log(error);
       // File not available.
       return response.status(404).send({

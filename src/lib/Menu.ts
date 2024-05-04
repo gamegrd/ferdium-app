@@ -1,6 +1,5 @@
 import os from 'node:os';
 
-import { clipboard, MenuItemConstructorOptions } from 'electron';
 import {
   Menu,
   app,
@@ -9,16 +8,14 @@ import {
   systemPreferences,
   webContents,
 } from '@electron/remote';
-import { ipcRenderer } from 'electron';
 import { type MenuItemConstructorOptions, clipboard } from 'electron';
 import { fromJS } from 'immutable';
 import { action, autorun, makeObservable, observable } from 'mobx';
 import osName from 'os-name';
 import { type IntlShape, defineMessages } from 'react-intl';
 import semver from 'semver';
-import { isDevMode, ferdiumVersion } from '../environment-remote';
 import type { StoresProps } from '../@types/ferdium-components.types';
-import { importExportURL, serverBase, serverName } from '../api/apiBase';
+import { serverBase, serverName } from '../api/apiBase';
 // @ts-expect-error Cannot find module '../buildInfo.json' or its corresponding type declarations.
 import { gitBranch, gitHashShort, timestamp } from '../buildInfo.json';
 import { CUSTOM_WEBSITE_RECIPE_ID, LIVE_API_FERDIUM_WEBSITE } from '../config';
@@ -43,25 +40,11 @@ import {
   toggleFullScreenKey,
   workspaceToggleShortcutKey,
 } from '../environment';
-import { CUSTOM_WEBSITE_RECIPE_ID, LIVE_API_FERDIUM_WEBSITE } from '../config';
+import { ferdiumVersion, isDevMode } from '../environment-remote';
 import { assistantActions } from '../features/assistant/actions';
 import { todoActions } from '../features/todos/actions';
 import workspaceActions from '../features/workspaces/actions';
 import { workspaceStore } from '../features/workspaces/index';
-import { serverBase, serverName } from '../api/apiBase';
-import globalMessages from '../i18n/globalMessages';
-// @ts-expect-error Cannot find module '../buildInfo.json' or its corresponding type declarations.
-import { timestamp, gitHashShort, gitBranch } from '../buildInfo.json';
-import Service from '../models/Service';
-import { StoresProps } from '../@types/ferdium-components.types';
-import { RealStores } from '../stores';
-import { acceleratorString } from '../jsUtils';
-import { openExternalUrl } from '../helpers/url-helpers';
-import { ferdiumVersion } from '../environment-remote';
-import { todoActions } from '../features/todos/actions';
-import workspaceActions from '../features/workspaces/actions';
-import { workspaceStore } from '../features/workspaces/index';
-import { onAuthGoToReleaseNotes } from '../helpers/update-helpers';
 import { openExternalUrl } from '../helpers/url-helpers';
 import globalMessages from '../i18n/globalMessages';
 import { acceleratorString } from '../jsUtils';
@@ -746,7 +729,6 @@ class FranzMenu implements StoresProps {
 
     // Don't initialize when window['ferdium'] is undefined
     if (window['ferdium'] === undefined) {
-      // eslint-disable-next-line no-console
       console.log('skipping menu init');
       return;
     }

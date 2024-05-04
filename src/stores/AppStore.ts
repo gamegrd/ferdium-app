@@ -14,16 +14,14 @@ import { action, computed, makeObservable, observable } from 'mobx';
 import moment from 'moment';
 import ms from 'ms';
 
-
+import type { Stores } from '../@types/stores.types';
+import type { Actions } from '../actions/lib/actions';
+import type { ApiInterface } from '../api';
 import {
   CHECK_INTERVAL,
   DEFAULT_APP_SETTINGS,
   DEFAULT_LANGUAGE,
 } from '../config';
-import { cleanseJSObject } from '../jsUtils';
-import type { Stores } from '../@types/stores.types';
-import type { Actions } from '../actions/lib/actions';
-import type { ApiInterface } from '../api';
 import {
   electronVersion,
   isMac,
@@ -37,6 +35,7 @@ import {
 } from '../environment-remote';
 import { getLocale } from '../helpers/i18n-helpers';
 import generatedTranslations from '../i18n/translations';
+import { cleanseJSObject } from '../jsUtils';
 import Request from './lib/Request';
 import TypedStore from './lib/TypedStore';
 
@@ -543,7 +542,6 @@ export default class AppStore extends TypedStore {
         allOrphanedServiceIds.map(id => removeServicePartitionDirectory(id)),
       );
     } catch (error) {
-      // eslint-disable-next-line no-console
       console.log('Error while deleting service partition directory -', error);
     }
     await Promise.all(

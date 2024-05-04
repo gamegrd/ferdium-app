@@ -55,7 +55,7 @@ interface Window {
 }
 
 window['xgVer'] = 'xgDebug Recipe 1.02';
-console.log(`recipe env: ${window['xgVer']}`); // 输出：Hello from Electron!
+// console.log(`recipe env: ${window['xgVer']}`); // 输出：Hello from Electron!
 ipcRenderer.sendToHost('xgInit', 'recipe');
 // For some services darkreader tries to use the chrome extension message API
 // This will cause the service to fail loading
@@ -249,8 +249,8 @@ class RecipeController {
     debug('loadRecipeModule');
     const modulePath = join(recipe.path, 'webview.js');
     const pluginPath = join(recipe.path, 'plugin/index.js');
-    console.log('load module:', modulePath);
-    console.log('load pluginPath:', pluginPath);
+    // console.log('load module:', modulePath);
+    // console.log('load pluginPath:', pluginPath);
 
     try {
       this.recipe = new RecipeWebview(

@@ -1,7 +1,7 @@
 /* eslint-disable import/first */
 
-import path, { join } from 'node:path';
 import { EventEmitter } from 'node:events';
+import path, { join } from 'node:path';
 import {
   BrowserWindow,
   app,
@@ -12,6 +12,9 @@ import {
   session,
 } from 'electron';
 
+import { readFileSync } from 'node:fs';
+import { initialize } from 'electron-react-titlebar/main';
+import windowStateKeeper from 'electron-window-state';
 import {
   copySync,
   emptyDirSync,
@@ -19,9 +22,6 @@ import {
   readdirSync,
   removeSync,
 } from 'fs-extra';
-import { readFileSync } from 'node:fs';
-import { initialize } from 'electron-react-titlebar/main';
-import windowStateKeeper from 'electron-window-state';
 import minimist from 'minimist';
 import ms from 'ms';
 import { enableWebContents, initializeRemote } from './electron-util';
@@ -53,7 +53,7 @@ import TrayIcon from './lib/Tray';
 // @ts-expect-error Cannot find module './package.json' or its corresponding type declarations.
 import { appId } from './package.json';
 
-import { asarPath, asarExtenstionsPath } from './helpers/asar-helpers';
+import { asarExtenstionsPath, asarPath } from './helpers/asar-helpers';
 import { checkIfCertIsPresent } from './helpers/certs-helpers';
 import { translateTo } from './helpers/translation-helpers';
 import { openExternalUrl } from './helpers/url-helpers';
@@ -124,6 +124,7 @@ try {
         join(recipesDirectory, item, extId[0]),
       );
     }
+    return item;
   });
 } catch (error) {
   debug('sync extensions err', error);

@@ -7,8 +7,8 @@ import { createRoot } from 'react-dom/client';
 
 // import ServerApi from './api/server/ServerApiDjango';
 
-import apiFactory from './api';
 import actions from './actions';
+import apiFactory from './api';
 import LocalApi from './api/server/LocalApi';
 import ServerApi from './api/server/ServerApi';
 import MenuFactory from './lib/Menu';
@@ -16,8 +16,8 @@ import TouchBarFactory from './lib/TouchBar';
 import storeFactory from './stores';
 
 import I18N from './I18n';
-import FerdiumRoutes from './routes';
 import assistantMain from './features/assistant/main';
+import FerdiumRoutes from './routes';
 
 // Basic electron Setup
 webFrame.setVisualZoomLevelLimits(1, 1);

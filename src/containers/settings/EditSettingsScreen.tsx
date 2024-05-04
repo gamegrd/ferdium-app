@@ -1266,6 +1266,7 @@ class EditSettingsScreen extends Component<
         value: v,
         default: DEFAULT_APP_SETTINGS.isTodosFeatureEnabled,
         type: 'checkbox',
+        disabled: true,
       };
     }
 

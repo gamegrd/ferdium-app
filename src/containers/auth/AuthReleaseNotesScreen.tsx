@@ -35,13 +35,7 @@ class AuthReleaseNotesScreen extends Component<IProps, IState> {
   }
 
   async componentDidMount() {
-    const { intl } = this.props;
-
-    const data = await getUpdateInfoFromGH(
-      window.location.href,
-      ferdiumVersion,
-      intl,
-    );
+    const data = await getUpdateInfoFromGH();
 
     // eslint-disable-next-line @eslint-react/no-set-state-in-component-did-mount
     this.setState({

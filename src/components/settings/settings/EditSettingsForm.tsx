@@ -1,5 +1,5 @@
 import { systemPreferences } from '@electron/remote';
-import {  mdiOpenInNew, mdiPowerPlug } from '@mdi/js';
+import { mdiOpenInNew, mdiPowerPlug } from '@mdi/js';
 import { noop } from 'lodash';
 import { observer } from 'mobx-react';
 import prettyBytes from 'pretty-bytes';
@@ -571,12 +571,7 @@ class EditSettingsForm extends Component<IProps, IState> {
                 <Toggle {...form.$('enableSystemTray').bind()} />
                 {reloadAfterResume && <Hr />}
                 <Toggle {...form.$('reloadAfterResume').bind()} />
-                {reloadAfterResume && (
-                  <div>
-                    <Input {...form.$('reloadAfterResumeTime').bind()} />
-                    <Hr />
-                  </div>
-                )}
+
                 <Toggle {...form.$('startMinimized').bind()} />
                 {isWindows && (
                   <Toggle {...form.$('minimizeToSystemTray').bind()} />

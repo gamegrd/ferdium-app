@@ -5,8 +5,8 @@ import {
   mdiChevronDown,
   mdiChevronRight,
   mdiCog,
-  mdiFaceAgent,
   mdiDownload,
+  mdiFaceAgent,
   mdiLock,
   mdiMenu,
   mdiPlusBox,
@@ -82,6 +82,7 @@ const messages = defineMessages({
 interface IProps extends WrappedComponentProps {
   services: Service[];
   showServicesUpdatedInfoBar: boolean;
+  // eslint-disable-next-line react/no-unused-prop-types
   showServicesNomoreMoneyInfoBar: boolean;
   showMessageBadgeWhenMutedSetting: boolean;
   showServiceNameSetting: boolean;

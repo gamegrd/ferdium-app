@@ -107,7 +107,6 @@ class WorkspaceDrawer extends Component<IProps> {
     try {
       getUserWorkspacesRequest.execute();
     } catch (error) {
-      // eslint-disable-next-line no-console
       console.log(error);
     }
   }

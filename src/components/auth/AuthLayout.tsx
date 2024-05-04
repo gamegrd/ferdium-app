@@ -9,6 +9,7 @@ import {
   cloneElement,
 } from 'react';
 import { type WrappedComponentProps, injectIntl } from 'react-intl';
+import { resetServer, serverName } from '../../api/apiBase';
 import { GITHUB_FERDIUM_URL } from '../../config';
 import { isWindows } from '../../environment';
 import { Component as PublishDebugInfo } from '../../features/publishDebugInfo';
@@ -18,7 +19,6 @@ import AppUpdateInfoBar from '../AppUpdateInfoBar';
 import InfoBar from '../ui/InfoBar';
 import Link from '../ui/Link';
 import Icon from '../ui/icon';
-import { resetServer, serverName } from '../../api/apiBase';
 
 export interface IProps extends WrappedComponentProps {
   children: ReactElement;

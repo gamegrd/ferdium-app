@@ -1,6 +1,3 @@
-import { Octokit } from '@octokit/core';
-import { type IntlShape, defineMessages } from 'react-intl';
-
 export function getFerdiumVersion(
   currentLocation: string,
   ferdiumVersion: string,
@@ -25,41 +22,15 @@ export function onAuthGoToReleaseNotes(
     : `#/releasenotes${updateVersionParsed}`;
 }
 
-const messages = defineMessages({
-  connectionError: {
-    id: 'settings.releasenotes.connectionError',
-    defaultMessage:
-      'An error occurred when connecting to Github, please try again later.',
-  },
-  connectionErrorPageMissing: {
-    id: 'settings.releasenotes.connectionErrorPageMissing',
-    defaultMessage:
-      'An error occurred when connecting to Github, the page you are looking for is missing.',
-  },
-});
-
-export async function getUpdateInfoFromGH(
-  currentLocation: string,
-  ferdiumVersion: string,
-  intl: IntlShape,
-): Promise<string> {
-  const octokit = new Octokit();
+export async function getUpdateInfoFromGH(): Promise<string> {
   try {
-    const response = await octokit.request(
-      'GET /repos/{owner}/{repo}/releases/tags/{tag}',
-      {
-        owner: 'ferdium',
-        repo: 'ferdium-app',
-        tag: getFerdiumVersion(currentLocation, ferdiumVersion),
-      },
-    );
-
-    if (response.status === 200) {
-      const json = response.data.body;
-      return json || `### ${intl.formatMessage(messages.connectionError)}`;
-    }
-    return `### ${intl.formatMessage(messages.connectionError)}`;
+    return `
+- 优化CPU占用
+- 搞了一下文件大小 
+- 升级各种库到最新版本
+- 可能导致LINE无法使用
+`;
   } catch {
-    return `### ${intl.formatMessage(messages.connectionErrorPageMissing)}`;
+    return '###  Nothing';
   }
 }

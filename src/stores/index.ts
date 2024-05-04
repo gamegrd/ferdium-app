@@ -1,9 +1,9 @@
 import type { RouterStore } from '@superwf/mobx-react-router';
 import type { Actions } from '../actions/lib/actions';
 import type { ApiInterface } from '../api';
+import { assistantStore } from '../features/assistant';
 import { communityRecipesStore } from '../features/communityRecipes';
 import { todosStore } from '../features/todos';
-import { assistantStore } from '../features/assistant';
 import { workspaceStore } from '../features/workspaces';
 import AppStore from './AppStore';
 import FeaturesStore from './FeaturesStore';

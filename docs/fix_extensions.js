@@ -3,6 +3,6 @@ chrome.notifications = {
   onClosed: { addListener: v => {} },
   onRemoved: { addListener: v => {} },
 };
-chrome.windows['onRemoved'] = {
+chrome.windows.onRemoved = {
   addListener: v => {},
 };

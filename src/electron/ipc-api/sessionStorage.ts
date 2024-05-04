@@ -1,6 +1,6 @@
 import { type Session, ipcMain, session } from 'electron';
 
-import { Webview } from 'react-electron-web-view';
+import type { Webview } from 'react-electron-web-view';
 import { TODOS_PARTITION_ID } from '../../config';
 
 const debug = require('../../preload-safe-debug')(

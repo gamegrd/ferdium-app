@@ -1,19 +1,19 @@
-/**
- * Get API base URL from store
- */
-import { isDevMode, API_VERSION } from '../environment-remote';
 import {
   DEV_API_FRANZ_WEBSITE,
+  LIVE_AI_URL,
   LIVE_FERDIUM_API,
   LIVE_FRANZ_API,
+  LOCAL_AI_URL,
+  LOCAL_API,
+  LOCAL_DEBUG,
   LOCAL_HOSTNAME,
   LOCAL_SERVER,
   SERVER_NOT_LOADED,
-  LOCAL_DEBUG,
-  LOCAL_API,
-  LOCAL_AI_URL,
-  LIVE_AI_URL,
 } from '../config';
+/**
+ * Get API base URL from store
+ */
+import { API_VERSION, isDevMode } from '../environment-remote';
 /**
  * Get API base URL from store
  */

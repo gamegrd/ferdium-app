@@ -9,7 +9,7 @@ module.exports = {
     sourceType: 'module',
     project: './tsconfig.json',
   },
-  ignorePatterns: ['node_modules', 'build', 'recipes', '.eslintrc.js'],
+  ignorePatterns: ['node_modules',"docs" ,'build', 'recipes', '.eslintrc.js'],
   extends: [
     'airbnb',
     'plugin:react/jsx-runtime',
@@ -94,7 +94,7 @@ module.exports = {
     'no-console': [
       1,
       {
-        allow: ['warn', 'error'],
+        allow: ["log",'warn', 'error',"info"],
       },
     ],
     'no-param-reassign': 1,

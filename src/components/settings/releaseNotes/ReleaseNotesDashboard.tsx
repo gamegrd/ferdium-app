@@ -41,13 +41,7 @@ class ReleaseNotesDashboard extends Component<IProps, IState> {
   }
 
   async componentDidMount() {
-    const { intl } = this.props;
-
-    const data = await getUpdateInfoFromGH(
-      window.location.href,
-      ferdiumVersion,
-      intl,
-    );
+    const data = await getUpdateInfoFromGH();
 
     // eslint-disable-next-line @eslint-react/no-set-state-in-component-did-mount
     this.setState({
@@ -68,7 +62,7 @@ class ReleaseNotesDashboard extends Component<IProps, IState> {
       <div className="settings__main">
         <div className="settings__header">
           <span className="settings__header-item">
-            Ferdium {getFerdiumVersion(window.location.href, ferdiumVersion)}{' '}
+            RuyiAI {getFerdiumVersion(window.location.href, ferdiumVersion)}{' '}
             {' | '}
           </span>
           <span className="settings__header-item__secondary">

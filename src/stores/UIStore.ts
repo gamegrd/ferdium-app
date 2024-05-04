@@ -110,7 +110,7 @@ export default class UIStore extends TypedStore {
 
   @action _openLink({ path = '' }): void {
     // open the path in webroswer
-    console.log(`openLink ${path}`);
+    // console.log(`openLink ${path}`);
     window.open(path, '_blank');
   }
 

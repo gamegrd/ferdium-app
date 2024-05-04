@@ -173,6 +173,7 @@ class SettingsNavigation extends Component<IProps> {
         >
           {intl.formatMessage(messages.releaseNotes)}
         </NavLink>
+
         <NavLink
           to="/settings/support"
           className={({ isActive }) =>

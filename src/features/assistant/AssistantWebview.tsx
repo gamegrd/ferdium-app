@@ -76,6 +76,7 @@ class AssistantWebview extends Component<IProps, IState> {
       <div style={{ width: enabled ? '600px' : '0px', height: '100%' }}>
         <ElectronWebView
           className="AIPanel"
+          style={{ width: '100%', height: '100%' }}
           ref={(webview: any) => {
             this._setWebview(webview);
             if (webview?.view) {

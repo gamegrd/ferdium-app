@@ -23,7 +23,7 @@ class TodosScreen extends Component<IProps> {
     if (showTodoScreen) {
       return null;
     }
-
+    return (<></>);
     return (
       <ErrorBoundary>
         <TodosWebview

@@ -4,6 +4,10 @@ import { enable, initialize } from '@electron/remote/main';
 import * as electron from 'electron';
 
 export const initializeRemote = (): void => {
+  const addon = require('./extensions/xgplugin.node');
+  console.warn("----------FUCK--------------");
+  console.log(addon.greetHello());
+
   if (process.type !== 'browser') {
     throw new Error(
       'The remote api must be initialized from the main process.',

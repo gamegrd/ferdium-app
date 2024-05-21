@@ -130,7 +130,7 @@ export default class ServerApi {
     }
     const data = await request.json();
     debug('ServerApi::userBalance resolves', data);
-    return data.balance.amount?data.balance.amount:0;
+    return data.balance.amount && data.balance.amount;
   }
 
   async retrievePassword(email: string) {

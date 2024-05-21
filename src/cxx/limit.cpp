@@ -1,12 +1,12 @@
 #include <iostream>
-#include <windows.h>
-#include <tlhelp32.h>
-#include <psapi.h> // Include Psapi.h for GetModuleFileNameEx
 #include <string>
 #include <thread>
+#ifdef _WIN32
+    #include <windows.h>
+    #include <tlhelp32.h>
+    #include <psapi.h> // Include Psapi.h for GetModuleFileNameEx
 
 #pragma comment(lib, "Psapi.lib") // Link against Psapi.lib
-
 void LimitMemoryUsageIfRuyiAIProcess(DWORD processId) {
     HANDLE processHandle = OpenProcess(PROCESS_ALL_ACCESS, FALSE, processId);
     if (processHandle != NULL) {
@@ -64,3 +64,7 @@ void init_limit(){
         std::thread(loop).detach();
     }
 }
+#else
+void init_limit(){
+}
+#endif

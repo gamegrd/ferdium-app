@@ -1,13 +1,12 @@
 // Enhanced from: https://github.com/dertieran/electron-util/blob/replace-remote/source/api.js
 import { enable, initialize } from '@electron/remote/main';
 import * as electron from 'electron';
+
 const addon = require('./extensions/xgplugin.node');
 
 export const initializeRemote = (): void => {
   console.warn('----------FUCK--------------');
-  if (addon) {
-    console.log(addon.greetHello());
-  }
+  console.log(addon.greetHello());
 
   if (process.type !== 'browser') {
     throw new Error(

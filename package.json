@@ -3,7 +3,7 @@
   "productName": "RuyiAI",
   "desktopName": "ruyiai.desktop",
   "appId": "org.ruyiai.app",
-  "version": "1.1.4-release.2",
+  "version": "1.1.4-release.3",
   "description": "Messaging app for WhatsApp, Slack, Telegram, Hangouts and many many more.",
   "author": "xgDebug",
   "license": "Apache-2.0",
@@ -23,7 +23,7 @@
   },
   "packageManager": "pnpm@8.15.7",
   "scripts": {
-    "prepare": "is-ci || husky uninstall",
+    "prepare": "is-ci || husky ",
     "start": "electron ./build",
     "start:local": "cross-env USE_LOCAL_API=1 pnpm start",
     "start:live": "cross-env USE_LIVE_API=1 pnpm start",
@@ -48,7 +48,7 @@
     "start:server": "ts-node src/internal-server/test.ts",
     "add-crowdin-contributors": "ts-node scripts/add-crowdin-contributors.ts",
     "debug": "cross-env-shell DEBUG_COLORS=1 DEBUG=Ferdium:* pnpm start:all-dev",
-    "gyp": "node-gyp configure && node-gyp build"
+    "gyp": "node-gyp configure && node-gyp build && cp ./build/Release/xgplugin.node ./extensions/"
 
   },
   "dependencies": {
@@ -168,7 +168,7 @@
     "chalk": "5.3.0",
     "concurrently": "8.2.2",
     "cross-env": "7.0.3",
-    "electron": "30.0.2",
+    "electron": "23.2.0",
     "electron-builder": "24.13.3",
     "esbuild": "0.16.17",
     "esbuild-plugin-copy": "2.1.1",

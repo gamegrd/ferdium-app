@@ -950,28 +950,29 @@ class EditSettingsForm extends Component<IProps, IState> {
                   {intl.formatMessage(messages.appRestartRequired)}
                 </p>
 
-                <Hr />
+                <div style={{ display: 'none' }}>
+                  <Hr />
+                  <Toggle {...form.$('enableTranslator').bind()} />
 
-                <Toggle {...form.$('enableTranslator').bind()} />
+                  {form.$('enableTranslator').value && (
+                    <Select field={form.$('translatorEngine')} />
+                  )}
+                  {form.$('enableTranslator').value && (
+                    <Select field={form.$('translatorLanguage')} />
+                  )}
 
-                {form.$('enableTranslator').value && (
-                  <Select field={form.$('translatorEngine')} />
-                )}
-                {form.$('enableTranslator').value && (
-                  <Select field={form.$('translatorLanguage')} />
-                )}
+                  <Hr />
 
-                <Hr />
-
-                <a
-                  href={FERDIUM_TRANSLATION}
-                  target="_blank"
-                  className="link"
-                  rel="noreferrer"
-                >
-                  {intl.formatMessage(messages.translationHelp)}{' '}
-                  <Icon icon={mdiOpenInNew} />
-                </a>
+                  <a
+                    href={FERDIUM_TRANSLATION}
+                    target="_blank"
+                    className="link"
+                    rel="noreferrer"
+                  >
+                    {intl.formatMessage(messages.translationHelp)}{' '}
+                    <Icon icon={mdiOpenInNew} />
+                  </a>
+                </div>
               </div>
             )}
 

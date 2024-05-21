@@ -172,7 +172,6 @@ class TodosWebview extends Component<IProps, IState> {
     if (isTodosServiceActive) {
       displayedWidth = 0;
     }
-
     return (
       // eslint-disable-next-line jsx-a11y/no-static-element-interactions
       <div

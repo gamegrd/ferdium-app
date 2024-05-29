@@ -251,6 +251,7 @@ class TabItem extends Component<IProps, IState> {
         click: reload,
         accelerator: `${cmdOrCtrlShortcutKey()}+R`,
         enabled: service.isEnabled,
+        visible: false,
       },
       {
         label: intl.formatMessage(globalMessages.edit),

@@ -240,7 +240,6 @@ class AppLayout extends Component<PropsWithChildren<IProps>, IState> {
                         messages.buttonContactServices,
                       )}
                       onClick={() => {
-                        //@Ruyiservice01
                         const path = 'https://t.me/Ruyiservice01';
                         openExternalUrl(path, true);
                       }}

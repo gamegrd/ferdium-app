@@ -12,7 +12,8 @@ export default class UserApi {
   }
 
   login(email: string, password: BinaryLike) {
-    return this.server.login(email, hash(password));
+    let rt = this.server.login(email, hash(password));
+    return rt;
   }
 
   logout() {
@@ -35,6 +36,7 @@ export default class UserApi {
   }
 
   getInfo() {
+    this.server.getBalance();
     return this.server.userInfo();
   }
 

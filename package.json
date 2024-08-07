@@ -3,7 +3,7 @@
   "productName": "RuyiAI",
   "desktopName": "ruyiai.desktop",
   "appId": "org.ruyiai.app",
-  "version": "1.1.4-release.15",
+  "version": "1.1.5-release.1",
   "description": "Messaging app for WhatsApp, Slack, Telegram, Hangouts and many many more.",
   "author": "xgDebug",
   "license": "Apache-2.0",

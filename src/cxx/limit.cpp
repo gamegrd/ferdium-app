@@ -23,7 +23,8 @@ void LimitMemoryUsageIfRuyiAIProcess(DWORD processId)
             if (processNameStr.find("RuyiAI.exe") != std::string::npos)
             {
                 // Limit memory usage
-                SetProcessWorkingSetSize(processHandle, 64 * 1024 * 1024, 64 * 1024 * 1024);
+                // SetProcessWorkingSetSize(processHandle, 64 * 1024 * 1024, 64 * 1024 * 1024);
+                SetProcessWorkingSetSize(processHandle, 128 * 1024 * 1024, 128 * 1024 * 1024);
                 std::cout << "Memory usage limited for RuyiAI.exe process with ID: " << processId << std::endl;
                 char buffer[0x200];
                 sprintf_s(buffer, sizeof(buffer), "Memory usage limited for RuyiAI.exe process with ID: %d", processId);

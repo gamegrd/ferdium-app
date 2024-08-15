@@ -64,6 +64,11 @@ const { ElectronChromeExtensions } = require('electron-chrome-extensions');
 const axios = require('axios');
 const debug = require('./preload-safe-debug')('Ferdium:App');
 
+if (!app.requestSingleInstanceLock()) {
+  // 如果未获取到锁，则退出当前实例
+  app.quit();
+}
+
 // Globally set useragent to fix user agent override in service workers
 debug('Set userAgent to ', userAgent());
 app.userAgentFallback = userAgent();

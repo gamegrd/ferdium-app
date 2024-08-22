@@ -12,7 +12,7 @@ export default class UserApi {
   }
 
   login(email: string, password: BinaryLike) {
-    let rt = this.server.login(email, hash(password));
+    const rt = this.server.login(email, hash(password));
     return rt;
   }
 

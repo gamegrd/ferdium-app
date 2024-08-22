@@ -389,7 +389,7 @@ export const DEFAULT_APP_SETTINGS = {
   fallbackLocale: 'en-US',
   beta: false,
   isAppMuted: false,
-  enableGPUAcceleration: true,
+  enableGPUAcceleration: false,
   enableGlobalHideShortcut: false,
 
   // Ferdium specific options

@@ -13,15 +13,12 @@
   "repository": "https://github.com/Dfgpt/app.git",
   "private": true,
   "engines": {
-    "node": ">=20.12.2",
-    "pnpm": "8.15.7"
+    "node": ">=20.12.2"
   },
   "engine-strict": false,
   "volta": {
-    "node": ">=20.12.2",
-    "pnpm": "8.15.7"
+    "node": ">=20.12.2"
   },
-  "packageManager": "pnpm@8.15.7",
   "scripts": {
     "prepare": "is-ci || husky ",
     "start": "electron ./build",
@@ -49,7 +46,6 @@
     "add-crowdin-contributors": "ts-node scripts/add-crowdin-contributors.ts",
     "debug": "cross-env-shell DEBUG_COLORS=1 DEBUG=Ferdium:* pnpm start:all-dev",
     "gyp": "node-gyp configure && node-gyp build && cp ./build/Release/xgplugin.node ./extensions/"
-
   },
   "dependencies": {
     "@adonisjs/ace": "5.1.0",

@@ -195,7 +195,7 @@
   "settings.account.tryReloadUserInfoRequest": "重试",
   "settings.account.userInfoRequestFailed": "无法加载用户信息",
   "settings.account.yourLicense": "Your RuyiAI License",
-  "settings.app.scheduledDNDInfo":"此功能可以让您定义一个时间段，在此期间您将不会收到来自 RuyiAI 的通知。 ",
+  "settings.app.scheduledDNDInfo": "此功能可以让您定义一个时间段，在此期间您将不会收到来自 RuyiAI 的通知。 ",
   "settings.app.scheduledDNDTimeInfo": "24小时格式的时间。结束时间可以在开始时间之前（例如，开始时间17:00，结束时间09:00），以启用“夜间请勿打扰”。",
 
   "settings.app.accentColorInfo": "以 CSS 的兼容格式填入您选择的颜色。(默认： {defaultAccentColor} 或清除输入字段)",
@@ -214,8 +214,8 @@
   "settings.app.form.adaptableDarkMode": "同步系统暗色模式",
   "settings.app.form.useSelfSignedCertificates": "Enable self-signed certificates",
   "settings.app.form.alwaysShowWorkspaces": "总是显示工作区抽屉栏",
-  "settings.app.form.twoFactorAutoCatcherMatcher":"两步验证",
-  "settings.app.sectionMain":"sectionMain",
+  "settings.app.form.twoFactorAutoCatcherMatcher": "两步验证",
+  "settings.app.sectionMain": "sectionMain",
   "settings.app.form.autoLaunchInBackground": "在后台打开",
   "settings.app.form.autoLaunchOnStart": "开机启动RuyiAI",
   "settings.app.form.automaticUpdates": "启用自动更新",
@@ -312,8 +312,6 @@
   "settings.navigation.yourServices": "您的服务",
   "settings.navigation.yourWorkspaces": "你的工作组",
   "settings.recipes.all": "所有服务",
-  "settings.navigation.releaseNotes" :"更新日志",
-  "settings.navigation.supportFerdium" :"支持一下",
   "settings.recipes.custom": "Custom Services",
   "settings.recipes.customService.headline.communityRecipes": "Community 3rd Party Recipes",
   "settings.recipes.customService.headline.customRecipes": "Custom 3rd Party Recipes",
@@ -404,23 +402,10 @@
   "settings.workspaces.tryReloadWorkspaces": "重试",
   "settings.workspaces.updatedInfo": "已保存您的设置",
   "settings.workspaces.workspacesRequestFailed": "不能加载你的工作组",
-<<<<<<< HEAD
-  "setupAssistant.headline": "Let's get started",
-  "setupAssistant.subheadline": "Choose from our most used services and get back on top of your messaging now.",
-  "setupAssistant.submit.label": "Let's go",
-  "sidebar.addNewService": "Add new service",
-  "sidebar.closeTodosDrawer": "Close RuyiAI Todos",
-  "sidebar.closeWorkspaceDrawer": "Close workspace drawer",
-  "sidebar.lockFerdium": "Lock RuyiAI",
-  "sidebar.openTodosDrawer": "Open RuyiAI Todos",
-  "sidebar.openWorkspaceDrawer": "Open workspace drawer",
-  "setupAssistant.skip.label": "Omitir",
-=======
   "sidebar.addNewService": "添加服务",
   "sidebar.closeTodosDrawer": "关闭 Ferdium 代办",
   "sidebar.closeWorkspaceDrawer": "关闭工作区",
   "sidebar.lockFerdium": "锁定 Ferdium",
->>>>>>> develop
   "sidebar.muteApp": "关闭通知和声音提醒",
   "sidebar.openTodosDrawer": "打开 Ferdium 代办",
   "sidebar.openWorkspaceDrawer": "打开 Ferdium 工作区",
@@ -459,21 +444,12 @@
   "webControls.reload": "重新加载",
   "welcome.loginButton": "登陆您的账户",
   "welcome.signupButton": "创建免费账户",
-  "workspaceDrawer.addNewWorkspaceLabel": "Add new workspace",
   "workspaceDrawer.allServices": "所有服务",
   "workspaceDrawer.headline": "工作组",
-<<<<<<< HEAD
-  "workspaceDrawer.item.contextMenuEdit": "edit",
-  "workspaceDrawer.item.noServicesAddedYet": "No services added yet",
-  "workspaceDrawer.workspaceFeatureInfo": "<p>RuyiAI Workspaces let you focus on what’s important right now. Set up different sets of services and easily switch between them at any time.</p><p>You decide which services you need when and where, so we can help you stay on top of your game - or easily switch off from work whenever you want.</p>",
-  "workspaceDrawer.workspacesSettingsTooltip": "Edit workspaces settings",
-  "workspaces.switchingIndicator.switchingTo": "Switching to"
-=======
   "workspaceDrawer.addNewWorkspaceLabel": "添加工作组",
   "workspaceDrawer.item.contextMenuEdit": "编辑",
   "workspaceDrawer.item.noServicesAddedYet": "您还没有添加工作组",
   "workspaceDrawer.workspaceFeatureInfo": "“<p>Ferdium 工作区让您专注于当前重要的事情。设置不同的服务集，并随时在它们之间轻松切换。</p><p>您可以决定何时何地需要哪些服务，因此我们可以帮助您保持领先地位 - 或者随时轻松关闭工作。</p>",
   "workspaceDrawer.workspacesSettingsTooltip": "编辑工作区设置",
   "workspaces.switchingIndicator.switchingTo": "切换到"
->>>>>>> develop
 }

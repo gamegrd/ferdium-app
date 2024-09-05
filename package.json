@@ -13,13 +13,13 @@
   "repository": "https://github.com/Dfgpt/app.git",
   "private": true,
   "engines": {
-    "node": "20.17.0",
-    "pnpm": "8.15.7"
+    "node": ">=20.17.0",
+    "pnpm": ">=8.15.7"
   },
   "engine-strict": false,
   "volta": {
-    "node": "20.17.0", 
-    "pnpm": "8.15.7"
+    "node": ">=20.17.0",
+    "pnpm": ">=8.15.7"
   },
   "scripts": {
     "prepare": "is-ci || husky ",

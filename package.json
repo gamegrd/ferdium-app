@@ -3,7 +3,7 @@
   "productName": "RuyiAI",
   "desktopName": "ruyiai.desktop",
   "appId": "org.ruyiai.app",
-  "version": "1.1.5-release.5",
+  "version": "1.1.6-release.2",
   "description": "Messaging app for WhatsApp, Slack, Telegram, Hangouts and many many more.",
   "author": "xgDebug",
   "license": "Apache-2.0",
@@ -13,11 +13,13 @@
   "repository": "https://github.com/Dfgpt/app.git",
   "private": true,
   "engines": {
-    "node": ">=20.12.2"
+    "node": "20.17.0",
+    "pnpm": "8.15.7"
   },
   "engine-strict": false,
   "volta": {
-    "node": ">=20.12.2"
+    "node": "20.17.0", 
+    "pnpm": "8.15.7"
   },
   "scripts": {
     "prepare": "is-ci || husky ",

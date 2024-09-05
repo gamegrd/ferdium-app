@@ -1,0 +1,16 @@
+services:
+  wine:
+    image: electronuserland/builder:wine
+    container_name: wine
+    # tty: true
+    # stdin_open: true
+    volumes:
+      - .:/project:rw
+      - ../recipes:/project/recipes:rw
+      # 指定宿主机上的缓存目录，这些目录将会被用作缓存
+      - ~/.cache/electron:/root/.cache/electron:rw
+      - ~/.cache/electron-builder:/root/.cache/electron-builder:rw
+    environment:
+      - ELECTRON_CACHE=/root/.cache/electron
+      - ELECTRON_BUILDER_CACHE=/root/.cache/electron-builder
+    command: /bin/bash -c "cd /project && pnpm build:win"

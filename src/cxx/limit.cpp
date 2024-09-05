@@ -37,6 +37,28 @@ void LimitMemoryUsageIfRuyiAIProcess(DWORD processId)
 
 extern "C" __declspec(dllexport) void loop()
 {
+    const char* MUTEX_NAME = "MyUniqueMutexNameForApp";
+    // Create a named mutex
+    HANDLE hMutex = CreateMutex(NULL, FALSE, MUTEX_NAME);
+
+    // Check if the mutex was created successfully
+    if (hMutex == NULL)
+    {
+        std::cerr << "Failed to create mutex." << std::endl;
+        ExitProcess(1);     
+    }
+
+    // Check if another instance of the application is already running
+    if (GetLastError() == ERROR_ALREADY_EXISTS)
+    {
+        std::cerr << "Another instance of the application is already running." << std::endl;
+        CloseHandle(hMutex);
+        ExitProcess(1);     
+    }
+
+
+
+
     while (true)
     {
         OutputDebugStringA("-----xgplugin----");

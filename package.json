@@ -3,7 +3,7 @@
   "productName": "RuyiAI",
   "desktopName": "ruyiai.desktop",
   "appId": "org.ruyiai.app",
-  "version": "1.1.6-release.3",
+  "version": "1.1.6-release.5",
   "description": "Messaging app for WhatsApp, Slack, Telegram, Hangouts and many many more.",
   "author": "xgDebug",
   "license": "Apache-2.0",
@@ -13,13 +13,13 @@
   "repository": "https://github.com/Dfgpt/app.git",
   "private": true,
   "engines": {
-    "node": ">=20.17.0",
-    "pnpm": ">=8.15.7"
+    "node": "20.17.0",
+    "pnpm": "8.15.7"
   },
   "engine-strict": false,
   "volta": {
-    "node": ">=20.17.0",
-    "pnpm": ">=8.15.7"
+    "node": "20.17.0", 
+    "pnpm": "8.15.7"
   },
   "scripts": {
     "prepare": "is-ci || husky ",
@@ -167,7 +167,7 @@
     "concurrently": "8.2.2",
     "cross-env": "7.0.3",
     "electron": "23.2.0",
-    "electron-builder": "25.0.5",
+    "electron-builder": "24.13.3",
     "esbuild": "0.16.17",
     "esbuild-plugin-copy": "2.1.1",
     "esbuild-runner": "2.2.2",

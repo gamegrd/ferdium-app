@@ -11,7 +11,7 @@
 .idea/**/usage.statistics.xml
 .idea/**/dictionaries
 .idea/**/shelf
-
+.pnpm-store/
 # AWS User-specific
 .idea/**/aws.xml
 
@@ -392,3 +392,5 @@ server*.log
 
 build/
 /recipes
+
+pnpm-lock.yaml

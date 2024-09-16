@@ -43,7 +43,7 @@ export default class UserStore extends TypedStore {
 
   @observable passwordRequest: Request = new Request(this.api.user, 'password');
 
-  @observable getUserBalanceRequest: CachedRequest = new CachedRequest(
+  @observable getUserBalanceRequest: Request = new Request(
     this.api.user,
     'getBalance',
   );
@@ -362,6 +362,7 @@ export default class UserStore extends TypedStore {
       let data = 0;
       try {
         data = await this.getUserBalanceRequest.execute().promise;
+        console.warn('request getUserBalance ');
       } catch {
         console.warn('get balance error');
         return data;

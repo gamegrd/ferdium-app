@@ -34,15 +34,6 @@ command_exists() {
 # Check for installed programmes
 command_exists node || fail_with_docs "Node is not installed"
 
-# Check node version
-EXPECTED_NODE_VERSION=$(cat .nvmrc)
-ACTUAL_NODE_VERSION=$(node -v)
-if [ "v$EXPECTED_NODE_VERSION" != "$ACTUAL_NODE_VERSION" ]; then
-  fail_with_docs "You are not running the expected version of node!
-    expected: [v$EXPECTED_NODE_VERSION]
-    actual  : [$ACTUAL_NODE_VERSION]"
-fi
-
 # Check if the 'recipes' folder is present either as a git submodule or a symbolic link
 if ! [ -f "recipes/package.json" ]; then
   fail_with_docs "'recipes' folder is missing or submodule has not been checked out"

@@ -13,4 +13,4 @@ services:
     environment:
       - ELECTRON_CACHE=/root/.cache/electron
       - ELECTRON_BUILDER_CACHE=/root/.cache/electron-builder
-    command: /bin/bash -c "cd /project && pnpm build:win"
+    command: /bin/bash -c "cd /project && bash ./scripts/build-docker-win11.sh"

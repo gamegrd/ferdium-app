@@ -1,4 +1,5 @@
 {
+  "settings.releasenotes.headline": "更新日志",
   "settings.app.sectionServiceIconsSettings": "服务设置",
   "settings.app.sectionUpdates": "App 更新设置",
   "settings.app.servicesUpdateStatusUpToDate": "已经是最新版本了",

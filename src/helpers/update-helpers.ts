@@ -25,10 +25,12 @@ export function onAuthGoToReleaseNotes(
 export async function getUpdateInfoFromGH(): Promise<string> {
   try {
     return `
-- 优化CPU占用
-- 搞了一下文件大小 
-- 升级各种库到最新版本
-- 可能导致LINE无法使用
+## 2024-09-21 
+1. 优化CPU占用
+1. 搞了一下文件大小 
+1. 升级各种库到最新版本
+1. 可能导致LINE无法使用
+
 `;
   } catch {
     return '###  Nothing';

@@ -2,12 +2,15 @@
 import { enable, initialize } from '@electron/remote/main';
 import * as electron from 'electron';
 
-const addon = require('./extensions/xgplugin.node');
+import { isWindows } from './environment';
+// Windows deep linking handling on app launch
 
 export const initializeRemote = (): void => {
-  console.warn('----------FUCK--------------');
-  console.log(addon.greetHello());
-
+  if (isWindows) {
+    let addon = require('./extensions/xgplugin.node');
+    console.warn('----------FUCK--------------');
+    console.log(addon.greetHello());
+  }
   if (process.type !== 'browser') {
     throw new Error(
       'The remote api must be initialized from the main process.',
